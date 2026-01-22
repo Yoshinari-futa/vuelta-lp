@@ -26,7 +26,7 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BarOrPub",
-    "name": "VUELTA",
+    "name": "V U E L T A",
     "description": "Premium cocktail bar in Hiroshima where international guests and locals meet",
     "address": {
       "@type": "PostalAddress",
@@ -73,7 +73,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.2 }}
             className="font-annam text-6xl md:text-8xl lg:text-9xl font-light tracking-tight mb-6 text-balance"
           >
-            VUELTA
+            V U E L T A
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -137,14 +137,14 @@ export default function Home() {
           <FadeInUp>
             <div className="space-y-8">
               <h2 className="font-annam text-5xl md:text-6xl font-light text-vuelta-gold">
-                About VUELTA
+                About V U E L T A
               </h2>
               <div className="space-y-6 text-vuelta-text-light font-sans text-lg leading-relaxed">
                 <p className="text-xl text-vuelta-gold-light font-semibold">
                   A crossroads in Hiroshima where "Welcome Back" meets "Nice to Meet You"
                 </p>
                 <p>
-                  VUELTA (pronounced "Buelta") means "reunion," "return," and "cycle" in Spanish. 
+                  V U E L T A (pronounced "Buelta") means "reunion," "return," and "cycle" in Spanish. 
                   But for us, it means something more special.
                 </p>
                 <p>
@@ -162,7 +162,7 @@ export default function Home() {
                   </p>
                 </div>
                 <p className="text-vuelta-gold-light italic">
-                  Where these two lives intersect, the feeling of "I want to come back" is born. That is VUELTA.
+                  Where these two lives intersect, the feeling of "I want to come back" is born. That is V U E L T A.
                 </p>
               </div>
             </div>
@@ -306,13 +306,13 @@ export default function Home() {
                 <div className="text-4xl mb-4">📱</div>
                 <h3 className="font-annam text-2xl font-light text-vuelta-gold">Free Wi-Fi</h3>
                 <p className="text-vuelta-text font-sans">
-                  Stay connected with our free Wi-Fi. Perfect for sharing your VUELTA experience on social media.
+                  Stay connected with our free Wi-Fi. Perfect for sharing your V U E L T A experience on social media.
                 </p>
               </div>
             </div>
             <div className="mt-12 p-6 bg-white rounded-lg border border-vuelta-gray">
               <p className="text-vuelta-text font-sans text-lg leading-relaxed mb-4">
-                <span className="font-semibold text-vuelta-gold">Want to know where locals really go?</span> This is it. VUELTA is where real Hiroshima locals gather—not a tourist spot, but a genuine local bar where you can experience authentic Japanese hospitality.
+                <span className="font-semibold text-vuelta-gold">Want to know where locals really go?</span> This is it. V U E L T A is where real Hiroshima locals gather—not a tourist spot, but a genuine local bar where you can experience authentic Japanese hospitality.
               </p>
               <p className="text-vuelta-text font-sans text-lg leading-relaxed">
                 <span className="font-semibold text-vuelta-gold">First time in Hiroshima?</span> Our bartenders will do their best to recommend local spots and share stories about this beautiful city, even if communication takes a bit of effort. We're not just a bar—we're your connection to real Hiroshima life.
@@ -416,7 +416,7 @@ export default function Home() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0 w-full h-full"
-                    title="VUELTA Location"
+                    title="V U E L T A Location"
                   />
                 </div>
                 <div className="text-center">
@@ -443,7 +443,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
-              <h3 className="font-annam text-2xl mb-4">VUELTA</h3>
+              <h3 className="font-annam text-2xl mb-4">V U E L T A</h3>
               <p className="font-sans text-sm text-vuelta-text-light mb-3">
                 Experience the art of mixology
               </p>
@@ -485,7 +485,7 @@ export default function Home() {
           </div>
           <div className="pt-8 border-t border-vuelta-gray text-center">
             <p className="font-sans text-xs text-vuelta-text-light">
-              © 2024 VUELTA. All rights reserved.
+              © 2024 V U E L T A. All rights reserved.
             </p>
           </div>
         </div>
