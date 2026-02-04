@@ -60,13 +60,13 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background image placeholder */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-vuelta-gray to-white">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iYSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiPjxwYXRoIGQ9Ik0wIDBoMTAwdjEwMEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoMTAwdjEwMEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHJva2Utd2lkdGg9IjAuNSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNhKSIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] opacity-20"></div>
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,13 +101,13 @@ export default function Home() {
               href="https://www.instagram.com/vuelta_bar"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-sans text-sm tracking-wider uppercase"
+              className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-sans text-sm tracking-wider uppercase"
             >
               Reserve via DM
             </a>
             <a
               href="#menu"
-              className="px-8 py-3 bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-sans text-sm tracking-wider uppercase"
+              className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-sans text-sm tracking-wider uppercase"
             >
               View Menu
             </a>
@@ -132,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* Brand Concept Section */}
-      <section id="about" className="py-32 px-6 max-w-7xl mx-auto">
+      <section id="about" className="py-16 md:py-32 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <FadeInUp>
             <div className="space-y-8">
@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-32 px-6 bg-vuelta-gray">
+      <section className="py-16 md:py-32 px-6 bg-vuelta-gray">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInUp>
             <h2 className="font-annam text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
@@ -213,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* Featured Menu Section */}
-      <section id="menu" className="py-32 px-6 bg-vuelta-gray">
+      <section id="menu" className="py-16 md:py-32 px-6 bg-vuelta-gray">
         <div className="max-w-7xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-20">
@@ -264,7 +264,7 @@ export default function Home() {
       </section>
 
       {/* Meet the Manager Section */}
-      <section id="manager" className="py-32 px-6">
+      <section id="manager" className="py-16 md:py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInUp>
             <h2 className="font-annam text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
@@ -323,7 +323,7 @@ export default function Home() {
       </section>
 
       {/* For International Guests Section */}
-      <section className="py-32 px-6 bg-vuelta-gray">
+      <section className="py-16 md:py-32 px-6 bg-vuelta-gray">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInUp>
             <h2 className="font-annam text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
@@ -383,7 +383,7 @@ export default function Home() {
       </section>
 
       {/* Location/Access Section */}
-      <section id="reservation" className="py-32 px-6">
+      <section id="reservation" className="py-16 md:py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <FadeInUp>
