@@ -37,8 +37,8 @@ export default function Home() {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "34.395",
-      "longitude": "132.456"
+      "latitude": "34.3950",
+      "longitude": "132.4550"
     },
     "openingHoursSpecification": [
       {
@@ -462,15 +462,6 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                      Wi-Fi
-                    </h3>
-                    <p className="text-lg">
-                      Network: <span className="font-mono">VUELTA_GUEST</span><br />
-                      Password: <span className="font-mono">19900807</span>
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
                       Reservations
                     </h3>
                     <p className="text-lg mb-3">
@@ -496,7 +487,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="relative aspect-[4/3] bg-vuelta-gray overflow-hidden rounded-lg">
                   <iframe
-                    src="https://www.google.com/maps?q=34.395,132.456&hl=ja&z=17&output=embed"
+                    src="https://www.google.com/maps?q=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F&hl=ja&z=17&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
