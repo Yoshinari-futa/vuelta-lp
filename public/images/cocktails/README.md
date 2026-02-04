@@ -1,18 +1,33 @@
-# Cocktail Images
+# カクテル画像の配置
 
-Please place cocktail images in this directory with the following naming convention:
+## 📁 画像ファイルの配置場所
 
-- `vuelta-old-fashioned.jpg` (or .png, .webp)
-- `midnight-negroni.jpg`
-- `sakura-sour.jpg`
-- `smoky-manhattan.jpg`
-- `garden-martini.jpg`
-- `espresso-martini.jpg`
+カクテルの画像ファイルをこのフォルダ（`public/images/cocktails/`）に配置してください。
 
-## Image Requirements
+## 🍸 必要な画像ファイル
 
-- Recommended size: 600x800px (3:4 aspect ratio)
-- Format: JPG, PNG, or WebP
-- File size: Under 500KB per image for optimal loading
+### The OKONOMIYAKI
+- **ファイル名**: `okonomiyaki.jpg` (または `.png`, `.webp`)
+- **推奨サイズ**: 600x600px (1:1のアスペクト比)
+- **ファイルサイズ**: 500KB以下を推奨
+- **形式**: JPG, PNG, WebP
 
-If images are not available, placeholder icons will be displayed automatically.
+## 📝 配置方法
+
+1. 画像ファイルを準備
+2. ファイル名を `okonomiyaki.jpg` に変更
+3. `public/images/cocktails/` フォルダに配置
+4. ブラウザで確認
+
+## 🔗 無料画像素材サイト
+
+- **Unsplash**: https://unsplash.com/s/photos/cocktail
+- **Pexels**: https://www.pexels.com/search/cocktail/
+- **Pixabay**: https://pixabay.com/images/search/cocktail/
+
+## ⚙️ 画像の最適化
+
+画像ファイルが大きい場合は、以下のツールで最適化してください：
+
+- **オンラインツール**: TinyPNG, Squoosh
+- **Next.js**: 自動的に最適化されます

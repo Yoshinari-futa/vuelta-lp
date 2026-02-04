@@ -145,6 +145,8 @@ const FadeInUp = ({ children, delay = 0 }: { children: React.ReactNode; delay?: 
 }
 
 export default function Home() {
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
+
   // Structured Data for SEO
   const structuredData = {
     "@context": "https://schema.org",
@@ -286,7 +288,7 @@ export default function Home() {
           <FadeInUp>
             <div className="space-y-8">
               <h2 className="font-annam text-5xl md:text-6xl font-light text-vuelta-gold">
-                About VUELTA
+                About<span className="inline-block w-8"></span>V U E L T A
               </h2>
               <div className="space-y-6 text-vuelta-text-light font-sans text-lg leading-relaxed">
                 <p className="text-xl text-vuelta-gold-light font-semibold">
@@ -367,7 +369,7 @@ export default function Home() {
           <FadeInUp>
             <div className="text-center mb-20">
               <h2 className="font-annam text-5xl md:text-6xl font-light mb-4">
-                Signature Cocktails
+                Menu
               </h2>
               <p className="font-sans text-vuelta-text-light uppercase tracking-wider text-sm">
                 Crafted with Precision
@@ -378,32 +380,52 @@ export default function Home() {
           {/* Asymmetric grid layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { name: 'Shell We?', description: 'Oyster Shell Gin, Lemon, Soda, Smoke Salt', price: '¥750' },
-              { name: 'The OKONOMIYAKI', description: 'Dashi Vodka, Roasted Cabbage, Burnt Sauce, Tomato', price: '¥900' },
-              { name: 'AKI AMBER', description: 'Hojicha Gin, Sake, Hassaku, Soda', price: '¥800' },
-              { name: 'Miyajima Velvet', description: 'Signature blend', price: '¥1,200' },
-              { name: 'Salty Tax', description: 'Gin, Salted Lemon Cordial', price: '¥700' },
-              { name: 'The Emigrant', description: 'Coffee Infused Shochu, Cane Sugar', price: '¥600' },
+              { name: 'Shell We?', description: 'The ocean\'s bounty captured in a glass. Oyster shell vodka meets fresh lemon in a refreshing harmony, elevated by crisp soda. A taste of Hiroshima\'s coastal essence.', price: '¥750', image: '/images/cocktails/shellwe.jpg.png' },
+              { name: 'The OKONOMIYAKI', description: 'Hiroshima\'s soul food, reimagined as a cocktail. The umami depth of dashi, the rich complexity of Otafuku sauce, and the natural sweetness of tomato create an authentic local flavor you won\'t find anywhere else.', price: '¥900', image: '/images/cocktails/okonomiyaki.jpg.png' },
+              { name: 'Carnitas', description: 'Slow-cooked pork shoulder, tender and flavorful. Served with fresh tortillas, salsa, and traditional accompaniments. A taste of authentic Mexican cuisine.', price: '2 for ¥880', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
             ].map((item, index) => {
               return (
                 <FadeInUp key={index} delay={index * 0.1}>
                   <div className="group cursor-pointer">
-                    <div className="relative aspect-square bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white overflow-hidden mb-4 rounded-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 border border-vuelta-gold/30 rounded-full mx-auto mb-2 flex items-center justify-center">
-                          <span className="text-vuelta-gold text-2xl">🥃</span>
-                        </div>
-                        <span className="text-vuelta-text-light text-xs">{item.name}</span>
-                      </div>
-                      <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all duration-500 pointer-events-none" />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none">
-                        <span className="text-white font-annam text-xl bg-vuelta-gold/90 px-4 py-2 rounded backdrop-blur-sm">{item.price} JPY</span>
-                      </div>
+                    <div className="relative aspect-square bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white overflow-hidden mb-4 rounded-lg">
+                      {item.image && !imageErrors[index] ? (
+                        <>
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            onError={() => {
+                              setImageErrors(prev => ({ ...prev, [index]: true }))
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all duration-500 pointer-events-none" />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none">
+                            <span className="text-white font-annam text-xl bg-vuelta-gold/90 px-4 py-2 rounded backdrop-blur-sm">{item.price} JPY</span>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="text-center">
+                              <div className="w-16 h-16 border border-vuelta-gold/30 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                <span className="text-vuelta-gold text-2xl">🥃</span>
+                              </div>
+                              <span className="text-vuelta-text-light text-xs">{item.name}</span>
+                            </div>
+                          </div>
+                          <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all duration-500 pointer-events-none" />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none">
+                            <span className="text-white font-annam text-xl bg-vuelta-gold/90 px-4 py-2 rounded backdrop-blur-sm">{item.price} JPY</span>
+                          </div>
+                        </>
+                      )}
                     </div>
                     <h3 className="font-annam text-2xl mb-2 group-hover:text-vuelta-gold transition-colors duration-300">
                       {item.name}
                     </h3>
-                    <p className="font-sans text-sm text-vuelta-text-light">{item.description}</p>
+                    <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">{item.description}</p>
                   </div>
                 </FadeInUp>
               )
