@@ -640,6 +640,9 @@ export default function Home() {
                     <h3 className="font-annam text-2xl mb-2 group-hover:text-vuelta-gold transition-colors duration-300">
                       {item.name}
                     </h3>
+                    <p className="font-sans text-vuelta-text-light text-sm leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
                 </FadeInUp>
               )
