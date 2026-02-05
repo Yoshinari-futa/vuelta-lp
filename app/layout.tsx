@@ -7,12 +7,16 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-serif',
   display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 })
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 })
 
 // BTAnnamNeue-Regular font configuration
@@ -37,16 +41,41 @@ export const metadata: Metadata = {
     description: 'Where "Welcome Back" meets "Nice to Meet You". Experience authentic Hiroshima hospitality with world-class cocktails.',
     type: 'website',
     locale: 'en_US',
+    url: 'https://vuelta-bar.com',
+    siteName: 'VUELTA BAR',
+    images: [
+      {
+        url: '/icon.png',
+        width: 500,
+        height: 500,
+        alt: 'VUELTA BAR Logo',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'VUELTA BAR In Hiroshima',
     description: 'Experience the art of mixology at VUELTA',
+    images: ['/icon.png'],
   },
   icons: {
     icon: '/icon.png',
     shortcut: '/icon.png',
     apple: '/icon.png',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://vuelta-bar.com',
   },
 }
 

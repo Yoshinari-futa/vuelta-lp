@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -28,9 +28,27 @@ const Header = () => {
     }
   }
 
+  // 営業時間の計算
+  const getCurrentHours = () => {
+    const now = new Date()
+    const day = now.getDay() // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+    const hour = now.getHours()
+    
+    // Thursday (4) は閉店
+    if (day === 4) return { isOpen: false, status: 'Closed Today' }
+    
+    // Wed, Fri-Sun, Mon-Tue: 18:00 - 02:00
+    if (hour >= 18 || hour < 2) {
+      return { isOpen: true, status: 'Open Now' }
+    }
+    return { isOpen: false, status: 'Opens at 18:00' }
+  }
+
+  const hoursStatus = getCurrentHours()
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}>
-      <nav className="max-w-7xl mx-auto px-6 py-4">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a 
@@ -40,12 +58,28 @@ const Header = () => {
                 ? 'text-vuelta-gold hover:text-vuelta-gold-light' 
                 : 'text-vuelta-text hover:text-vuelta-gold'
             }`}
+            aria-label="VUELTA Home"
           >
             V U E L T A
           </a>
+          
+          {/* Hours Status - Mobile */}
+          {!isRecruitPage && (
+            <div className="md:hidden flex items-center gap-2">
+              <span className={`w-2 h-2 rounded-full ${hoursStatus.isOpen ? 'bg-green-500' : 'bg-gray-400'}`} aria-hidden="true"></span>
+              <span className="font-sans text-xs text-vuelta-text-light">{hoursStatus.status}</span>
+            </div>
+          )}
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
+            {/* Hours Status - Desktop */}
+            {!isRecruitPage && (
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-vuelta-gray/50">
+                <span className={`w-2 h-2 rounded-full ${hoursStatus.isOpen ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`} aria-hidden="true"></span>
+                <span className="font-sans text-xs text-vuelta-text-light font-medium">{hoursStatus.status}</span>
+              </div>
+            )}
             <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
               <a 
                 href={isRecruitPage ? "/#menu" : "#menu"} 
@@ -54,7 +88,8 @@ const Header = () => {
                     handleAnchorClick(e, '#menu')
                   }
                 }}
-                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
+                aria-label="Navigate to Menu section"
               >
                 Menu
               </a>
@@ -67,7 +102,8 @@ const Header = () => {
                     handleAnchorClick(e, '#about')
                   }
                 }}
-                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
+                aria-label="Navigate to About section"
               >
                 About
               </a>
@@ -80,7 +116,8 @@ const Header = () => {
                     handleAnchorClick(e, '#manager')
                   }
                 }}
-                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
+                aria-label="Navigate to Manager section"
               >
                 Manager
               </a>
@@ -93,7 +130,8 @@ const Header = () => {
                     handleAnchorClick(e, '#reservation')
                   }
                 }}
-                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
+                aria-label="Navigate to Visit Us section"
               >
                 Visit Us
               </a>
@@ -101,11 +139,13 @@ const Header = () => {
             <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
               <a 
                 href="/recruit" 
-                className={`font-annam text-xs transition-colors tracking-[0.15em] uppercase block ${
+                className={`font-annam text-xs transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1 ${
                   isRecruitPage 
                     ? 'text-vuelta-gold font-semibold' 
                     : 'text-vuelta-text-light hover:text-vuelta-gold'
                 }`}
+                aria-label="Navigate to Recruit page"
+                aria-current={isRecruitPage ? 'page' : undefined}
               >
                 Recruit
               </a>
@@ -115,7 +155,8 @@ const Header = () => {
                 href="https://www.instagram.com/vuelta_bar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase font-light block"
+                className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase font-light block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded"
+                aria-label="Reserve via Instagram DM"
               >
                 Reserve via DM
               </a>
@@ -125,8 +166,9 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            aria-label="Toggle menu"
+            className="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
           >
             <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
             <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? 'opacity-0' : ''}`} />
@@ -147,13 +189,14 @@ const Header = () => {
               <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
                 <a 
                   href={isRecruitPage ? "/#menu" : "#menu"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
                   onClick={(e) => {
                     if (!isRecruitPage) {
                       handleAnchorClick(e, '#menu')
                     }
                     setIsMenuOpen(false)
                   }}
+                  aria-label="Navigate to Menu section"
                 >
                   Menu
                 </a>
@@ -161,13 +204,14 @@ const Header = () => {
               <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
                 <a 
                   href={isRecruitPage ? "/#about" : "#about"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
                   onClick={(e) => {
                     if (!isRecruitPage) {
                       handleAnchorClick(e, '#about')
                     }
                     setIsMenuOpen(false)
                   }}
+                  aria-label="Navigate to About section"
                 >
                   About
                 </a>
@@ -175,13 +219,14 @@ const Header = () => {
               <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
                 <a 
                   href={isRecruitPage ? "/#manager" : "#manager"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
                   onClick={(e) => {
                     if (!isRecruitPage) {
                       handleAnchorClick(e, '#manager')
                     }
                     setIsMenuOpen(false)
                   }}
+                  aria-label="Navigate to Manager section"
                 >
                   Manager
                 </a>
@@ -189,13 +234,14 @@ const Header = () => {
               <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
                 <a 
                   href={isRecruitPage ? "/#reservation" : "#reservation"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
                   onClick={(e) => {
                     if (!isRecruitPage) {
                       handleAnchorClick(e, '#reservation')
                     }
                     setIsMenuOpen(false)
                   }}
+                  aria-label="Navigate to Visit Us section"
                 >
                   Visit Us
                 </a>
@@ -218,8 +264,9 @@ const Header = () => {
                   href="https://www.instagram.com/vuelta_bar"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase font-light text-center block"
+                  className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase font-light text-center block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded"
                   onClick={() => setIsMenuOpen(false)}
+                  aria-label="Reserve via Instagram DM"
                 >
                   Reserve via DM
                 </a>
@@ -232,17 +279,21 @@ const Header = () => {
   )
 }
 
-// Animation component
+// Animation component with enhanced scroll animations
 const FadeInUp = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.8, delay }}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      transition={{ 
+        duration: 0.8, 
+        delay,
+        ease: [0.25, 0.1, 0.25, 1]
+      }}
     >
       {children}
     </motion.div>
@@ -267,6 +318,24 @@ export default function Home() {
     }
   }
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
+
+  // 営業時間の計算
+  const getCurrentHours = () => {
+    const now = new Date()
+    const day = now.getDay() // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+    const hour = now.getHours()
+    
+    // Thursday (4) は閉店
+    if (day === 4) return { isOpen: false, status: 'Closed Today' }
+    
+    // Wed, Fri-Sun, Mon-Tue: 18:00 - 02:00
+    if (hour >= 18 || hour < 2) {
+      return { isOpen: true, status: 'Open Now' }
+    }
+    return { isOpen: false, status: 'Opens at 18:00' }
+  }
+
+  const hoursStatus = getCurrentHours()
 
   // Structured Data for SEO
   const structuredData = {
@@ -301,14 +370,26 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
+      {/* Skip to main content link for accessibility */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      
+      {/* Performance Optimization */}
+      <link rel="preconnect" href="https://images.unsplash.com" />
+      <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      
       {/* Header */}
       <Header />
+      
+      <div id="main-content" tabIndex={-1}>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-20 md:pt-24">
+      <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-20 md:pt-24" aria-label="Hero section">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-vuelta-gray to-white">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iYSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiPjxwYXRoIGQ9Ik0wIDBoMTAwdjEwMEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoMTAwdjEwMEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHJva2Utd2lkdGg9IjAuNSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNhKSIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] opacity-20"></div>
@@ -338,10 +419,22 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="font-sans text-base text-vuelta-text-light mb-8"
+                className="font-sans text-base text-vuelta-text-light mb-4"
               >
                 International Guests Welcome • We'll Do Our Best to Communicate • Located in Hiroshima City Center
               </motion.p>
+              {/* Hours Display in Hero */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="flex items-center justify-center gap-3 mb-8"
+              >
+                <span className={`w-2 h-2 rounded-full ${hoursStatus.isOpen ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`} aria-hidden="true"></span>
+                <span className="font-sans text-sm text-vuelta-text-light">
+                  <span className="font-semibold text-vuelta-gold">Wed, Fri - Tue: 18:00 - 02:00</span> • Closed Thursdays
+                </span>
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -352,14 +445,16 @@ export default function Home() {
                   href="https://www.instagram.com/vuelta_bar"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-sm tracking-wider uppercase"
+                  className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded"
+                  aria-label="Reserve via Instagram DM"
                 >
                   Reserve via DM
                 </a>
                 <a
                   href="#menu"
                   onClick={(e) => handleAnchorClick(e, '#menu')}
-                  className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-annam text-sm tracking-wider uppercase"
+                  className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-annam text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded"
+                  aria-label="View Menu section"
                 >
                   View Menu
                 </a>
@@ -373,12 +468,12 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.7 }}
               className="w-full max-w-5xl"
             >
-              <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-vuelta-gray">
+              <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-vuelta-gray group">
                 <Image
                   src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&q=80"
                   alt="VUELTA bar interior - Cocktail bar"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1280px"
                   priority
                 />
@@ -405,14 +500,14 @@ export default function Home() {
       </section>
 
       {/* Brand Concept Section */}
-      <section id="about" className="py-16 md:py-32 px-6 max-w-7xl mx-auto scroll-mt-20">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section id="about" className="py-12 md:py-32 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-20" aria-label="About VUELTA">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           <FadeInUp>
             <div className="space-y-8">
-              <h2 className="font-annam text-5xl md:text-6xl font-light text-vuelta-gold">
-                About<span className="inline-block w-8"></span>V U E L T A
+              <h2 className="font-annam text-4xl sm:text-5xl md:text-6xl font-light text-vuelta-gold">
+                About<span className="inline-block w-4 sm:w-8"></span>V U E L T A
               </h2>
-              <div className="space-y-6 text-vuelta-text-light font-sans text-lg leading-relaxed">
+              <div className="space-y-6 text-vuelta-text-light font-sans text-base sm:text-lg leading-relaxed">
                 <p className="text-xl text-vuelta-gold-light font-semibold">
                   A crossroads in Hiroshima where "Welcome Back" meets "Nice to Meet You"
                 </p>
@@ -441,19 +536,16 @@ export default function Home() {
             </div>
           </FadeInUp>
           <FadeInUp delay={0.2}>
-            <div className="relative aspect-[4/5] bg-vuelta-gray overflow-hidden group">
-              {/* Image placeholder - bar interior */}
-              <div className="absolute inset-0 bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center px-8">
-                    <div className="w-24 h-24 border-2 border-vuelta-gold/30 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-vuelta-gold text-4xl">🍸</span>
-                    </div>
-                    <span className="text-vuelta-text-light text-sm">Bar Interior</span>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute right-0 bottom-0 bg-black/5 group-hover:bg-black/10 transition-all duration-500" />
+            <div className="relative aspect-[4/5] bg-vuelta-gray overflow-hidden group rounded-lg">
+              <Image
+                src="/images/interior.png"
+                alt="VUELTA bar interior - Kakee Building entrance"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-all duration-500" />
             </div>
           </FadeInUp>
         </div>
@@ -463,10 +555,10 @@ export default function Home() {
       <section className="py-16 md:py-32 px-6 bg-vuelta-gray">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInUp>
-            <h2 className="font-annam text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
+            <h2 className="font-annam text-4xl sm:text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
               Our Mission
             </h2>
-            <p className="font-annam text-3xl md:text-4xl font-light mb-12 text-vuelta-gold-light italic">
+            <p className="font-annam text-2xl sm:text-3xl md:text-4xl font-light mb-12 text-vuelta-gold-light italic">
               Food is the Invitation,<br />
               People are the Destination
             </p>
@@ -486,11 +578,11 @@ export default function Home() {
       </section>
 
       {/* Featured Menu Section */}
-      <section id="menu" className="py-16 md:py-32 px-6 bg-vuelta-gray scroll-mt-20">
+      <section id="menu" className="py-12 md:py-32 px-4 sm:px-6 bg-vuelta-gray scroll-mt-20" aria-label="Menu">
         <div className="max-w-7xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-20">
-              <h2 className="font-annam text-5xl md:text-6xl font-light mb-4">
+              <h2 className="font-annam text-4xl sm:text-5xl md:text-6xl font-light mb-4">
                 Menu
               </h2>
               <p className="font-sans text-vuelta-text-light uppercase tracking-wider text-sm">
@@ -508,38 +600,39 @@ export default function Home() {
             ].map((item, index) => {
               return (
                 <FadeInUp key={index} delay={index * 0.1}>
-                  <div className="group cursor-pointer">
-                    <div className="relative aspect-square bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white overflow-hidden mb-4 rounded-lg">
+                  <div className="group cursor-pointer relative" role="article" aria-label={`${item.name} cocktail`}>
+                    <div className="relative aspect-square bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white overflow-hidden mb-4 rounded-lg focus-within:ring-2 focus-within:ring-vuelta-gold focus-within:ring-offset-2" style={{ minHeight: '400px' }}>
                       {item.image && !imageErrors[index] ? (
                         <>
                           <Image
                             src={item.image}
-                            alt={item.name}
+                            alt={`${item.name} cocktail`}
                             fill
-                            className="object-cover"
+                            className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            loading={index < 2 ? 'eager' : 'lazy'}
                             onError={() => {
                               setImageErrors(prev => ({ ...prev, [index]: true }))
                             }}
                           />
-                          <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all duration-500 pointer-events-none" />
-                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none">
-                            <span className="text-white font-annam text-xl bg-vuelta-gold/90 px-4 py-2 rounded backdrop-blur-sm">{item.price} JPY</span>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" aria-hidden="true">
+                            <span className="text-white font-annam text-2xl bg-vuelta-gold/95 px-6 py-3 rounded-lg backdrop-blur-sm shadow-lg">{item.price}</span>
                           </div>
                         </>
                       ) : (
                         <>
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="text-center">
-                              <div className="w-16 h-16 border border-vuelta-gold/30 rounded-full mx-auto mb-2 flex items-center justify-center">
+                              <div className="w-16 h-16 border border-vuelta-gold/30 rounded-full mx-auto mb-2 flex items-center justify-center" aria-hidden="true">
                                 <span className="text-vuelta-gold text-2xl">🥃</span>
                               </div>
                               <span className="text-vuelta-text-light text-xs">{item.name}</span>
                             </div>
                           </div>
                           <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all duration-500 pointer-events-none" />
-                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none">
-                            <span className="text-white font-annam text-xl bg-vuelta-gold/90 px-4 py-2 rounded backdrop-blur-sm">{item.price} JPY</span>
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" aria-hidden="true">
+                            <span className="text-white font-annam text-xl bg-vuelta-gold/90 px-4 py-2 rounded backdrop-blur-sm">{item.price}</span>
                           </div>
                         </>
                       )}
@@ -547,7 +640,6 @@ export default function Home() {
                     <h3 className="font-annam text-2xl mb-2 group-hover:text-vuelta-gold transition-colors duration-300">
                       {item.name}
                     </h3>
-                    <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">{item.description}</p>
                   </div>
                 </FadeInUp>
               )
@@ -557,10 +649,10 @@ export default function Home() {
       </section>
 
       {/* Meet the Manager Section */}
-      <section id="manager" className="py-16 md:py-32 px-6 scroll-mt-20">
+      <section id="manager" className="py-12 md:py-32 px-4 sm:px-6 scroll-mt-20" aria-label="Meet the Manager">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInUp>
-            <h2 className="font-annam text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
+            <h2 className="font-annam text-4xl sm:text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
               Meet the Manager
             </h2>
             <div className="mt-12">
@@ -616,10 +708,10 @@ export default function Home() {
       </section>
 
       {/* For International Guests Section */}
-      <section className="py-16 md:py-32 px-6 bg-vuelta-gray">
+      <section className="py-12 md:py-32 px-4 sm:px-6 bg-vuelta-gray" aria-label="Welcome International Guests">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInUp>
-            <h2 className="font-annam text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
+            <h2 className="font-annam text-4xl sm:text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
               Welcome International Guests
             </h2>
             <div className="grid md:grid-cols-3 gap-8 mt-12">
@@ -676,12 +768,12 @@ export default function Home() {
       </section>
 
       {/* Location/Access Section */}
-      <section id="reservation" className="py-16 md:py-32 px-6 scroll-mt-20">
+      <section id="reservation" className="py-12 md:py-32 px-4 sm:px-6 scroll-mt-20" aria-label="Visit Us">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <FadeInUp>
               <div className="space-y-8">
-                <h2 className="font-annam text-5xl md:text-6xl font-light">
+                <h2 className="font-annam text-4xl sm:text-5xl md:text-6xl font-light">
                   Visit Us
                 </h2>
                 <div className="space-y-6 font-sans text-vuelta-text-light">
@@ -765,8 +857,12 @@ export default function Home() {
                       href="https://www.instagram.com/vuelta_bar"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-vuelta-gold hover:text-vuelta-gold-light transition-colors font-semibold"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
+                      aria-label="Reserve via Instagram DM"
                     >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                      </svg>
                       <span>Reserve via Instagram DM</span>
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -778,7 +874,7 @@ export default function Home() {
             </FadeInUp>
             <FadeInUp delay={0.2}>
               <div className="space-y-4">
-                <div className="relative aspect-[4/3] bg-vuelta-gray overflow-hidden rounded-lg">
+                <div className="relative aspect-[4/3] bg-vuelta-gray overflow-hidden rounded-lg group cursor-pointer">
                   <iframe
                     src="https://www.google.com/maps?q=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F&hl=ja&z=17&output=embed"
                     width="100%"
@@ -787,21 +883,36 @@ export default function Home() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="absolute inset-0 w-full h-full"
+                    className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-500"
                     title="VUELTA Location"
+                    aria-label="VUELTA location map"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none" />
                 </div>
-                <div className="text-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-vuelta-gold hover:text-vuelta-gold-light transition-colors text-sm"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm"
+                    aria-label="Open VUELTA location in Google Maps"
                   >
-                    <span>Open in Google Maps</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
+                    <span>Open in Google Maps</span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/vuelta_bar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-annam text-sm"
+                    aria-label="Reserve via Instagram DM"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span>Reserve via DM</span>
                   </a>
                 </div>
               </div>
@@ -811,7 +922,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 px-6 border-t border-vuelta-gray">
+      <footer className="py-12 md:py-16 px-4 sm:px-6 border-t border-vuelta-gray">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
@@ -930,6 +1041,49 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Fixed CTA Button */}
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1 }}
+        className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 md:hidden"
+      >
+        <a
+          href="https://www.instagram.com/vuelta_bar"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider uppercase"
+          aria-label="Reserve via Instagram DM"
+        >
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Reserve via DM</span>
+        </a>
+      </motion.div>
+
+      {/* Fixed CTA Button - Desktop */}
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1 }}
+        className="hidden md:block fixed bottom-8 right-8 z-50"
+      >
+        <a
+          href="https://www.instagram.com/vuelta_bar"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-xl hover:bg-vuelta-gold-light hover:shadow-2xl transition-all duration-300 font-annam text-sm tracking-wider uppercase"
+          aria-label="Reserve via Instagram DM"
+        >
+          <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Reserve via DM</span>
+        </a>
+      </motion.div>
+      </div>
     </main>
   )
 }

@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gold/20">
-      <nav className="max-w-7xl mx-auto px-6 py-4">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <Link 
             href="/"
@@ -193,7 +193,7 @@ export default function Recruit() {
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-24 md:pt-32">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-vuelta-gold/5"></div>
         
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -204,11 +204,11 @@ export default function Recruit() {
                 <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
                   Join Us
                 </span>
-                <h1 className="font-annam text-6xl md:text-8xl lg:text-9xl font-light tracking-tight text-vuelta-gold mb-8 leading-[0.9]">
+                <h1 className="font-annam text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light tracking-tight text-vuelta-gold mb-8 leading-[0.9]">
                   RECRUIT
                 </h1>
                 <div className="h-px w-24 bg-vuelta-gold mb-12"></div>
-                <p className="font-japanese text-lg md:text-xl text-vuelta-gold/80 leading-relaxed mb-12">
+                <p className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-gold/80 leading-relaxed mb-12">
                   VUELTAで、<span className="text-vuelta-gold font-medium">一緒に働きませんか？</span><br />
                   広島のクロスロードで、<br />
                   新しい出会いと繋がりを生み出す場所です。
@@ -225,7 +225,7 @@ export default function Recruit() {
               <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
                 We Are Looking For
               </span>
-              <p className="font-japanese text-lg md:text-xl text-vuelta-gold/80 leading-relaxed">
+              <p className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-gold/80 leading-relaxed">
                 <span className="text-vuelta-gold font-medium">一緒に働きたい仲間</span>を<br />
                 募集しています
               </p>
@@ -235,7 +235,7 @@ export default function Recruit() {
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12 bg-vuelta-gold text-white">
+      <section className="py-12 md:py-32 px-4 sm:px-6 md:px-12 bg-vuelta-gold text-white">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <div className="grid md:grid-cols-2 gap-16 items-start">
@@ -243,13 +243,13 @@ export default function Recruit() {
                 <div className="flex items-start gap-4 mb-8">
                   <Number num="01" />
                   <div className="pt-4">
-                    <h2 className="font-annam text-4xl md:text-5xl font-light mb-6 text-white">
+                    <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-white">
                       Our Philosophy
                     </h2>
                   </div>
                 </div>
               </div>
-              <div className="space-y-6 font-japanese text-lg md:text-xl text-white/80 leading-relaxed">
+              <div className="space-y-6 font-japanese text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
                 <p>
                   <span className="text-white font-medium">「おかえり」と「はじめまして」が交差する、広島のクロスロード。</span><br />
                   VUELTAは、ただのバーではありません。<br />
@@ -286,7 +286,7 @@ export default function Recruit() {
       </section>
 
       {/* Positions Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12">
+      <section className="py-12 md:py-32 px-4 sm:px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <div className="flex items-start gap-4 mb-16">
@@ -295,7 +295,7 @@ export default function Recruit() {
                 <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
                   Open Positions
                 </span>
-                <h2 className="font-annam text-4xl md:text-5xl font-light text-vuelta-gold mb-2">
+                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2">
                   募集職種
                 </h2>
                 <div className="h-px w-16 bg-vuelta-gold mt-4"></div>
@@ -308,7 +308,7 @@ export default function Recruit() {
             <FadeInUp delay={0.1}>
               <div className="grid md:grid-cols-5 gap-8 md:gap-12 border-b border-vuelta-gold/20 pb-12 md:pb-16">
                 <div className="md:col-span-2">
-                  <h3 className="font-annam text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
+                  <h3 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
                     Bartender
                   </h3>
                   <p className="font-japanese text-sm text-vuelta-gold/60 tracking-[0.15em] mb-6">
@@ -374,7 +374,7 @@ export default function Recruit() {
             <FadeInUp delay={0.2}>
               <div className="grid md:grid-cols-5 gap-8 md:gap-12 border-b border-vuelta-gold/20 pb-12 md:pb-16">
                 <div className="md:col-span-2">
-                  <h3 className="font-annam text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
+                  <h3 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
                     Server / Staff
                   </h3>
                   <p className="font-japanese text-sm text-vuelta-gold/60 tracking-[0.15em] mb-6">
@@ -440,7 +440,7 @@ export default function Recruit() {
             <FadeInUp delay={0.3}>
               <div className="grid md:grid-cols-5 gap-8 md:gap-12 pb-12 md:pb-16">
                 <div className="md:col-span-2">
-                  <h3 className="font-annam text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
+                  <h3 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
                     Kitchen / Butcher
                   </h3>
                   <p className="font-japanese text-sm text-vuelta-gold/60 tracking-[0.15em] mb-6">
@@ -518,7 +518,7 @@ export default function Recruit() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12 bg-vuelta-gold/5">
+      <section className="py-12 md:py-32 px-4 sm:px-6 md:px-12 bg-vuelta-gold/5">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <div className="flex items-start gap-4 mb-16">
@@ -527,7 +527,7 @@ export default function Recruit() {
                 <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
                   What We Offer
                 </span>
-                <h2 className="font-annam text-4xl md:text-5xl font-light text-vuelta-gold mb-2">
+                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2">
                   私たちが提供するもの
                 </h2>
                 <div className="h-px w-16 bg-vuelta-gold mt-4"></div>
@@ -607,7 +607,7 @@ export default function Recruit() {
       </section>
 
       {/* How to Apply Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12">
+      <section className="py-12 md:py-32 px-4 sm:px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <div className="flex items-start gap-4 mb-16">
@@ -616,7 +616,7 @@ export default function Recruit() {
                 <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
                   How to Apply
                 </span>
-                <h2 className="font-annam text-4xl md:text-5xl font-light text-vuelta-gold mb-2">
+                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2">
                   応募方法
                 </h2>
                 <div className="h-px w-16 bg-vuelta-gold mt-4"></div>
@@ -653,7 +653,7 @@ export default function Recruit() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 px-6 border-t border-vuelta-gold/20">
+      <footer className="py-12 md:py-16 px-4 sm:px-6 border-t border-vuelta-gold/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
