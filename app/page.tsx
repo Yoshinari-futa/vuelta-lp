@@ -3,61 +3,123 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 // Header Component
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const isRecruitPage = pathname === '/recruit'
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const element = document.querySelector(href)
+      if (element) {
+        const headerHeight = 80 // ヘッダーの高さ（px）
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+        const offsetPosition = elementPosition - headerHeight
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      }
+    }
+  }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gray/50">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}>
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a 
-            href="#"
-            className="font-annam text-xl md:text-2xl text-vuelta-text hover:text-vuelta-gold transition-colors tracking-wider"
-            onClick={(e) => {
-              e.preventDefault()
-              window.scrollTo({ top: 0, behavior: 'smooth' })
-            }}
+            href="/"
+            className={`font-annam text-xl md:text-2xl transition-colors tracking-wider ${
+              isRecruitPage 
+                ? 'text-vuelta-gold hover:text-vuelta-gold-light' 
+                : 'text-vuelta-text hover:text-vuelta-gold'
+            }`}
           >
             V U E L T A
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a 
-              href="#menu" 
-              className="font-sans text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wide"
-            >
-              Menu
-            </a>
-            <a 
-              href="#about" 
-              className="font-sans text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wide"
-            >
-              About
-            </a>
-            <a 
-              href="#manager" 
-              className="font-sans text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wide"
-            >
-              Manager
-            </a>
-            <a 
-              href="#reservation" 
-              className="font-sans text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wide"
-            >
-              Visit Us
-            </a>
-            <a
-              href="https://www.instagram.com/vuelta_bar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-sans text-xs tracking-[0.15em] uppercase font-light"
-            >
-              Reserve via DM
-            </a>
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <a 
+                href={isRecruitPage ? "/#menu" : "#menu"} 
+                onClick={(e) => {
+                  if (!isRecruitPage) {
+                    handleAnchorClick(e, '#menu')
+                  }
+                }}
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+              >
+                Menu
+              </a>
+            </motion.div>
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <a 
+                href={isRecruitPage ? "/#about" : "#about"} 
+                onClick={(e) => {
+                  if (!isRecruitPage) {
+                    handleAnchorClick(e, '#about')
+                  }
+                }}
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+              >
+                About
+              </a>
+            </motion.div>
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <a 
+                href={isRecruitPage ? "/#manager" : "#manager"} 
+                onClick={(e) => {
+                  if (!isRecruitPage) {
+                    handleAnchorClick(e, '#manager')
+                  }
+                }}
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+              >
+                Manager
+              </a>
+            </motion.div>
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <a 
+                href={isRecruitPage ? "/#reservation" : "#reservation"} 
+                onClick={(e) => {
+                  if (!isRecruitPage) {
+                    handleAnchorClick(e, '#reservation')
+                  }
+                }}
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+              >
+                Visit Us
+              </a>
+            </motion.div>
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <a 
+                href="/recruit" 
+                className={`font-annam text-xs transition-colors tracking-[0.15em] uppercase block ${
+                  isRecruitPage 
+                    ? 'text-vuelta-gold font-semibold' 
+                    : 'text-vuelta-text-light hover:text-vuelta-gold'
+                }`}
+              >
+                Recruit
+              </a>
+            </motion.div>
+            <motion.div whileHover={{ y: -2, scale: 1.02 }} transition={{ duration: 0.2 }}>
+              <a
+                href="https://www.instagram.com/vuelta_bar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase font-light block"
+              >
+                Reserve via DM
+              </a>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,9 +128,9 @@ const Header = () => {
             className="md:hidden flex flex-col gap-1.5 p-2"
             aria-label="Toggle menu"
           >
-            <span className={`w-6 h-px bg-vuelta-text transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`w-6 h-px bg-vuelta-text transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`w-6 h-px bg-vuelta-text transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? 'opacity-0' : ''}`} />
+            <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
 
@@ -79,46 +141,89 @@ const Header = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden mt-4 pb-4 border-t border-vuelta-gray/50"
+            className={`md:hidden mt-4 pb-4 border-t ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}
           >
             <div className="flex flex-col gap-4 pt-4">
-              <a 
-                href="#menu" 
-                className="font-sans text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wide"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Menu
-              </a>
-              <a 
-                href="#about" 
-                className="font-sans text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wide"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </a>
-              <a 
-                href="#manager" 
-                className="font-sans text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wide"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Manager
-              </a>
-              <a 
-                href="#reservation" 
-                className="font-sans text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wide"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Visit Us
-              </a>
-              <a
-                href="https://www.instagram.com/vuelta_bar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-sans text-xs tracking-[0.15em] uppercase font-light text-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Reserve via DM
-              </a>
+              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                <a 
+                  href={isRecruitPage ? "/#menu" : "#menu"} 
+                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                  onClick={(e) => {
+                    if (!isRecruitPage) {
+                      handleAnchorClick(e, '#menu')
+                    }
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  Menu
+                </a>
+              </motion.div>
+              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                <a 
+                  href={isRecruitPage ? "/#about" : "#about"} 
+                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                  onClick={(e) => {
+                    if (!isRecruitPage) {
+                      handleAnchorClick(e, '#about')
+                    }
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  About
+                </a>
+              </motion.div>
+              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                <a 
+                  href={isRecruitPage ? "/#manager" : "#manager"} 
+                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                  onClick={(e) => {
+                    if (!isRecruitPage) {
+                      handleAnchorClick(e, '#manager')
+                    }
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  Manager
+                </a>
+              </motion.div>
+              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                <a 
+                  href={isRecruitPage ? "/#reservation" : "#reservation"} 
+                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                  onClick={(e) => {
+                    if (!isRecruitPage) {
+                      handleAnchorClick(e, '#reservation')
+                    }
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  Visit Us
+                </a>
+              </motion.div>
+              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                <a 
+                  href="/recruit" 
+                  className={`font-annam text-xs transition-colors tracking-[0.15em] uppercase block ${
+                    isRecruitPage 
+                      ? 'text-vuelta-gold font-semibold' 
+                      : 'text-vuelta-text-light hover:text-vuelta-gold'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Recruit
+                </a>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                <a
+                  href="https://www.instagram.com/vuelta_bar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase font-light text-center block"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Reserve via DM
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         )}
@@ -145,6 +250,22 @@ const FadeInUp = ({ children, delay = 0 }: { children: React.ReactNode; delay?: 
 }
 
 export default function Home() {
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const element = document.querySelector(href)
+      if (element) {
+        const headerHeight = 80 // ヘッダーの高さ（px）
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+        const offsetPosition = elementPosition - headerHeight
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      }
+    }
+  }
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
 
   // Structured Data for SEO
@@ -231,13 +352,14 @@ export default function Home() {
                   href="https://www.instagram.com/vuelta_bar"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-sans text-sm tracking-wider uppercase"
+                  className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-sm tracking-wider uppercase"
                 >
                   Reserve via DM
                 </a>
                 <a
                   href="#menu"
-                  className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-sans text-sm tracking-wider uppercase"
+                  onClick={(e) => handleAnchorClick(e, '#menu')}
+                  className="px-8 py-3 md:py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-annam text-sm tracking-wider uppercase"
                 >
                   View Menu
                 </a>
@@ -283,7 +405,7 @@ export default function Home() {
       </section>
 
       {/* Brand Concept Section */}
-      <section id="about" className="py-16 md:py-32 px-6 max-w-7xl mx-auto">
+      <section id="about" className="py-16 md:py-32 px-6 max-w-7xl mx-auto scroll-mt-20">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <FadeInUp>
             <div className="space-y-8">
@@ -364,7 +486,7 @@ export default function Home() {
       </section>
 
       {/* Featured Menu Section */}
-      <section id="menu" className="py-16 md:py-32 px-6 bg-vuelta-gray">
+      <section id="menu" className="py-16 md:py-32 px-6 bg-vuelta-gray scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-20">
@@ -435,7 +557,7 @@ export default function Home() {
       </section>
 
       {/* Meet the Manager Section */}
-      <section id="manager" className="py-16 md:py-32 px-6">
+      <section id="manager" className="py-16 md:py-32 px-6 scroll-mt-20">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInUp>
             <h2 className="font-annam text-5xl md:text-6xl font-light mb-8 text-vuelta-gold">
@@ -472,15 +594,15 @@ export default function Home() {
                   </div>
                   <div className="pt-4">
                     <a
-                      href="https://www.instagram.com/yu_ji_b_r"
+                      href="https://www.instagram.com/yuji_miyake"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 px-6 py-3 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-sans text-sm uppercase tracking-wider group"
+                      className="inline-flex items-center gap-3 px-6 py-3 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm uppercase tracking-wider group"
                     >
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                       </svg>
-                      Follow @yu_ji_b_r
+                      Meet @yuji_miyake
                       <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -554,7 +676,7 @@ export default function Home() {
       </section>
 
       {/* Location/Access Section */}
-      <section id="reservation" className="py-16 md:py-32 px-6">
+      <section id="reservation" className="py-16 md:py-32 px-6 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <FadeInUp>
@@ -703,10 +825,10 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <h4 className="font-sans text-sm uppercase tracking-wider mb-4 text-vuelta-gold">
+              <h4 className="font-annam text-sm uppercase tracking-wider mb-4 text-vuelta-gold">
                 Quick Links
               </h4>
-              <ul className="space-y-3 font-sans text-sm">
+              <ul className="space-y-3 font-annam text-sm">
                 <li>
                   <a 
                     href="#menu" 
@@ -717,7 +839,7 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
                     </div>
-                    <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-medium flex-1">Menu</span>
+                    <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-annam font-medium flex-1">Menu</span>
                     <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -733,7 +855,23 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-medium flex-1">About</span>
+                    <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-annam font-medium flex-1">About</span>
+                    <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="/recruit" 
+                    className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
+                  >
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
+                      <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-annam font-medium flex-1">Recruit</span>
                     <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -742,10 +880,10 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="font-sans text-sm uppercase tracking-wider mb-4 text-vuelta-gold">
+              <h4 className="font-annam text-sm uppercase tracking-wider mb-4 text-vuelta-gold">
                 Follow Us
               </h4>
-              <ul className="space-y-3 font-sans text-sm">
+              <ul className="space-y-3 font-annam text-sm">
                 <li>
                   <a 
                     href="https://www.instagram.com/vuelta_bar" 
@@ -758,7 +896,7 @@ export default function Home() {
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                       </svg>
                     </div>
-                    <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-medium flex-1">@vuelta_bar</span>
+                    <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-annam font-medium flex-1">@vuelta_bar</span>
                     <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -766,7 +904,7 @@ export default function Home() {
                 </li>
                 <li>
                   <a 
-                    href="https://www.instagram.com/yu_ji_b_r"
+                    href="https://www.instagram.com/yuji_miyake"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
@@ -776,7 +914,7 @@ export default function Home() {
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                       </svg>
                     </div>
-                    <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-medium flex-1">@yu_ji_b_r</span>
+                    <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-annam font-medium flex-1">@yuji_miyake</span>
                     <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -787,7 +925,7 @@ export default function Home() {
           </div>
           <div className="pt-8 border-t border-vuelta-gray text-center">
             <p className="font-sans text-xs text-vuelta-text-light">
-              © 2024 VUELTA. All rights reserved.
+              © 2026 VUELTA. All rights reserved.
             </p>
           </div>
         </div>
