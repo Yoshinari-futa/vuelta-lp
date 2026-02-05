@@ -43,6 +43,11 @@ export const metadata: Metadata = {
     title: 'VUELTA BAR In Hiroshima',
     description: 'Experience the art of mixology at VUELTA',
   },
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
 }
 
 export default function RootLayout({
