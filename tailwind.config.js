@@ -20,6 +20,7 @@ module.exports = {
         serif: ['var(--font-serif)', 'serif'],
         sans: ['var(--font-sans)', 'sans-serif'],
         annam: ['var(--font-annam)', 'sans-serif'],
+        japanese: ['"Yu Gothic"', '"游ゴシック"', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',

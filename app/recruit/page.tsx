@@ -208,9 +208,10 @@ export default function Recruit() {
                   RECRUIT
                 </h1>
                 <div className="h-px w-24 bg-vuelta-gold mb-12"></div>
-                <p className="font-sans text-lg md:text-xl text-vuelta-gold/80 leading-relaxed mb-12">
-                  VUELTAで一緒に働きませんか？<br />
-                  ここは、<span className="text-vuelta-gold font-medium">新しい出会いや経験</span>が生まれる場所です。
+                <p className="font-japanese text-lg md:text-xl text-vuelta-gold/80 leading-relaxed mb-12">
+                  VUELTAで、<span className="text-vuelta-gold font-medium">一緒に働きませんか？</span><br />
+                  広島のクロスロードで、<br />
+                  新しい出会いと繋がりを生み出す場所です。
                 </p>
               </div>
             </motion.div>
@@ -224,8 +225,8 @@ export default function Recruit() {
               <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
                 We Are Looking For
               </span>
-              <p className="font-sans text-lg md:text-xl text-vuelta-gold/80 leading-relaxed">
-                一緒に働きたい仲間を<br />
+              <p className="font-japanese text-lg md:text-xl text-vuelta-gold/80 leading-relaxed">
+                <span className="text-vuelta-gold font-medium">一緒に働きたい仲間</span>を<br />
                 募集しています
               </p>
             </motion.div>
@@ -248,29 +249,33 @@ export default function Recruit() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-6 font-sans text-lg md:text-xl text-white/80 leading-relaxed">
+              <div className="space-y-6 font-japanese text-lg md:text-xl text-white/80 leading-relaxed">
                 <p>
+                  <span className="text-white font-medium">「おかえり」と「はじめまして」が交差する、広島のクロスロード。</span><br />
                   VUELTAは、ただのバーではありません。<br />
-                  海外からのお客様と地元の人たちが出会う<br className="hidden md:block" />
-                  <span className="text-white font-medium">場所（crossroads）</span>です。
+                  世界中から訪れる人々と、地元の人々が出会う場所です。
                 </p>
                 <p>
-                  私たちが届けたいのは、<br />
-                  <span className="text-white font-medium">人と人とのつながりと温かさ</span>です。
+                  私たちが提供するタコスやカクテルは、<br />
+                  ゲストをこの交差点に招くための<span className="text-white font-medium">「招待状」</span>です。<br />
+                  ゲストが本当に求めているのは、<br />
+                  そこで待つあなたという<span className="text-white font-medium">「人」</span>と、<br />
+                  あなたが生み出す温かい空気です。
                 </p>
                 <p>
-                  この場所で一緒に働いてくれる<br />
-                  仲間を探しています。
+                  私たちのゴールは、<br />
+                  <span className="text-white font-medium">「美味しかった」の先にある、「あなたに会えてよかった」</span>を創造することです。
                 </p>
                 <p>
-                  食べるのが好きな人、<br />
+                  食べることが好きな人、<br />
                   レストランやバーの雰囲気が好きな人、<br />
-                  そんな<span className="text-white font-medium">飲食が好きな人</span>を歓迎します。
+                  そんな人を歓迎します。
                 </p>
                 <p>
-                  英語を話せない人も<span className="text-white font-medium">大歓迎</span>です。
+                  英語を話せない人も<span className="text-white font-medium">大歓迎</span>です。<br />
+                  大切なのは、<span className="text-white font-medium">人と向き合う姿勢</span>です。
                 </p>
-                <p className="text-white/60 italic">
+                <p className="text-white/60 italic text-xl md:text-2xl mt-8 pt-8 border-t border-white/20">
                   "Food is the Invitation,<br />
                   People are the Destination"
                 </p>
@@ -306,7 +311,7 @@ export default function Recruit() {
                   <h3 className="font-annam text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
                     Bartender
                   </h3>
-                  <p className="font-sans text-sm text-vuelta-gold/60 tracking-[0.15em] uppercase mb-6">
+                  <p className="font-japanese text-sm text-vuelta-gold/60 tracking-[0.15em] mb-6">
                     バーテンダー
                   </p>
                 </div>
@@ -315,18 +320,18 @@ export default function Recruit() {
                     <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
                       Responsibilities / 業務内容
                     </h4>
-                    <ul className="space-y-3 font-sans text-base text-vuelta-gold/90 leading-relaxed">
+                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
                         <span>カクテル・ドリンクの調製と提供</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>ゲストとのコミュニケーションと雰囲気作り</span>
+                        <span>ゲストとのコミュニケーション</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>バーの清潔さと整理整頓の維持</span>
+                        <span>バーの清潔さと整理整頓</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
@@ -338,10 +343,10 @@ export default function Recruit() {
                     <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
                       Requirements / 応募条件
                     </h4>
-                    <ul className="space-y-3 font-sans text-base text-vuelta-gold/90 leading-relaxed">
+                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>飲食が好きな人（食べるのが好き、レストランやバーの雰囲気が好きなど）</span>
+                        <span>飲食が好きな人</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
@@ -372,7 +377,7 @@ export default function Recruit() {
                   <h3 className="font-annam text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
                     Server / Staff
                   </h3>
-                  <p className="font-sans text-sm text-vuelta-gold/60 tracking-[0.15em] uppercase mb-6">
+                  <p className="font-japanese text-sm text-vuelta-gold/60 tracking-[0.15em] mb-6">
                     サーバー・スタッフ
                   </p>
                 </div>
@@ -381,7 +386,7 @@ export default function Recruit() {
                     <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
                       Responsibilities / 業務内容
                     </h4>
-                    <ul className="space-y-3 font-sans text-base text-vuelta-gold/90 leading-relaxed">
+                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
                         <span>ゲストのご案内とサービス提供</span>
@@ -392,11 +397,11 @@ export default function Recruit() {
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>優れたカスタマーサービスの提供</span>
+                        <span>カスタマーサービスの提供</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>清潔で整理された作業スペースの維持</span>
+                        <span>作業スペースの清潔さと整理</span>
                       </li>
                     </ul>
                   </div>
@@ -404,10 +409,10 @@ export default function Recruit() {
                     <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
                       Requirements / 応募条件
                     </h4>
-                    <ul className="space-y-3 font-sans text-base text-vuelta-gold/90 leading-relaxed">
+                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>飲食が好きな人（食べるのが好き、レストランやバーの雰囲気が好きなど）</span>
+                        <span>飲食が好きな人</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
@@ -419,7 +424,7 @@ export default function Recruit() {
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>学び成長する意欲</span>
+                        <span>成長への意欲</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
@@ -438,7 +443,7 @@ export default function Recruit() {
                   <h3 className="font-annam text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
                     Kitchen / Butcher
                   </h3>
-                  <p className="font-sans text-sm text-vuelta-gold/60 tracking-[0.15em] uppercase mb-6">
+                  <p className="font-japanese text-sm text-vuelta-gold/60 tracking-[0.15em] mb-6">
                     キッチン・ブッチャー
                   </p>
                 </div>
@@ -447,7 +452,7 @@ export default function Recruit() {
                     <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
                       Responsibilities / 業務内容
                     </h4>
-                    <ul className="space-y-3 font-sans text-base text-vuelta-gold/90 leading-relaxed">
+                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
                         <span>タコスの調理と提供</span>
@@ -474,10 +479,10 @@ export default function Recruit() {
                     <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
                       Requirements / 応募条件
                     </h4>
-                    <ul className="space-y-3 font-sans text-base text-vuelta-gold/90 leading-relaxed">
+                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>飲食が好きな人（食べるのが好き、レストランやバーの雰囲気が好きなど）</span>
+                        <span>飲食が好きな人</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/40 mt-1">—</span>
@@ -541,9 +546,9 @@ export default function Recruit() {
                     <h4 className="font-sans text-lg font-semibold text-vuelta-gold mb-2 tracking-wide">
                       Training & Development
                     </h4>
-                    <p className="font-sans text-base text-vuelta-gold/80 leading-relaxed">
+                    <p className="font-japanese text-base text-vuelta-gold/80 leading-relaxed">
                       カクテル作りから接客まで、<br />
-                      実践的なスキルを身につけられます
+                      実践的なスキルを学べます
                     </p>
                   </div>
                 </div>
@@ -555,9 +560,9 @@ export default function Recruit() {
                     <h4 className="font-sans text-lg font-semibold text-vuelta-gold mb-2 tracking-wide">
                       Diverse Environment
                     </h4>
-                    <p className="font-sans text-base text-vuelta-gold/80 leading-relaxed">
+                    <p className="font-japanese text-base text-vuelta-gold/80 leading-relaxed">
                       海外からのお客様と地元の人たちが交わる、<br />
-                      多様性のある環境で働けます
+                      多様な環境で働けます
                     </p>
                   </div>
                 </div>
@@ -572,11 +577,12 @@ export default function Recruit() {
                   </div>
                   <div>
                     <h4 className="font-sans text-lg font-semibold text-vuelta-gold mb-2 tracking-wide">
-                      Flexible Schedule
+                      Beyond the Bar
                     </h4>
-                    <p className="font-sans text-base text-vuelta-gold/80 leading-relaxed">
-                      あなたのライフスタイルに合わせて、<br />
-                      柔軟にスケジュールを調整できます
+                    <p className="font-japanese text-base text-vuelta-gold/80 leading-relaxed">
+                      東京での研修や、<br />
+                      優れたBAR・レストランでの見学を通じて、<br />
+                      新しい視点を学べます
                     </p>
                   </div>
                 </div>
@@ -588,9 +594,9 @@ export default function Recruit() {
                     <h4 className="font-sans text-lg font-semibold text-vuelta-gold mb-2 tracking-wide">
                       Supportive Team
                     </h4>
-                    <p className="font-sans text-base text-vuelta-gold/80 leading-relaxed">
+                    <p className="font-japanese text-base text-vuelta-gold/80 leading-relaxed">
                       チーム全体で支え合い、<br />
-                      一人ひとりが成長できる環境です
+                      成長できる環境です
                     </p>
                   </div>
                 </div>
@@ -620,9 +626,9 @@ export default function Recruit() {
 
           <FadeInUp delay={0.1}>
             <div className="max-w-3xl">
-              <p className="font-sans text-xl md:text-2xl text-vuelta-gold/90 leading-relaxed mb-12">
-                VUELTAで一緒に働いてみませんか？<br />
-                興味がある方は、InstagramのDMでお気軽にご連絡ください。
+              <p className="font-japanese text-xl md:text-2xl text-vuelta-gold/90 leading-relaxed mb-12">
+                VUELTAで一緒に働きませんか？<br />
+                InstagramのDMでお気軽にご連絡ください。
               </p>
 
               <div className="flex justify-center md:justify-start">
@@ -652,10 +658,10 @@ export default function Recruit() {
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
               <h3 className="font-annam text-2xl mb-4 text-vuelta-gold">V U E L T A</h3>
-              <p className="font-sans text-sm text-vuelta-gold/70 mb-3">
+              <p className="font-japanese text-sm text-vuelta-gold/70 mb-3">
                 Experience the art of mixology
               </p>
-              <p className="font-sans text-xs text-vuelta-gold/60">
+              <p className="font-japanese text-xs text-vuelta-gold/60">
                 We'll Do Our Best to Communicate • International Guests Welcome<br />
                 Free Wi-Fi Available • Where Locals Really Go
               </p>
