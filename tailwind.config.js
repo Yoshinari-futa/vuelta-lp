@@ -20,7 +20,8 @@ module.exports = {
         serif: ['var(--font-serif)', 'serif'],
         sans: ['var(--font-sans)', 'sans-serif'],
         annam: ['var(--font-annam)', 'sans-serif'],
-        japanese: ['"Yu Gothic"', '"游ゴシック"', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'],
+        asebi: ['var(--font-asebi)', 'serif'],
+        japanese: ['var(--font-asebi)', '"Kozuka Gothic Pro"', '"小塚ゴシック Pro"', '"KozGoPr6N-Regular"', '"Yu Gothic"', '"游ゴシック"', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',

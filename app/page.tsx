@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
@@ -1090,3 +1090,4 @@ export default function Home() {
     </main>
   )
 }
+

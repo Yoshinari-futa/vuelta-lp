@@ -204,11 +204,11 @@ export default function Recruit() {
                 <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
                   Join Us
                 </span>
-                <h1 className="font-annam text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light tracking-tight text-vuelta-gold mb-8 leading-[0.9]">
+                <h1 className="font-annam text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-vuelta-gold mb-8 leading-[0.9]">
                   RECRUIT
                 </h1>
                 <div className="h-px w-24 bg-vuelta-gold mb-12"></div>
-                <p className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-gold/80 leading-relaxed mb-12">
+                <p className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-gold/90 leading-relaxed mb-12">
                   VUELTAで、<span className="text-vuelta-gold font-medium">一緒に働きませんか？</span><br />
                   広島のクロスロードで、<br />
                   新しい出会いと繋がりを生み出す場所です。
@@ -225,7 +225,7 @@ export default function Recruit() {
               <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
                 We Are Looking For
               </span>
-              <p className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-gold/80 leading-relaxed">
+              <p className="font-japanese text-lg sm:text-xl md:text-2xl text-vuelta-gold/90 leading-relaxed">
                 <span className="text-vuelta-gold font-medium">一緒に働きたい仲間</span>を<br />
                 募集しています
               </p>
@@ -235,7 +235,7 @@ export default function Recruit() {
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-12 md:py-32 px-4 sm:px-6 md:px-12 bg-vuelta-gold text-white">
+      <section className="py-16 md:py-40 px-4 sm:px-6 md:px-12 bg-vuelta-gold text-white">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <div className="grid md:grid-cols-2 gap-16 items-start">
@@ -249,14 +249,14 @@ export default function Recruit() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-6 font-japanese text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+              <div className="space-y-6 font-japanese text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
                 <p>
                   <span className="text-white font-medium">「おかえり」と「はじめまして」が交差する、広島のクロスロード。</span><br />
                   VUELTAは、ただのバーではありません。<br />
-                  世界中から訪れる人々と、地元の人々が出会う場所です。
+                  世界中から平和を願う人たちと、地元の人々が出会う場所です。
                 </p>
                 <p>
-                  私たちが提供するタコスやカクテルは、<br />
+                  私たちが提供する飲み物、料理は、<br />
                   ゲストをこの交差点に招くための<span className="text-white font-medium">「招待状」</span>です。<br />
                   ゲストが本当に求めているのは、<br />
                   そこで待つあなたという<span className="text-white font-medium">「人」</span>と、<br />
@@ -264,16 +264,25 @@ export default function Recruit() {
                 </p>
                 <p>
                   私たちのゴールは、<br />
-                  <span className="text-white font-medium">「美味しかった」の先にある、「あなたに会えてよかった」</span>を創造することです。
+                  <span className="text-white font-medium">「美味しかった」の先にある、「あなたに会えてよかった」</span>を創造することです。<br />
+                  ここで働くあなたは、<br />
+                  世界中の人々と出会い、<br />
+                  言葉を超えた<span className="text-white font-medium">心のつながり</span>を生み出す、<br />
+                  大切な存在です。
+                </p>
+                <p>
+                  英語を話せれば、より多くのゲストと深くコミュニケーションが取れます。<br />
+                  でも、英語が話せなくても<span className="text-white font-medium">全く問題ありません</span>。<br />
+                  大切なのは、英語を話そうとする<span className="text-white font-medium">勇気</span>と、<br />
+                  相手を思いやる<span className="text-white font-medium">心</span>です。<br />
+                  ここでは、そんなあなたの<span className="text-white font-medium">姿勢</span>が、<br />
+                  何よりも価値のあるものになります。
                 </p>
                 <p>
                   食べることが好きな人、<br />
-                  レストランやバーの雰囲気が好きな人、<br />
-                  そんな人を歓迎します。
-                </p>
-                <p>
-                  英語を話せない人も<span className="text-white font-medium">大歓迎</span>です。<br />
-                  大切なのは、<span className="text-white font-medium">人と向き合う姿勢</span>です。
+                  人と出会うことが好きな人、<br />
+                  新しい世界を体験したい人、<br />
+                  そんなあなたを、私たちは心から歓迎します。
                 </p>
                 <p className="text-white/60 italic text-xl md:text-2xl mt-8 pt-8 border-t border-white/20">
                   "Food is the Invitation,<br />
@@ -286,7 +295,7 @@ export default function Recruit() {
       </section>
 
       {/* Positions Section */}
-      <section className="py-12 md:py-32 px-4 sm:px-6 md:px-12">
+      <section className="py-16 md:py-40 px-4 sm:px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <div className="flex items-start gap-4 mb-16">
@@ -304,221 +313,94 @@ export default function Recruit() {
           </FadeInUp>
 
           <div className="space-y-12 md:space-y-16">
-            {/* Bartender Position */}
+            {/* Bartender & Server Position */}
             <FadeInUp delay={0.1}>
-              <div className="grid md:grid-cols-5 gap-8 md:gap-12 border-b border-vuelta-gold/20 pb-12 md:pb-16">
+              <motion.div 
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+                className="grid md:grid-cols-5 gap-8 md:gap-12 pb-12 md:pb-16 group"
+              >
                 <div className="md:col-span-2">
-                  <h3 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
-                    Bartender
+                  <h3 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-gold mb-4 group-hover:text-vuelta-gold-light transition-colors">
+                    Bartender & Server
                   </h3>
-                  <p className="font-japanese text-sm text-vuelta-gold/60 tracking-[0.15em] mb-6">
-                    バーテンダー
+                  <p className="font-japanese text-sm text-vuelta-gold/70 tracking-[0.15em] mb-6">
+                    バーテンダー・ホールスタッフ
                   </p>
                 </div>
                 <div className="md:col-span-3 space-y-8">
                   <div>
-                    <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
-                      Responsibilities / 業務内容
+                    <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-6">
+                      Compensation / 給与
                     </h4>
-                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>カクテル・ドリンクの調製と提供</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>ゲストとのコミュニケーション</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>バーの清潔さと整理整頓</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>在庫管理のサポート</span>
-                      </li>
-                    </ul>
+                    <div className="space-y-6">
+                      <div className="border-l-2 border-vuelta-gold/30 pl-6">
+                        <p className="font-japanese text-lg text-vuelta-gold/80 mb-2">
+                          アルバイト
+                        </p>
+                        <p className="font-japanese text-2xl text-vuelta-gold font-medium">
+                          時給 1,200円以上
+                        </p>
+                      </div>
+                      <div className="border-l-2 border-vuelta-gold/30 pl-6">
+                        <p className="font-japanese text-lg text-vuelta-gold/80 mb-2">
+                          社員
+                        </p>
+                        <p className="font-japanese text-2xl text-vuelta-gold font-medium">
+                          月給 25万円以上
+                        </p>
+                      </div>
+                    </div>
                   </div>
                   <div>
                     <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
                       Requirements / 応募条件
                     </h4>
-                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
+                    <ul className="space-y-4 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
+                        <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
                         <span>飲食が好きな人</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
+                        <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
                         <span>カクテル作りとおもてなしへの情熱</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>チームワークと前向きな姿勢</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>英語を話せない人も大歓迎です</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>経験は歓迎しますが必須ではありません。研修を提供します。</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </FadeInUp>
-
-            {/* Server Position */}
-            <FadeInUp delay={0.2}>
-              <div className="grid md:grid-cols-5 gap-8 md:gap-12 border-b border-vuelta-gold/20 pb-12 md:pb-16">
-                <div className="md:col-span-2">
-                  <h3 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
-                    Server / Staff
-                  </h3>
-                  <p className="font-japanese text-sm text-vuelta-gold/60 tracking-[0.15em] mb-6">
-                    サーバー・スタッフ
-                  </p>
-                </div>
-                <div className="md:col-span-3 space-y-8">
-                  <div>
-                    <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
-                      Responsibilities / 業務内容
-                    </h4>
-                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>ゲストのご案内とサービス提供</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>オーダー受けとメニュー提案</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>カスタマーサービスの提供</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>作業スペースの清潔さと整理</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
-                      Requirements / 応募条件
-                    </h4>
-                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>飲食が好きな人</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
+                        <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
                         <span>フレンドリーで外向的な性格</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
+                        <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
                         <span>多様なゲストと働くことへの興味</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
+                        <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
+                        <span>チームワークと前向きな姿勢</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
                         <span>成長への意欲</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>英語を話せない人も大歓迎です</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </FadeInUp>
-
-            {/* Kitchen / Butcher Position */}
-            <FadeInUp delay={0.3}>
-              <div className="grid md:grid-cols-5 gap-8 md:gap-12 pb-12 md:pb-16">
-                <div className="md:col-span-2">
-                  <h3 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-gold mb-4">
-                    Kitchen / Butcher
-                  </h3>
-                  <p className="font-japanese text-sm text-vuelta-gold/60 tracking-[0.15em] mb-6">
-                    キッチン・ブッチャー
-                  </p>
-                </div>
-                <div className="md:col-span-3 space-y-8">
-                  <div>
-                    <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
-                      Responsibilities / 業務内容
-                    </h4>
-                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>タコスの調理と提供</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>肉のカットと加工</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>食材の準備と品質管理</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>キッチン・作業スペースの清潔さと衛生管理</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>在庫管理と発注のサポート</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-sans text-xs text-vuelta-gold/60 tracking-[0.2em] uppercase mb-4">
-                      Requirements / 応募条件
-                    </h4>
-                    <ul className="space-y-3 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>飲食が好きな人</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>料理への情熱と向上心</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>タコスやメキシコ料理、肉の加工の経験（歓迎）</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>衛生管理への意識と責任感</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
-                        <span>チームワークとコミュニケーション能力</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
+                        <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
                         <span>英語を話せない人も大歓迎です</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="text-vuelta-gold/40 mt-1">—</span>
+                        <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
                         <span>経験は歓迎しますが必須ではありません。研修を提供します。</span>
                       </li>
                     </ul>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </FadeInUp>
+
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-12 md:py-32 px-4 sm:px-6 md:px-12 bg-vuelta-gold/5">
+      <section className="py-16 md:py-40 px-4 sm:px-6 md:px-12 bg-vuelta-gold/5">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <div className="flex items-start gap-4 mb-16">
@@ -546,7 +428,7 @@ export default function Recruit() {
                     <h4 className="font-sans text-lg font-semibold text-vuelta-gold mb-2 tracking-wide">
                       Training & Development
                     </h4>
-                    <p className="font-japanese text-base text-vuelta-gold/80 leading-relaxed">
+                    <p className="font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       カクテル作りから接客まで、<br />
                       実践的なスキルを学べます
                     </p>
@@ -560,7 +442,7 @@ export default function Recruit() {
                     <h4 className="font-sans text-lg font-semibold text-vuelta-gold mb-2 tracking-wide">
                       Diverse Environment
                     </h4>
-                    <p className="font-japanese text-base text-vuelta-gold/80 leading-relaxed">
+                    <p className="font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       海外からのお客様と地元の人たちが交わる、<br />
                       多様な環境で働けます
                     </p>
@@ -579,7 +461,7 @@ export default function Recruit() {
                     <h4 className="font-sans text-lg font-semibold text-vuelta-gold mb-2 tracking-wide">
                       Beyond the Bar
                     </h4>
-                    <p className="font-japanese text-base text-vuelta-gold/80 leading-relaxed">
+                    <p className="font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       東京での研修や、<br />
                       優れたBAR・レストランでの見学を通じて、<br />
                       新しい視点を学べます
@@ -594,7 +476,7 @@ export default function Recruit() {
                     <h4 className="font-sans text-lg font-semibold text-vuelta-gold mb-2 tracking-wide">
                       Supportive Team
                     </h4>
-                    <p className="font-japanese text-base text-vuelta-gold/80 leading-relaxed">
+                    <p className="font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       チーム全体で支え合い、<br />
                       成長できる環境です
                     </p>
@@ -607,7 +489,7 @@ export default function Recruit() {
       </section>
 
       {/* How to Apply Section */}
-      <section className="py-12 md:py-32 px-4 sm:px-6 md:px-12">
+      <section className="py-16 md:py-40 px-4 sm:px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <div className="flex items-start gap-4 mb-16">

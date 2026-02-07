@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
@@ -27,15 +27,24 @@ const annamNeue = localFont({
   display: 'swap',
 })
 
+// 日本語フォント設定
+const japaneseFont = localFont({
+  src: './fonts/これ.ttf',
+  variable: '--font-asebi',
+  weight: '400',
+  display: 'swap',
+})
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export const metadata: Metadata = {
   title: 'VUELTA BAR In Hiroshima | English Friendly',
   description: 'Experience the art of mixology at VUELTA, Hiroshima\'s premier cocktail bar. English spoken, international guests welcome. Signature cocktails, intimate atmosphere, located in the heart of Hiroshima city center.',
   keywords: 'cocktail bar Hiroshima, VUELTA, Hiroshima bar, English speaking bar Hiroshima, premium cocktails, mixology Hiroshima, international bar Japan',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
   openGraph: {
     title: 'VUELTA BAR In Hiroshima',
     description: 'Where "Welcome Back" meets "Nice to Meet You". Experience authentic Hiroshima hospitality with world-class cocktails.',
@@ -86,7 +95,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${playfair.variable} ${inter.variable} ${annamNeue.variable} font-sans antialiased`}>
+      <body className={`${playfair.variable} ${inter.variable} ${annamNeue.variable} ${japaneseFont.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
