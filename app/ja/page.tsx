@@ -256,7 +256,6 @@ export default function HomeJA() {
     "name": "VUELTA",
     "description": "広島のプレミアムカクテルバー。国際的なお客様と地元の人々が出会う場所。世界クラスのカクテルと本格的な広島のホスピタリティを体験。",
     "image": [
-      "https://vuelta-bar.com/images/interior.png",
       "https://vuelta-bar.com/images/vuelta-logo.png"
     ],
     "address": {

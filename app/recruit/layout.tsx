@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     siteName: 'VUELTA',
     images: [
       {
-        url: '/images/interior.png',
-        width: 1200,
-        height: 630,
-        alt: 'VUELTA Cocktail Bar Interior',
+        url: '/images/vuelta-logo.png',
+        width: 900,
+        height: 306,
+        alt: 'VUELTA Logo',
       },
     ],
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Recruit | VUELTA In Hiroshima',
     description: 'Join VUELTA team. We are looking for passionate people who love food and hospitality.',
-    images: ['/images/interior.png'],
+    images: ['/images/vuelta-logo.png'],
   },
   robots: {
     index: true,

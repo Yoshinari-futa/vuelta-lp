@@ -289,7 +289,6 @@ export default function Home() {
     "name": "VUELTA",
     "description": "Premium cocktail bar in Hiroshima where international guests and locals meet. Experience authentic Hiroshima hospitality with world-class cocktails.",
     "image": [
-      "https://vuelta-bar.com/images/interior.png",
       "https://vuelta-bar.com/images/vuelta-logo.png"
     ],
     "address": {

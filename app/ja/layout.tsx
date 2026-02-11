@@ -19,15 +19,9 @@ export const metadata: Metadata = {
     siteName: 'VUELTA',
     images: [
       {
-        url: '/images/interior.png',
-        width: 1200,
-        height: 630,
-        alt: 'VUELTA カクテルバー内装',
-      },
-      {
-        url: '/icon.png',
-        width: 500,
-        height: 500,
+        url: '/images/vuelta-logo.png',
+        width: 900,
+        height: 306,
         alt: 'VUELTA ロゴ',
       },
     ],
@@ -36,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'VUELTA 広島',
     description: 'VUELTAでミクソロジーの芸術を体験',
-    images: ['/images/interior.png'],
+    images: ['/images/vuelta-logo.png'],
   },
   icons: {
     icon: '/icon.png',
