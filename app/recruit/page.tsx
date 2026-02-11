@@ -32,7 +32,23 @@ const Header = () => {
             />
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-4 md:gap-8">
+            <div className="flex items-center gap-2 border-r border-vuelta-gold/30 pr-4">
+              <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase">EN</span>
+              <span className="text-vuelta-gray/60 text-xs">/</span>
+              <a
+                href="/ja"
+                className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-wider uppercase"
+                onClick={(e) => {
+                  e.preventDefault()
+                  localStorage.setItem('vuelta-language', 'ja')
+                  router.push('/ja')
+                }}
+              >
+                JA
+              </a>
+            </div>
+            <div className="hidden md:flex items-center gap-8">
             <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
               <Link 
                 href="/#menu" 
@@ -84,6 +100,7 @@ const Header = () => {
               </a>
             </motion.div>
           </div>
+          </div>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -97,88 +114,22 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <motion.div
+          <motion.nav
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden mt-4 pb-4 border-t border-vuelta-gold/20"
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="md:hidden mt-6 pt-6 border-t border-vuelta-gold/20"
           >
-            <div className="flex flex-col gap-4 pt-4">
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <Link 
-                  href="/#menu" 
-                  className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Menu
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <Link 
-                  href="/#about" 
-                  className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  About
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <Link 
-                  href="/#manager" 
-                  className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Manager
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <Link 
-                  href="/#reservation" 
-                  className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Visit Us
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/recruit"
-                  className="font-annam text-xs text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.15em] uppercase font-semibold block"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Recruit
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                <a
-                  href="https://www.instagram.com/vuelta_bar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase text-center block"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Reserve via DM
-                </a>
-              </motion.div>
-              <div className="pt-2 border-t border-vuelta-gold/30 mt-2">
-                <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                  <a
-                    href="/ja"
-                    className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      localStorage.setItem('vuelta-language', 'ja')
-                      setIsMenuOpen(false)
-                      router.push('/ja')
-                    }}
-                  >
-                    Japanese
-                  </a>
-                </motion.div>
-              </div>
+            <div className="flex flex-col">
+              <Link href="/#menu" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Menu</Link>
+              <Link href="/#about" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>About</Link>
+              <Link href="/#manager" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Manager</Link>
+              <Link href="/#reservation" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Visit Us</Link>
+              <Link href="/recruit" className="font-annam text-sm text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
+              <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gold/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
             </div>
-          </motion.div>
+          </motion.nav>
         )}
       </nav>
     </header>

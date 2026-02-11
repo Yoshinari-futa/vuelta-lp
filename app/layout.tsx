@@ -40,9 +40,11 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: 'cover',
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vuelta-bar.com'),
   title: 'VUELTA In Hiroshima | English Friendly',
   description: 'Experience the art of mixology at VUELTA, Hiroshima\'s premier cocktail bar. English spoken, international guests welcome. Signature cocktails, intimate atmosphere, located in the heart of Hiroshima city center.',
   keywords: 'cocktail bar Hiroshima, VUELTA, Hiroshima bar, English speaking bar Hiroshima, premium cocktails, mixology Hiroshima, international bar Japan',

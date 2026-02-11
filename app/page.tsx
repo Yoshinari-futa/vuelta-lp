@@ -68,7 +68,22 @@ const Header = () => {
             />
           </a>
           
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-4">
+              <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase">EN</span>
+              <span className="text-vuelta-gray/60 text-xs">/</span>
+              <a
+                href="/ja"
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase"
+                onClick={(e) => {
+                  e.preventDefault()
+                  localStorage.setItem('vuelta-language', 'ja')
+                  router.push('/ja')
+                }}
+              >
+                JA
+              </a>
+            </div>
             {/* Hours Status - Mobile */}
             {!isRecruitPage && (
               <div className="md:hidden flex items-center gap-2 px-3 py-1.5 border border-vuelta-gold/30 rounded-full bg-white/80 backdrop-blur-sm">
@@ -91,7 +106,7 @@ const Header = () => {
             {/* Hamburger Menu Button - All Devices */}
             <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex flex-col gap-1.5 p-2 focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded transition-all"
+            className="flex flex-col gap-1.5 p-3 min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded transition-all"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
           >
@@ -105,118 +120,23 @@ const Header = () => {
         {/* Menu - All Devices */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
+            <motion.nav
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className={`mt-4 pb-4 border-t ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className={`mt-6 pt-6 border-t ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/20'}`}
+              aria-label="Main navigation"
             >
-            <div className="flex flex-col gap-4 pt-4 md:max-w-md md:mx-auto">
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <a 
-                  href={isRecruitPage ? "/#about" : "#about"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                  onClick={(e) => {
-                    if (!isRecruitPage) {
-                      handleAnchorClick(e, '#about')
-                    }
-                    setIsMenuOpen(false)
-                  }}
-                  aria-label="Navigate to About section"
-                >
-                  About
-                </a>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <a 
-                  href={isRecruitPage ? "/#menu" : "#menu"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                  onClick={(e) => {
-                    if (!isRecruitPage) {
-                      handleAnchorClick(e, '#menu')
-                    }
-                    setIsMenuOpen(false)
-                  }}
-                  aria-label="Navigate to Menu section"
-                >
-                  Menu
-                </a>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <a 
-                  href={isRecruitPage ? "/#manager" : "#manager"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                  onClick={(e) => {
-                    if (!isRecruitPage) {
-                      handleAnchorClick(e, '#manager')
-                    }
-                    setIsMenuOpen(false)
-                  }}
-                  aria-label="Navigate to Manager section"
-                >
-                  Manager
-                </a>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <a 
-                  href={isRecruitPage ? "/#reservation" : "#reservation"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                  onClick={(e) => {
-                    if (!isRecruitPage) {
-                      handleAnchorClick(e, '#reservation')
-                    }
-                    setIsMenuOpen(false)
-                  }}
-                  aria-label="Navigate to Visit Us section"
-                >
-                  Visit Us
-                </a>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <a 
-                  href="/recruit" 
-                  className={isRecruitPage 
-                    ? "font-annam text-xs text-vuelta-gold font-semibold hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                    : "font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                  aria-label="Navigate to Recruit page"
-                  aria-current={isRecruitPage ? 'page' : undefined}
-                >
-                  Recruit
-                </a>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                <a
-                  href="https://www.instagram.com/vuelta_bar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase font-light text-center block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded"
-                  onClick={() => setIsMenuOpen(false)}
-                  aria-label="Reserve via Instagram DM"
-                >
-                  Reserve via DM
-                </a>
-              </motion.div>
-              <div className="pt-2 border-t border-vuelta-gray/30 mt-2">
-                <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                  <a
-                    href="/ja"
-                    className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      localStorage.setItem('vuelta-language', 'ja')
-                      setIsMenuOpen(false)
-                      router.push('/ja')
-                    }}
-                  >
-                    Japanese
-                  </a>
-                </motion.div>
+              <div className="flex flex-col">
+                <a href={isRecruitPage ? "/#about" : "#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
+                <a href={isRecruitPage ? "/#menu" : "#menu"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#menu'); setIsMenuOpen(false) }}>Menu</a>
+                <a href={isRecruitPage ? "/#manager" : "#manager"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#manager'); setIsMenuOpen(false) }}>Manager</a>
+                <a href={isRecruitPage ? "/#reservation" : "#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Visit Us</a>
+                <a href="/recruit" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isRecruitPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>Recruit</a>
+                <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
               </div>
-            </div>
-          </motion.div>
+            </motion.nav>
           )}
         </AnimatePresence>
       </nav>

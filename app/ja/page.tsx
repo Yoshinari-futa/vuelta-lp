@@ -65,7 +65,22 @@ const Header = () => {
             />
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-3 sm:pr-4">
+              <a
+                href="/"
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase"
+                onClick={(e) => {
+                  e.preventDefault()
+                  localStorage.setItem('vuelta-language', 'en')
+                  router.push('/')
+                }}
+              >
+                EN
+              </a>
+              <span className="text-vuelta-gray/60 text-xs">/</span>
+              <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase">JA</span>
+            </div>
             {!isRecruitPage && (
               <>
                 {/* Mobile */}
@@ -86,7 +101,7 @@ const Header = () => {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex flex-col gap-1.5 p-2 focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded transition-all"
+              className="flex flex-col gap-1.5 p-3 min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded transition-all"
               aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
               aria-expanded={isMenuOpen}
             >
@@ -99,94 +114,22 @@ const Header = () => {
 
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
+            <motion.nav
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className={`mt-4 pb-4 border-t ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="mt-6 pt-6 border-t border-vuelta-gray/20"
+              aria-label="メインナビゲーション"
             >
-            <div className="flex flex-col gap-4 pt-4 md:max-w-md md:mx-auto">
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <a 
-                  href={isRecruitPage ? "/ja#about" : "#about"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                  onClick={(e) => {
-                    if (!isRecruitPage) {
-                      handleAnchorClick(e, '#about')
-                    }
-                    setIsMenuOpen(false)
-                  }}
-                >
-                  About
-                </a>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <a 
-                  href={isRecruitPage ? "/ja#menu" : "#menu"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                  onClick={(e) => {
-                    if (!isRecruitPage) {
-                      handleAnchorClick(e, '#menu')
-                    }
-                    setIsMenuOpen(false)
-                  }}
-                >
-                  Menu
-                </a>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <a 
-                  href={isRecruitPage ? "/ja#reservation" : "#reservation"} 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                  onClick={(e) => {
-                    if (!isRecruitPage) {
-                      handleAnchorClick(e, '#reservation')
-                    }
-                    setIsMenuOpen(false)
-                  }}
-                >
-                  Access
-                </a>
-              </motion.div>
-              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                <Link 
-                  href="/recruit" 
-                  className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Recruit
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                <a
-                  href="https://www.instagram.com/vuelta_bar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase font-light text-center block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Reserve via DM
-                </a>
-              </motion.div>
-              <div className="pt-2 border-t border-vuelta-gray/30 mt-2">
-                <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                  <a
-                    href="/"
-                    className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      localStorage.setItem('vuelta-language', 'en')
-                      setIsMenuOpen(false)
-                      router.push('/')
-                    }}
-                  >
-                    English
-                  </a>
-                </motion.div>
+              <div className="flex flex-col">
+                <a href={isRecruitPage ? "/ja#about" : "#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
+                <a href={isRecruitPage ? "/ja#menu" : "#menu"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#menu'); setIsMenuOpen(false) }}>Menu</a>
+                <a href={isRecruitPage ? "/ja#reservation" : "#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
+                <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
+                <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
               </div>
-            </div>
-          </motion.div>
+            </motion.nav>
           )}
         </AnimatePresence>
       </nav>
@@ -310,36 +253,41 @@ export default function HomeJA() {
 
       <div id="main-content" tabIndex={-1}>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-24 md:pt-32" aria-label="ヒーローセクション">
+        <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-20 md:pt-24" aria-label="ヒーローセクション">
           {/* Background */}
           <div className="absolute inset-0 bg-white">
           </div>
 
-          <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-20 lg:py-32">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12">
             <div className="flex flex-col items-center">
               {/* Text Content */}
-              <div className="text-center mb-6 md:mb-12 lg:mb-16 w-full px-4">
+              <div className="text-center mb-6 md:mb-12 w-full px-4">
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.2 }}
-                  className="font-annam text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light tracking-tight mb-4 md:mb-8 lg:mb-12 text-balance"
+                  className="font-annam text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light tracking-tight mb-4 md:mb-6 text-balance"
                 >
                   V U E L T A
                 </motion.h1>
-                <motion.p
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.4 }}
-                  className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-text-light tracking-wider mb-6 md:mb-8 lg:mb-10 px-2"
+                  className="font-japanese text-sm sm:text-base md:text-lg lg:text-xl text-vuelta-text-light leading-relaxed mb-4 md:mb-6 px-2 max-w-5xl mx-auto space-y-2"
                 >
-                  おかえりとはじめましてが交差する
-                </motion.p>
+                  <p>
+                    おかえりとはじめましてが交差する。雑居ビル2階に潜む、架空の貿易拠点。
+                  </p>
+                  <p>
+                    世界中の洗練されたバーカルチャーを輸入し、広島のローカルな魂を世界へ輸出する。
+                  </p>
+                </motion.div>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 0.6 }}
-                  className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-6 md:mb-12 lg:mb-16 w-full max-w-md sm:max-w-none mx-auto px-4"
+                  className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-6 md:mb-12 w-full max-w-md sm:max-w-none mx-auto px-4"
                 >
                   <a
                     href="https://www.instagram.com/vuelta_bar"
@@ -366,7 +314,7 @@ export default function HomeJA() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1, delay: 0.7 }}
-                      className="w-full max-w-4xl mt-8"
+                      className="w-full max-w-5xl"
                     >
                 <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-vuelta-gray group">
                   <Image
@@ -470,15 +418,24 @@ export default function HomeJA() {
                 Food is the Invitation,<br />
                 People are the Destination
               </p>
-              <div className="space-y-6 md:space-y-8 text-vuelta-text font-japanese text-base sm:text-lg leading-relaxed max-w-2xl mx-auto px-4">
-                <p className="text-lg sm:text-xl leading-relaxed">
-                  私たちが出す飲み物や料理はこの交差点に来てもらうための招待状です。
+              <div className="space-y-6 md:space-y-8 text-vuelta-text font-japanese text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto px-4">
+                <p className="leading-relaxed">
+                  私たちが出す飲み物や料理はこの場所に来てもらうための招待状です。広島の海と陸と里から生まれた素材を使い、世界中のバーカルチャーと融合させたカクテル。それらは単なる飲み物ではなく、お客様をこの空間へと導く最初のきっかけです。
                 </p>
-                <p className="text-lg sm:text-xl leading-relaxed">
-                  でもお客様が本当に求めているのはそこで待っている人が作る温かい空気、空間だと考えています。
+                <p className="leading-relaxed">
+                  しかしお客様が本当に求めているのはそこで待っている人が作る温かい空気、空間だと考えています。カウンター越しの会話、隣に座る見知らぬ人との偶然の出会い、スタッフが語るカクテルに込められたストーリー。
                 </p>
-                <p className="text-vuelta-gold-light text-lg sm:text-xl pt-4 md:pt-6 leading-relaxed">
+                <p className="leading-relaxed">
+                  それらすべてが織りなす、この場所だけの特別な時間です。
+                </p>
+                <p className="leading-relaxed">
+                  美味しかったという記憶は、いつか薄れていくかもしれません。しかし、そこで生まれた人とのつながり、会話の温かさ、また来たいと思える居心地の良さ。それらは時間が経っても色褪せない、かけがえのない体験として残ります。
+                </p>
+                <p className="text-vuelta-gold-light pt-4 md:pt-6 leading-relaxed">
                   私たちの目標は美味しかったの先にあるあなたに会えてよかったを生み出すことです。
+                </p>
+                <p className="text-vuelta-gold-light leading-relaxed">
+                  カクテルは手段であり、目的は人と人をつなぐこと。それが私たちの使命です。
                 </p>
               </div>
             </FadeInUp>
@@ -499,14 +456,14 @@ export default function HomeJA() {
             {/* Asymmetric grid layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
               {[
-                { name: 'Shell We?', description: '海の恵みをグラスに閉じ込めました。牡蠣殻のウォッカとフレッシュなレモンが爽やかなハーモニーを奏で、クリスプなソーダで引き立てます。広島の海岸の本質を味わう一杯。', price: '¥750', image: '/images/cocktails/shellwe.jpg.png' },
-                { name: 'The OKONOMIYAKI', description: '広島のソウルフードを、カクテルとして再構築しました。だしの旨味の深さ、オタフクソースの豊かな複雑さ、トマトの自然な甘さが、どこにもない本物の地元の味を創り出します。', price: '¥900', image: '/images/cocktails/okonomiyaki.jpg.png' },
-                { name: 'Carnitas', description: 'じっくりと煮込んだ豚肩肉、柔らかく風味豊か。フレッシュなトルティーヤ、サルサ、伝統的な付け合わせと共に。本格的なメキシコ料理の味わい。', price: '2個 ¥880', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
+                { name: 'Shell We?', description: '牡蠣殻を漬け込んだウォッカが、瀬戸内の潮風と波音を運びます。フレッシュレモンの鮮やかな酸味とソーダが、まるで海岸線を歩いているかのような爽快感を生み出します。一口ごとに広がる、広島の海の記憶。', price: '¥750', image: '/images/cocktails/shellwe.jpg.png' },
+                { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの深い旨み、オタフクソースの懐かしさ、トマトの甘みがグラスの中でひとつになり、一口飲むたびにお好み焼き屋の熱気が蘇ります。広島の食文化を、そのまま飲む体験。', price: '¥900', image: '/images/cocktails/okonomiyaki.jpg.png' },
+                { name: 'Carnitas', description: '低温でゆっくり仕上げた豚肩肉が、フォークでほぐれるほどの柔らかさ。焦がした表面の香ばしさと、溶けるような脂の甘み。温めたトルティーヤにのせ、サルサをたっぷり。脂のうまみとスパイスが、カクテルとの相性も抜群。', price: '2個 ¥880', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
               ].map((item, index) => {
                 return (
                   <FadeInUp key={index} delay={index * 0.1}>
                     <div className="group cursor-pointer relative" role="article" aria-label={`${item.name} カクテル`}>
-                      <div className="relative aspect-square bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white overflow-hidden mb-6 focus-within:ring-2 focus-within:ring-vuelta-gold focus-within:ring-offset-2" style={{ minHeight: '400px' }}>
+                      <div className="relative aspect-square bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white overflow-hidden mb-4 sm:mb-6 focus-within:ring-2 focus-within:ring-vuelta-gold focus-within:ring-offset-2 min-h-[280px] sm:min-h-[350px] md:min-h-[400px]">
                         {item.image && !imageErrors[index] ? (
                           <>
                             <Image
@@ -615,7 +572,7 @@ export default function HomeJA() {
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                        Hours (JST)
+                        Hours
                       </h3>
                       <p className="text-base sm:text-lg">
                         Wed, Fri - Tue: 18:00 - 02:00<br />
@@ -625,7 +582,7 @@ export default function HomeJA() {
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                        定員
+                        Capacity
                       </h3>
                       <p className="text-base sm:text-lg">
                         Counter: 8 seats<br />
@@ -635,7 +592,7 @@ export default function HomeJA() {
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                        予約
+                        Reservation
                       </h3>
                       <p className="text-base sm:text-lg mb-3">
                         InstagramのDMでご連絡ください
@@ -644,7 +601,7 @@ export default function HomeJA() {
                         href="https://www.instagram.com/vuelta_bar"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-japanese text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
+                        className="inline-flex items-center gap-2 px-5 py-3 min-h-[44px] bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-japanese text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
                         aria-label="Reserve via DM"
                       >
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -676,12 +633,12 @@ export default function HomeJA() {
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none" />
                   </div>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-japanese text-sm"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-japanese text-sm"
                       aria-label="GoogleマップでVUELTAの場所を開く"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -693,7 +650,7 @@ export default function HomeJA() {
                       href="https://www.instagram.com/vuelta_bar"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-japanese text-sm"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-japanese text-sm"
                       aria-label="Reserve via DM"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -709,9 +666,9 @@ export default function HomeJA() {
         </section>
 
         {/* Footer */}
-        <footer className="py-16 md:py-24 px-6 sm:px-8 border-t border-vuelta-gray/30">
+        <footer className="py-12 md:py-24 px-4 sm:px-8 border-t border-vuelta-gray/30">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-12 mb-12">
+            <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-10 md:mb-12">
               <div>
                 <Image
                   src="/images/vuelta-logo.png"
@@ -729,7 +686,7 @@ export default function HomeJA() {
                   <li>
                     <a 
                       href="#menu" 
-                      className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
+                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
                     >
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
                         <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -745,7 +702,7 @@ export default function HomeJA() {
                   <li>
                     <a 
                       href="#about" 
-                      className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
+                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
                     >
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
                         <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -761,7 +718,7 @@ export default function HomeJA() {
                   <li>
                     <Link 
                       href="/recruit" 
-                      className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
+                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
                     >
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
                         <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -786,7 +743,7 @@ export default function HomeJA() {
                       href="https://www.instagram.com/vuelta_bar" 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
+                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
                     >
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
                         <svg className="w-3 h-3 text-vuelta-gold" fill="currentColor" viewBox="0 0 24 24">
@@ -804,7 +761,7 @@ export default function HomeJA() {
                       href="https://www.instagram.com/yuji_miyake"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
+                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
                     >
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
                         <svg className="w-3 h-3 text-vuelta-gold" fill="currentColor" viewBox="0 0 24 24">
@@ -833,13 +790,14 @@ export default function HomeJA() {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
-          className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 md:hidden"
+          className="fixed z-50 md:hidden left-4 right-4 sm:left-1/2 sm:right-auto sm:w-auto sm:max-w-sm sm:-translate-x-1/2"
+          style={{ bottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
         >
           <a
             href="https://www.instagram.com/vuelta_bar"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider"
+            className="flex items-center justify-center gap-3 px-6 py-4 min-h-[52px] bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider w-full"
             aria-label="Reserve via DM"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

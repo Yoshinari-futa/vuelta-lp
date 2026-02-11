@@ -32,21 +32,18 @@ export default function LanguageSelector() {
     // ローカルストレージから言語設定を読み込む
     const savedLanguage = localStorage.getItem('vuelta-language') as Language | null
     
-    // 既に正しい言語のページにいる場合はリダイレクトしない
-    const isOnJapanesePage = currentPath.startsWith('/ja')
-    const isOnEnglishPage = !isOnJapanesePage && currentPath !== '/ja'
-    
     if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'ja')) {
       setSelectedLanguage(savedLanguage)
       setIsVisible(false)
       // 保存された言語と現在のページが一致しない場合のみリダイレクト
+      const isOnJapanesePage = currentPath.startsWith('/ja')
       if (savedLanguage === 'ja' && !isOnJapanesePage) {
         router.push('/ja')
       } else if (savedLanguage === 'en' && isOnJapanesePage) {
         router.push('/')
       }
     } else {
-      // 初回訪問時は言語選択を表示
+      // 初回訪問時は言語選択を表示（ただし、ページコンテンツも表示されるようにする）
       setIsVisible(true)
     }
   }, [router])
