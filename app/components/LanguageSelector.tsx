@@ -43,7 +43,7 @@ export default function LanguageSelector() {
         router.push('/')
       }
     } else {
-      // 初回訪問時は言語選択を表示（ただし、ページコンテンツも表示されるようにする）
+      // 初回訪問時は言語選択を表示
       setIsVisible(true)
     }
   }, [router])
