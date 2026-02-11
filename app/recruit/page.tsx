@@ -3,12 +3,15 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 // Header Component
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
   const isRecruitPage = pathname === '/recruit'
 
   return (
@@ -17,9 +20,16 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <Link 
             href="/"
-            className="font-annam text-xl md:text-2xl text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-wider"
+            className="transition-opacity hover:opacity-80"
           >
-            V U E L T A
+            <Image
+              src="/images/vuelta-logo.png"
+              alt="VUELTA"
+              width={250}
+              height={85}
+              className="h-8 md:h-10 w-auto object-contain"
+              priority
+            />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -151,6 +161,22 @@ const Header = () => {
                   Reserve via DM
                 </a>
               </motion.div>
+              <div className="pt-2 border-t border-vuelta-gold/30 mt-2">
+                <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                  <a
+                    href="/ja"
+                    className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded px-2 py-1"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      localStorage.setItem('vuelta-language', 'ja')
+                      setIsMenuOpen(false)
+                      router.push('/ja')
+                    }}
+                  >
+                    Japanese
+                  </a>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         )}
@@ -185,8 +211,55 @@ const Number = ({ num }: { num: string }) => (
 
 
 export default function Recruit() {
+  // Structured Data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": "Bartender and Service Staff - VUELTA",
+    "description": "Join VUELTA team. We are looking for passionate people who love food and hospitality. English speakers welcome.",
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "VUELTA",
+      "value": "RECRUIT"
+    },
+    "datePosted": "2024-01-01",
+    "employmentType": "PART_TIME",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "VUELTA",
+      "sameAs": "https://www.instagram.com/vuelta_bar"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3-3-5 Ote-machi, Naka-ku, Kakee Building 2F",
+        "addressLocality": "Hiroshima",
+        "addressRegion": "Hiroshima Prefecture",
+        "postalCode": "730-0051",
+        "addressCountry": "JP"
+      }
+    },
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "JPY",
+      "value": {
+        "@type": "QuantitativeValue",
+        "minValue": 1200,
+        "maxValue": 1200,
+        "unitText": "HOUR"
+      }
+    },
+    "workHours": "18:00-02:00",
+    "url": "https://vuelta-bar.com/recruit"
+  }
+
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Header />
 
       {/* Hero Section - Bold & Minimal */}
@@ -210,7 +283,6 @@ export default function Recruit() {
                 <div className="h-px w-24 bg-vuelta-gold mb-12"></div>
                 <p className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-gold/90 leading-relaxed mb-12">
                   VUELTAで、<span className="text-vuelta-gold font-medium">一緒に働きませんか？</span><br />
-                  広島のクロスロードで、<br />
                   新しい出会いと繋がりを生み出す場所です。
                 </p>
               </div>
@@ -251,20 +323,20 @@ export default function Recruit() {
               </div>
               <div className="space-y-6 font-japanese text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
                 <p>
-                  <span className="text-white font-medium">「おかえり」と「はじめまして」が交差する、広島のクロスロード。</span><br />
+                  <span className="text-white font-medium">おかえりとはじめましてが交差する</span><br />
                   VUELTAは、ただのバーではありません。<br />
                   世界中から平和を願う人たちと、地元の人々が出会う場所です。
                 </p>
                 <p>
                   私たちが提供する飲み物、料理は、<br />
-                  ゲストをこの交差点に招くための<span className="text-white font-medium">「招待状」</span>です。<br />
+                  ゲストをこの交差点に招くための<span className="text-white font-medium">招待状</span>です。<br />
                   ゲストが本当に求めているのは、<br />
-                  そこで待つあなたという<span className="text-white font-medium">「人」</span>と、<br />
+                  そこで待つあなたという<span className="text-white font-medium">人</span>と、<br />
                   あなたが生み出す温かい空気です。
                 </p>
                 <p>
                   私たちのゴールは、<br />
-                  <span className="text-white font-medium">「美味しかった」の先にある、「あなたに会えてよかった」</span>を創造することです。<br />
+                  <span className="text-white font-medium">美味しかったの先にある、あなたに会えてよかった</span>を創造することです。<br />
                   ここで働くあなたは、<br />
                   世界中の人々と出会い、<br />
                   言葉を超えた<span className="text-white font-medium">心のつながり</span>を生み出す、<br />
@@ -539,7 +611,13 @@ export default function Recruit() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
-              <h3 className="font-annam text-2xl mb-4 text-vuelta-gold">V U E L T A</h3>
+              <Image
+                src="/images/vuelta-logo.png"
+                alt="VUELTA"
+                width={200}
+                height={68}
+                className="h-10 w-auto mb-4 object-contain opacity-80"
+              />
               <p className="font-japanese text-sm text-vuelta-gold/70 mb-3">
                 Experience the art of mixology
               </p>

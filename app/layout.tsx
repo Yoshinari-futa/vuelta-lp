@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
+import LanguageSelector from './components/LanguageSelector'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -42,30 +43,36 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'VUELTA BAR In Hiroshima | English Friendly',
+  title: 'VUELTA In Hiroshima | English Friendly',
   description: 'Experience the art of mixology at VUELTA, Hiroshima\'s premier cocktail bar. English spoken, international guests welcome. Signature cocktails, intimate atmosphere, located in the heart of Hiroshima city center.',
   keywords: 'cocktail bar Hiroshima, VUELTA, Hiroshima bar, English speaking bar Hiroshima, premium cocktails, mixology Hiroshima, international bar Japan',
   openGraph: {
-    title: 'VUELTA BAR In Hiroshima',
+    title: 'VUELTA In Hiroshima',
     description: 'Where "Welcome Back" meets "Nice to Meet You". Experience authentic Hiroshima hospitality with world-class cocktails.',
     type: 'website',
     locale: 'en_US',
     url: 'https://vuelta-bar.com',
-    siteName: 'VUELTA BAR',
+    siteName: 'VUELTA',
     images: [
+      {
+        url: '/images/interior.png',
+        width: 1200,
+        height: 630,
+        alt: 'VUELTA Cocktail Bar Interior',
+      },
       {
         url: '/icon.png',
         width: 500,
         height: 500,
-        alt: 'VUELTA BAR Logo',
+        alt: 'VUELTA Logo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VUELTA BAR In Hiroshima',
+    title: 'VUELTA In Hiroshima',
     description: 'Experience the art of mixology at VUELTA',
-    images: ['/icon.png'],
+    images: ['/images/interior.png'],
   },
   icons: {
     icon: '/icon.png',
@@ -85,6 +92,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://vuelta-bar.com',
+    languages: {
+      'en': 'https://vuelta-bar.com',
+      'ja': 'https://vuelta-bar.com/ja',
+    },
   },
 }
 
@@ -96,6 +107,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${playfair.variable} ${inter.variable} ${annamNeue.variable} ${japaneseFont.variable} font-sans antialiased`}>
+        <LanguageSelector />
         {children}
       </body>
     </html>
