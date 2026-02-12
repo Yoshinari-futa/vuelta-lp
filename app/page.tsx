@@ -287,7 +287,7 @@ export default function Home() {
                 transition={{ duration: 1, delay: 0.4 }}
                 className="font-sans text-base sm:text-lg md:text-xl text-vuelta-text-light tracking-wider uppercase mb-4 md:mb-6 leading-relaxed max-w-3xl mx-auto px-2"
               >
-                Where welcome back meets nice to meet you
+                Where welcome back meets nice to meet you.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -374,7 +374,7 @@ export default function Home() {
               <div className="space-y-6 md:space-y-8 text-vuelta-text-light font-sans text-sm sm:text-base md:text-lg leading-relaxed">
                 <p className="text-xl text-vuelta-gold-light font-semibold leading-relaxed">
                   In Hiroshima<br />
-                  where welcome back meets nice to meet you
+                  where welcome back meets nice to meet you.
                 </p>
                 <p className="leading-loose">
                   VUELTA means reunion, return, and cycle in Spanish.<br />
@@ -389,7 +389,7 @@ export default function Home() {
                 </p>
                 <div className="space-y-6 pt-6 border-t border-vuelta-gray">
                   <div>
-                    <p className="text-vuelta-gold font-semibold mb-2">For international guests</p>
+                    <p className="text-vuelta-gold font-semibold mb-2">For international guests.</p>
                     <p className="leading-relaxed">
                       Want to know where locals really go?<br />
                       This is it.<br />
@@ -398,14 +398,14 @@ export default function Home() {
                     </p>
                   </div>
                   <div>
-                    <p className="text-vuelta-gold font-semibold mb-2">For locals</p>
+                    <p className="text-vuelta-gold font-semibold mb-2">For locals.</p>
                     <p className="leading-relaxed">
                       Feel new inspiration and connections<br />
                       while experiencing a Western worldview in your everyday life.
                     </p>
                   </div>
                 </div>
-                <p className="text-vuelta-gold-light italic text-lg leading-relaxed pt-4">
+                <p className="text-vuelta-gold-light italic leading-relaxed pt-4">
                   Where these two lives intersect,<br />
                   the feeling of I want to come back is born.<br />
                   That is VUELTA.
@@ -437,7 +437,7 @@ export default function Home() {
               Our Mission
             </h2>
             <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 text-vuelta-gold-light italic px-4">
-              Food is the Invitation, People are the Destination
+              Food is the Invitation, People are the Destination.
             </p>
             <div className="space-y-6 md:space-y-8 text-vuelta-text font-sans text-base sm:text-lg leading-relaxed max-w-2xl mx-auto px-4">
               <p className="leading-loose">
@@ -463,7 +463,7 @@ export default function Home() {
                 Menu
               </h2>
               <p className="font-sans text-vuelta-text-light uppercase tracking-wider text-xs sm:text-sm">
-                Crafted with Precision
+                Crafted with Precision.
               </p>
             </div>
           </FadeInUp>
@@ -712,7 +712,7 @@ export default function Home() {
                     <p className="text-base sm:text-lg">
                       Wed, Fri - Tue: 18:00 - 02:00<br />
                       <span className="text-vuelta-text-light">Closed on Thursdays</span><br />
-                      <span className="text-sm text-vuelta-text-light">Last order: 01:30</span>
+                      <span className="text-sm text-vuelta-text-light">Last order: 01:30.</span>
                     </p>
                   </div>
                   <div>
@@ -722,7 +722,7 @@ export default function Home() {
                     <p className="text-base sm:text-lg">
                       Counter: 8 seats<br />
                       Standing area: 8 seats<br />
-                      <span className="text-sm text-vuelta-text-light">Intimate atmosphere for conversation</span>
+                      <span className="text-sm text-vuelta-text-light">Intimate atmosphere for conversation.</span>
                     </p>
                   </div>
                   <div>
@@ -814,11 +814,11 @@ export default function Home() {
                 className="h-10 w-auto mb-4 object-contain opacity-80"
               />
               <p className="font-sans text-sm text-vuelta-text-light mb-3">
-                Experience the art of mixology
+                Experience the art of mixology.
               </p>
               <p className="font-sans text-xs text-vuelta-text-light">
-                We'll Do Our Best to Communicate • International Guests Welcome<br />
-                Free Wi-Fi Available • Where Locals Really Go
+                We'll Do Our Best to Communicate. International Guests Welcome.<br />
+                Free Wi-Fi Available. Where Locals Really Go.
               </p>
             </div>
             <div>

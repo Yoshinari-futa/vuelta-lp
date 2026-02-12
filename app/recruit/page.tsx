@@ -250,7 +250,7 @@ export default function Recruit() {
               </span>
               <p className="font-japanese text-lg sm:text-xl md:text-2xl text-vuelta-gold/90 leading-relaxed">
                 <span className="text-vuelta-gold font-medium">一緒に働きたい仲間</span>を<br />
-                募集しています
+                募集しています。
               </p>
             </motion.div>
           </div>
@@ -274,7 +274,7 @@ export default function Recruit() {
               </div>
               <div className="space-y-6 font-japanese text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
                 <p>
-                  <span className="text-white font-medium">おかえりとはじめましてが交差する</span><br />
+                  <span className="text-white font-medium">おかえりとはじめましてが交差する。</span><br />
                   VUELTAは、ただのバーではありません。<br />
                   世界中から平和を願う人たちと、地元の人々が出会う場所です。
                 </p>
@@ -309,7 +309,7 @@ export default function Recruit() {
                 </p>
                 <p className="text-white/60 italic text-xl md:text-2xl mt-8 pt-8 border-t border-white/20">
                   "Food is the Invitation,<br />
-                  People are the Destination"
+                  People are the Destination."
                 </p>
               </div>
             </div>
@@ -382,31 +382,31 @@ export default function Recruit() {
                     <ul className="space-y-4 font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
-                        <span>飲食が好きな人</span>
+                        <span>飲食が好きな人。</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
-                        <span>カクテル作りとおもてなしへの情熱</span>
+                        <span>カクテル作りとおもてなしへの情熱。</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
-                        <span>フレンドリーで外向的な性格</span>
+                        <span>フレンドリーで外向的な性格。</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
-                        <span>多様なゲストと働くことへの興味</span>
+                        <span>多様なゲストと働くことへの興味。</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
-                        <span>チームワークと前向きな姿勢</span>
+                        <span>チームワークと前向きな姿勢。</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
-                        <span>成長への意欲</span>
+                        <span>成長への意欲。</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
-                        <span>英語を話せない人も大歓迎です</span>
+                        <span>英語を話せない人も大歓迎です。</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-vuelta-gold/50 mt-1.5 text-lg">—</span>
@@ -453,7 +453,7 @@ export default function Recruit() {
                     </h4>
                     <p className="font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       カクテル作りから接客まで、<br />
-                      実践的なスキルを学べます
+                      実践的なスキルを学べます。
                     </p>
                   </div>
                 </div>
@@ -467,7 +467,7 @@ export default function Recruit() {
                     </h4>
                     <p className="font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       海外からのお客様と地元の人たちが交わる、<br />
-                      多様な環境で働けます
+                      多様な環境で働けます。
                     </p>
                   </div>
                 </div>
@@ -487,7 +487,7 @@ export default function Recruit() {
                     <p className="font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       東京での研修や、<br />
                       優れたBAR・レストランでの見学を通じて、<br />
-                      新しい視点を学べます
+                      新しい視点を学べます。
                     </p>
                   </div>
                 </div>
@@ -501,7 +501,7 @@ export default function Recruit() {
                     </h4>
                     <p className="font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       チーム全体で支え合い、<br />
-                      成長できる環境です
+                      成長できる環境です。
                     </p>
                   </div>
                 </div>
@@ -570,11 +570,11 @@ export default function Recruit() {
                 className="h-10 w-auto mb-4 object-contain opacity-80"
               />
               <p className="font-japanese text-sm text-vuelta-gold/70 mb-3">
-                Experience the art of mixology
+                Experience the art of mixology.
               </p>
               <p className="font-japanese text-xs text-vuelta-gold/60">
-                We'll Do Our Best to Communicate • International Guests Welcome<br />
-                Free Wi-Fi Available • Where Locals Really Go
+                We'll Do Our Best to Communicate. International Guests Welcome.<br />
+                Free Wi-Fi Available. Where Locals Really Go.
               </p>
             </div>
             <div>

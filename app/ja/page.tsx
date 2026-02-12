@@ -357,7 +357,7 @@ export default function HomeJA() {
                 </h2>
                 <div className="space-y-6 md:space-y-8 text-vuelta-text-light font-japanese text-sm sm:text-base md:text-lg leading-loose">
                   <p className="text-xl text-vuelta-gold-light font-semibold">
-                    おかえりとはじめましてが交差する
+                    おかえりとはじめましてが交差する。
                   </p>
                   <p>
                     VUELTAは、スペイン語で再会、回帰、循環を意味します。<br />
@@ -373,7 +373,7 @@ export default function HomeJA() {
                         For International Guests
                       </h3>
                       <p className="text-vuelta-text-light leading-loose">
-                        観光地だけじゃなく地元の人と一緒に笑える本当の広島を体験できます
+                        観光地だけじゃなく地元の人と一緒に笑える本当の広島を体験できます。
                       </p>
                     </div>
                     <div>
@@ -381,13 +381,20 @@ export default function HomeJA() {
                         For Locals
                       </h3>
                       <p className="text-vuelta-text-light leading-loose">
-                        いつもの日常だけど海外の雰囲気も感じられる。また新しい出会いがあって人とのつながりを感じられる場所です
+                        いつもの日常だけど海外の雰囲気も感じられる。また新しい出会いがあって人とのつながりを感じられる場所です。
                       </p>
                     </div>
                   </div>
-                  <p className="text-vuelta-gold-light italic text-lg pt-4">
-                    この二つの人生が交差してまた来たいと思う場所<br />
-                    それがVUELTAです
+                  <p className="text-vuelta-gold-light italic pt-4">
+                    <span className="md:hidden">
+                      この二つの人生が交差して、<br />
+                      また来たいと思う場所。<br />
+                      それがVUELTAです。
+                    </span>
+                    <span className="hidden md:inline">
+                      この二つの人生が交差してまた来たいと思う場所。<br />
+                      それがVUELTAです。
+                    </span>
                   </p>
                 </div>
               </div>
@@ -416,17 +423,24 @@ export default function HomeJA() {
               </h2>
               <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 lg:mb-16 text-vuelta-gold-light italic px-4">
                 Food is the Invitation,<br />
-                People are the Destination
+                People are the Destination.
               </p>
               <div className="space-y-6 md:space-y-8 text-vuelta-text font-japanese text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto px-4">
                 <p className="leading-relaxed">
-                  私たちが出す飲み物や料理はこの場所に来てもらうための招待状です。広島の海と陸と里から生まれた素材を使い、世界中のバーカルチャーと融合させたカクテル。それらは単なる飲み物ではなく、お客様をこの空間へと導く最初のきっかけです。
+                  <span className="md:hidden">
+                    私たちが出す飲み物や料理はこの場所に来てもらうための招待状です。広島の海と陸と里から生まれた素材を使い、世界中のバーカルチャーと融合させたカクテル。それらは単なる飲み物ではなく、<br />
+                    お客様をこの空間へと導く最初のきっかけです。
+                  </span>
+                  <span className="hidden md:inline">
+                    私たちが出す飲み物や料理はこの場所に来てもらうための招待状です。広島の海と陸と里から生まれた素材を使い、世界中のバーカルチャーと融合させたカクテル。それらは単なる飲み物ではなく、お客様をこの空間へと導く最初のきっかけです。
+                  </span>
                 </p>
                 <p className="leading-relaxed">
-                  しかしお客様が本当に求めているのはそこで待っている人が作る温かい空気、空間だと考えています。カウンター越しの会話、隣に座る見知らぬ人との偶然の出会い、スタッフが語るカクテルに込められたストーリー。
+                  しかしお客様が本当に求めているのはそこで待っている人が作る温かい空気、空間やコミニケーションだと考えています。カウンター越しの会話、隣に座る見知らぬ人との偶然の出会い、スタッフが語るカクテルに込められたストーリー。
                 </p>
                 <p className="leading-relaxed">
-                  それらすべてが織りなす、この場所だけの特別な時間です。
+                  それらすべてが織りなす、<br />
+                  この場所だけの特別な時間。
                 </p>
                 <p className="leading-relaxed">
                   美味しかったという記憶は、いつか薄れていくかもしれません。しかし、そこで生まれた人とのつながり、会話の温かさ、また来たいと思える居心地の良さ。それらは時間が経っても色褪せない、かけがえのない体験として残ります。
@@ -549,7 +563,7 @@ export default function HomeJA() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                           </div>
-                          <span>最寄り駅: 中電前駅</span>
+                          <span>最寄り駅: 中電前駅。</span>
                         </div>
                         <div className="flex items-start gap-3">
                           <div className="flex-shrink-0 w-6 h-6 mt-0.5">
@@ -557,7 +571,7 @@ export default function HomeJA() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                             </svg>
                           </div>
-                          <span>徒歩: 中電前駅から1分</span>
+                          <span>徒歩: 中電前駅から1分。</span>
                         </div>
                         <div className="flex items-start gap-3">
                           <div className="flex-shrink-0 w-6 h-6 mt-0.5">
@@ -566,7 +580,7 @@ export default function HomeJA() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                           </div>
-                          <span>広島市中心部に位置</span>
+                          <span>広島市中心部に位置。</span>
                         </div>
                       </div>
                     </div>
@@ -577,7 +591,7 @@ export default function HomeJA() {
                       <p className="text-base sm:text-lg">
                         Wed, Fri - Tue: 18:00 - 02:00<br />
                         <span className="text-vuelta-text-light">Closed on Thursdays</span><br />
-                        <span className="text-sm text-vuelta-text-light">Last order: 01:30</span>
+                        <span className="text-sm text-vuelta-text-light">Last order: 01:30.</span>
                       </p>
                     </div>
                     <div>
@@ -587,7 +601,7 @@ export default function HomeJA() {
                       <p className="text-base sm:text-lg">
                         Counter: 8 seats<br />
                         Standing area: 8 seats<br />
-                        <span className="text-sm text-vuelta-text-light">Intimate atmosphere perfect for conversation</span>
+                        <span className="text-sm text-vuelta-text-light">Intimate atmosphere perfect for conversation.</span>
                       </p>
                     </div>
                     <div>
@@ -595,7 +609,7 @@ export default function HomeJA() {
                         Reservation
                       </h3>
                       <p className="text-base sm:text-lg mb-3">
-                        InstagramのDMでご連絡ください
+                        InstagramのDMでご連絡ください。
                       </p>
                       <a
                         href="https://www.instagram.com/vuelta_bar"
