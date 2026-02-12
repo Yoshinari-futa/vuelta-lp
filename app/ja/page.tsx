@@ -65,8 +65,8 @@ const Header = () => {
             />
           </Link>
 
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-3 sm:pr-4 min-w-[3rem] flex-shrink-0">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0">
               <a
                 href="/"
                 className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block"
@@ -84,7 +84,7 @@ const Header = () => {
             {!isRecruitPage && (
               <>
                 {/* Mobile */}
-                <div className="md:hidden flex items-center gap-2 px-3 py-1.5 border border-vuelta-gold/30 rounded-full bg-white/80 backdrop-blur-sm">
+                <div className="md:hidden flex items-center gap-2 px-3 py-1.5 min-w-[7rem] border border-vuelta-gold/30 rounded-full bg-white/80 backdrop-blur-sm">
                   <span className={`w-2 h-2 rounded-full ${hoursStatus.isOpen ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`} aria-hidden="true"></span>
                   <span className="font-sans text-xs text-vuelta-text font-medium">18:00 - 02:00</span>
                 </div>

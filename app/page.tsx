@@ -86,7 +86,7 @@ const Header = () => {
             </div>
             {/* Hours Status - Mobile */}
             {!isRecruitPage && (
-              <div className="md:hidden flex items-center gap-2 px-3 py-1.5 border border-vuelta-gold/30 rounded-full bg-white/80 backdrop-blur-sm">
+              <div className="md:hidden flex items-center gap-2 px-3 py-1.5 min-w-[7rem] border border-vuelta-gold/30 rounded-full bg-white/80 backdrop-blur-sm">
                 <span className={`w-2 h-2 rounded-full ${hoursStatus.isOpen ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`} aria-hidden="true"></span>
                 <span className="font-sans text-xs text-vuelta-text font-medium">18:00 - 02:00</span>
               </div>
