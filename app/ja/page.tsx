@@ -372,16 +372,18 @@ export default function HomeJA() {
                     おかえりとはじめましてが交差する。
                   </p>
                   <p>
-                    VUELTAは、スペイン語で再会、回帰、循環を意味します。<br />
-                    でも、ここではもっと特別な意味を持っています。
-                  </p>
-                  <p>
                     <span className="md:hidden">
+                      VUELTAは、スペイン語で<br />
+                      再会、回帰、循環を意味します。<br />
+                      でも、ここではもっと特別な意味を持っています。<br />
                       広島は、世界中からいろんな人が訪れる街です。<br />
                       私たちは、この街で観光で来る人と地元の人が出会い、<br />
-                      本当の広島を感じてもらえる場所を作りました。地元の人も集まる場所です。
+                      本当の広島を感じてもらえる場所を作りました。<br />
+                      地元の人も集まる場所です。
                     </span>
                     <span className="hidden md:inline">
+                      VUELTAは、スペイン語で再会、回帰、循環を意味します。<br />
+                      でも、ここではもっと特別な意味を持っています。<br />
                       広島は、世界中からいろんな人が訪れる街です。<br />
                       私たちは、この街で観光で来る人と地元の人が出会い、本当の広島を感じてもらえる場所を作りました。地元の人も集まる場所です。
                     </span>
@@ -400,7 +402,13 @@ export default function HomeJA() {
                         For Locals
                       </h3>
                       <p className="text-vuelta-text-light leading-loose">
-                        いつもの日常だけど海外の雰囲気も感じられる。また新しい出会いがあって人とのつながりを感じられる場所です。
+                        <span className="md:hidden">
+                          いつもの日常だけど海外の雰囲気も感じられる。<br />
+                          また新しい出会いがあって人とのつながりを感じられる場所です。
+                        </span>
+                        <span className="hidden md:inline">
+                          いつもの日常だけど海外の雰囲気も感じられる。また新しい出会いがあって人とのつながりを感じられる場所です。
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -447,7 +455,8 @@ export default function HomeJA() {
               <div className="space-y-6 md:space-y-8 text-vuelta-text font-japanese text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto px-4">
                 <p className="leading-relaxed">
                   <span className="md:hidden">
-                    私たちが出す飲み物や料理はこの場所に来てもらうための招待状です。<br />
+                    私たちが出す飲み物や料理は<br />
+                    この場所に来てもらうための招待状です。<br />
                     広島の海と陸と里から生まれた素材を使い、<br />
                     世界中のバーカルチャーと融合させたカクテル。<br />
                     それらは単なる飲み物ではなく、<br />
@@ -459,31 +468,44 @@ export default function HomeJA() {
                 </p>
                 <p className="leading-relaxed">
                   <span className="md:hidden">
-                    しかしお客様が本当に求めているのはそこで待っている人が作る温かい空気、空間やコミニケーションだと考えています。<br />
+                    しかしお客様が本当に求めているのは<br />
+                    そこで待っている人が作る温かい空気、空間やコミニケーションだと考えています。<br />
                     カウンター越しの会話、<br />
                     隣に座る見知らぬ人との偶然の出会い、<br />
-                    スタッフが語るカクテルに込められたストーリー。
+                    スタッフが語るカクテルに込められたストーリー。<br />
+                    それらすべてが織りなす、<br />
+                    この場所だけの特別な時間。
                   </span>
                   <span className="hidden md:inline">
                     しかしお客様が本当に求めているのはそこで待っている人が作る温かい空気、空間やコミニケーションだと考えています。カウンター越しの会話、隣に座る見知らぬ人との偶然の出会い、スタッフが語るカクテルに込められたストーリー。
                   </span>
                 </p>
-                <p className="leading-relaxed">
+                <p className="leading-relaxed hidden md:block">
                   それらすべてが織りなす、<br />
                   この場所だけの特別な時間。
                 </p>
                 <p className="leading-relaxed">
                   <span className="md:hidden">
-                    美味しかったという記憶は、いつか薄れていくかもしれません。<br />
-                    しかし、そこで生まれた人とのつながり、会話の温かさ、また来たいと思える居心地の良さ。<br />
-                    それらは時間が経っても色褪せない、かけがえのない体験として残ります。
+                    美味しかったという記憶は、<br />
+                    いつか薄れていくかもしれません。<br />
+                    しかし、そこで生まれた人とのつながり、<br />
+                    会話の温かさ、<br />
+                    また来たいと思える居心地の良さ。<br />
+                    それらは時間が経っても色褪せない、<br />
+                    かけがえのない体験として残ります。
                   </span>
                   <span className="hidden md:inline">
                     美味しかったという記憶は、いつか薄れていくかもしれません。しかし、そこで生まれた人とのつながり、会話の温かさ、また来たいと思える居心地の良さ。それらは時間が経っても色褪せない、かけがえのない体験として残ります。
                   </span>
                 </p>
                 <p className="text-vuelta-gold-light pt-4 md:pt-6 leading-relaxed">
-                  私たちの目標は美味しかったの先にあるあなたに会えてよかったを生み出すことです。
+                  <span className="md:hidden">
+                    私たちの目標は美味しかったの先に<br />
+                    あるあなたに会えてよかったを生み出すことです。
+                  </span>
+                  <span className="hidden md:inline">
+                    私たちの目標は美味しかったの先にあるあなたに会えてよかったを生み出すことです。
+                  </span>
                 </p>
                 <p className="text-vuelta-gold-light leading-relaxed">
                   カクテルは手段であり、目的は人と人をつなぐこと。それが私たちの使命です。
