@@ -452,7 +452,7 @@ export default function HomeJA() {
                 Food is the Invitation,<br />
                 People are the Destination.
               </p>
-              <div className="space-y-6 md:space-y-8 text-vuelta-text font-japanese text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto px-4">
+              <div className="space-y-6 md:space-y-8 text-vuelta-text font-japanese text-sm sm:text-base md:text-lg leading-relaxed w-full px-4">
                 <p className="leading-relaxed">
                   <span className="md:hidden">
                     私たちが出す飲み物や料理は<br />

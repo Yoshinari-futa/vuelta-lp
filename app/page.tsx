@@ -439,7 +439,7 @@ export default function Home() {
             <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 text-vuelta-gold-light italic px-4">
               Food is the Invitation, People are the Destination.
             </p>
-            <div className="space-y-6 md:space-y-8 text-vuelta-text font-sans text-base sm:text-lg leading-relaxed max-w-2xl mx-auto px-4">
+            <div className="space-y-6 md:space-y-8 text-vuelta-text font-sans text-base sm:text-lg leading-relaxed w-full px-4">
               <p className="leading-loose">
                 The cocktails and drinks we serve are merely an invitation to bring guests here.
               </p>
