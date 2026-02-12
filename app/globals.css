@@ -5,9 +5,11 @@
 @layer base {
   html {
     scrollbar-gutter: stable;
+    overflow-x: hidden;
   }
   body {
     @apply bg-white text-vuelta-text;
+    overflow-x: hidden;
   }
 }
 

@@ -66,10 +66,10 @@ const Header = () => {
           </Link>
 
           <div className="flex items-center gap-3 sm:gap-4">
-            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-3 sm:pr-4">
+            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-3 sm:pr-4 min-w-[3rem] flex-shrink-0">
               <a
                 href="/"
-                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase"
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block"
                 onClick={(e) => {
                   e.preventDefault()
                   localStorage.setItem('vuelta-language', 'en')
@@ -78,8 +78,8 @@ const Header = () => {
               >
                 EN
               </a>
-              <span className="text-vuelta-gray/60 text-xs">/</span>
-              <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase">JA</span>
+              <span className="text-vuelta-gray/60 text-xs flex-shrink-0">/</span>
+              <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">JA</span>
             </div>
             {!isRecruitPage && (
               <>

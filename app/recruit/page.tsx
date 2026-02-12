@@ -33,12 +33,12 @@ const Header = () => {
           </Link>
 
           <div className="flex items-center gap-4 md:gap-8">
-            <div className="flex items-center gap-2 border-r border-vuelta-gold/30 pr-4">
-              <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase">EN</span>
-              <span className="text-vuelta-gray/60 text-xs">/</span>
+            <div className="flex items-center gap-2 border-r border-vuelta-gold/30 pr-4 min-w-[3rem] flex-shrink-0">
+              <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">EN</span>
+              <span className="text-vuelta-gray/60 text-xs flex-shrink-0">/</span>
               <a
                 href="/ja"
-                className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-wider uppercase"
+                className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block"
                 onClick={(e) => {
                   e.preventDefault()
                   localStorage.setItem('vuelta-language', 'ja')
