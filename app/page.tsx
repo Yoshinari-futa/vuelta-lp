@@ -431,7 +431,7 @@ export default function Home() {
 
       {/* Mission Section */}
       <section className="py-12 md:py-32 px-4 sm:px-6 bg-vuelta-gray">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-left">
           <FadeInUp>
             <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-8 text-vuelta-gold px-4">
               Our Mission

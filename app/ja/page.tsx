@@ -445,10 +445,10 @@ export default function HomeJA() {
         <section className="py-12 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 bg-white">
           <div className="max-w-4xl mx-auto text-left">
             <FadeInUp>
-              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-12 text-vuelta-gold px-4 text-center">
+              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-12 text-vuelta-gold px-4">
                 Our Mission
               </h2>
-              <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 lg:mb-16 text-vuelta-gold-light italic px-4 text-center">
+              <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 lg:mb-16 text-vuelta-gold-light italic px-4">
                 Food is the Invitation,<br />
                 People are the Destination.
               </p>
