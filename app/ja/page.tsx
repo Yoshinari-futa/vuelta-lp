@@ -443,12 +443,12 @@ export default function HomeJA() {
 
         {/* Mission Section */}
         <section className="py-12 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 bg-white">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-left">
             <FadeInUp>
-              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-12 text-vuelta-gold px-4">
+              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-12 text-vuelta-gold px-4 text-center">
                 Our Mission
               </h2>
-              <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 lg:mb-16 text-vuelta-gold-light italic px-4">
+              <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 lg:mb-16 text-vuelta-gold-light italic px-4 text-center">
                 Food is the Invitation,<br />
                 People are the Destination.
               </p>
@@ -469,7 +469,8 @@ export default function HomeJA() {
                 <p className="leading-relaxed">
                   <span className="md:hidden">
                     しかしお客様が本当に求めているのは<br />
-                    そこで待っている人が作る温かい空気、空間やコミニケーションだと考えています。<br />
+                    そこで待っている人が作る温かい空間や、<br />
+                    スタッフとのコミニケーションだと考えています。<br />
                     カウンター越しの会話、<br />
                     隣に座る見知らぬ人との偶然の出会い、<br />
                     スタッフが語るカクテルに込められたストーリー。<br />
@@ -477,7 +478,8 @@ export default function HomeJA() {
                     この場所だけの特別な時間。
                   </span>
                   <span className="hidden md:inline">
-                    しかしお客様が本当に求めているのはそこで待っている人が作る温かい空気、空間やコミニケーションだと考えています。カウンター越しの会話、隣に座る見知らぬ人との偶然の出会い、スタッフが語るカクテルに込められたストーリー。
+                    しかしお客様が本当に求めているのはそこで待っている人が作る温かい空間や、<br />
+                    スタッフとのコミニケーションだと考えています。カウンター越しの会話、隣に座る見知らぬ人との偶然の出会い、スタッフが語るカクテルに込められたストーリー。
                   </span>
                 </p>
                 <p className="leading-relaxed hidden md:block">
