@@ -51,8 +51,8 @@ const Header = () => {
           </a>
           
           <div className="flex items-center gap-4">
-            {/* EN/JA - Desktop only (mobile: shown in menu below) */}
-            <div className="hidden md:flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0">
+            {/* EN/JA - Left of menu button (both mobile and desktop) */}
+            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0">
               <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">EN</span>
               <span className="text-vuelta-gray/60 text-xs flex-shrink-0">/</span>
               <a
@@ -94,23 +94,6 @@ const Header = () => {
               aria-label="Main navigation"
             >
               <div className="flex flex-col">
-                {/* EN/JA - Mobile only: shown below menu bar */}
-                <div className="md:hidden flex items-center gap-2 py-3 min-h-[44px] border-b border-vuelta-gray/20 mb-2">
-                  <span className="font-annam text-sm text-vuelta-gold tracking-wider uppercase">EN</span>
-                  <span className="text-vuelta-gray/60 text-xs">/</span>
-                  <a
-                    href="/ja"
-                    className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      localStorage.setItem('vuelta-language', 'ja')
-                      router.push('/ja')
-                      setIsMenuOpen(false)
-                    }}
-                  >
-                    JA
-                  </a>
-                </div>
                 <a href={isRecruitPage ? "/#about" : "#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
                 <a href={isRecruitPage ? "/#menu" : "#menu"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#menu'); setIsMenuOpen(false) }}>Menu</a>
                 <a href={isRecruitPage ? "/#manager" : "#manager"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#manager'); setIsMenuOpen(false) }}>Manager</a>
