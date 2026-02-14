@@ -31,21 +31,6 @@ const Header = () => {
     }
   }
 
-  const getCurrentHours = () => {
-    const now = new Date()
-    const day = now.getDay()
-    const hour = now.getHours()
-    
-    if (day === 4) return { isOpen: false, status: '本日休業' }
-    
-    if (hour >= 18 || hour < 2) {
-      return { isOpen: true, status: '営業中' }
-    }
-    return { isOpen: false, status: '18:00 開店' }
-  }
-
-  const hoursStatus = getCurrentHours()
-
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
@@ -66,7 +51,8 @@ const Header = () => {
           </Link>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0">
+            {/* EN/JA - Desktop only (mobile: shown in menu below) */}
+            <div className="hidden md:flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0">
               <a
                 href="/"
                 className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block"
@@ -81,24 +67,6 @@ const Header = () => {
               <span className="text-vuelta-gray/60 text-xs flex-shrink-0">/</span>
               <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">JA</span>
             </div>
-            {!isRecruitPage && (
-              <>
-                {/* Mobile */}
-                <div className="md:hidden flex items-center gap-2 px-3 py-1.5 min-w-[7rem] border border-vuelta-gold/30 rounded-full bg-white/80 backdrop-blur-sm">
-                  <span className={`w-2 h-2 rounded-full ${hoursStatus.isOpen ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`} aria-hidden="true"></span>
-                  <span className="font-sans text-xs text-vuelta-text font-medium">18:00 - 02:00</span>
-                </div>
-                {/* Desktop */}
-                <div className="hidden md:flex items-center gap-3 px-4 py-2 border border-vuelta-gold/30 rounded-full bg-white/80 backdrop-blur-sm">
-                  <span className={`w-2 h-2 rounded-full ${hoursStatus.isOpen ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`} aria-hidden="true"></span>
-                  <div className="flex flex-col items-start">
-                    <span className="font-annam text-[10px] text-vuelta-gold/60 tracking-wider uppercase leading-tight">Open</span>
-                    <span className="font-sans text-sm text-vuelta-text font-medium leading-tight">Wed, Fri - Tue: 18:00 - 02:00</span>
-                  </div>
-                </div>
-              </>
-            )}
-
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="flex flex-col gap-1.5 p-3 min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded transition-all"
@@ -123,6 +91,23 @@ const Header = () => {
               aria-label="メインナビゲーション"
             >
               <div className="flex flex-col">
+                {/* EN/JA - Mobile only: shown below menu bar */}
+                <div className="md:hidden flex items-center gap-2 py-3 min-h-[44px] border-b border-vuelta-gray/20 mb-2">
+                  <a
+                    href="/"
+                    className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      localStorage.setItem('vuelta-language', 'en')
+                      router.push('/')
+                      setIsMenuOpen(false)
+                    }}
+                  >
+                    EN
+                  </a>
+                  <span className="text-vuelta-gray/60 text-xs">/</span>
+                  <span className="font-annam text-sm text-vuelta-gold tracking-wider uppercase">JA</span>
+                </div>
                 <a href={isRecruitPage ? "/ja#about" : "#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
                 <a href={isRecruitPage ? "/ja#menu" : "#menu"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#menu'); setIsMenuOpen(false) }}>Menu</a>
                 <a href={isRecruitPage ? "/ja#reservation" : "#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>

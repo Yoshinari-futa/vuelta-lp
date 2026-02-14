@@ -33,7 +33,8 @@ const Header = () => {
           </Link>
 
           <div className="flex items-center gap-4 md:gap-8">
-            <div className="flex items-center gap-2 border-r border-vuelta-gold/30 pr-4 min-w-[3rem] flex-shrink-0">
+            {/* EN/JA - Desktop only (mobile: shown in menu below) */}
+            <div className="hidden md:flex items-center gap-2 border-r border-vuelta-gold/30 pr-4 min-w-[3rem] flex-shrink-0">
               <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">EN</span>
               <span className="text-vuelta-gray/60 text-xs flex-shrink-0">/</span>
               <a
@@ -122,6 +123,23 @@ const Header = () => {
             className="md:hidden mt-6 pt-6 border-t border-vuelta-gold/20"
           >
             <div className="flex flex-col">
+              {/* EN/JA - Mobile only: shown below menu bar */}
+              <div className="flex items-center gap-2 py-3 min-h-[44px] border-b border-vuelta-gold/20 mb-2">
+                <span className="font-annam text-sm text-vuelta-gold tracking-wider uppercase">EN</span>
+                <span className="text-vuelta-gray/60 text-xs">/</span>
+                <a
+                  href="/ja"
+                  className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    localStorage.setItem('vuelta-language', 'ja')
+                    router.push('/ja')
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  JA
+                </a>
+              </div>
               <Link href="/#menu" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Menu</Link>
               <Link href="/#about" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>About</Link>
               <Link href="/#manager" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Manager</Link>

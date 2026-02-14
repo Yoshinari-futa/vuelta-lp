@@ -30,24 +30,6 @@ const Header = () => {
     }
   }
 
-  // 営業時間の計算
-  const getCurrentHours = () => {
-    const now = new Date()
-    const day = now.getDay() // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-    const hour = now.getHours()
-    
-    // Thursday (4) は閉店
-    if (day === 4) return { isOpen: false, status: 'Closed Today' }
-    
-    // Wed, Fri-Sun, Mon-Tue: 18:00 - 02:00
-    if (hour >= 18 || hour < 2) {
-      return { isOpen: true, status: 'Open Now' }
-    }
-    return { isOpen: false, status: 'Opens at 18:00' }
-  }
-
-  const hoursStatus = getCurrentHours()
-
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
@@ -69,7 +51,8 @@ const Header = () => {
           </a>
           
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0">
+            {/* EN/JA - Desktop only (mobile: shown in menu below) */}
+            <div className="hidden md:flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0">
               <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">EN</span>
               <span className="text-vuelta-gray/60 text-xs flex-shrink-0">/</span>
               <a
@@ -84,24 +67,6 @@ const Header = () => {
                 JA
               </a>
             </div>
-            {/* Hours Status - Mobile */}
-            {!isRecruitPage && (
-              <div className="md:hidden flex items-center gap-2 px-3 py-1.5 min-w-[7rem] border border-vuelta-gold/30 rounded-full bg-white/80 backdrop-blur-sm">
-                <span className={`w-2 h-2 rounded-full ${hoursStatus.isOpen ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`} aria-hidden="true"></span>
-                <span className="font-sans text-xs text-vuelta-text font-medium">18:00 - 02:00</span>
-              </div>
-            )}
-
-            {/* Hours Status - Desktop */}
-            {!isRecruitPage && (
-              <div className="hidden md:flex items-center gap-3 px-4 py-2 border border-vuelta-gold/30 rounded-full bg-white/80 backdrop-blur-sm">
-                <span className={`w-2 h-2 rounded-full ${hoursStatus.isOpen ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`} aria-hidden="true"></span>
-                <div className="flex flex-col items-start">
-                  <span className="font-annam text-[10px] text-vuelta-gold/60 tracking-wider uppercase leading-tight">Open</span>
-                  <span className="font-sans text-sm text-vuelta-text font-medium leading-tight">Wed, Fri - Tue: 18:00 - 02:00</span>
-                </div>
-              </div>
-            )}
 
             {/* Hamburger Menu Button - All Devices */}
             <button
@@ -129,6 +94,23 @@ const Header = () => {
               aria-label="Main navigation"
             >
               <div className="flex flex-col">
+                {/* EN/JA - Mobile only: shown below menu bar */}
+                <div className="md:hidden flex items-center gap-2 py-3 min-h-[44px] border-b border-vuelta-gray/20 mb-2">
+                  <span className="font-annam text-sm text-vuelta-gold tracking-wider uppercase">EN</span>
+                  <span className="text-vuelta-gray/60 text-xs">/</span>
+                  <a
+                    href="/ja"
+                    className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      localStorage.setItem('vuelta-language', 'ja')
+                      router.push('/ja')
+                      setIsMenuOpen(false)
+                    }}
+                  >
+                    JA
+                  </a>
+                </div>
                 <a href={isRecruitPage ? "/#about" : "#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
                 <a href={isRecruitPage ? "/#menu" : "#menu"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#menu'); setIsMenuOpen(false) }}>Menu</a>
                 <a href={isRecruitPage ? "/#manager" : "#manager"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#manager'); setIsMenuOpen(false) }}>Manager</a>
