@@ -502,14 +502,15 @@ export default function Home() {
             </h2>
             <div className="mt-8 md:mt-12">
               <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-12">
-                <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white border-2 border-vuelta-gold/30 flex items-center justify-center overflow-hidden">
-                  <div className="text-center">
-                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-vuelta-gold/10 flex items-center justify-center mx-auto mb-2">
-                      <svg className="w-12 h-12 sm:w-16 sm:h-16 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                    </div>
-                  </div>
+                <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full border-2 border-vuelta-gold/30 overflow-hidden flex-shrink-0">
+                  <Image
+                    src="/images/manager-yuta.png"
+                    alt="Yuta Miyake - VUELTA Manager"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 160px, 192px"
+                    priority
+                  />
                 </div>
                 <div className="flex-1 text-center md:text-left lg:text-center space-y-3 md:space-y-4 px-4">
                   <h3 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-gold">
