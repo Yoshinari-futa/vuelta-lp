@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H localhost -p 3000",
+    "dev": "next dev -H 0.0.0.0 -p 3000",
+    "preview": "npm run build && npm run start",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -H 0.0.0.0 -p 3000",
     "lint": "next lint"
   },
   "dependencies": {
