@@ -502,7 +502,7 @@ export default function Home() {
             </h2>
             <div className="mt-8 md:mt-12">
               <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-6 md:gap-8 lg:gap-12">
-                <div className="relative w-28 sm:w-32 md:w-36 lg:w-40 flex-shrink-0 overflow-hidden rounded border-2 border-vuelta-gold/30 aspect-[2/3] md:aspect-auto md:h-auto">
+                <div className="relative w-[8.4rem] sm:w-[9.6rem] md:w-[10.8rem] lg:w-[12rem] flex-shrink-0 overflow-hidden rounded border-2 border-vuelta-gold/30 aspect-[2/3] md:aspect-auto md:h-auto">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/manager-yuta.png"
