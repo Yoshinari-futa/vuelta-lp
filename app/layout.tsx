@@ -102,6 +102,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://www.instagram.com" />
+        <link rel="dns-prefetch" href="https://www.instagram.com" />
+      </head>
       <body className={`${playfair.variable} ${inter.variable} ${annamNeue.variable} ${japaneseFont.variable} font-sans antialiased`}>
         <LanguageSelector />
         {children}
