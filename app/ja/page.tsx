@@ -301,9 +301,10 @@ export default function HomeJA() {
                 <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-vuelta-gray group">
                   <Image
                     src="/images/hero.png"
-                    alt="VUELTA - カクテルにガーニッシュを添える瞬間"
+                    alt="VUELTA - 桜のガーニッシュのピンクカクテル"
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    style={{ objectPosition: '45% center' }}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1280px"
                     priority
                   />
