@@ -300,10 +300,10 @@ export default function HomeJA() {
                     >
                 <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-vuelta-gray group">
                   <Image
-                    src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&q=80"
-                    alt="VUELTA バー内装 - カクテルバー"
+                    src="/images/hero.png"
+                    alt="VUELTA - カクテルにガーニッシュを添える瞬間"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1280px"
                     priority
                   />
@@ -502,7 +502,7 @@ export default function HomeJA() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
               {[
                 { name: 'Shell We?', description: '牡蠣殻を漬け込んだウォッカが、瀬戸内の潮風と波音を運びます。フレッシュレモンの鮮やかな酸味とソーダが、まるで海岸線を歩いているかのような爽快感を生み出します。一口ごとに広がる、広島の海の記憶。', price: '¥1,500', image: '/images/cocktails/shellwe.png' },
-                { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの深い旨み、オタフクソースの懐かしさ、トマトの甘みがグラスの中でひとつになり、一口飲むたびにお好み焼き屋の熱気が蘇ります。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.jpg.png' },
+                { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの深い旨み、オタフクソースの懐かしさ、トマトの甘みがグラスの中でひとつになり、一口飲むたびにお好み焼き屋の熱気が蘇ります。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
                 { name: 'Carnitas', description: '低温でゆっくり仕上げた豚肩肉が、フォークでほぐれるほどの柔らかさ。焦がした表面の香ばしさと、溶けるような脂の甘み。温めたトルティーヤにのせ、サルサをたっぷり。脂のうまみとスパイスが、カクテルとの相性も抜群。', price: '2個 ¥900', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
               ].map((item, index) => {
                 return (
@@ -516,6 +516,7 @@ export default function HomeJA() {
                               alt={`${item.name} カクテル`}
                               fill
                               className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                              style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                               loading={index < 2 ? 'eager' : 'lazy'}
                               onError={() => {

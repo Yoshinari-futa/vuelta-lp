@@ -6,6 +6,10 @@ export default function CustomCursor() {
   const [isActive, setIsActive] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const cursorRef = useRef<HTMLDivElement>(null)
+  const mouseRef = useRef({ x: -100, y: -100 })
+  const posRef = useRef({ x: -100, y: -100 })
+  const hasMovedRef = useRef(false)
+  const rafRef = useRef<number>()
 
   useEffect(() => {
     const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0
@@ -18,10 +22,25 @@ export default function CustomCursor() {
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${clientX}px, ${clientY}px)`
+      mouseRef.current = { x: clientX, y: clientY }
+      if (!hasMovedRef.current) {
+        hasMovedRef.current = true
+        posRef.current = { x: clientX, y: clientY }
       }
     }
+
+    const animate = () => {
+      const { x: mx, y: my } = mouseRef.current
+      const pos = posRef.current
+      const ease = 0.18
+      pos.x += (mx - pos.x) * ease
+      pos.y += (my - pos.y) * ease
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate(${pos.x}px, ${pos.y}px)`
+      }
+      rafRef.current = requestAnimationFrame(animate)
+    }
+    rafRef.current = requestAnimationFrame(animate)
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement
@@ -47,6 +66,7 @@ export default function CustomCursor() {
       document.removeEventListener('mousemove', handleMouseMove)
       document.removeEventListener('mouseover', handleMouseOver)
       document.removeEventListener('mouseout', handleMouseOut)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
     }
   }, [])
 
