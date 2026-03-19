@@ -502,9 +502,9 @@ export default function HomeJA() {
             {/* Asymmetric grid layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
               {[
-                { name: 'Shell We?', description: '牡蠣殻を漬け込んだウォッカが、瀬戸内の潮風と波音を運びます。フレッシュレモンの鮮やかな酸味とソーダが、まるで海岸線を歩いているかのような爽快感を生み出します。一口ごとに広がる、広島の海の記憶。', price: '¥1,500', image: '/images/cocktails/shellwe.png' },
-                { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの深い旨み、オタフクソースの懐かしさ、トマトの甘みがグラスの中でひとつになり、一口飲むたびにお好み焼き屋の熱気が蘇ります。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
-                { name: 'Carnitas', description: '低温でゆっくり仕上げた豚肩肉が、フォークでほぐれるほどの柔らかさ。焦がした表面の香ばしさと、溶けるような脂の甘み。温めたトルティーヤにのせ、サルサをたっぷり。脂のうまみとスパイスが、カクテルとの相性も抜群。', price: '2個 ¥900', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
+                { name: 'Shell We?', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,500', image: '/images/cocktails/shellwe.png' },
+                { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの旨み、オタフクソース、トマトの甘みがグラスでひとつに。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
+                { name: '26 hours', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,200', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
               ].map((item, index) => {
                 return (
                   <FadeInUp key={index} delay={index * 0.1}>

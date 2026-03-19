@@ -439,9 +439,9 @@ export default function Home() {
           {/* Asymmetric grid layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             {[
-              { name: 'Shell We?', description: 'The ocean\'s bounty captured in a glass. Oyster shell vodka meets fresh lemon in a refreshing harmony, elevated by crisp soda. A taste of Hiroshima\'s coastal essence.', price: '¥1,500', image: '/images/cocktails/shellwe.png' },
-              { name: 'The OKONOMIYAKI', description: 'Hiroshima\'s soul food, reimagined as a cocktail. The umami depth of dashi, the rich complexity of Otafuku sauce, and the natural sweetness of tomato create an authentic local flavor you won\'t find anywhere else.', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
-              { name: 'Carnitas', description: 'Slow-cooked pork shoulder, tender and flavorful. Served with fresh tortillas, salsa, and traditional accompaniments. A taste of authentic Mexican cuisine.', price: '2 for ¥900', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
+              { name: 'Shell We?', description: 'The very first cocktail we created—our origin. Hiroshima\'s oysters, the sea in a glass. The name is a pun: "Shall we?" meets oyster "Shell." SAKURAO Gin and house-made dashi vinegar. Shall we toast?', price: '¥1,500', image: '/images/cocktails/shellwe.png' },
+              { name: 'The OKONOMIYAKI', description: 'Hiroshima\'s soul food, reimagined as a cocktail. The umami depth of dashi, Otafuku sauce, and tomato create an authentic local flavor you won\'t find anywhere else.', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
+              { name: '26 hours', description: 'We stay open until the 26th hour—2 AM. Crystal-clear tomato and cucumber, light minerals. Refreshing enough to keep the magic alive until last call.', price: '¥1,200', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
             ].map((item, index) => {
               return (
                 <FadeInUp key={index} delay={index * 0.1}>

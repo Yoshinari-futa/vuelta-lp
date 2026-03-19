@@ -32,7 +32,8 @@ export default function CustomCursor() {
     const animate = () => {
       const { x: mx, y: my } = mouseRef.current
       const pos = posRef.current
-      const ease = 0.18
+      // 0.08 = マウスに遅れてなめらかに追従（値が小さいほど遅延が大きい）
+      const ease = 0.08
       pos.x += (mx - pos.x) * ease
       pos.y += (my - pos.y) * ease
       if (cursorRef.current) {
@@ -82,37 +83,22 @@ export default function CustomCursor() {
         className="absolute top-0 left-0 w-0 h-0"
         style={{ willChange: 'transform', transform: 'translate(-100px, -100px)' }}
       >
-        {/* Outer glow */}
+        {/* 外側のリング（ドットとの間にギャップ、白いグロー） */}
         <div
-          className={`absolute top-1/2 left-1/2 w-10 h-10 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300 ease-out ${
-            isHovering ? 'scale-150 opacity-100' : 'scale-100 opacity-80'
-          }`}
-          style={{
-            background: 'radial-gradient(circle, rgba(26,58,46,0.15) 0%, transparent 70%)',
-            boxShadow: isHovering
-              ? '0 0 40px rgba(26,58,46,0.4), inset 0 0 20px rgba(26,58,46,0.1)'
-              : '0 0 20px rgba(26,58,46,0.25)',
-          }}
-        />
-        {/* Main ring */}
-        <div
-          className={`absolute top-1/2 left-1/2 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300 ease-out ${
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300 ease-out ${
             isHovering ? 'scale-125' : 'scale-100'
           }`}
           style={{
-            border: '1.5px solid rgba(26,58,46,0.9)',
-            boxShadow: '0 0 0 1px rgba(255,255,255,0.1) inset',
+            width: 20,
+            height: 20,
+            border: '1px solid #1a1f1c',
+            boxShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 12px rgba(255,255,255,0.2)',
           }}
         />
-        {/* Center dot */}
+        {/* 中央のドット */}
         <div
-          className={`absolute top-1/2 left-1/2 w-1.5 h-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-200 ${
-            isHovering ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
-          }`}
-          style={{
-            background: 'radial-gradient(circle at 30% 30%, #2d4a3e, #1a3a2e)',
-            boxShadow: '0 0 8px rgba(26,58,46,0.8), 0 0 16px rgba(26,58,46,0.4)',
-          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#1a1f1c]"
+          style={{ width: 6, height: 6 }}
         />
       </div>
     </div>
