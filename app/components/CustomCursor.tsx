@@ -32,8 +32,8 @@ export default function CustomCursor() {
     const animate = () => {
       const { x: mx, y: my } = mouseRef.current
       const pos = posRef.current
-      // 0.08 = マウスに遅れてなめらかに追従（値が小さいほど遅延が大きい）
-      const ease = 0.08
+      // 0.5 = 素早く追従（遅延を最小限に、違和感を軽減）
+      const ease = 0.5
       pos.x += (mx - pos.x) * ease
       pos.y += (my - pos.y) * ease
       if (cursorRef.current) {
