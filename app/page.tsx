@@ -5,6 +5,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
+import MenuModal from './components/MenuModal'
 
 // Header Component
 const Header = () => {
@@ -148,6 +149,7 @@ export default function Home() {
     }
   }
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
+  const [isMenuModalOpen, setIsMenuModalOpen] = useState(false)
 
   // 営業時間の計算
   const getCurrentHours = () => {
@@ -197,7 +199,7 @@ export default function Home() {
         "closes": "02:00"
       }
     ],
-    "priceRange": "¥750-¥1,200",
+    "priceRange": "¥900-¥1,500",
     "servesCuisine": "Cocktails",
     "url": "https://vuelta-bar.com",
     "sameAs": [
@@ -436,9 +438,9 @@ export default function Home() {
           {/* Asymmetric grid layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             {[
-              { name: 'Shell We?', description: 'The ocean\'s bounty captured in a glass. Oyster shell vodka meets fresh lemon in a refreshing harmony, elevated by crisp soda. A taste of Hiroshima\'s coastal essence.', price: '¥750', image: '/images/cocktails/shellwe.jpg.png' },
-              { name: 'The OKONOMIYAKI', description: 'Hiroshima\'s soul food, reimagined as a cocktail. The umami depth of dashi, the rich complexity of Otafuku sauce, and the natural sweetness of tomato create an authentic local flavor you won\'t find anywhere else.', price: '¥900', image: '/images/cocktails/okonomiyaki.jpg.png' },
-              { name: 'Carnitas', description: 'Slow-cooked pork shoulder, tender and flavorful. Served with fresh tortillas, salsa, and traditional accompaniments. A taste of authentic Mexican cuisine.', price: '2 for ¥880', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
+              { name: 'Shell We?', description: 'The ocean\'s bounty captured in a glass. Oyster shell vodka meets fresh lemon in a refreshing harmony, elevated by crisp soda. A taste of Hiroshima\'s coastal essence.', price: '¥1,500', image: '/images/cocktails/shellwe.png' },
+              { name: 'The OKONOMIYAKI', description: 'Hiroshima\'s soul food, reimagined as a cocktail. The umami depth of dashi, the rich complexity of Otafuku sauce, and the natural sweetness of tomato create an authentic local flavor you won\'t find anywhere else.', price: '¥1,200', image: '/images/cocktails/okonomiyaki.jpg.png' },
+              { name: 'Carnitas', description: 'Slow-cooked pork shoulder, tender and flavorful. Served with fresh tortillas, salsa, and traditional accompaniments. A taste of authentic Mexican cuisine.', price: '2 for ¥900', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
             ].map((item, index) => {
               return (
                 <FadeInUp key={index} delay={index * 0.1}>
@@ -490,6 +492,19 @@ export default function Home() {
               )
             })}
           </div>
+          <div className="text-center mt-10 md:mt-14">
+            <button
+              onClick={() => setIsMenuModalOpen(true)}
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-annam text-sm uppercase tracking-wider rounded shadow-lg shadow-vuelta-gold/20"
+            >
+              <span>View Full Menu</span>
+              <svg className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+          </div>
+          <MenuModal isOpen={isMenuModalOpen} onClose={() => setIsMenuModalOpen(false)} downloadLabel="Download PDF" closeLabel="Close" />
         </div>
       </section>
 

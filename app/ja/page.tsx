@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
+import MenuModal from '../components/MenuModal'
 
 // Header Component (日本語版)
 const Header = () => {
@@ -127,6 +128,7 @@ const FadeInUp = ({ children, delay = 0 }: { children: React.ReactNode; delay?: 
 
 export default function HomeJA() {
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
+  const [isMenuModalOpen, setIsMenuModalOpen] = useState(false)
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -190,7 +192,7 @@ export default function HomeJA() {
         "closes": "02:00"
       }
     ],
-    "priceRange": "¥750-¥1,200",
+    "priceRange": "¥900-¥1,500",
     "servesCuisine": "カクテル",
     "url": "https://vuelta-bar.com/ja",
     "sameAs": [
@@ -499,9 +501,9 @@ export default function HomeJA() {
             {/* Asymmetric grid layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
               {[
-                { name: 'Shell We?', description: '牡蠣殻を漬け込んだウォッカが、瀬戸内の潮風と波音を運びます。フレッシュレモンの鮮やかな酸味とソーダが、まるで海岸線を歩いているかのような爽快感を生み出します。一口ごとに広がる、広島の海の記憶。', price: '¥750', image: '/images/cocktails/shellwe.jpg.png' },
-                { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの深い旨み、オタフクソースの懐かしさ、トマトの甘みがグラスの中でひとつになり、一口飲むたびにお好み焼き屋の熱気が蘇ります。広島の食文化を、そのまま飲む体験。', price: '¥900', image: '/images/cocktails/okonomiyaki.jpg.png' },
-                { name: 'Carnitas', description: '低温でゆっくり仕上げた豚肩肉が、フォークでほぐれるほどの柔らかさ。焦がした表面の香ばしさと、溶けるような脂の甘み。温めたトルティーヤにのせ、サルサをたっぷり。脂のうまみとスパイスが、カクテルとの相性も抜群。', price: '2個 ¥880', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
+                { name: 'Shell We?', description: '牡蠣殻を漬け込んだウォッカが、瀬戸内の潮風と波音を運びます。フレッシュレモンの鮮やかな酸味とソーダが、まるで海岸線を歩いているかのような爽快感を生み出します。一口ごとに広がる、広島の海の記憶。', price: '¥1,500', image: '/images/cocktails/shellwe.png' },
+                { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの深い旨み、オタフクソースの懐かしさ、トマトの甘みがグラスの中でひとつになり、一口飲むたびにお好み焼き屋の熱気が蘇ります。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.jpg.png' },
+                { name: 'Carnitas', description: '低温でゆっくり仕上げた豚肩肉が、フォークでほぐれるほどの柔らかさ。焦がした表面の香ばしさと、溶けるような脂の甘み。温めたトルティーヤにのせ、サルサをたっぷり。脂のうまみとスパイスが、カクテルとの相性も抜群。', price: '2個 ¥900', image: '/images/cocktails/e0d84016-b589-4ef5-8415-b00fc1c2bd83.png' },
               ].map((item, index) => {
                 return (
                   <FadeInUp key={index} delay={index * 0.1}>
@@ -553,6 +555,19 @@ export default function HomeJA() {
                 )
               })}
             </div>
+            <div className="text-center mt-10 md:mt-14">
+              <button
+                onClick={() => setIsMenuModalOpen(true)}
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-annam text-sm uppercase tracking-wider rounded shadow-lg shadow-vuelta-gold/20"
+              >
+                <span>詳しいメニューを見る</span>
+                <svg className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </button>
+            </div>
+            <MenuModal isOpen={isMenuModalOpen} onClose={() => setIsMenuModalOpen(false)} downloadLabel="PDFをダウンロード" closeLabel="閉じる" />
           </div>
         </section>
 

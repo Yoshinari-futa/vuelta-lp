@@ -49,3 +49,17 @@
     content-visibility: auto;
   }
 }
+
+/* Custom cursor - hide default when active (pointer devices only) */
+@media (pointer: fine) {
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+/* Text selection - gold accent */
+::selection {
+  background-color: theme('colors.vuelta-gold');
+  color: white;
+}

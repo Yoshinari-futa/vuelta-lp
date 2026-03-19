@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
 import LanguageSelector from './components/LanguageSelector'
+import CustomCursor from './components/CustomCursor'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -107,6 +108,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.instagram.com" />
       </head>
       <body className={`${playfair.variable} ${inter.variable} ${annamNeue.variable} ${japaneseFont.variable} font-sans antialiased`}>
+        <CustomCursor />
         <LanguageSelector />
         {children}
       </body>
