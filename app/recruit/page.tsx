@@ -52,7 +52,7 @@ const Header = () => {
             <div className="hidden md:flex items-center gap-8">
             <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
               <Link 
-                href="/#menu" 
+                href="/menu" 
                 className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
               >
                 Menu
@@ -123,7 +123,7 @@ const Header = () => {
             className="md:hidden mt-6 pt-6 border-t border-vuelta-gold/20"
           >
             <div className="flex flex-col">
-              <Link href="/#menu" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Menu</Link>
+              <Link href="/menu" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Menu</Link>
               <Link href="/#about" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>About</Link>
               <Link href="/#manager" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Manager</Link>
               <Link href="/#reservation" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Visit Us</Link>
@@ -585,7 +585,7 @@ export default function Recruit() {
               <ul className="space-y-3 font-annam text-sm">
                 <li>
                   <Link 
-                    href="/#menu" 
+                    href="/menu" 
                     className="text-vuelta-gold/70 hover:text-vuelta-gold transition-colors font-annam"
                   >
                     Menu

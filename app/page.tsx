@@ -3,9 +3,9 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import MenuModal from './components/MenuModal'
 
 // Header Component
 const Header = () => {
@@ -96,7 +96,7 @@ const Header = () => {
             >
               <div className="flex flex-col">
                 <a href={isRecruitPage ? "/#about" : "#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
-                <a href={isRecruitPage ? "/#menu" : "#menu"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#menu'); setIsMenuOpen(false) }}>Menu</a>
+                <Link href="/menu" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Menu</Link>
                 <a href={isRecruitPage ? "/#manager" : "#manager"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#manager'); setIsMenuOpen(false) }}>Manager</a>
                 <a href={isRecruitPage ? "/#reservation" : "#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Visit Us</a>
                 <a href="/recruit" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isRecruitPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>Recruit</a>
@@ -149,7 +149,6 @@ export default function Home() {
     }
   }
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
-  const [isMenuModalOpen, setIsMenuModalOpen] = useState(false)
 
   // 営業時間の計算
   const getCurrentHours = () => {
@@ -412,7 +411,7 @@ export default function Home() {
                 The cocktails and drinks we serve are merely an invitation to bring guests here.
               </p>
               <p className="leading-loose">
-                What guests truly seek as their destination is the people waiting there. You. And the warm atmosphere you create.
+                We believe what our guests truly seek is the people waiting there, the warm atmosphere they create, and connection with our staff.
               </p>
               <p className="text-vuelta-gold-light text-xl pt-6 leading-relaxed">
                 Our goal is to create it was great to meet you beyond it was delicious.
@@ -495,8 +494,8 @@ export default function Home() {
             })}
           </div>
           <div className="text-center mt-10 md:mt-14">
-            <button
-              onClick={() => setIsMenuModalOpen(true)}
+            <Link
+              href="/menu"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-annam text-sm uppercase tracking-wider rounded shadow-lg shadow-vuelta-gold/20"
             >
               <span>View Full Menu</span>
@@ -504,9 +503,8 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
-            </button>
+            </Link>
           </div>
-          <MenuModal isOpen={isMenuModalOpen} onClose={() => setIsMenuModalOpen(false)} downloadLabel="Download PDF" closeLabel="Close" />
         </div>
       </section>
 
@@ -808,8 +806,8 @@ export default function Home() {
               </h4>
               <ul className="space-y-3 font-annam text-sm">
                 <li>
-                  <a 
-                    href="#menu" 
+                  <Link 
+                    href="/menu" 
                     className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
                   >
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
@@ -821,7 +819,7 @@ export default function Home() {
                     <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a 
@@ -914,13 +912,14 @@ export default function Home() {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 1 }}
-        className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 md:hidden"
+        className="fixed left-4 right-4 sm:left-1/2 sm:right-auto sm:w-auto sm:max-w-sm sm:-translate-x-1/2 z-50 md:hidden"
+        style={{ bottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
       >
         <a
           href="https://www.instagram.com/vuelta_bar"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider uppercase"
+          className="flex items-center justify-center gap-3 px-6 py-4 min-h-[52px] bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider uppercase w-full"
           aria-label="Reserve via Instagram DM"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

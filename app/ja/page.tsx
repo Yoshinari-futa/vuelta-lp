@@ -6,7 +6,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import MenuModal from '../components/MenuModal'
 
 // Header Component (日本語版)
 const Header = () => {
@@ -93,7 +92,7 @@ const Header = () => {
             >
               <div className="flex flex-col">
                 <a href={isRecruitPage ? "/ja#about" : "#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
-                <a href={isRecruitPage ? "/ja#menu" : "#menu"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#menu'); setIsMenuOpen(false) }}>Menu</a>
+                <Link href="/ja/menu" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Menu</Link>
                 <a href={isRecruitPage ? "/ja#reservation" : "#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
                 <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
                 <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
@@ -128,7 +127,6 @@ const FadeInUp = ({ children, delay = 0 }: { children: React.ReactNode; delay?: 
 
 export default function HomeJA() {
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
-  const [isMenuModalOpen, setIsMenuModalOpen] = useState(false)
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -439,7 +437,7 @@ export default function HomeJA() {
                 </p>
                 <p className="leading-relaxed">
                   <span className="md:hidden">
-                    しかしお客様が本当に求めているのは<br />
+                    私たちはお客様が本当に求めているのは<br />
                     そこで待っている人が作る温かい空間や、<br />
                     スタッフとのコミニケーションだと考えています。<br />
                     カウンター越しの会話、<br />
@@ -449,7 +447,7 @@ export default function HomeJA() {
                     この場所だけの特別な時間。
                   </span>
                   <span className="hidden md:inline">
-                    しかしお客様が本当に求めているのはそこで待っている人が作る温かい空間や、<br />
+                    私たちはお客様が本当に求めているのはそこで待っている人が作る温かい空間や、<br />
                     スタッフとのコミニケーションだと考えています。カウンター越しの会話、隣に座る見知らぬ人との偶然の出会い、スタッフが語るカクテルに込められたストーリー。
                   </span>
                 </p>
@@ -558,8 +556,8 @@ export default function HomeJA() {
               })}
             </div>
             <div className="text-center mt-10 md:mt-14">
-              <button
-                onClick={() => setIsMenuModalOpen(true)}
+              <Link
+                href="/ja/menu"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-annam text-sm uppercase tracking-wider rounded shadow-lg shadow-vuelta-gold/20"
               >
                 <span>詳しいメニューを見る</span>
@@ -567,9 +565,8 @@ export default function HomeJA() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
-              </button>
+              </Link>
             </div>
-            <MenuModal isOpen={isMenuModalOpen} onClose={() => setIsMenuModalOpen(false)} downloadLabel="PDFをダウンロード" closeLabel="閉じる" />
           </div>
         </section>
 
@@ -744,8 +741,8 @@ export default function HomeJA() {
                 </h4>
                 <ul className="space-y-4 font-japanese text-sm">
                   <li>
-                    <a 
-                      href="#menu" 
+                    <Link 
+                      href="/ja/menu" 
                       className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
                     >
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
@@ -757,7 +754,7 @@ export default function HomeJA() {
                       <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a 
