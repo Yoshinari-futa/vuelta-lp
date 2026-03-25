@@ -500,7 +500,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-10 md:mt-14">
             <Link
-              href="/menu"
+              href="/menu/gallery"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-annam text-sm uppercase tracking-wider rounded shadow-lg shadow-vuelta-gold/20"
             >
               <span>View Full Menu</span>

@@ -12,7 +12,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
-  const isMenuPage = pathname === '/menu'
+  const isMenuPage = pathname === '/menu' || pathname?.startsWith('/menu/')
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gray/50">
@@ -163,8 +163,19 @@ export default function MenuPage() {
           <h1 className="font-annam text-3xl md:text-4xl font-light text-vuelta-gold tracking-tight mb-2">
             Full Menu
           </h1>
-          <p className="text-vuelta-text-light text-sm mb-10 md:mb-14">
+          <p className="text-vuelta-text-light text-sm mb-6">
             Crafted with precision. Wed, Fri–Tue 18:00–02:00. Closed Thursdays.
+          </p>
+          <p className="mb-10 md:mb-14">
+            <Link
+              href="/menu/gallery"
+              className="inline-flex items-center gap-2 text-vuelta-gold font-annam text-sm tracking-wider uppercase border-b border-vuelta-gold/40 hover:border-vuelta-gold pb-0.5 transition-colors"
+            >
+              View official menu boards (images)
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </p>
 
           <div className="space-y-10 md:space-y-14">
