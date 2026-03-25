@@ -1,5 +1,6 @@
 'use client'
 
+import { MENU_DRIVE_EMBED_URL, MENU_DRIVE_URL } from '@/lib/menuUrl'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect } from 'react'
 
@@ -53,7 +54,7 @@ export default function MenuModal({ isOpen, onClose, downloadLabel = 'Download P
               <h3 className="font-annam text-lg text-vuelta-gold tracking-wider">VUELTA Menu</h3>
               <div className="flex items-center gap-3">
                 <a
-                  href="/VUELTA-menu.pdf"
+                  href={MENU_DRIVE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-sans text-vuelta-gold/80 hover:text-vuelta-gold transition-colors uppercase tracking-wider flex items-center gap-1.5"
@@ -75,10 +76,10 @@ export default function MenuModal({ isOpen, onClose, downloadLabel = 'Download P
               </div>
             </div>
 
-            {/* PDF Viewer */}
+            {/* Google Drive（共有メニュー） */}
             <div className="flex-1 min-h-0 bg-white">
               <iframe
-                src="/VUELTA-menu.pdf#view=FitH"
+                src={MENU_DRIVE_EMBED_URL}
                 className="w-full h-full"
                 title="VUELTA Menu"
               />

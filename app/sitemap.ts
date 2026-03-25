@@ -18,17 +18,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    {
-      url: `${SITE_WWW}/menu/gallery`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${SITE_WWW}/ja/menu/gallery`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
   ]
 }
