@@ -103,7 +103,7 @@ const Header = () => {
                   href={MENU_DRIVE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center"
+                  className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center touch-manipulation"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Menu
@@ -574,9 +574,9 @@ export default function HomeJA() {
                 href={MENU_DRIVE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-annam text-sm uppercase tracking-wider rounded shadow-lg shadow-vuelta-gold/20"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 min-h-[48px] w-full max-w-sm mx-auto sm:w-auto sm:max-w-none touch-manipulation bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-annam text-sm uppercase tracking-wider rounded shadow-lg shadow-vuelta-gold/20"
               >
-                <span>詳しいメニューを見る</span>
+                <span>View Full Menu</span>
                 <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
