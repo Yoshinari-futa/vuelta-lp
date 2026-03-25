@@ -5,6 +5,10 @@ const MENU_DRIVE =
 const nextConfig = {
   reactStrictMode: true,
   async redirects() {
+    // ローカル（next dev）では外部リダイレクトを無効化し、接続トラブルを避ける
+    if (process.env.NODE_ENV !== 'production') {
+      return []
+    }
     return [
       { source: '/menu', destination: MENU_DRIVE, permanent: true },
       { source: '/menu/gallery', destination: MENU_DRIVE, permanent: true },
