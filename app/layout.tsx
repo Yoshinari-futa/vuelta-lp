@@ -94,6 +94,9 @@ export const metadata: Metadata = {
       'ja': 'https://vuelta.jp/ja',
     },
   },
+  verification: {
+    google: 'EjQ9UGSszHoiZkwYj1Z7_6vG5mhB49uW-e_3WvuVALQ',
+  },
 }
 
 export default function RootLayout({
