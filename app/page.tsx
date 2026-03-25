@@ -1,5 +1,11 @@
 'use client'
 
+import {
+  BAR_LOGO_IMAGE_URL,
+  POSTAL_CODE,
+  barStructuredDataId,
+  barStructuredDataUrl,
+} from '@/lib/site-seo'
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
@@ -172,19 +178,17 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BarOrPub",
-    "@id": "https://vuelta.jp/#bar",
+    "@id": barStructuredDataId('en'),
     "name": "VUELTA",
-    "url": "https://vuelta.jp",
+    "url": barStructuredDataUrl('en'),
     "description": "Premium cocktail bar in Hiroshima where international guests and locals meet. Experience authentic Hiroshima hospitality with world-class cocktails.",
-    "image": [
-      "https://vuelta.jp/images/vuelta-logo.png"
-    ],
+    "image": [BAR_LOGO_IMAGE_URL],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3-3-5 Ote-machi, Naka-ku, Kakee Building 2F",
       "addressLocality": "Hiroshima",
       "addressRegion": "Hiroshima Prefecture",
-      "postalCode": "733-0051",
+      "postalCode": POSTAL_CODE,
       "addressCountry": "JP"
     },
     "geo": {

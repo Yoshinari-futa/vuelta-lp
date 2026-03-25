@@ -1,5 +1,11 @@
 'use client'
 
+import {
+  BAR_LOGO_IMAGE_URL,
+  POSTAL_CODE,
+  barStructuredDataId,
+  barStructuredDataUrl,
+} from '@/lib/site-seo'
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
@@ -164,18 +170,16 @@ export default function HomeJA() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BarOrPub",
-    "@id": "https://vuelta.jp/ja#bar",
+    "@id": barStructuredDataId('ja'),
     "name": "VUELTA",
     "description": "広島のプレミアムカクテルバー。国際的なお客様と地元の人々が出会う場所。世界クラスのカクテルと本格的な広島のホスピタリティを体験。",
-    "image": [
-      "https://vuelta.jp/images/vuelta-logo.png"
-    ],
+    "image": [BAR_LOGO_IMAGE_URL],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "広島県広島市中区大手町3-3-5 掛江ビル 2F",
       "addressLocality": "広島",
       "addressRegion": "広島県",
-      "postalCode": "733-0051",
+      "postalCode": POSTAL_CODE,
       "addressCountry": "JP"
     },
     "geo": {
@@ -193,7 +197,7 @@ export default function HomeJA() {
     ],
     "priceRange": "¥900-¥1,500",
     "servesCuisine": "カクテル",
-    "url": "https://vuelta.jp/ja",
+    "url": barStructuredDataUrl('ja'),
     "sameAs": [
       "https://www.instagram.com/vuelta_bar"
     ],

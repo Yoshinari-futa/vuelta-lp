@@ -1,5 +1,6 @@
 'use client'
 
+import { POSTAL_CODE, SITE_ORIGIN } from '@/lib/site-seo'
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
@@ -188,7 +189,7 @@ export default function Recruit() {
         "streetAddress": "3-3-5 Ote-machi, Naka-ku, Kakee Building 2F",
         "addressLocality": "Hiroshima",
         "addressRegion": "Hiroshima Prefecture",
-        "postalCode": "733-0051",
+        "postalCode": POSTAL_CODE,
         "addressCountry": "JP"
       }
     },
@@ -203,7 +204,7 @@ export default function Recruit() {
       }
     },
     "workHours": "18:00-02:00",
-    "url": "https://vuelta.jp/recruit"
+    "url": `${SITE_ORIGIN}/recruit`
   }
 
   return (
