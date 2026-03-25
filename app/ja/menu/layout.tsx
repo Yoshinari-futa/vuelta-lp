@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: 'メニュー | VUELTA 広島',
     description: 'VUELTAのフルメニュー。シグネチャーカクテルと丁寧に作られたドリンク。',
     type: 'website',
-    url: 'https://vuelta-bar.com/ja/menu',
+    url: 'https://vuelta.jp/ja/menu',
     siteName: 'VUELTA',
     images: [
       {
@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://vuelta-bar.com/ja/menu',
+    canonical: 'https://vuelta.jp/ja/menu',
     languages: {
-      'en': 'https://vuelta-bar.com/menu',
-      'ja': 'https://vuelta-bar.com/ja/menu',
+      'en': 'https://vuelta.jp/menu',
+      'ja': 'https://vuelta.jp/ja/menu',
     },
   },
 }

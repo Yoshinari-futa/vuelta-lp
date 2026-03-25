@@ -164,17 +164,18 @@ export default function HomeJA() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BarOrPub",
+    "@id": "https://vuelta.jp/ja#bar",
     "name": "VUELTA",
     "description": "広島のプレミアムカクテルバー。国際的なお客様と地元の人々が出会う場所。世界クラスのカクテルと本格的な広島のホスピタリティを体験。",
     "image": [
-      "https://vuelta-bar.com/images/vuelta-logo.png"
+      "https://vuelta.jp/images/vuelta-logo.png"
     ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "広島県広島市中区大手町3-3-5 掛江ビル 2F",
       "addressLocality": "広島",
       "addressRegion": "広島県",
-      "postalCode": "730-0051",
+      "postalCode": "733-0051",
       "addressCountry": "JP"
     },
     "geo": {
@@ -192,7 +193,7 @@ export default function HomeJA() {
     ],
     "priceRange": "¥900-¥1,500",
     "servesCuisine": "カクテル",
-    "url": "https://vuelta-bar.com/ja",
+    "url": "https://vuelta.jp/ja",
     "sameAs": [
       "https://www.instagram.com/vuelta_bar"
     ],
@@ -585,12 +586,12 @@ export default function HomeJA() {
                         住所
                       </h3>
                       <a
-                        href="https://www.google.com/maps/search/?api=1&query=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
+                        href="https://www.google.com/maps/search/?api=1&query=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-base sm:text-lg hover:text-vuelta-gold transition-colors cursor-pointer block"
                       >
-                        〒730-0051<br />
+                        〒733-0051<br />
                         掛江ビル 2F<br />
                         広島県広島市中区大手町3-3-5
                       </a>
@@ -677,7 +678,7 @@ export default function HomeJA() {
                 <div className="space-y-4">
                   <div className="relative aspect-[4/3] bg-vuelta-gray overflow-hidden rounded-lg group cursor-pointer">
                     <iframe
-                      src="https://www.google.com/maps?q=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F&hl=ja&z=17&output=embed"
+                      src="https://www.google.com/maps?q=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F&hl=ja&z=17&output=embed"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
@@ -692,7 +693,7 @@ export default function HomeJA() {
                   </div>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
+                      href="https://www.google.com/maps/search/?api=1&query=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-japanese text-sm"

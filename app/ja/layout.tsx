@@ -7,6 +7,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vuelta.jp'),
   title: 'VUELTA 広島 | 国際的なお客様も大歓迎',
   description: 'VUELTAでミクソロジーの芸術を体験。広島のプレミアムカクテルバー。英語対応、国際的なお客様も大歓迎。シグネチャーカクテル、親密な雰囲気、広島市中心部に位置。',
   keywords: 'カクテルバー 広島, VUELTA, 広島 バー, 英語対応 バー 広島, プレミアムカクテル, ミクソロジー 広島, 国際的なバー 日本',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     description: '「おかえり」と「はじめまして」が交差する場所。世界クラスのカクテルと本格的な広島のホスピタリティを体験。',
     type: 'website',
     locale: 'ja_JP',
-    url: 'https://vuelta-bar.com/ja',
+    url: 'https://vuelta.jp/ja',
     siteName: 'VUELTA',
     images: [
       {
@@ -49,10 +50,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://vuelta-bar.com/ja',
+    canonical: 'https://vuelta.jp/ja',
     languages: {
-      'en': 'https://vuelta-bar.com',
-      'ja': 'https://vuelta-bar.com/ja',
+      'en': 'https://vuelta.jp',
+      'ja': 'https://vuelta.jp/ja',
     },
   },
 }

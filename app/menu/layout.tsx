@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: 'Menu | VUELTA In Hiroshima',
     description: 'Explore our full cocktail menu at VUELTA. Signature cocktails and crafted beverages.',
     type: 'website',
-    url: 'https://vuelta-bar.com/menu',
+    url: 'https://vuelta.jp/menu',
     siteName: 'VUELTA',
     images: [
       {
@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://vuelta-bar.com/menu',
+    canonical: 'https://vuelta.jp/menu',
     languages: {
-      'en': 'https://vuelta-bar.com/menu',
-      'ja': 'https://vuelta-bar.com/ja/menu',
+      'en': 'https://vuelta.jp/menu',
+      'ja': 'https://vuelta.jp/ja/menu',
     },
   },
 }

@@ -83,7 +83,7 @@ ${message}
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'VUELTA <noreply@vuelta-bar.com>',
+          from: 'VUELTA <noreply@vuelta.jp>',
           to: ['head_office@vuelta-hr.com'],
           reply_to: email,
           subject: `【お問い合わせ】${categoryLabel} - ${name}様`,

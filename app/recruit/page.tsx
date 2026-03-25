@@ -188,7 +188,7 @@ export default function Recruit() {
         "streetAddress": "3-3-5 Ote-machi, Naka-ku, Kakee Building 2F",
         "addressLocality": "Hiroshima",
         "addressRegion": "Hiroshima Prefecture",
-        "postalCode": "730-0051",
+        "postalCode": "733-0051",
         "addressCountry": "JP"
       }
     },
@@ -203,7 +203,7 @@ export default function Recruit() {
       }
     },
     "workHours": "18:00-02:00",
-    "url": "https://vuelta-bar.com/recruit"
+    "url": "https://vuelta.jp/recruit"
   }
 
   return (

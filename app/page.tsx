@@ -172,17 +172,19 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BarOrPub",
+    "@id": "https://vuelta.jp/#bar",
     "name": "VUELTA",
+    "url": "https://vuelta.jp",
     "description": "Premium cocktail bar in Hiroshima where international guests and locals meet. Experience authentic Hiroshima hospitality with world-class cocktails.",
     "image": [
-      "https://vuelta-bar.com/images/vuelta-logo.png"
+      "https://vuelta.jp/images/vuelta-logo.png"
     ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3-3-5 Ote-machi, Naka-ku, Kakee Building 2F",
       "addressLocality": "Hiroshima",
       "addressRegion": "Hiroshima Prefecture",
-      "postalCode": "730-0051",
+      "postalCode": "733-0051",
       "addressCountry": "JP"
     },
     "geo": {
@@ -200,7 +202,6 @@ export default function Home() {
     ],
     "priceRange": "¥900-¥1,500",
     "servesCuisine": "Cocktails",
-    "url": "https://vuelta-bar.com",
     "sameAs": [
       "https://www.instagram.com/vuelta_bar"
     ],
@@ -641,12 +642,12 @@ export default function Home() {
                       Address
                     </h3>
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
+                      href="https://www.google.com/maps/search/?api=1&query=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-base sm:text-lg hover:text-vuelta-gold transition-colors cursor-pointer block"
                     >
-                      730-0051<br />
+                      733-0051<br />
                       Kakee Building 2F<br />
                       3-3-5 Ote-machi, Naka-ku<br />
                       Hiroshima, Japan
@@ -735,7 +736,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="relative aspect-[4/3] bg-vuelta-gray overflow-hidden rounded-lg group cursor-pointer">
                   <iframe
-                    src="https://www.google.com/maps?q=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F&hl=ja&z=17&output=embed"
+                    src="https://www.google.com/maps?q=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F&hl=ja&z=17&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -750,7 +751,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=730-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
+                    href="https://www.google.com/maps/search/?api=1&query=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm"
