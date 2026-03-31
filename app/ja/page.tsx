@@ -2,7 +2,10 @@
 
 import {
   BAR_LOGO_IMAGE_URL,
+  MAPS_EMBED_URL,
+  MAPS_SEARCH_URL,
   POSTAL_CODE,
+  STORE_ADDRESS_JA_LINE,
   barStructuredDataId,
   barStructuredDataUrl,
 } from '@/lib/site-seo'
@@ -110,6 +113,7 @@ const Header = () => {
                 </a>
                 <a href={isRecruitPage ? "/ja#reservation" : "#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
                 <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
+                <Link href="/ja/subscription" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
                 <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
               </div>
             </motion.nav>
@@ -185,7 +189,7 @@ export default function HomeJA() {
     "image": [BAR_LOGO_IMAGE_URL],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "広島県広島市中区大手町3-3-5 掛江ビル 2F",
+      "streetAddress": "広島県広島市中区大手町3-3-5 掛江ビル201",
       "addressLocality": "広島",
       "addressRegion": "広島県",
       "postalCode": POSTAL_CODE,
@@ -585,6 +589,30 @@ export default function HomeJA() {
           </div>
         </section>
 
+        {/* FIRST DRINK PASS Banner */}
+        <section className="py-10 md:py-16 px-4 sm:px-6 bg-gradient-to-r from-vuelta-gold/10 to-vuelta-gold/5 border-y border-vuelta-gold/20">
+          <div className="max-w-4xl mx-auto text-center">
+            <FadeInUp>
+              <p className="font-annam text-sm uppercase tracking-[0.3em] text-vuelta-gold mb-2">メンバーシップ</p>
+              <h2 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-text mb-3">
+                FIRST DRINK PASS
+              </h2>
+              <p className="font-sans text-base text-vuelta-text-light mb-6 max-w-xl mx-auto">
+                毎日1杯無料。月額1,980円で、また来たくなる理由を。
+              </p>
+              <Link
+                href="/ja/subscription"
+                className="inline-flex items-center gap-3 px-8 py-3.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm uppercase tracking-wider group"
+              >
+                詳しく見る
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </FadeInUp>
+          </div>
+        </section>
+
         {/* Location/Access Section */}
         <section id="reservation" className="py-12 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 scroll-mt-20" aria-label="アクセス">
           <div className="max-w-6xl mx-auto">
@@ -600,14 +628,13 @@ export default function HomeJA() {
                         住所
                       </h3>
                       <a
-                        href="https://www.google.com/maps/search/?api=1&query=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
+                        href={MAPS_SEARCH_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-base sm:text-lg hover:text-vuelta-gold transition-colors cursor-pointer block"
                       >
-                        〒733-0051<br />
-                        掛江ビル 2F<br />
-                        広島県広島市中区大手町3-3-5
+                        〒{POSTAL_CODE}<br />
+                        {STORE_ADDRESS_JA_LINE}
                       </a>
                     </div>
                     <div>
@@ -692,7 +719,7 @@ export default function HomeJA() {
                 <div className="space-y-4">
                   <div className="relative aspect-[4/3] bg-vuelta-gray overflow-hidden rounded-lg group cursor-pointer">
                     <iframe
-                      src="https://www.google.com/maps?q=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F&hl=ja&z=17&output=embed"
+                      src={MAPS_EMBED_URL}
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
@@ -707,7 +734,7 @@ export default function HomeJA() {
                   </div>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
+                      href={MAPS_SEARCH_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-japanese text-sm"

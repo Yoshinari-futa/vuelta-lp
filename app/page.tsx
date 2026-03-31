@@ -2,6 +2,8 @@
 
 import {
   BAR_LOGO_IMAGE_URL,
+  MAPS_EMBED_URL,
+  MAPS_SEARCH_URL,
   POSTAL_CODE,
   barStructuredDataId,
   barStructuredDataUrl,
@@ -115,6 +117,7 @@ const Header = () => {
                 <a href={isRecruitPage ? "/#manager" : "#manager"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#manager'); setIsMenuOpen(false) }}>Manager</a>
                 <a href={isRecruitPage ? "/#reservation" : "#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Visit Us</a>
                 <a href="/recruit" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isRecruitPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>Recruit</a>
+                <a href="/subscription" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>First Drink Pass</a>
                 <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
               </div>
             </motion.nav>
@@ -194,7 +197,7 @@ export default function Home() {
     "image": [BAR_LOGO_IMAGE_URL],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "3-3-5 Ote-machi, Naka-ku, Kakee Building 2F",
+      "streetAddress": "3-3-5 Otemachi, Naka-ku, Kakee Building 201",
       "addressLocality": "Hiroshima",
       "addressRegion": "Hiroshima Prefecture",
       "postalCode": POSTAL_CODE,
@@ -398,7 +401,7 @@ export default function Home() {
             <div className="relative aspect-[4/5] bg-vuelta-gray overflow-hidden group rounded-lg">
               <Image
                 src="/images/interior.png"
-                alt="VUELTA interior - Kakee Building entrance"
+                alt="VUELTA interior - Kakee Building 201 entrance"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -581,6 +584,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FIRST DRINK PASS Banner */}
+      <section className="py-10 md:py-16 px-4 sm:px-6 bg-gradient-to-r from-vuelta-gold/10 to-vuelta-gold/5 border-y border-vuelta-gold/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <FadeInUp>
+            <p className="font-annam text-sm uppercase tracking-[0.3em] text-vuelta-gold mb-2">Membership</p>
+            <h2 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-text mb-3">
+              FIRST DRINK PASS
+            </h2>
+            <p className="font-sans text-base text-vuelta-text-light mb-6 max-w-xl mx-auto">
+              One free drink daily for ¥1,980/month. Your new reason to come back.
+            </p>
+            <Link
+              href="/subscription"
+              className="inline-flex items-center gap-3 px-8 py-3.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm uppercase tracking-wider group"
+            >
+              Learn More
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </FadeInUp>
+        </div>
+      </section>
+
       {/* For International Guests Section */}
       <section className="py-12 md:py-32 px-4 sm:px-6 bg-vuelta-gray" aria-label="Welcome International Guests">
         <div className="max-w-4xl mx-auto text-center">
@@ -656,15 +683,15 @@ export default function Home() {
                       Address
                     </h3>
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
+                      href={MAPS_SEARCH_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-base sm:text-lg hover:text-vuelta-gold transition-colors cursor-pointer block"
                     >
-                      733-0051<br />
-                      Kakee Building 2F<br />
-                      3-3-5 Ote-machi, Naka-ku<br />
-                      Hiroshima, Japan
+                      {POSTAL_CODE}<br />
+                      Kakee Building 201<br />
+                      3-3-5 Otemachi, Naka-ku<br />
+                      Hiroshima, Hiroshima Prefecture, Japan
                     </a>
                   </div>
                   <div>
@@ -750,7 +777,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="relative aspect-[4/3] bg-vuelta-gray overflow-hidden rounded-lg group cursor-pointer">
                   <iframe
-                    src="https://www.google.com/maps?q=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F&hl=ja&z=17&output=embed"
+                    src={MAPS_EMBED_URL}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -765,7 +792,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=733-0051+広島市中区大手町3丁目3-5+掛江ビル2F"
+                    href={MAPS_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm"
