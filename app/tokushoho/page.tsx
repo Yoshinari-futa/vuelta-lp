@@ -49,7 +49,7 @@ export default function TokushohoPage() {
 
           <div className="divide-y divide-vuelta-gray">
             <Row label="販売業者" value="株式会社VUELTA" />
-            <Row label="代表責任者" value="布田 義成" />
+            <Row label="通信販売業務責任者" value="三宅 悠太" />
             <Row label="所在地">
               <span>〒{POSTAL_CODE}<br />{STORE_ADDRESS_JA_LINE}</span>
             </Row>
