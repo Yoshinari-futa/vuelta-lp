@@ -3,7 +3,7 @@
 import { SITE_ORIGIN, POSTAL_CODE } from '@/lib/site-seo'
 import { MENU_DRIVE_URL } from '@/lib/menuUrl'
 import { useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -11,13 +11,34 @@ import { useRouter } from 'next/navigation'
 
 const STRIPE_LINK = 'https://buy.stripe.com/cNi7sK0NG9yL7k5cMk6Zy02'
 
-// Header Component (日本語版)
+// Header Component (日本語版) — トップ /ja と同一（ハンバーガー＋言語切替）
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
   const router = useRouter()
+  const isRecruitPage = pathname === '/ja/recruit'
+  const isJaHome = pathname === '/ja'
+  const isSubscriptionPage = pathname === '/ja/subscription'
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const element = document.querySelector(href)
+      if (element) {
+        const headerHeight = 80
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+        const offsetPosition = elementPosition - headerHeight
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      }
+    }
+  }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gold/20">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <Link
@@ -35,15 +56,15 @@ const Header = () => {
             />
           </Link>
 
-          <div className="flex items-center gap-4 md:gap-8">
-            <div className="flex items-center gap-2 border-r border-vuelta-gold/30 pr-4 min-w-[3rem] flex-shrink-0">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0">
               <a
-                href="/subscription"
-                className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block"
+                href="/"
+                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block"
                 onClick={(e) => {
                   e.preventDefault()
                   localStorage.setItem('vuelta-language', 'en')
-                  router.push('/subscription')
+                  router.push(pathname === '/ja/subscription' ? '/subscription' : '/')
                 }}
               >
                 EN
@@ -51,82 +72,48 @@ const Header = () => {
               <span className="text-vuelta-gray/60 text-xs flex-shrink-0">/</span>
               <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">JA</span>
             </div>
-            <div className="hidden md:flex items-center gap-8">
-              <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="flex flex-col gap-1.5 p-3 min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded transition-all"
+              aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
+              aria-expanded={isMenuOpen}
+            >
+              <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </button>
+          </div>
+        </div>
+
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="mt-6 pt-6 border-t border-vuelta-gray/20"
+              aria-label="メインナビゲーション"
+            >
+              <div className="flex flex-col">
+                <a href={isJaHome ? '#about' : '/ja#about'} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isJaHome) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
                 <a
                   href={MENU_DRIVE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
+                  className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center touch-manipulation"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  メニュー
+                  Menu
                 </a>
-              </motion.div>
-              <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/ja#about"
-                  className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
-                >
-                  VUELTAとは
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/ja#reservation"
-                  className="font-annam text-xs text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.15em] uppercase block"
-                >
-                  アクセス
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/ja/subscription"
-                  className="font-annam text-xs text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.15em] uppercase font-semibold block"
-                >
-                  パス
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ y: -2, scale: 1.02 }} transition={{ duration: 0.2 }}>
-                <a
-                  href="https://www.instagram.com/vuelta_bar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase block"
-                >
-                  DMで予約
-                </a>
-              </motion.div>
-            </div>
-          </div>
-
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            aria-label="メニューを開く"
-          >
-            <span className={`w-6 h-px bg-vuelta-gold transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`w-6 h-px bg-vuelta-gold transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`w-6 h-px bg-vuelta-gold transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="md:hidden mt-6 pt-6 border-t border-vuelta-gold/20"
-          >
-            <div className="flex flex-col">
-              <a href={MENU_DRIVE_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>メニュー</a>
-              <Link href="/ja#about" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>VUELTAとは</Link>
-              <Link href="/ja#reservation" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>アクセス</Link>
-              <Link href="/ja/subscription" className="font-annam text-sm text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center font-semibold" onClick={() => setIsMenuOpen(false)}>パス</Link>
-              <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gold/20" onClick={() => setIsMenuOpen(false)}>DMで予約</a>
-            </div>
-          </motion.nav>
-        )}
+                <a href={isJaHome ? '#reservation' : '/ja#reservation'} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isJaHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
+                <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
+                <Link href="/ja/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
+                <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   )
@@ -229,7 +216,7 @@ export default function SubscriptionPageJA() {
                           </svg>
                         </div>
                       </div>
-                      <h3 className="font-annam text-xl font-light text-vuelta-gold">QRで簡単チェックイン</h3>
+                      <h3 className="font-annam text-xl font-light text-vuelta-gold whitespace-nowrap">QRで簡単チェックイン</h3>
                       <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">
                         カウンターでスマホを見せるだけ。カードもスタンプも不要です。
                       </p>
@@ -305,11 +292,6 @@ export default function SubscriptionPageJA() {
                   <p>
                     もっと来る？もっとお得。毎週来れば、同じ月額で3,200円以上のドリンクが無料に。
                   </p>
-                  <div className="pt-4 border-t border-vuelta-gold/20">
-                    <p className="text-sm text-vuelta-text-light italic">
-                      常連さんへのありがとう、そんなパスです。VUELTAでは、常連さんは家族だから。
-                    </p>
-                  </div>
                 </div>
               </div>
             </FadeInUp>
@@ -325,10 +307,6 @@ export default function SubscriptionPageJA() {
               </h2>
               <div className="space-y-6">
                 {[
-                  {
-                    q: '対象のドリンクは？',
-                    a: '通常メニューから選べます。カクテル、ビール、ソフトドリンクなど。シグネチャーカクテルやプレミアムスピリッツは差額をいただく場合があります。',
-                  },
                   {
                     q: '1日に何回使える？',
                     a: 'パスは1日1杯無料です。夜に来て、日付が変わった0時以降にもう一度使えます。',
@@ -364,7 +342,6 @@ export default function SubscriptionPageJA() {
               </p>
               <a
                 href={STRIPE_LINK}
-                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-10 sm:px-12 py-4 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-base sm:text-lg uppercase tracking-wider group shadow-lg"
               >

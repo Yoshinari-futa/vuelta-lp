@@ -27,6 +27,8 @@ const Header = () => {
   const pathname = usePathname()
   const router = useRouter()
   const isRecruitPage = pathname === '/ja/recruit'
+  const isJaHome = pathname === '/ja'
+  const isSubscriptionPage = pathname === '/ja/subscription'
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -73,7 +75,7 @@ const Header = () => {
                 onClick={(e) => {
                   e.preventDefault()
                   localStorage.setItem('vuelta-language', 'en')
-                  router.push('/')
+                  router.push(pathname === '/ja/subscription' ? '/subscription' : '/')
                 }}
               >
                 EN
@@ -105,7 +107,7 @@ const Header = () => {
               aria-label="メインナビゲーション"
             >
               <div className="flex flex-col">
-                <a href={isRecruitPage ? "/ja#about" : "#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
+                <a href={isJaHome ? "#about" : "/ja#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isJaHome) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
                 <a
                   href={MENU_DRIVE_URL}
                   target="_blank"
@@ -115,9 +117,9 @@ const Header = () => {
                 >
                   Menu
                 </a>
-                <a href={isRecruitPage ? "/ja#reservation" : "#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (!isRecruitPage) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
+                <a href={isJaHome ? "#reservation" : "/ja#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isJaHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
                 <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
-                <Link href="/ja/subscription" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
+                <Link href="/ja/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
                 <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
               </div>
             </motion.nav>
@@ -595,12 +597,11 @@ export default function HomeJA() {
         <section className="py-10 md:py-16 px-4 sm:px-6 bg-gradient-to-r from-vuelta-gold/10 to-vuelta-gold/5 border-y border-vuelta-gold/20">
           <div className="max-w-4xl mx-auto text-center">
             <FadeInUp>
-              <p className="font-annam text-sm uppercase tracking-[0.3em] text-vuelta-gold mb-2">Membership</p>
               <h2 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-text mb-3">
                 FIRST DRINK PASS
               </h2>
-              <p className="font-sans text-base text-vuelta-text-light mb-6 max-w-xl mx-auto">
-                毎日1杯無料。月額1,980円で、また来たくなる理由を。
+              <p className="font-japanese text-base text-vuelta-text-light mb-6 max-w-xl mx-auto leading-relaxed">
+                ウォレットカードを使ったサブスクリプション
               </p>
               <Link
                 href="/ja/subscription"
