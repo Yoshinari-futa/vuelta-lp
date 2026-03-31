@@ -1,6 +1,13 @@
 'use client'
 
-import { POSTAL_CODE, SITE_ORIGIN } from '@/lib/site-seo'
+import {
+  POSTAL_CODE,
+  SITE_ORIGIN,
+  barSameAsUrls,
+  footerGoogleHref,
+  footerTripAdvisorHref,
+  isGoogleBusinessProfileConfigured,
+} from '@/lib/site-seo'
 import { MENU_DRIVE_URL } from '@/lib/menuUrl'
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
@@ -191,13 +198,13 @@ export default function Recruit() {
     "hiringOrganization": {
       "@type": "Organization",
       "name": "VUELTA",
-      "sameAs": "https://www.instagram.com/vuelta_bar"
+      "sameAs": barSameAsUrls()
     },
     "jobLocation": {
       "@type": "Place",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "3-3-5 Ote-machi, Naka-ku, Kakee Building 2F",
+        "streetAddress": "3-3-5 Otemachi, Naka-ku, Kakee Building 201",
         "addressLocality": "Hiroshima",
         "addressRegion": "Hiroshima Prefecture",
         "postalCode": POSTAL_CODE,
@@ -646,6 +653,26 @@ export default function Recruit() {
                     className="text-vuelta-gold/70 hover:text-vuelta-gold transition-colors font-annam"
                   >
                     @yuji_miyake
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={footerGoogleHref()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-vuelta-gold/70 hover:text-vuelta-gold transition-colors font-annam"
+                  >
+                    {isGoogleBusinessProfileConfigured() ? 'Google' : 'Google Maps'}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={footerTripAdvisorHref()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-vuelta-gold/70 hover:text-vuelta-gold transition-colors font-annam"
+                  >
+                    TripAdvisor
                   </a>
                 </li>
               </ul>

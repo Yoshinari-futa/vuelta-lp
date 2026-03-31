@@ -6,8 +6,12 @@ import {
   MAPS_SEARCH_URL,
   POSTAL_CODE,
   STORE_ADDRESS_JA_LINE,
+  barSameAsUrls,
   barStructuredDataId,
   barStructuredDataUrl,
+  footerGoogleHref,
+  footerTripAdvisorHref,
+  isGoogleBusinessProfileConfigured,
 } from '@/lib/site-seo'
 import { MENU_DRIVE_URL } from '@/lib/menuUrl'
 import { useRef, useState, useEffect } from 'react'
@@ -211,9 +215,7 @@ export default function HomeJA() {
     "priceRange": "¥900-¥1,500",
     "servesCuisine": "カクテル",
     "url": barStructuredDataUrl('ja'),
-    "sameAs": [
-      "https://www.instagram.com/vuelta_bar"
-    ],
+    "sameAs": barSameAsUrls(),
     "acceptsReservations": true,
     "paymentAccepted": "現金, クレジットカード"
   }
@@ -871,6 +873,44 @@ export default function HomeJA() {
                       </div>
                       <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-japanese font-medium flex-1">@yuji_miyake</span>
                       <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={footerGoogleHref()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
+                    >
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
+                        <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                      </div>
+                      <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-japanese font-medium flex-1">
+                        {isGoogleBusinessProfileConfigured() ? 'Google' : 'Google マップ'}
+                      </span>
+                      <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={footerTripAdvisorHref()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
+                    >
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
+                        <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                        </svg>
+                      </div>
+                      <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-japanese font-medium flex-1">TripAdvisor</span>
+                      <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </a>
