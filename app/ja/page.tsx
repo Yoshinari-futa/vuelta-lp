@@ -212,7 +212,7 @@ export default function HomeJA() {
         "closes": "02:00"
       }
     ],
-    "priceRange": "¥900-¥1,500",
+    "priceRange": "¥900-¥1,600",
     "servesCuisine": "カクテル",
     "url": barStructuredDataUrl('ja'),
     "sameAs": barSameAsUrls(),
@@ -520,9 +520,9 @@ export default function HomeJA() {
             {/* Asymmetric grid layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
               {[
-                { name: 'Shell We?', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,500', image: '/images/cocktails/shellwe.png' },
+                { name: 'Shell We?', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,600', image: '/images/cocktails/shellwe.png' },
                 { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの旨み、オタフクソース、トマトの甘みがグラスでひとつに。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
-                { name: '26 hours', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,200', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
+                { name: '26 hours', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,250', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
               ].map((item, index) => {
                 return (
                   <FadeInUp key={index} delay={index * 0.1}>
@@ -595,7 +595,7 @@ export default function HomeJA() {
         <section className="py-10 md:py-16 px-4 sm:px-6 bg-gradient-to-r from-vuelta-gold/10 to-vuelta-gold/5 border-y border-vuelta-gold/20">
           <div className="max-w-4xl mx-auto text-center">
             <FadeInUp>
-              <p className="font-annam text-sm uppercase tracking-[0.3em] text-vuelta-gold mb-2">メンバーシップ</p>
+              <p className="font-annam text-sm uppercase tracking-[0.3em] text-vuelta-gold mb-2">Membership</p>
               <h2 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-text mb-3">
                 FIRST DRINK PASS
               </h2>
@@ -606,7 +606,7 @@ export default function HomeJA() {
                 href="/ja/subscription"
                 className="inline-flex items-center gap-3 px-8 py-3.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm uppercase tracking-wider group"
               >
-                詳しく見る
+                Learn More
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

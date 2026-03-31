@@ -12,38 +12,44 @@ export default function LanguageSelector() {
   const router = useRouter()
 
   useEffect(() => {
-    // クライアントサイドでのみ実行
     if (typeof window === 'undefined') return
-    
-    // 現在のパスを確認
+
     const currentPath = window.location.pathname
-    
-    // 既に日本語版にいる場合は言語選択を表示しない
+    const savedLanguage = localStorage.getItem('vuelta-language') as Language | null
+
+    // /ja 配下: 言語選択は出さない
     if (currentPath.startsWith('/ja')) {
-      const savedLanguage = localStorage.getItem('vuelta-language')
       if (!savedLanguage) {
         localStorage.setItem('vuelta-language', 'ja')
       }
       setSelectedLanguage('ja')
       setIsVisible(false)
+
+      // EN 保存で日本語URLにいる → 英語の対応ページへ（サブスクはペアでリダイレクト）
+      if (savedLanguage === 'en') {
+        if (currentPath === '/ja/subscription') {
+          router.replace('/subscription')
+        } else if (currentPath === '/ja' || currentPath === '/ja/') {
+          router.replace('/')
+        }
+      }
       return
     }
-    
-    // ローカルストレージから言語設定を読み込む
-    const savedLanguage = localStorage.getItem('vuelta-language') as Language | null
-    
+
+    // /ja 以外
     if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'ja')) {
       setSelectedLanguage(savedLanguage)
       setIsVisible(false)
-      // 保存された言語と現在のページが一致しない場合のみリダイレクト
-      const isOnJapanesePage = currentPath.startsWith('/ja')
-      if (savedLanguage === 'ja' && !isOnJapanesePage) {
-        router.push('/ja')
-      } else if (savedLanguage === 'en' && isOnJapanesePage) {
-        router.push('/')
+
+      // JA 保存で英語URLにいる → 日本語トップか、対応する /ja ページへ
+      if (savedLanguage === 'ja') {
+        if (currentPath === '/subscription') {
+          router.replace('/ja/subscription')
+        } else {
+          router.replace('/ja')
+        }
       }
     } else {
-      // 初回訪問時は言語選択を表示
       setIsVisible(true)
     }
   }, [router])
