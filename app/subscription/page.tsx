@@ -380,6 +380,11 @@ export default function SubscriptionPage() {
           <p className="font-sans text-xs text-vuelta-text-light">
             &copy; {new Date().getFullYear()} VUELTA. All rights reserved.
           </p>
+          <p className="font-sans text-xs mt-2">
+            <Link href="/tokushoho" className="text-vuelta-text-light hover:text-vuelta-gold transition-colors">
+              特定商取引法に基づく表記
+            </Link>
+          </p>
         </div>
       </footer>
     </>

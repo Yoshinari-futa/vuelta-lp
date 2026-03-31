@@ -985,9 +985,14 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-vuelta-gray text-center">
+          <div className="pt-8 border-t border-vuelta-gray text-center space-y-2">
             <p className="font-sans text-xs text-vuelta-text-light">
               © 2026 VUELTA. All rights reserved.
+            </p>
+            <p className="font-sans text-xs">
+              <Link href="/tokushoho" className="text-vuelta-text-light hover:text-vuelta-gold transition-colors">
+                特定商取引法に基づく表記
+              </Link>
             </p>
           </div>
         </div>

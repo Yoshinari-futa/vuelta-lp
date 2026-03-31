@@ -919,9 +919,14 @@ export default function HomeJA() {
                 </ul>
               </div>
             </div>
-            <div className="pt-12 border-t border-vuelta-gray/30 text-center">
+            <div className="pt-12 border-t border-vuelta-gray/30 text-center space-y-2">
               <p className="font-japanese text-xs text-vuelta-text-light">
                 © 2026 VUELTA. All rights reserved.
+              </p>
+              <p className="font-japanese text-xs">
+                <Link href="/tokushoho" className="text-vuelta-text-light hover:text-vuelta-gold transition-colors">
+                  特定商取引法に基づく表記
+                </Link>
               </p>
             </div>
           </div>
