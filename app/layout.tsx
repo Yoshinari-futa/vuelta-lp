@@ -58,10 +58,10 @@ export const metadata: Metadata = {
     siteName: 'VUELTA',
     images: [
       {
-        url: '/images/vuelta-logo.png',
-        width: 900,
-        height: 306,
-        alt: 'VUELTA Logo',
+        url: '/images/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: 'VUELTA - Craft Cocktail Bar in Hiroshima',
       },
     ],
   },
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'VUELTA In Hiroshima',
     description: 'Experience the art of mixology at VUELTA',
-    images: ['/images/vuelta-logo.png'],
+    images: ['/images/ogp.png'],
   },
   icons: {
     icon: '/icon.png',
