@@ -34,37 +34,37 @@ export const GOOGLE_BUSINESS_PROFILE_URL = (
   process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL ?? ''
 ).trim()
 
+/** TripAdvisor 店舗ページ（公式）。`NEXT_PUBLIC_TRIPADVISOR_URL` で上書き可 */
+export const TRIPADVISOR_DEFAULT_LISTING_URL =
+  'https://www.tripadvisor.com/Restaurant_Review-g298561-d34286584-Reviews-Vuelta-Hiroshima_Hiroshima_Prefecture_Chugoku.html' as const
+
 /**
- * TripAdvisor の店舗ページURL。
- * 未設定時はフッターは `footerTripAdvisorHref()` が店名検索にフォールバック。
+ * TripAdvisor の店舗ページURL（フッター・JSON-LD sameAs）。
+ * 未設定または空のときは `TRIPADVISOR_DEFAULT_LISTING_URL`。
  */
-export const TRIPADVISOR_LISTING_URL = (
-  process.env.NEXT_PUBLIC_TRIPADVISOR_URL ?? ''
-).trim()
+export const TRIPADVISOR_LISTING_URL =
+  (process.env.NEXT_PUBLIC_TRIPADVISOR_URL ?? '').trim() ||
+  TRIPADVISOR_DEFAULT_LISTING_URL
 
 /** フッター「Google」: ビジネスURL優先、なければ住所の Google マップ検索 */
 export function footerGoogleHref(): string {
   return GOOGLE_BUSINESS_PROFILE_URL || MAPS_SEARCH_URL
 }
 
-const TRIPADVISOR_SEARCH_FALLBACK =
-  'https://www.tripadvisor.com/Search?q=' +
-  encodeURIComponent('VUELTA Hiroshima')
-
-/** フッター「TripAdvisor」: 店舗URL優先、なければ検索（店舗ページURLが分かったら env で差し替え） */
+/** フッター「TripAdvisor」 */
 export function footerTripAdvisorHref(): string {
-  return TRIPADVISOR_LISTING_URL || TRIPADVISOR_SEARCH_FALLBACK
+  return TRIPADVISOR_LISTING_URL
 }
 
 export function isGoogleBusinessProfileConfigured(): boolean {
   return Boolean(GOOGLE_BUSINESS_PROFILE_URL)
 }
 
-/** BarOrPub の JSON-LD `sameAs` 用（Instagram + 任意で上記2件） */
+/** BarOrPub の JSON-LD `sameAs` 用（Instagram + Google 任意 + TripAdvisor） */
 export function barSameAsUrls(): string[] {
   const urls: string[] = [INSTAGRAM_BAR_URL]
   if (GOOGLE_BUSINESS_PROFILE_URL) urls.push(GOOGLE_BUSINESS_PROFILE_URL)
-  if (TRIPADVISOR_LISTING_URL) urls.push(TRIPADVISOR_LISTING_URL)
+  urls.push(TRIPADVISOR_LISTING_URL)
   return urls
 }
 

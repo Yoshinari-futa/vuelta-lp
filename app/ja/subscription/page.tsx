@@ -376,14 +376,16 @@ export default function SubscriptionPageJA() {
             <a href={MENU_DRIVE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-vuelta-gold transition-colors">メニュー</a>
             <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="hover:text-vuelta-gold transition-colors">Instagram</a>
           </div>
-          <p className="font-sans text-xs text-vuelta-text-light">
-            &copy; {new Date().getFullYear()} VUELTA. All rights reserved.
-          </p>
-          <p className="font-sans text-xs mt-2">
-            <Link href="/tokushoho" className="text-vuelta-text-light hover:text-vuelta-gold transition-colors">
-              特定商取引法に基づく表記
-            </Link>
-          </p>
+          <div className="pt-8 border-t border-vuelta-gray text-center space-y-2">
+            <p className="font-sans text-xs text-vuelta-text-light">
+              &copy; {new Date().getFullYear()} VUELTA. All rights reserved.
+            </p>
+            <p className="font-sans text-xs">
+              <Link href="/tokushoho" className="text-vuelta-text-light hover:text-vuelta-gold transition-colors">
+                特定商取引法に基づく表記
+              </Link>
+            </p>
+          </div>
         </div>
       </footer>
     </>
