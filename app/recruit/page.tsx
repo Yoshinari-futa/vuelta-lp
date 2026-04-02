@@ -628,6 +628,26 @@ export default function Recruit() {
                     Recruit
                   </Link>
                 </li>
+                <li>
+                  <a
+                    href={footerGoogleHref()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-vuelta-gold/70 hover:text-vuelta-gold transition-colors font-annam"
+                  >
+                    {isGoogleBusinessProfileConfigured() ? 'Google' : 'Google Maps'}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={footerTripAdvisorHref()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-vuelta-gold/70 hover:text-vuelta-gold transition-colors font-annam"
+                  >
+                    TripAdvisor
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
@@ -653,26 +673,6 @@ export default function Recruit() {
                     className="text-vuelta-gold/70 hover:text-vuelta-gold transition-colors font-annam"
                   >
                     @yuji_miyake
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={footerGoogleHref()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-vuelta-gold/70 hover:text-vuelta-gold transition-colors font-annam"
-                  >
-                    {isGoogleBusinessProfileConfigured() ? 'Google' : 'Google Maps'}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={footerTripAdvisorHref()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-vuelta-gold/70 hover:text-vuelta-gold transition-colors font-annam"
-                  >
-                    TripAdvisor
                   </a>
                 </li>
               </ul>
