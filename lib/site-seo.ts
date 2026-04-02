@@ -11,6 +11,15 @@ export const POSTAL_CODE = '730-0051' as const
 export const STORE_ADDRESS_JA_LINE =
   '広島県広島市中区大手町3-3-5 掛江ビル201' as const
 
+/** 店舗電話（IP電話） */
+export const STORE_PHONE_DISPLAY = '050-1182-9848' as const
+
+/** `tel:` リンク用（E.164: +81 50 1182 9848） */
+export const STORE_PHONE_TEL_HREF = 'tel:+815011829848' as const
+
+/** JSON-LD `telephone` 用 */
+export const STORE_PHONE_SCHEMA = '+81-50-1182-9848' as const
+
 const ADDRESS_FOR_MAPS = `${POSTAL_CODE} ${STORE_ADDRESS_JA_LINE}` as const
 
 /** Google マップ「ここへ行く」検索用 */

@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SITE_ORIGIN, POSTAL_CODE, STORE_ADDRESS_JA_LINE } from '@/lib/site-seo'
+import {
+  SITE_ORIGIN,
+  POSTAL_CODE,
+  STORE_ADDRESS_JA_LINE,
+  STORE_PHONE_DISPLAY,
+} from '@/lib/site-seo'
 
 export const metadata: Metadata = {
   title: '特定商取引法に基づく表記 | VUELTA',
@@ -53,7 +58,7 @@ export default function TokushohoPage() {
             <Row label="所在地">
               <span>〒{POSTAL_CODE}<br />{STORE_ADDRESS_JA_LINE}</span>
             </Row>
-            <Row label="電話番号" value="070-8987-0979" />
+            <Row label="電話番号" value={STORE_PHONE_DISPLAY} />
             <Row label="メールアドレス" value="head_office@vuelta-hr.com" />
             <Row label="URL">
               <a

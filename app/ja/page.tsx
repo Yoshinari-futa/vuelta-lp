@@ -6,6 +6,9 @@ import {
   MAPS_SEARCH_URL,
   POSTAL_CODE,
   STORE_ADDRESS_JA_LINE,
+  STORE_PHONE_DISPLAY,
+  STORE_PHONE_SCHEMA,
+  STORE_PHONE_TEL_HREF,
   barSameAsUrls,
   barStructuredDataId,
   barStructuredDataUrl,
@@ -218,6 +221,7 @@ export default function HomeJA() {
     "servesCuisine": "カクテル",
     "url": barStructuredDataUrl('ja'),
     "sameAs": barSameAsUrls(),
+    "telephone": STORE_PHONE_SCHEMA,
     "acceptsReservations": true,
     "paymentAccepted": "現金, クレジットカード"
   }
@@ -642,6 +646,17 @@ export default function HomeJA() {
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
+                        電話
+                      </h3>
+                      <a
+                        href={STORE_PHONE_TEL_HREF}
+                        className="text-base sm:text-lg hover:text-vuelta-gold transition-colors"
+                      >
+                        {STORE_PHONE_DISPLAY}
+                      </a>
+                    </div>
+                    <div>
+                      <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
                         Access
                       </h3>
                       <div className="space-y-3 text-base sm:text-lg">
@@ -651,15 +666,7 @@ export default function HomeJA() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                           </div>
-                          <span>最寄り駅: 中電前駅。</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <div className="flex-shrink-0 w-6 h-6 mt-0.5">
-                            <svg className="w-6 h-6 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                            </svg>
-                          </div>
-                          <span>徒歩: 中電前駅から1分。</span>
+                          <span>中電前駅から徒歩1分で着きます。</span>
                         </div>
                         <div className="flex items-start gap-3">
                           <div className="flex-shrink-0 w-6 h-6 mt-0.5">
