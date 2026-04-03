@@ -195,43 +195,72 @@ export default function Home() {
 
   const hoursStatus = getCurrentHours()
 
-  // Structured Data for SEO
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "BarOrPub",
-    "@id": barStructuredDataId('en'),
-    "name": "VUELTA",
-    "url": barStructuredDataUrl('en'),
-    "description": "Premium cocktail bar in Hiroshima where international guests and locals meet. Experience authentic Hiroshima hospitality with world-class cocktails.",
-    "image": [BAR_LOGO_IMAGE_URL],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "3-3-5 Otemachi, Naka-ku, Kakee Building 201",
-      "addressLocality": "Hiroshima",
-      "addressRegion": "Hiroshima Prefecture",
-      "postalCode": POSTAL_CODE,
-      "addressCountry": "JP"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "34.3950",
-      "longitude": "132.4550"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Wednesday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"],
-        "opens": "18:00",
-        "closes": "02:00"
+  // Structured Data for SEO — BarOrPub + WebSite
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BarOrPub",
+      "@id": barStructuredDataId('en'),
+      "name": "VUELTA",
+      "alternateName": "VUELTA Craft Cocktail Bar",
+      "url": barStructuredDataUrl('en'),
+      "description": "Speakeasy-style craft cocktail bar in Hiroshima city center, 1 min walk from Chuden-mae Station. Signature cocktails using local Hiroshima ingredients like Sakurao Gin and Hiroshima lemon. English spoken, walk-ins welcome.",
+      "image": [BAR_LOGO_IMAGE_URL],
+      "logo": BAR_LOGO_IMAGE_URL,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3-3-5 Otemachi, Naka-ku, Kakee Building 201",
+        "addressLocality": "Hiroshima",
+        "addressRegion": "Hiroshima Prefecture",
+        "postalCode": POSTAL_CODE,
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "34.3886",
+        "longitude": "132.4530"
+      },
+      "hasMap": "https://www.google.com/maps/place/VUELTA",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"],
+          "opens": "18:00",
+          "closes": "02:00"
+        }
+      ],
+      "priceRange": "¥¥",
+      "currenciesAccepted": "JPY",
+      "servesCuisine": ["Craft Cocktails", "Finger Food", "Tacos"],
+      "menu": "https://www.vuelta.jp/menu",
+      "sameAs": barSameAsUrls(),
+      "telephone": STORE_PHONE_SCHEMA,
+      "acceptsReservations": true,
+      "paymentAccepted": "Cash, Credit Card, Electronic Money",
+      "areaServed": {
+        "@type": "City",
+        "name": "Hiroshima"
+      },
+      "knowsLanguage": ["en", "ja"],
+      "foundingDate": "2026-03-15",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": 3
       }
-    ],
-    "priceRange": "¥900-¥1,600",
-    "servesCuisine": "Cocktails",
-    "sameAs": barSameAsUrls(),
-    "telephone": STORE_PHONE_SCHEMA,
-    "acceptsReservations": true,
-    "paymentAccepted": "Cash, Credit Card"
-  }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "VUELTA",
+      "url": "https://www.vuelta.jp",
+      "inLanguage": ["en", "ja"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.vuelta.jp/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
 
   return (
     <main className="min-h-screen">

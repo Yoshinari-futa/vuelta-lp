@@ -4,12 +4,32 @@ const MENU_DRIVE =
 
 const nextConfig = {
   reactStrictMode: true,
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+          },
+        ],
+      },
+    ]
+  },
   async redirects() {
     // ローカル（next dev）では外部リダイレクトを無効化し、接続トラブルを避ける
     if (process.env.NODE_ENV !== 'production') {
       return []
     }
     return [
+      // 非www → www 301リダイレクト（Vercelのドメイン設定でも対応推奨）
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'vuelta.jp' }],
+        destination: 'https://www.vuelta.jp/:path*',
+        permanent: true,
+      },
       { source: '/menu', destination: MENU_DRIVE, permanent: true },
       { source: '/menu/gallery', destination: MENU_DRIVE, permanent: true },
       { source: '/ja/menu', destination: MENU_DRIVE, permanent: true },

@@ -2,7 +2,7 @@
  * 公式サイトのドメイン・住所系SEOの単一ソース。
  * 英語/日本語の JSON-LD で値を重複させない（vuelta-bar.com 等の混入防止）。
  */
-export const SITE_ORIGIN = 'https://vuelta.jp' as const
+export const SITE_ORIGIN = 'https://www.vuelta.jp' as const
 
 /** 郵便番号 */
 export const POSTAL_CODE = '730-0051' as const

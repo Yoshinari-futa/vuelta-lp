@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: 'Recruit | VUELTA In Hiroshima',
     description: 'Join VUELTA team. We are looking for passionate people who love food and hospitality.',
     type: 'website',
-    url: 'https://vuelta.jp/recruit',
+    url: 'https://www.vuelta.jp/recruit',
     siteName: 'VUELTA',
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://vuelta.jp/recruit',
+    canonical: 'https://www.vuelta.jp/recruit',
   },
 }
 

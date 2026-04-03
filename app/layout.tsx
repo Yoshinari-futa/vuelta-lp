@@ -45,15 +45,15 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://vuelta.jp'),
-  title: 'VUELTA In Hiroshima | English Friendly',
-  description: 'Experience the art of mixology at VUELTA, Hiroshima\'s premier cocktail bar. English spoken, international guests welcome. Signature cocktails, intimate atmosphere, located in the heart of Hiroshima city center.',
-  keywords: 'cocktail bar Hiroshima, VUELTA, Hiroshima bar, English speaking bar Hiroshima, premium cocktails, mixology Hiroshima, international bar Japan',
+  metadataBase: new URL('https://www.vuelta.jp'),
+  title: 'VUELTA — Craft Cocktail Bar in Hiroshima | English Friendly',
+  description: 'Speakeasy-style cocktail bar in Hiroshima city center, 1 min from Chuden-mae Station. Signature cocktails using local Hiroshima ingredients. English spoken, walk-ins welcome. Open Wed–Tue, 18:00–02:00.',
+  keywords: 'cocktail bar Hiroshima, VUELTA, Hiroshima bar, English speaking bar Hiroshima, speakeasy Hiroshima, craft cocktails, bar near Peace Park, Hiroshima nightlife, international bar Japan, best bar Hiroshima',
   openGraph: {
-    title: 'VUELTA In Hiroshima',
-    description: 'Where "Welcome Back" meets "Nice to Meet You". Experience authentic Hiroshima hospitality with world-class cocktails.',
+    title: 'VUELTA — Craft Cocktail Bar in Hiroshima',
+    description: 'Where "Welcome Back" meets "Nice to Meet You". Speakeasy-style craft cocktails with Hiroshima local ingredients. English spoken, walk-ins welcome.',
     type: 'website',
-    url: 'https://vuelta.jp',
+    url: 'https://www.vuelta.jp',
     locale: 'en_US',
     siteName: 'VUELTA',
     images: [
@@ -88,10 +88,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://vuelta.jp',
+    canonical: 'https://www.vuelta.jp',
     languages: {
-      'en': 'https://vuelta.jp',
-      'ja': 'https://vuelta.jp/ja',
+      'en': 'https://www.vuelta.jp',
+      'ja': 'https://www.vuelta.jp/ja',
     },
   },
   verification: {

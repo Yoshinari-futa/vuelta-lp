@@ -7,16 +7,16 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://vuelta.jp'),
-  title: 'VUELTA 広島 | 国際的なお客様も大歓迎',
-  description: 'VUELTAでミクソロジーの芸術を体験。広島のプレミアムカクテルバー。英語対応、国際的なお客様も大歓迎。シグネチャーカクテル、親密な雰囲気、広島市中心部に位置。',
-  keywords: 'カクテルバー 広島, VUELTA, 広島 バー, 英語対応 バー 広島, プレミアムカクテル, ミクソロジー 広島, 国際的なバー 日本',
+  metadataBase: new URL('https://www.vuelta.jp'),
+  title: 'VUELTA 広島｜中電前すぐのクラフトカクテルバー',
+  description: '広島市中区大手町のスピークイージー風カクテルバー。中電前駅徒歩1分。広島レモン・桜尾ジンなど地元素材を使ったシグネチャーカクテル。女性一人でも入りやすい隠れ家空間。水〜火 18:00-02:00（木曜定休）',
+  keywords: 'カクテルバー 広島, VUELTA, 広島 バー, 隠れ家バー 広島, スピークイージー 広島, 中電前 バー, 広島市中区 バー, クラフトカクテル, 女性一人 バー 広島, 広島 おしゃれバー',
   openGraph: {
-    title: 'VUELTA 広島',
-    description: '「おかえり」と「はじめまして」が交差する場所。世界クラスのカクテルと本格的な広島のホスピタリティを体験。',
+    title: 'VUELTA 広島｜中電前すぐのクラフトカクテルバー',
+    description: '「おかえり」と「はじめまして」が交差する場所。広島の地元素材を使ったクラフトカクテルと、女性一人でも入りやすい隠れ家空間。',
     type: 'website',
     locale: 'ja_JP',
-    url: 'https://vuelta.jp/ja',
+    url: 'https://www.vuelta.jp/ja',
     siteName: 'VUELTA',
     images: [
       {
@@ -50,10 +50,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://vuelta.jp/ja',
+    canonical: 'https://www.vuelta.jp/ja',
     languages: {
-      'en': 'https://vuelta.jp',
-      'ja': 'https://vuelta.jp/ja',
+      'en': 'https://www.vuelta.jp',
+      'ja': 'https://www.vuelta.jp/ja',
     },
   },
 }

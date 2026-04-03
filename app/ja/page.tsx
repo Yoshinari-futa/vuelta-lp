@@ -188,43 +188,67 @@ export default function HomeJA() {
 
   const hoursStatus = getCurrentHours()
 
-  // Structured Data for SEO
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "BarOrPub",
-    "@id": barStructuredDataId('ja'),
-    "name": "VUELTA",
-    "description": "広島のプレミアムカクテルバー。国際的なお客様と地元の人々が出会う場所。世界クラスのカクテルと本格的な広島のホスピタリティを体験。",
-    "image": [BAR_LOGO_IMAGE_URL],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "広島県広島市中区大手町3-3-5 掛江ビル201",
-      "addressLocality": "広島",
-      "addressRegion": "広島県",
-      "postalCode": POSTAL_CODE,
-      "addressCountry": "JP"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "34.3950",
-      "longitude": "132.4550"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Wednesday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"],
-        "opens": "18:00",
-        "closes": "02:00"
+  // Structured Data for SEO — BarOrPub + WebSite
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BarOrPub",
+      "@id": barStructuredDataId('ja'),
+      "name": "VUELTA",
+      "alternateName": "ブエルタ",
+      "url": barStructuredDataUrl('ja'),
+      "description": "広島市中区大手町のスピークイージー風クラフトカクテルバー。中電前駅徒歩1分。桜尾ジン・広島レモンなど地元素材を使ったシグネチャーカクテル。女性一人でも入りやすい隠れ家空間。英語対応可。",
+      "image": [BAR_LOGO_IMAGE_URL],
+      "logo": BAR_LOGO_IMAGE_URL,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "広島県広島市中区大手町3-3-5 掛江ビル201",
+        "addressLocality": "広島市",
+        "addressRegion": "広島県",
+        "postalCode": POSTAL_CODE,
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "34.3886",
+        "longitude": "132.4530"
+      },
+      "hasMap": "https://www.google.com/maps/place/VUELTA",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"],
+          "opens": "18:00",
+          "closes": "02:00"
+        }
+      ],
+      "priceRange": "¥¥",
+      "currenciesAccepted": "JPY",
+      "servesCuisine": ["クラフトカクテル", "フィンガーフード", "タコス"],
+      "menu": "https://www.vuelta.jp/ja/menu",
+      "sameAs": barSameAsUrls(),
+      "telephone": STORE_PHONE_SCHEMA,
+      "acceptsReservations": true,
+      "paymentAccepted": "現金, クレジットカード, 電子マネー",
+      "areaServed": {
+        "@type": "City",
+        "name": "広島市"
+      },
+      "knowsLanguage": ["ja", "en"],
+      "foundingDate": "2026-03-15",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": 3
       }
-    ],
-    "priceRange": "¥900-¥1,600",
-    "servesCuisine": "カクテル",
-    "url": barStructuredDataUrl('ja'),
-    "sameAs": barSameAsUrls(),
-    "telephone": STORE_PHONE_SCHEMA,
-    "acceptsReservations": true,
-    "paymentAccepted": "現金, クレジットカード"
-  }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "VUELTA",
+      "url": "https://www.vuelta.jp",
+      "inLanguage": ["ja", "en"]
+    }
+  ]
 
   return (
     <main className="min-h-screen bg-white">
