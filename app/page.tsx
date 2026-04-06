@@ -8,6 +8,7 @@ import {
   STORE_PHONE_DISPLAY,
   STORE_PHONE_SCHEMA,
   STORE_PHONE_TEL_HREF,
+  RESERVATION_URL,
   barSameAsUrls,
   barStructuredDataId,
   barStructuredDataUrl,
@@ -15,7 +16,6 @@ import {
   footerTripAdvisorHref,
   isGoogleBusinessProfileConfigured,
 } from '@/lib/site-seo'
-import { MENU_DRIVE_URL } from '@/lib/menuUrl'
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
@@ -114,15 +114,13 @@ const Header = () => {
             >
               <div className="flex flex-col">
                 <a href={isEnHome ? "#about" : "/#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isEnHome) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
-                <a
-                  href={MENU_DRIVE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/menu"
                   className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center touch-manipulation"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Menu
-                </a>
+                </Link>
                 <a href={isEnHome ? "#manager" : "/#manager"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isEnHome) handleAnchorClick(e, '#manager'); setIsMenuOpen(false) }}>Manager</a>
                 <a href={isEnHome ? "#reservation" : "/#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isEnHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Visit Us</a>
                 <a href="/recruit" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isRecruitPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>Recruit</a>
@@ -236,6 +234,18 @@ export default function Home() {
       "sameAs": barSameAsUrls(),
       "telephone": STORE_PHONE_SCHEMA,
       "acceptsReservations": true,
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": RESERVATION_URL,
+          "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+        },
+        "result": {
+          "@type": "Reservation",
+          "name": "Table Reservation"
+        }
+      },
       "paymentAccepted": "Cash, Credit Card, Electronic Money",
       "areaServed": {
         "@type": "City",
@@ -792,13 +802,26 @@ export default function Home() {
                       Walk-ins welcome! For groups or guaranteed seating, reserve ahead.<br />
                       <span className="text-sm text-vuelta-text-light">We&apos;ll do our best to communicate in English!</span>
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
+                      {/* Book Online (Square) */}
+                      <a
+                        href={RESERVATION_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
+                        aria-label="Book online"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span>Book Online</span>
+                      </a>
                       {/* Instagram DM */}
                       <a
                         href="https://www.instagram.com/vuelta_bar"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-annam text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
                         aria-label="Reserve via Instagram DM"
                       >
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -907,10 +930,8 @@ export default function Home() {
               </h4>
               <ul className="space-y-3 font-annam text-sm">
                 <li>
-                  <a
-                    href={MENU_DRIVE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/menu"
                     className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
                   >
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
@@ -920,9 +941,9 @@ export default function Home() {
                     </div>
                     <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-annam font-medium flex-1">Menu</span>
                     <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a 
