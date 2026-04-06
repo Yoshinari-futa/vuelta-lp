@@ -143,6 +143,7 @@ export default function SubscriptionPage() {
     "@type": "Product",
     "name": "FIRST DRINK PASS",
     "description": "Monthly subscription for one free drink per day at VUELTA cocktail bar in Hiroshima.",
+    "image": `${SITE_ORIGIN}/images/ogp.png`,
     "brand": { "@type": "Brand", "name": "VUELTA" },
     "offers": {
       "@type": "Offer",
@@ -150,6 +151,40 @@ export default function SubscriptionPage() {
       "priceCurrency": "JPY",
       "availability": "https://schema.org/InStock",
       "url": STRIPE_LINK,
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "JP",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+        "merchantReturnDays": 0,
+        "description": "Digital subscription — cancel anytime, no refunds for the current billing period.",
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "JPY",
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "JP",
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "d",
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "d",
+          },
+        },
+      },
     },
   }
 

@@ -30,10 +30,11 @@ const nextConfig = {
         destination: 'https://www.vuelta.jp/:path*',
         permanent: true,
       },
-      { source: '/menu', destination: MENU_DRIVE, permanent: true },
-      { source: '/menu/gallery', destination: MENU_DRIVE, permanent: true },
-      { source: '/ja/menu', destination: MENU_DRIVE, permanent: true },
-      { source: '/ja/menu/gallery', destination: MENU_DRIVE, permanent: true },
+      // /menu は app/menu/page.tsx でサイト内レンダリング（SEO向上）
+      // 旧 Google Drive リダイレクトは廃止
+      { source: '/menu/gallery', destination: '/menu', permanent: true },
+      { source: '/ja/menu', destination: '/menu', permanent: true },
+      { source: '/ja/menu/gallery', destination: '/menu', permanent: true },
     ]
   },
   images: {

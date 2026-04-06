@@ -142,6 +142,7 @@ export default function SubscriptionPageJA() {
     "@type": "Product",
     "name": "FIRST DRINK PASS",
     "description": "広島のカクテルバーVUELTAで毎日1杯無料になる月額サブスクリプション。",
+    "image": `${SITE_ORIGIN}/images/ogp.png`,
     "brand": { "@type": "Brand", "name": "VUELTA" },
     "offers": {
       "@type": "Offer",
@@ -149,6 +150,40 @@ export default function SubscriptionPageJA() {
       "priceCurrency": "JPY",
       "availability": "https://schema.org/InStock",
       "url": STRIPE_LINK,
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "JP",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+        "merchantReturnDays": 0,
+        "description": "デジタルサブスクリプション — いつでも解約可能。現在の請求期間分の返金はありません。",
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "JPY",
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "JP",
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "d",
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "d",
+          },
+        },
+      },
     },
   }
 

@@ -606,17 +606,15 @@ export default function HomeJA() {
               })}
             </div>
             <div className="text-center mt-10 md:mt-14">
-              <a
-                href={MENU_DRIVE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/menu"
                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 min-h-[48px] w-full max-w-sm mx-auto sm:w-auto sm:max-w-none touch-manipulation bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-annam text-sm uppercase tracking-wider rounded shadow-lg shadow-vuelta-gold/20"
               >
                 <span>View Full Menu</span>
-                <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                <svg className="w-5 h-5 opacity-90 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
