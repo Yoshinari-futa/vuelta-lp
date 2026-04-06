@@ -4,6 +4,7 @@ import {
   foodCategories,
   signatureCocktails,
   cocktails,
+  specialProjects,
   spiritsCategories,
   type MenuCategory,
   type MenuItem,
@@ -206,6 +207,7 @@ export default function MenuPage() {
             </div>
             <MenuSection category={signatureCocktails} />
             <MenuSection category={cocktails} />
+            <MenuSection category={specialProjects} />
           </div>
 
           {/* ---- SPIRITS / BEER / WINE ---- */}

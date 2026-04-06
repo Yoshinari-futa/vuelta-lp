@@ -37,12 +37,17 @@ export default function LanguageSelector() {
     }
 
     // /ja 以外
+    // 言語非依存ページ（/menu, /recruit, /tokushoho 等）はリダイレクトしない
+    const langNeutralPaths = ['/menu', '/recruit', '/tokushoho']
+    const isLangNeutral = langNeutralPaths.some(p => currentPath.startsWith(p))
+
     if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'ja')) {
       setSelectedLanguage(savedLanguage)
       setIsVisible(false)
 
       // JA 保存で英語URLにいる → 日本語トップか、対応する /ja ページへ
-      if (savedLanguage === 'ja') {
+      // ただし言語非依存ページはリダイレクトしない
+      if (savedLanguage === 'ja' && !isLangNeutral) {
         if (currentPath === '/subscription') {
           router.replace('/ja/subscription')
         } else {
