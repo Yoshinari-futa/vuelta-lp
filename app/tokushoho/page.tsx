@@ -7,6 +7,7 @@ import {
   STORE_ADDRESS_JA_LINE,
   STORE_PHONE_DISPLAY,
 } from '@/lib/site-seo'
+import { blurDataUrl } from '@/lib/blurPlaceholders'
 
 export const metadata: Metadata = {
   title: '特定商取引法に基づく表記 | VUELTA',
@@ -34,6 +35,8 @@ export default function TokushohoPage() {
               height={85}
               className="h-8 md:h-10 w-auto object-contain"
               priority
+              placeholder="blur"
+              blurDataURL={blurDataUrl('/images/vuelta-logo.png')}
             />
           </Link>
           <Link

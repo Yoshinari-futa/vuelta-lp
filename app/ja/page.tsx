@@ -23,6 +23,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
+import { PhoneContactBlock } from '@/app/components/PhoneContactBlock'
+import { blurDataUrl } from '@/lib/blurPlaceholders'
 
 // Header Component (日本語版)
 const Header = () => {
@@ -66,6 +68,8 @@ const Header = () => {
               height={85}
               className="h-8 md:h-10 w-auto object-contain"
               priority
+              placeholder="blur"
+              blurDataURL={blurDataUrl('/images/vuelta-logo.png')}
             />
           </Link>
 
@@ -121,7 +125,7 @@ const Header = () => {
                 <a href={isJaHome ? "#reservation" : "/ja#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isJaHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
                 <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
                 <Link href="/ja/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
-                <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
+                <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>オンライン予約</a>
               </div>
             </motion.nav>
           )}
@@ -330,22 +334,21 @@ export default function HomeJA() {
                   className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-6 md:mb-12 w-full max-w-md sm:max-w-none mx-auto px-4"
                 >
                   <a
-                    href="https://www.instagram.com/vuelta_bar"
+                    href={RESERVATION_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
-                    aria-label="Reserve via DM"
+                    aria-label="オンライン予約（Square）"
                   >
-                    Reserve via DM
+                    オンライン予約
                   </a>
-                  <a
-                    href="#menu"
-                    onClick={(e) => handleAnchorClick(e, '#menu')}
+                  <Link
+                    href="/menu"
                     className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
-                    aria-label="View Menu"
+                    aria-label="全メニューを見る"
                   >
-                    View Menu
-                  </a>
+                    メニュー一覧
+                  </Link>
                 </motion.div>
               </div>
 
@@ -365,6 +368,8 @@ export default function HomeJA() {
                     style={{ objectPosition: '45% center' }}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1280px"
                     priority
+                    placeholder="blur"
+                    blurDataURL={blurDataUrl('/images/hero.png')}
                   />
                 </div>
               </motion.div>
@@ -464,6 +469,8 @@ export default function HomeJA() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={blurDataUrl('/images/interior.png')}
                 />
               </div>
             </FadeInUp>
@@ -558,11 +565,19 @@ export default function HomeJA() {
             </FadeInUp>
 
             {/* Asymmetric grid layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
               {[
                 { name: 'Shell We?', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,600', image: '/images/cocktails/shellwe.png' },
                 { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの旨み、オタフクソース、トマトの甘みがグラスでひとつに。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
                 { name: '26 hours', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,250', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
+                {
+                  name: 'サクラマルガリータ',
+                  description:
+                    '春の桜をグラスに。テキーラシルバー、桜リキュール、レモン、花びらの香り。写真は伝統の枡（ます）で。季節のマルガリータを、広島のバーで。',
+                  price: '¥950',
+                  image: '/images/cocktails/sakura-margarita.png',
+                  objectPosition: 'center 42%',
+                },
               ].map((item, index) => {
                 return (
                   <FadeInUp key={index} delay={index * 0.1}>
@@ -578,6 +593,8 @@ export default function HomeJA() {
                               style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                               loading={index < 2 ? 'eager' : 'lazy'}
+                              placeholder="blur"
+                              blurDataURL={blurDataUrl(item.image)}
                               onError={() => {
                                 setImageErrors(prev => ({ ...prev, [index]: true }))
                               }}
@@ -677,15 +694,7 @@ export default function HomeJA() {
                       </a>
                     </div>
                     <div>
-                      <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                        電話
-                      </h3>
-                      <a
-                        href={STORE_PHONE_TEL_HREF}
-                        className="text-base sm:text-lg hover:text-vuelta-gold transition-colors"
-                      >
-                        {STORE_PHONE_DISPLAY}
-                      </a>
+                      <PhoneContactBlock locale="ja" />
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
@@ -718,7 +727,7 @@ export default function HomeJA() {
                       <p className="text-base sm:text-lg">
                         Wed, Fri - Tue: 18:00 - 02:00<br />
                         <span className="text-vuelta-text-light">Closed on Thursdays</span><br />
-                        <span className="text-sm text-vuelta-text-light">Last order: 01:30.</span>
+                        <span className="text-sm text-vuelta-text-light">ラストオーダー 1:00</span>
                       </p>
                     </div>
                     <div>
@@ -736,7 +745,7 @@ export default function HomeJA() {
                         Reservation
                       </h3>
                       <p className="text-base sm:text-lg mb-3">
-                        オンライン予約・Instagram DM・お電話で承ります。
+                        オンライン予約（Square）またはお電話で承ります。
                       </p>
                       <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
                         {/* Book Online (Square) */}
@@ -751,19 +760,6 @@ export default function HomeJA() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                           <span>オンライン予約</span>
-                        </a>
-                        {/* Instagram DM */}
-                        <a
-                          href="https://www.instagram.com/vuelta_bar"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-japanese text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
-                          aria-label="Instagram DMで予約"
-                        >
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                          </svg>
-                          <span>Instagram DM</span>
                         </a>
                         {/* Phone */}
                         <a
@@ -812,16 +808,16 @@ export default function HomeJA() {
                       <span>Googleマップで開く</span>
                     </a>
                     <a
-                      href="https://www.instagram.com/vuelta_bar"
+                      href={RESERVATION_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-japanese text-sm"
-                      aria-label="Instagram DMで予約"
+                      aria-label="オンライン予約（Square）"
                     >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      <span>Instagram DM</span>
+                      <span>オンライン予約</span>
                     </a>
                     <a
                       href={STORE_PHONE_TEL_HREF}
@@ -851,6 +847,8 @@ export default function HomeJA() {
                   width={200}
                   height={68}
                   className="h-10 w-auto mb-6 object-contain opacity-80"
+                  placeholder="blur"
+                  blurDataURL={blurDataUrl('/images/vuelta-logo.png')}
                 />
               </div>
               <div>
@@ -1012,16 +1010,16 @@ export default function HomeJA() {
           style={{ bottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
         >
           <a
-            href="https://www.instagram.com/vuelta_bar"
+            href={RESERVATION_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 px-6 py-4 min-h-[52px] bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider w-full"
-            aria-label="Reserve via DM"
+            className="flex items-center justify-center gap-3 px-6 py-4 min-h-[52px] bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-japanese text-sm tracking-wider w-full"
+            aria-label="オンライン予約（Square）"
           >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span>Reserve via DM</span>
+            <span>オンライン予約</span>
           </a>
         </motion.div>
 
@@ -1033,17 +1031,17 @@ export default function HomeJA() {
           className="hidden md:block fixed bottom-8 right-8 z-50"
         >
           <a
-            href="https://www.instagram.com/vuelta_bar"
+            href={RESERVATION_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-xl hover:bg-vuelta-gold-light hover:shadow-2xl transition-all duration-300 font-annam text-sm tracking-wider"
-            aria-label="Reserve via DM"
+            className="group flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-xl hover:bg-vuelta-gold-light hover:shadow-2xl transition-all duration-300 font-japanese text-sm tracking-wider"
+            aria-label="オンライン予約（Square）"
           >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span>Reserve via DM</span>
-            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span>オンライン予約</span>
+            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </a>

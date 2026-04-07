@@ -1,7 +1,8 @@
 'use client'
 
-import { SITE_ORIGIN, POSTAL_CODE } from '@/lib/site-seo'
+import { SITE_ORIGIN, POSTAL_CODE, RESERVATION_URL } from '@/lib/site-seo'
 import { MENU_DRIVE_URL } from '@/lib/menuUrl'
+import { blurDataUrl } from '@/lib/blurPlaceholders'
 import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
@@ -53,6 +54,8 @@ const Header = () => {
               height={85}
               className="h-8 md:h-10 w-auto object-contain"
               priority
+              placeholder="blur"
+              blurDataURL={blurDataUrl('/images/vuelta-logo.png')}
             />
           </Link>
 
@@ -109,7 +112,7 @@ const Header = () => {
                 <a href={isJaHome ? '#reservation' : '/ja#reservation'} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isJaHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
                 <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
                 <Link href="/ja/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
-                <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
+                <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>オンライン予約</a>
               </div>
             </motion.nav>
           )}
@@ -403,6 +406,8 @@ export default function SubscriptionPageJA() {
               width={160}
               height={55}
               className="h-8 w-auto object-contain opacity-80"
+              placeholder="blur"
+              blurDataURL={blurDataUrl('/images/vuelta-logo.png')}
             />
           </Link>
           <div className="flex items-center gap-6 font-annam text-xs text-vuelta-text-light uppercase tracking-wider">
