@@ -26,7 +26,7 @@ const Header = () => {
   const isRecruitPage = pathname === '/recruit'
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gold/20">
+    <header className="site-header-fixed fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gold/20">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <Link 

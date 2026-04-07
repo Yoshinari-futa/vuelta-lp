@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fixed headers: clear iOS notch / status bar (pairs with viewportFit: cover) */
+.site-header-fixed {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
 @layer base {
   html {
     scrollbar-gutter: stable;

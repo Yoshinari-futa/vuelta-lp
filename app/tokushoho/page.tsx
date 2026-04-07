@@ -11,21 +11,50 @@ import { blurDataUrl } from '@/lib/blurPlaceholders'
 
 export const metadata: Metadata = {
   title: '特定商取引法に基づく表記 | VUELTA',
-  description: '株式会社VUELTAの特定商取引法に基づく表記',
+  description: '株式会社VUELTAの特定商取引法に基づく表記（販売事業者・連絡先・支払方法等）',
   alternates: {
     canonical: `${SITE_ORIGIN}/tokushoho`,
+    languages: {
+      ja: `${SITE_ORIGIN}/tokushoho`,
+      'x-default': `${SITE_ORIGIN}/tokushoho`,
+    },
   },
   robots: {
     index: true,
     follow: true,
+  },
+  openGraph: {
+    title: '特定商取引法に基づく表記 | VUELTA',
+    description: '株式会社VUELTAの特定商取引法に基づく表記',
+    url: `${SITE_ORIGIN}/tokushoho`,
+    siteName: 'VUELTA',
+    locale: 'ja_JP',
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_ORIGIN}/images/ogp.png`,
+        width: 1200,
+        height: 630,
+        alt: 'VUELTA',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '特定商取引法に基づく表記 | VUELTA',
+    description: '株式会社VUELTAの特定商取引法に基づく表記',
+    images: [`${SITE_ORIGIN}/images/ogp.png`],
   },
 }
 
 export default function TokushohoPage() {
   return (
     <div className="min-h-screen bg-white">
+      <a href="#main-content" className="skip-link">
+        本文へスキップ
+      </a>
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gray/50">
+      <header className="site-header-fixed fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gray/50">
         <nav className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <Link href="/" className="transition-opacity hover:opacity-80" aria-label="VUELTA Home">
             <Image
@@ -49,7 +78,7 @@ export default function TokushohoPage() {
       </header>
 
       {/* Content */}
-      <main className="pt-28 pb-20 px-4 sm:px-6">
+      <main id="main-content" tabIndex={-1} className="pt-28 pb-20 px-4 sm:px-6 outline-none">
         <div className="max-w-3xl mx-auto">
           <h1 className="font-japanese text-2xl sm:text-3xl tracking-wide text-vuelta-text mb-12 text-center">
             特定商取引法に基づく表記

@@ -9,7 +9,7 @@ import {
   type MenuCategory,
   type MenuItem,
 } from '@/lib/menuData'
-import { RESERVATION_URL, STORE_PHONE_DISPLAY, STORE_PHONE_TEL_HREF } from '@/lib/site-seo'
+import { RESERVATION_URL, SITE_ORIGIN, STORE_PHONE_DISPLAY, STORE_PHONE_TEL_HREF } from '@/lib/site-seo'
 
 // ── SEO Metadata ──────────────────────────
 export const metadata: Metadata = {
@@ -19,15 +19,38 @@ export const metadata: Metadata = {
   keywords:
     'VUELTA menu, Hiroshima cocktail menu, craft cocktails Hiroshima, bar menu Japan, Hiroshima bar food, Japanese whisky, sake Hiroshima',
   alternates: {
-    canonical: 'https://www.vuelta.jp/menu',
+    canonical: `${SITE_ORIGIN}/menu`,
+    languages: {
+      en: `${SITE_ORIGIN}/menu`,
+      ja: `${SITE_ORIGIN}/menu`,
+      'x-default': `${SITE_ORIGIN}/menu`,
+    },
   },
   openGraph: {
     title: 'Menu — VUELTA Craft Cocktail Bar',
     description:
       'Signature cocktails & Hiroshima soul food. The OKONOMIYAKI, Shell We?, Gansu Tacos & more.',
-    url: 'https://www.vuelta.jp/menu',
+    url: `${SITE_ORIGIN}/menu`,
+    siteName: 'VUELTA',
+    locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_ORIGIN}/images/ogp.png`,
+        width: 1200,
+        height: 630,
+        alt: 'VUELTA — Craft Cocktail Bar in Hiroshima',
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Menu — VUELTA Craft Cocktail Bar',
+    description:
+      'Signature cocktails & Hiroshima soul food. The OKONOMIYAKI, Shell We?, Gansu Tacos & more.',
+    images: [`${SITE_ORIGIN}/images/ogp.png`],
+  },
+  robots: { index: true, follow: true },
 }
 
 // ── Structured Data (JSON-LD) ─────────────
@@ -37,11 +60,11 @@ function MenuJsonLd() {
     '@type': 'Menu',
     name: 'VUELTA Menu',
     description: 'Craft cocktails and Hiroshima soul food',
-    url: 'https://www.vuelta.jp/menu',
+    url: `${SITE_ORIGIN}/menu`,
     mainEntity: {
       '@type': 'Restaurant',
       name: 'VUELTA',
-      url: 'https://www.vuelta.jp',
+      url: SITE_ORIGIN,
       servesCuisine: ['Cocktails', 'Japanese Bar Food', 'Hiroshima Local'],
       address: {
         '@type': 'PostalAddress',
@@ -168,7 +191,10 @@ export default function MenuPage() {
     <>
       <MenuJsonLd />
 
-      <main className="min-h-screen bg-white text-vuelta-text">
+      <a href="#main-content" className="skip-link">
+        Skip to menu
+      </a>
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white text-vuelta-text outline-none">
         {/* Hero */}
         <header className="pt-24 pb-10 md:pt-32 md:pb-16 px-4 sm:px-6 text-center">
           <Link

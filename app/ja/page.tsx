@@ -53,7 +53,7 @@ const Header = () => {
   }
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}>
+    <header className={`site-header-fixed fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <Link 
@@ -125,7 +125,7 @@ const Header = () => {
                 <a href={isJaHome ? "#reservation" : "/ja#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isJaHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
                 <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
                 <Link href="/ja/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
-                <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>オンライン予約</a>
+                <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Book Online</a>
               </div>
             </motion.nav>
           )}
@@ -337,17 +337,17 @@ export default function HomeJA() {
                     href={RESERVATION_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
-                    aria-label="オンライン予約（Square）"
+                    className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
+                    aria-label="Book online (Square)"
                   >
-                    オンライン予約
+                    Book Online
                   </a>
                   <Link
                     href="/menu"
-                    className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
-                    aria-label="全メニューを見る"
+                    className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
+                    aria-label="View full menu"
                   >
-                    メニュー一覧
+                    View Menu
                   </Link>
                 </motion.div>
               </div>
@@ -573,7 +573,7 @@ export default function HomeJA() {
                 {
                   name: 'Spring Bloom Margarita',
                   description:
-                    '春の桜をグラスに。テキーラシルバー、桜リキュール、レモン、花びらの香り。写真は伝統の枡（ます）で。季節のマルガリータを、広島のバーで。',
+                    '春の桜をグラスに。テキーラシルバー、桜リキュール、レモン、花びらの香り。伝統の枡（ます）で味わえば、桜の香りにレモンの酸味、テキーラのキレが重なり、春の夜にぴったりの一杯に。',
                   price: '¥950',
                   image: '/images/cocktails/sakura-margarita.png',
                   objectPosition: 'center 42%',
@@ -745,7 +745,7 @@ export default function HomeJA() {
                         Reservation
                       </h3>
                       <p className="text-base sm:text-lg mb-3">
-                        オンライン予約（Square）またはお電話で承ります。
+                        オンライン予約またはお電話で承ります。
                       </p>
                       <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
                         {/* Book Online (Square) */}
@@ -753,24 +753,24 @@ export default function HomeJA() {
                           href={RESERVATION_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-japanese text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
-                          aria-label="オンライン予約"
+                          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
+                          aria-label="Book online (Square)"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
-                          <span>オンライン予約</span>
+                          <span>Book Online</span>
                         </a>
                         {/* Phone */}
                         <a
                           href={STORE_PHONE_TEL_HREF}
-                          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-japanese text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
-                          aria-label="電話で予約"
+                          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-annam text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
+                          aria-label={`Call to reserve (${STORE_PHONE_DISPLAY})`}
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                           </svg>
-                          <span>電話 {STORE_PHONE_DISPLAY}</span>
+                          <span>Call</span>
                         </a>
                       </div>
                     </div>
@@ -977,13 +977,13 @@ export default function HomeJA() {
             href={RESERVATION_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 px-6 py-4 min-h-[52px] bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-japanese text-sm tracking-wider w-full"
-            aria-label="オンライン予約（Square）"
+            className="flex items-center justify-center gap-3 px-6 py-4 min-h-[52px] bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider uppercase w-full"
+            aria-label="Book online (Square)"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span>オンライン予約</span>
+            <span>Book Online</span>
           </a>
         </motion.div>
 
@@ -998,13 +998,13 @@ export default function HomeJA() {
             href={RESERVATION_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-xl hover:bg-vuelta-gold-light hover:shadow-2xl transition-all duration-300 font-japanese text-sm tracking-wider"
-            aria-label="オンライン予約（Square）"
+            className="group flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-xl hover:bg-vuelta-gold-light hover:shadow-2xl transition-all duration-300 font-annam text-sm tracking-wider uppercase"
+            aria-label="Book online (Square)"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span>オンライン予約</span>
+            <span>Book Online</span>
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

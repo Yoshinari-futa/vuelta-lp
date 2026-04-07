@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { SITE_ORIGIN } from '@/lib/site-seo'
 
 export const metadata: Metadata = {
   title: 'Recruit | VUELTA In Hiroshima',
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Recruit | VUELTA In Hiroshima',
     description: 'Join VUELTA team. We are looking for passionate people who love food and hospitality.',
     type: 'website',
-    url: 'https://www.vuelta.jp/recruit',
+    url: `${SITE_ORIGIN}/recruit`,
     siteName: 'VUELTA',
     images: [
       {
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://www.vuelta.jp/recruit',
+    canonical: `${SITE_ORIGIN}/recruit`,
   },
 }
 
