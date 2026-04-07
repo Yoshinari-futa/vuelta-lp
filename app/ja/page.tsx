@@ -571,7 +571,7 @@ export default function HomeJA() {
                 { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの旨み、オタフクソース、トマトの甘みがグラスでひとつに。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
                 { name: '26 hours', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,250', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
                 {
-                  name: 'サクラマルガリータ',
+                  name: 'Spring Bloom Margarita',
                   description:
                     '春の桜をグラスに。テキーラシルバー、桜リキュール、レモン、花びらの香り。写真は伝統の枡（ます）で。季節のマルガリータを、広島のバーで。',
                   price: '¥950',
@@ -793,42 +793,6 @@ export default function HomeJA() {
                       aria-label="VUELTA 場所の地図"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none" />
-                  </div>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
-                    <a
-                      href={MAPS_SEARCH_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-japanese text-sm"
-                      aria-label="GoogleマップでVUELTAの場所を開く"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                      <span>Googleマップで開く</span>
-                    </a>
-                    <a
-                      href={RESERVATION_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-japanese text-sm"
-                      aria-label="オンライン予約（Square）"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <span>オンライン予約</span>
-                    </a>
-                    <a
-                      href={STORE_PHONE_TEL_HREF}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-japanese text-sm"
-                      aria-label="電話で予約"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      <span>電話</span>
-                    </a>
                   </div>
                 </div>
               </FadeInUp>

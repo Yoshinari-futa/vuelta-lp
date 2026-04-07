@@ -8,14 +8,11 @@ const strings = {
     heading: 'Phone',
     copy: 'Copy number',
     copied: 'Copied!',
-    devHint: 'Local preview: desktop browsers often do nothing on click. The href below is what mobile uses.',
   },
   ja: {
     heading: '電話',
     copy: '番号をコピー',
     copied: 'コピーしました',
-    devHint:
-      'ローカル確認用：PCブラウザではクリックしても発信が開かないことがあります。実機スマホで確認するか、下の tel: をご確認ください。',
   },
 } as const
 
@@ -32,8 +29,6 @@ export function PhoneContactBlock({ locale }: { locale: 'en' | 'ja' }) {
       // clipboard may be denied; user can still use tel: on mobile
     }
   }, [])
-
-  const isDev = process.env.NODE_ENV === 'development'
 
   return (
     <div>
@@ -62,19 +57,6 @@ export function PhoneContactBlock({ locale }: { locale: 'en' | 'ja' }) {
           {locale === 'en' ? 'Hover number for tel: URL' : '番号にマウスを乗せると tel: を表示'}
         </span>
       </div>
-
-      {isDev && (
-        <p
-          className="mt-2 rounded border border-dashed border-vuelta-gold/40 bg-vuelta-gold/5 px-2 py-1.5 font-mono text-[11px] leading-snug text-vuelta-text break-all select-all"
-          data-testid="phone-tel-href-dev"
-        >
-          <span className="text-vuelta-gold">href=</span>
-          {STORE_PHONE_TEL_HREF}
-          <span className="mt-1.5 block font-sans text-[10px] leading-relaxed text-vuelta-text-light/85">
-            {t.devHint}
-          </span>
-        </p>
-      )}
     </div>
   )
 }
