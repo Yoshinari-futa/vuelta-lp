@@ -53,6 +53,26 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
+// ── BreadcrumbList ────────────────────────
+function BreadcrumbJsonLd({ items }: { items: { name: string; url: string }[] }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  )
+}
+
 // ── Structured Data (JSON-LD) ─────────────
 function MenuJsonLd() {
   const jsonLd = {
@@ -190,6 +210,10 @@ export default function MenuPage() {
   return (
     <>
       <MenuJsonLd />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: 'https://www.vuelta.jp' },
+        { name: 'Menu', url: 'https://www.vuelta.jp/menu' },
+      ]} />
 
       <a href="#main-content" className="skip-link">
         Skip to menu

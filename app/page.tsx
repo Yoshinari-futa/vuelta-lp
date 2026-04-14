@@ -227,7 +227,7 @@ export default function Home() {
         "latitude": "34.3886",
         "longitude": "132.4530"
       },
-      "hasMap": "https://www.google.com/maps/place/VUELTA",
+      "hasMap": "https://www.google.com/maps/place/VUELTA/@34.3893126,132.4516012,17z/data=!3m1!4b1!4m6!3m5!1s0x355aa37721226999:0xf75145855610694e!8m2!3d34.3893126!4d132.4541761!16s%2Fg%2F11n52pm3sh",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -278,12 +278,7 @@ export default function Home() {
       "@type": "WebSite",
       "name": "VUELTA",
       "url": "https://www.vuelta.jp",
-      "inLanguage": ["en", "ja"],
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.vuelta.jp/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": ["en", "ja"]
     }
   ]
 

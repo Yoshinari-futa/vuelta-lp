@@ -236,6 +236,17 @@ export default function Recruit() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vuelta.jp" },
+            { "@type": "ListItem", "position": 2, "name": "Recruit", "item": "https://www.vuelta.jp/recruit" }
+          ]
+        }) }}
+      />
       <Header />
 
       {/* Hero Section - Bold & Minimal */}

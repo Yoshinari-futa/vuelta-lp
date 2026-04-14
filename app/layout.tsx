@@ -71,8 +71,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VUELTA In Hiroshima',
-    description: 'Experience the art of mixology at VUELTA',
+    site: '@vuelta_bar',
+    title: 'VUELTA — Craft Cocktail Bar in Hiroshima',
+    description: 'Speakeasy-style bar near Chuden-mae St. Hiroshima local ingredients: Sakurao Gin, Hiroshima lemon. English spoken. Walk-ins welcome.',
     images: ['/images/ogp.png'],
   },
   icons: {

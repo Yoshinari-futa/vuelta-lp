@@ -4,47 +4,46 @@ import type { MetadataRoute } from 'next'
 const SITE_WWW = 'https://www.vuelta.jp'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
   return [
     {
       url: `${SITE_WWW}/`,
-      lastModified: now,
+      lastModified: new Date('2026-04-14'),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${SITE_WWW}/ja`,
-      lastModified: now,
+      lastModified: new Date('2026-04-14'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${SITE_WWW}/menu`,
-      lastModified: now,
+      lastModified: new Date('2026-04-14'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${SITE_WWW}/subscription`,
-      lastModified: now,
+      lastModified: new Date('2026-03-15'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${SITE_WWW}/ja/subscription`,
-      lastModified: now,
+      lastModified: new Date('2026-03-15'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${SITE_WWW}/recruit`,
-      lastModified: now,
+      lastModified: new Date('2026-04-14'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${SITE_WWW}/tokushoho`,
-      lastModified: now,
+      lastModified: new Date('2026-03-15'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },

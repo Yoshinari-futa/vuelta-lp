@@ -31,5 +31,21 @@ export const metadata: Metadata = {
 }
 
 export default function SubscriptionLayout({ children }: { children: React.ReactNode }) {
-  return children
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_ORIGIN}` },
+      { "@type": "ListItem", "position": 2, "name": "First Drink Pass", "item": `${SITE_ORIGIN}/subscription` }
+    ]
+  }
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      {children}
+    </>
+  )
 }
