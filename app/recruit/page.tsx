@@ -197,7 +197,7 @@ export default function Recruit() {
       "name": "VUELTA",
       "value": "RECRUIT"
     },
-    "datePosted": "2024-01-01",
+    "datePosted": "2026-03-15",
     "validThrough": "2027-03-31T23:59:59",
     "employmentType": "PART_TIME",
     "hiringOrganization": {

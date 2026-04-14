@@ -207,7 +207,12 @@ export default function Home() {
       "alternateName": "VUELTA Craft Cocktail Bar",
       "url": barStructuredDataUrl('en'),
       "description": "Speakeasy-style craft cocktail bar in Hiroshima city center, 1 min walk from Chuden-mae Station. Signature cocktails using local Hiroshima ingredients like Sakurao Gin and Hiroshima lemon. English spoken, walk-ins welcome.",
-      "image": [BAR_LOGO_IMAGE_URL],
+      "image": [
+        BAR_LOGO_IMAGE_URL,
+        `${SITE_ORIGIN}/images/interior.png`,
+        `${SITE_ORIGIN}/images/cocktails/okonomiyaki.png`,
+        `${SITE_ORIGIN}/images/cocktails/shellwe.png`,
+      ],
       "logo": BAR_LOGO_IMAGE_URL,
       "address": {
         "@type": "PostalAddress",
@@ -226,8 +231,14 @@ export default function Home() {
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"],
+          "dayOfWeek": ["Wednesday", "Friday", "Saturday", "Sunday", "Monday"],
           "opens": "18:00",
+          "closes": "23:59"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Thursday", "Saturday", "Sunday", "Monday", "Tuesday"],
+          "opens": "00:00",
           "closes": "02:00"
         }
       ],
