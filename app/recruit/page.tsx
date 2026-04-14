@@ -198,6 +198,7 @@ export default function Recruit() {
       "value": "RECRUIT"
     },
     "datePosted": "2024-01-01",
+    "validThrough": "2027-03-31T23:59:59",
     "employmentType": "PART_TIME",
     "hiringOrganization": {
       "@type": "Organization",
