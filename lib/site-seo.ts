@@ -41,10 +41,12 @@ export const RESERVATION_URL =
 
 /**
  * Google ビジネスプロフィールの公開URL（管理画面の「共有」やマップの店舗ページURL）。
- * 未設定時はフッターは `footerGoogleHref()` が住所のマップ検索にフォールバック。
+ * 環境変数 NEXT_PUBLIC_GOOGLE_BUSINESS_URL で上書き可。
  */
+const GBP_DEFAULT = 'https://www.google.com/maps/place/VUELTA/@34.3893126,132.4516012,17z/data=!3m1!4b1!4m6!3m5!1s0x355aa37721226999:0xf75145855610694e!8m2!3d34.3893126!4d132.4541761!16s%2Fg%2F11n52pm3sh'
+
 export const GOOGLE_BUSINESS_PROFILE_URL = (
-  process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL ?? ''
+  process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL ?? GBP_DEFAULT
 ).trim()
 
 /** TripAdvisor 店舗ページ（公式）。`NEXT_PUBLIC_TRIPADVISOR_URL` で上書き可 */
