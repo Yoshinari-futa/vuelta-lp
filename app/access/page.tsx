@@ -12,6 +12,7 @@ import {
   STORE_PHONE_TEL_HREF,
   barSameAsUrls,
   barStructuredDataId,
+  barStructuredDataUrl,
 } from '@/lib/site-seo'
 
 export const metadata: Metadata = {
@@ -71,7 +72,7 @@ function AccessJsonLd() {
       '@id': barStructuredDataId('en'),
       name: 'VUELTA',
       alternateName: ['VUELTA Craft Cocktail Bar', 'ブエルタ'],
-      url: `${SITE_ORIGIN}/access`,
+      url: barStructuredDataUrl('en'),
       description:
         'Speakeasy-style craft cocktail bar in central Hiroshima, 1 minute walk from Chuden-mae Station. Local-ingredient cocktails, authentic tacos, and Mexican-inspired bar food.',
       image: [BAR_LOGO_IMAGE_URL, `${SITE_ORIGIN}/images/interior.png`],

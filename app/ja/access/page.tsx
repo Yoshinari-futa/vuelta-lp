@@ -13,6 +13,7 @@ import {
   STORE_PHONE_TEL_HREF,
   barSameAsUrls,
   barStructuredDataId,
+  barStructuredDataUrl,
 } from '@/lib/site-seo'
 
 export const metadata: Metadata = {
@@ -72,7 +73,7 @@ function AccessJsonLd() {
       '@id': barStructuredDataId('ja'),
       name: 'VUELTA',
       alternateName: ['ブエルタ', 'VUELTA Craft Cocktail Bar'],
-      url: `${SITE_ORIGIN}/ja/access`,
+      url: barStructuredDataUrl('ja'),
       description:
         '広島・中電前駅徒歩1分のスピークイージー風クラフトカクテルバー。桜尾ジンや広島レモンなど地元食材のシグネチャーカクテルと、本格タコス・メキシカンのバーフードを楽しめる隠れ家。',
       image: [BAR_LOGO_IMAGE_URL, `${SITE_ORIGIN}/images/interior.png`],
