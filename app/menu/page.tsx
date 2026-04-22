@@ -13,11 +13,11 @@ import { RESERVATION_URL, SITE_ORIGIN, STORE_PHONE_DISPLAY, STORE_PHONE_TEL_HREF
 
 // ── SEO Metadata ──────────────────────────
 export const metadata: Metadata = {
-  title: 'Menu — VUELTA | Craft Cocktail Bar in Hiroshima',
+  title: 'Drinks & Food Menu | VUELTA — Craft Cocktail Bar in Hiroshima',
   description:
-    'Explore VUELTA\'s full cocktail and food menu. Signature cocktails crafted with Hiroshima local ingredients — SAKURAO Gin, Kamotsuru Sake, Gansu Tacos, and more. Prices in JPY.',
+    'VUELTA\'s drink & food menu. Craft cocktails, tequila and beer paired with authentic tacos and Mexican-inspired bar food. Signature cocktails made with Hiroshima local ingredients. Prices in JPY.',
   keywords:
-    'VUELTA menu, Hiroshima cocktail menu, craft cocktails Hiroshima, bar menu Japan, Hiroshima bar food, Japanese whisky, sake Hiroshima',
+    'VUELTA menu, Hiroshima cocktail menu, tacos Hiroshima, Mexican food Hiroshima, craft cocktails Hiroshima, bar food Hiroshima, tequila Hiroshima, mezcal Hiroshima, sake Hiroshima',
   alternates: {
     canonical: `${SITE_ORIGIN}/menu`,
     languages: {
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Menu — VUELTA Craft Cocktail Bar',
+    title: 'Menu | VUELTA — Craft Cocktails & Tacos in Hiroshima',
     description:
-      'Signature cocktails & Hiroshima soul food. The OKONOMIYAKI, Shell We?, Gansu Tacos & more.',
+      'Signature cocktails with Hiroshima local ingredients, authentic tacos, tequila, and Mexican-inspired bar food.',
     url: `${SITE_ORIGIN}/menu`,
     siteName: 'VUELTA',
     locale: 'en_US',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Menu — VUELTA Craft Cocktail Bar',
+    title: 'Menu | VUELTA — Craft Cocktails & Tacos in Hiroshima',
     description:
-      'Signature cocktails & Hiroshima soul food. The OKONOMIYAKI, Shell We?, Gansu Tacos & more.',
+      'Signature cocktails with Hiroshima local ingredients, authentic tacos, tequila & more.',
     images: [`${SITE_ORIGIN}/images/ogp.png`],
   },
   robots: { index: true, follow: true },
@@ -79,13 +79,13 @@ function MenuJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Menu',
     name: 'VUELTA Menu',
-    description: 'Craft cocktails and Hiroshima soul food',
+    description: 'Craft cocktails with Hiroshima local ingredients, authentic tacos, and Mexican-inspired bar food.',
     url: `${SITE_ORIGIN}/menu`,
     mainEntity: {
-      '@type': 'Restaurant',
+      '@type': 'BarOrPub',
       name: 'VUELTA',
       url: SITE_ORIGIN,
-      servesCuisine: ['Cocktails', 'Japanese Bar Food', 'Hiroshima Local'],
+      servesCuisine: ['Cocktails', 'Mexican', 'Tacos', 'Bar Food', 'Hiroshima Local'],
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Kakee Building 201, 3-3-5 Otemachi, Naka-ku',
@@ -229,7 +229,11 @@ export default function MenuPage() {
           </Link>
           <h1 className="font-annam text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wide">
             Menu
+            <span className="sr-only"> — Cocktails & Mexican-Inspired Food at VUELTA, a craft cocktail bar in Hiroshima</span>
           </h1>
+          <p className="font-annam text-vuelta-gold text-xs sm:text-sm uppercase tracking-[.3em] mt-3">
+            Cocktails &amp; Mexican-Inspired Food
+          </p>
           <p className="font-sans text-vuelta-text-light text-sm sm:text-base mt-3 max-w-md mx-auto">
             All prices in JPY (tax included). Menu may change with seasonal availability.
           </p>

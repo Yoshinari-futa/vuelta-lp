@@ -50,30 +50,31 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.vuelta.jp'),
-  title: 'VUELTA — Craft Cocktail Bar in Hiroshima | English Friendly',
-  description: 'Speakeasy-style cocktail bar in Hiroshima city center, 1 min from Chuden-mae Station. Signature cocktails using local Hiroshima ingredients. English spoken, walk-ins welcome. Open Wed–Tue, 18:00–02:00.',
-  keywords: 'cocktail bar Hiroshima, VUELTA, Hiroshima bar, English speaking bar Hiroshima, speakeasy Hiroshima, craft cocktails, bar near Peace Park, Hiroshima nightlife, international bar Japan, best bar Hiroshima',
+  title: 'VUELTA | Craft Cocktail Bar in Hiroshima — Cocktails, Tacos & Local Spirits',
+  description: 'VUELTA is a speakeasy-style craft cocktail bar in central Hiroshima. Signature cocktails made with local Hiroshima ingredients, authentic tacos, and a relaxed bar where locals and travelers meet. 1 min from Chuden-mae. English spoken, walk-ins welcome. Wed–Tue 18:00–02:00.',
+  keywords: 'bar in Hiroshima, bars in Hiroshima, cocktail bar Hiroshima, VUELTA, Hiroshima bar near me, Mexican bar Hiroshima, tacos Hiroshima, English speaking bar Hiroshima, speakeasy Hiroshima, craft cocktails, Hiroshima nightlife, tequila bar Hiroshima, best bar Hiroshima',
   openGraph: {
-    title: 'VUELTA — Craft Cocktail Bar in Hiroshima',
-    description: 'Where "Welcome Back" meets "Nice to Meet You". Speakeasy-style craft cocktails with Hiroshima local ingredients. English spoken, walk-ins welcome.',
+    title: 'VUELTA | Craft Cocktail Bar in Hiroshima',
+    description: 'Hiroshima\'s speakeasy craft cocktail bar. Local-ingredient cocktails, authentic Mexican-inspired tacos, and an English-friendly night out in Hiroshima.',
     type: 'website',
     url: 'https://www.vuelta.jp',
     locale: 'en_US',
+    alternateLocale: ['ja_JP'],
     siteName: 'VUELTA',
     images: [
       {
         url: '/images/ogp.png',
         width: 1200,
         height: 630,
-        alt: 'VUELTA - Craft Cocktail Bar in Hiroshima',
+        alt: 'VUELTA — Craft Cocktail Bar in Hiroshima',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@vuelta_bar',
-    title: 'VUELTA — Craft Cocktail Bar in Hiroshima',
-    description: 'Speakeasy-style bar near Chuden-mae St. Hiroshima local ingredients: Sakurao Gin, Hiroshima lemon. English spoken. Walk-ins welcome.',
+    title: 'VUELTA | Craft Cocktail Bar in Hiroshima',
+    description: 'Speakeasy craft cocktail bar in Hiroshima. Local-ingredient cocktails, tacos, tequila. English-friendly. Walk-ins welcome.',
     images: ['/images/ogp.png'],
   },
   icons: {
@@ -97,6 +98,7 @@ export const metadata: Metadata = {
     languages: {
       'en': 'https://www.vuelta.jp',
       'ja': 'https://www.vuelta.jp/ja',
+      'x-default': 'https://www.vuelta.jp',
     },
   },
   verification: {

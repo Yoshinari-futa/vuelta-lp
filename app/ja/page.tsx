@@ -5,6 +5,7 @@ import {
   MAPS_EMBED_URL,
   MAPS_SEARCH_URL,
   POSTAL_CODE,
+  SITE_ORIGIN,
   STORE_ADDRESS_JA_LINE,
   STORE_PHONE_DISPLAY,
   STORE_PHONE_SCHEMA,
@@ -122,7 +123,7 @@ const Header = () => {
                 >
                   Menu
                 </Link>
-                <a href={isJaHome ? "#reservation" : "/ja#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isJaHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
+                <Link href="/ja/access" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Access</Link>
                 <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
                 <Link href="/ja/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
                 <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Book Online</a>
@@ -197,10 +198,15 @@ export default function HomeJA() {
       "@type": "BarOrPub",
       "@id": barStructuredDataId('ja'),
       "name": "VUELTA",
-      "alternateName": "ブエルタ",
+      "alternateName": ["ブエルタ", "VUELTA Craft Cocktail Bar"],
       "url": barStructuredDataUrl('ja'),
-      "description": "広島市中区大手町のスピークイージー風クラフトカクテルバー。中電前駅徒歩1分。桜尾ジン・広島レモンなど地元素材を使ったシグネチャーカクテル。女性一人でも入りやすい隠れ家空間。英語対応可。",
-      "image": [BAR_LOGO_IMAGE_URL],
+      "description": "広島市中区大手町のスピークイージー風クラフトカクテルバー。中電前駅徒歩1分。桜尾ジン・広島レモンなど地元食材を使ったシグネチャーカクテルと、本格タコスやメキシカンのバーフードを楽しめる隠れ家。英語対応可。",
+      "image": [
+        BAR_LOGO_IMAGE_URL,
+        `${SITE_ORIGIN}/images/interior.png`,
+        `${SITE_ORIGIN}/images/cocktails/okonomiyaki.png`,
+        `${SITE_ORIGIN}/images/cocktails/shellwe.png`,
+      ],
       "logo": BAR_LOGO_IMAGE_URL,
       "address": {
         "@type": "PostalAddress",
@@ -226,7 +232,7 @@ export default function HomeJA() {
       ],
       "priceRange": "¥¥",
       "currenciesAccepted": "JPY",
-      "servesCuisine": ["クラフトカクテル", "フィンガーフード", "タコス"],
+      "servesCuisine": ["クラフトカクテル", "メキシカン料理", "タコス", "バーフード", "広島ローカル"],
       "menu": "https://www.vuelta.jp/menu",
       "sameAs": barSameAsUrls(),
       "telephone": STORE_PHONE_SCHEMA,

@@ -24,6 +24,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_WWW}/access`,
+      lastModified: new Date('2026-04-22'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_WWW}/ja/access`,
+      lastModified: new Date('2026-04-22'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${SITE_WWW}/subscription`,
       lastModified: new Date('2026-03-15'),
       changeFrequency: 'monthly',
