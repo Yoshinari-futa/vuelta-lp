@@ -11,6 +11,7 @@ import {
   STORE_PHONE_SCHEMA,
   STORE_PHONE_TEL_HREF,
   barSameAsUrls,
+  barStructuredDataId,
 } from '@/lib/site-seo'
 
 export const metadata: Metadata = {
@@ -67,7 +68,7 @@ function AccessJsonLd() {
     {
       '@context': 'https://schema.org',
       '@type': 'BarOrPub',
-      '@id': `${SITE_ORIGIN}/access#bar`,
+      '@id': barStructuredDataId('en'),
       name: 'VUELTA',
       alternateName: ['VUELTA Craft Cocktail Bar', 'ブエルタ'],
       url: `${SITE_ORIGIN}/access`,
