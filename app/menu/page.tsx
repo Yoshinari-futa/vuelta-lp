@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
+  coverCharge,
   foodCategories,
   signatureCocktails,
   cocktails,
-  specialProjects,
+  recommend,
   spiritsCategories,
   type MenuCategory,
   type MenuItem,
@@ -237,6 +238,16 @@ export default function MenuPage() {
 
         {/* Content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
+          {/* ---- COVER CHARGE ---- */}
+          <div className="mb-16">
+            <div className="border-b border-vuelta-gold/30 mb-10 pb-2">
+              <span className="font-annam text-xs uppercase tracking-[.25em] text-vuelta-gold">
+                Cover Charge
+              </span>
+            </div>
+            <MenuSection category={coverCharge} />
+          </div>
+
           {/* ---- FOOD ---- */}
           <div className="mb-20">
             <div className="border-b border-vuelta-gold/30 mb-10 pb-2">
@@ -256,9 +267,9 @@ export default function MenuPage() {
                 Drinks
               </span>
             </div>
+            <MenuSection category={recommend} />
             <MenuSection category={signatureCocktails} />
             <MenuSection category={cocktails} />
-            <MenuSection category={specialProjects} />
           </div>
 
           {/* ---- SPIRITS / BEER / WINE ---- */}

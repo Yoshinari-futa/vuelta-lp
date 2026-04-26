@@ -1,7 +1,7 @@
 // ========================================
 // VUELTA — Menu Data (Single Source of Truth)
 // メニューの追加・変更はここだけ編集する
-// 最終更新: 2026-04-06（VUELTA (26).pdf に準拠）
+// 最終更新: 2026-04-26（最新PDFに準拠）
 // ========================================
 
 export interface MenuItem {
@@ -23,6 +23,20 @@ export interface MenuCategory {
   items: MenuItem[]
 }
 
+// ── COVER CHARGE ──────────────────────────
+
+export const coverCharge: MenuCategory = {
+  title: 'COVER CHARGE',
+  items: [
+    {
+      name: 'Cover Charge',
+      nameJa: 'お通し（席料）',
+      price: 300,
+      description: 'A traditional Japanese bar seating fee per person.',
+    },
+  ],
+}
+
 // ── FOOD ──────────────────────────────────
 
 export const foodCategories: MenuCategory[] = [
@@ -32,7 +46,7 @@ export const foodCategories: MenuCategory[] = [
       {
         name: 'Gansu',
         nameJa: '草津 坂井屋のガンス',
-        price: 450,
+        price: 500,
         description:
           "Hiroshima's signature crispy fish cutlet with a savory, spicy kick.",
       },
@@ -106,7 +120,7 @@ export const signatureCocktails: MenuCategory = {
     {
       name: '1886',
       nameJa: 'エイティーン・エイティシックス',
-      price: 1500,
+      price: 1300,
       ingredients: 'Cherry Brandy / Amer Picon / Angostura Bitters / Cola',
       description:
         'Not what it seems. A sophisticated botanical cocktail disguised in a classic cola bottle. Expect the unexpected.',
@@ -130,14 +144,8 @@ export const cocktails: MenuCategory = {
     {
       name: 'Spring Bloom Margarita',
       nameJa: 'サクラマルガリータ',
-      price: 950,
+      price: 1000,
       ingredients: 'Tequila Silver / Sakura Liqueur / Lemon / Sakura Petal',
-    },
-    {
-      name: 'Setouchi Fizz',
-      nameJa: 'セトウチフィズ',
-      price: 950,
-      ingredients: 'Setouchi Lemon Gin / Fresh Lemon / Soda',
     },
     {
       name: 'Electric Buck',
@@ -172,17 +180,23 @@ export const cocktails: MenuCategory = {
   ],
 }
 
-// ── SPECIAL PROJECTS ──────────────────────
+// ── RECOMMEND ─────────────────────────────
 
-export const specialProjects: MenuCategory = {
-  title: 'The Gift Round Project',
-  subtitle: '恩送りの一杯',
+export const recommend: MenuCategory = {
+  title: 'RECOMMEND',
   items: [
     {
-      name: 'GIFT',
-      price: 800,
-      description: 'Buy a drink for a future guest. Start a cycle of kindness.',
-      descriptionJa: '800円でメッセージを残し、未来の誰かへ一杯を贈る。',
+      name: 'VUELTA Lemon Sour',
+      nameJa: 'ブエルタ レモンサワー',
+      price: 1200,
+      ingredients: 'SG KOME / Fresh Lemon / Soda',
+    },
+    {
+      name: 'Hiroshima Cocktail Journey',
+      nameJa: 'ヒロシマ カクテル ジャーニー',
+      price: 4000,
+      ingredients: 'Tipsy Crane / Shell We? / The OKONOMIYAKI + any 1 food of your choice',
+      description: 'The best way to begin your night in Hiroshima.',
     },
   ],
 }
