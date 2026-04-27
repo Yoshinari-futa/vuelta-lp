@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鹿児島 上畜店 月次売上比較レポート（2026年3月 vs 2025年3月）</title>
+<style>
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --accent: #f97316;
+    --accent-light: #fed7aa;
+    --green: #16a34a;
+    --red: #dc2626;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --highlight: #fef9c3;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+    padding: 24px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 10px 30px rgba(37,99,235,0.18);
+  }
+  header h1 { margin: 0 0 8px; font-size: 26px; letter-spacing: 0.02em; }
+  header .meta { opacity: 0.9; font-size: 14px; }
+  header .meta span { display: inline-block; margin-right: 18px; }
+  section.card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 8px rgba(15,23,42,0.05);
+    border: 1px solid var(--border);
+  }
+  h2 {
+    font-size: 20px;
+    margin: 0 0 18px;
+    padding-left: 12px;
+    border-left: 5px solid var(--primary);
+    color: var(--primary-dark);
+  }
+  h3 { font-size: 16px; margin: 20px 0 10px; color: var(--text); }
+  p { margin: 8px 0; }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+    margin: 16px 0 8px;
+  }
+  .kpi {
+    background: linear-gradient(180deg, #f1f5f9 0%, #ffffff 100%);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .kpi .label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .kpi .value { font-size: 22px; font-weight: 700; color: var(--text); }
+  .kpi .delta { font-size: 13px; margin-top: 4px; font-weight: 600; }
+  .delta.up { color: var(--green); }
+  .delta.down { color: var(--red); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 4px;
+    font-size: 14px;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: right;
+  }
+  th:first-child, td:first-child { text-align: left; }
+  thead th {
+    background: #eff6ff;
+    color: var(--primary-dark);
+    font-weight: 700;
+  }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tfoot td, tr.total td {
+    background: var(--highlight);
+    font-weight: 700;
+  }
+  .num-up { color: var(--green); font-weight: 600; }
+  .num-down { color: var(--red); font-weight: 600; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  .badge.up { background: #dcfce7; color: var(--green); }
+  .badge.down { background: #fee2e2; color: var(--red); }
+
+  /* Bar chart */
+  .bar-chart { margin: 14px 0; }
+  .bar-row { margin-bottom: 12px; }
+  .bar-row .bar-label {
+    display: flex; justify-content: space-between;
+    font-size: 13px; color: var(--muted); margin-bottom: 4px;
+  }
+  .bar-track {
+    background: #f1f5f9;
+    border-radius: 6px;
+    height: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    transition: width 0.6s ease;
+  }
+  .bar-2025 { background: linear-gradient(90deg, #94a3b8, #64748b); }
+  .bar-2026 { background: linear-gradient(90deg, var(--accent), #ea580c); }
+
+  /* Composition / pies via conic-gradient */
+  .pies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 12px;
+  }
+  .pie-card { text-align: center; }
+  .pie {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 4px 14px rgba(15,23,42,0.10);
+  }
+  .pie-2025 {
+    background: conic-gradient(
+      #f97316 0 20.04%,
+      #facc15 20.04% 20.84%,
+      #3b82f6 20.84% 100%
+    );
+  }
+  .pie-2026 {
+    background: conic-gradient(
+      #f97316 0 22.42%,
+      #84cc16 22.42% 100%
+    );
+  }
+  .pie-title { font-weight: 700; margin-top: 10px; }
+  .legend { font-size: 13px; margin-top: 8px; line-height: 1.9; }
+  .legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+
+  /* Highlight callouts */
+  .callouts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .callout {
+    border-left: 4px solid var(--accent);
+    background: #fff7ed;
+    padding: 12px 14px;
+    border-radius: 6px;
+  }
+  .callout .num { font-size: 22px; font-weight: 800; color: var(--accent); }
+  .callout .ttl { font-size: 13px; color: var(--muted); }
+
+  ol.takeaways li { margin-bottom: 8px; }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 20px 0 8px;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    section.card, header { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>鹿児島 上畜店 月次売上比較レポート</h1>
+    <div class="meta">
+      <span>📍 株式会社マザーズ 鹿児島 上畜店</span>
+      <span>🗓 2026年3月 vs 2025年3月</span>
+      <span>📊 出典: FoodingJournal 時間帯別売上</span>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2>1. エグゼクティブサマリー</h2>
+    <p>2026年3月の総売上は <strong>10,943,612円</strong> となり、前年同月（8,579,481円）を <strong style="color:var(--green)">+2,364,131円（+27.6%）</strong> 上回りました。組数・客数ともに大幅増加し、特にディナータイムが売上全体を牽引。客単価は前年とほぼ同水準を維持しており、<strong>来店客数の増加</strong>が売上拡大の主因です。</p>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="label">売上高</div>
+        <div class="value">10,943,612 <small>円</small></div>
+        <div class="delta up">▲ +2,364,131 円（+27.6%）</div>
+      </div>
+      <div class="kpi">
+        <div class="label">組数</div>
+        <div class="value">901</div>
+        <div class="delta up">▲ +213（+31.0%）</div>
+      </div>
+      <div class="kpi">
+        <div class="label">客数</div>
+        <div class="value">2,339</div>
+        <div class="delta up">▲ +552（+30.9%）</div>
+      </div>
+      <div class="kpi">
+        <div class="label">客単価</div>
+        <div class="value">4,678 <small>円</small></div>
+        <div class="delta down">▼ -123（-2.6%）</div>
+      </div>
+      <div class="kpi">
+        <div class="label">組単価</div>
+        <div class="value">12,146 <small>円</small></div>
+        <div class="delta down">▼ -324（-2.6%）</div>
+      </div>
+      <div class="kpi">
+        <div class="label">人時売上</div>
+        <div class="value">4,812 <small>円</small></div>
+        <div class="delta up">▲ +848（+21.4%）</div>
+      </div>
+      <div class="kpi">
+        <div class="label">人時生産性</div>
+        <div class="value">3,557 <small>円</small></div>
+        <div class="delta up">▲ +1,058（+42.3%）</div>
+      </div>
+    </div>
+
+    <div class="callouts">
+      <div class="callout">
+        <div class="ttl">売上前年比</div>
+        <div class="num">+27.6%</div>
+      </div>
+      <div class="callout">
+        <div class="ttl">客数増加</div>
+        <div class="num">+552名</div>
+      </div>
+      <div class="callout">
+        <div class="ttl">人時生産性向上</div>
+        <div class="num">+42.3%</div>
+      </div>
+      <div class="callout">
+        <div class="ttl">ランチ売上伸長</div>
+        <div class="num">+42.7%</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>2. 全体サマリー（合計）</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>指標</th>
+          <th>2025年3月</th>
+          <th>2026年3月</th>
+          <th>差分</th>
+          <th>増減率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>組数</td><td>688</td><td>901</td><td class="num-up">+213</td><td class="num-up">+31.0%</td></tr>
+        <tr><td>客数</td><td>1,787</td><td>2,339</td><td class="num-up">+552</td><td class="num-up">+30.9%</td></tr>
+        <tr><td>売上（円）</td><td>8,579,481</td><td>10,943,612</td><td class="num-up">+2,364,131</td><td class="num-up">+27.6%</td></tr>
+        <tr><td>組単価（円）</td><td>12,470</td><td>12,146</td><td class="num-down">-324</td><td class="num-down">-2.6%</td></tr>
+        <tr><td>客単価（円）</td><td>4,801</td><td>4,678</td><td class="num-down">-123</td><td class="num-down">-2.6%</td></tr>
+        <tr><td>人時売上（円）</td><td>3,964</td><td>4,812</td><td class="num-up">+848</td><td class="num-up">+21.4%</td></tr>
+        <tr><td>人時生産性（円）</td><td>2,499</td><td>3,557</td><td class="num-up">+1,058</td><td class="num-up">+42.3%</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>3. 売上の前年比較（時間帯別）</h2>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label"><span>ランチ</span><span><strong style="color:var(--green)">+42.7%</strong></span></div>
+        <div class="bar-track"><div class="bar-fill bar-2025" style="width: 20.3%;">2025: 1,719,602</div></div>
+        <div class="bar-track" style="margin-top:4px"><div class="bar-fill bar-2026" style="width: 28.9%;">2026: 2,453,916</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>アイドル</span><span><strong style="color:var(--red)">-100%</strong></span></div>
+        <div class="bar-track"><div class="bar-fill bar-2025" style="width: 1%; padding-right:0;">2025: 69,270</div></div>
+        <div class="bar-track" style="margin-top:4px"><div class="bar-fill bar-2026" style="width: 0.5%; padding-right:0;"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>ディナー</span><span><strong style="color:var(--green)">+25.0%</strong></span></div>
+        <div class="bar-track"><div class="bar-fill bar-2025" style="width: 80%;">2025: 6,790,609</div></div>
+        <div class="bar-track" style="margin-top:4px"><div class="bar-fill bar-2026" style="width: 100%;">2026: 8,489,696</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>合計</span><span><strong style="color:var(--green)">+27.6%</strong></span></div>
+        <div class="bar-track"><div class="bar-fill bar-2025" style="width: 78.4%;">2025: 8,579,481</div></div>
+        <div class="bar-track" style="margin-top:4px"><div class="bar-fill bar-2026" style="width: 100%;">2026: 10,943,612</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>4. 売上構成比の変化</h2>
+    <div class="pies">
+      <div class="pie-card">
+        <div class="pie pie-2025"></div>
+        <div class="pie-title">2025年3月</div>
+        <div class="legend">
+          <div><span class="sw" style="background:#f97316"></span>ランチ 20.04%</div>
+          <div><span class="sw" style="background:#facc15"></span>アイドル 0.80%</div>
+          <div><span class="sw" style="background:#3b82f6"></span>ディナー 79.14%</div>
+        </div>
+      </div>
+      <div class="pie-card">
+        <div class="pie pie-2026"></div>
+        <div class="pie-title">2026年3月</div>
+        <div class="legend">
+          <div><span class="sw" style="background:#f97316"></span>ランチ 22.42%</div>
+          <div><span class="sw" style="background:#84cc16"></span>ディナー 77.57%</div>
+        </div>
+      </div>
+    </div>
+    <table style="margin-top:18px;">
+      <thead>
+        <tr><th>時間帯</th><th>2025年3月</th><th>2026年3月</th><th>変化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ランチ</td><td>20.04%</td><td>22.42%</td><td class="num-up">+2.38pt</td></tr>
+        <tr><td>アイドル</td><td>0.80%</td><td>0.00%</td><td class="num-down">-0.80pt</td></tr>
+        <tr><td>ディナー</td><td>79.14%</td><td>77.57%</td><td class="num-down">-1.57pt</td></tr>
+        <tr class="total"><td>合計</td><td>100.00%</td><td>100.00%</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>5. 時間帯別 詳細比較</h2>
+
+    <h3>5-1. ランチ <span class="badge up">売上 +42.7%</span></h3>
+    <table>
+      <thead>
+        <tr><th>指標</th><th>2025年3月</th><th>2026年3月</th><th>差分</th><th>増減率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>組数</td><td>306</td><td>439</td><td class="num-up">+133</td><td class="num-up">+43.5%</td></tr>
+        <tr><td>客数</td><td>735</td><td>1,098</td><td class="num-up">+363</td><td class="num-up">+49.4%</td></tr>
+        <tr><td>売上（円）</td><td>1,719,602</td><td>2,453,916</td><td class="num-up">+734,314</td><td class="num-up">+42.7%</td></tr>
+        <tr><td>構成比</td><td>20.04%</td><td>22.42%</td><td class="num-up">+2.38pt</td><td>—</td></tr>
+        <tr><td>組単価（円）</td><td>5,619</td><td>5,589</td><td class="num-down">-30</td><td class="num-down">-0.5%</td></tr>
+        <tr><td>客単価（円）</td><td>2,339</td><td>2,234</td><td class="num-down">-105</td><td class="num-down">-4.5%</td></tr>
+        <tr><td>人時売上（円）</td><td>2,609</td><td>4,640</td><td class="num-up">+2,031</td><td class="num-up">+77.8%</td></tr>
+        <tr><td>人時生産性（円）</td><td>1,536</td><td>2,909</td><td class="num-up">+1,373</td><td class="num-up">+89.4%</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--muted);">客数+49.4%と最も伸長率が高く、構成比も拡大。人時生産性は約1.9倍となり運営効率の改善が顕著。</p>
+
+    <h3>5-2. アイドル <span class="badge down">計上消滅</span></h3>
+    <table>
+      <thead>
+        <tr><th>指標</th><th>2025年3月</th><th>2026年3月</th><th>差分</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>組数</td><td>7</td><td>0</td><td class="num-down">-7</td></tr>
+        <tr><td>客数</td><td>11</td><td>0</td><td class="num-down">-11</td></tr>
+        <tr><td>売上（円）</td><td>69,270</td><td>0</td><td class="num-down">-69,270</td></tr>
+        <tr><td>構成比</td><td>0.80%</td><td>0.00%</td><td class="num-down">-0.80pt</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--muted);">2026年3月はアイドル帯が無く、ランチ／ディナーの2区分に集約。営業オペレーション変更の可能性。</p>
+
+    <h3>5-3. ディナー <span class="badge up">売上 +25.0%</span></h3>
+    <table>
+      <thead>
+        <tr><th>指標</th><th>2025年3月</th><th>2026年3月</th><th>差分</th><th>増減率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>組数</td><td>375</td><td>462</td><td class="num-up">+87</td><td class="num-up">+23.2%</td></tr>
+        <tr><td>客数</td><td>1,041</td><td>1,241</td><td class="num-up">+200</td><td class="num-up">+19.2%</td></tr>
+        <tr><td>売上（円）</td><td>6,790,609</td><td>8,489,696</td><td class="num-up">+1,699,087</td><td class="num-up">+25.0%</td></tr>
+        <tr><td>構成比</td><td>79.14%</td><td>77.57%</td><td class="num-down">-1.57pt</td><td>—</td></tr>
+        <tr><td>組単価（円）</td><td>18,108</td><td>18,375</td><td class="num-up">+267</td><td class="num-up">+1.5%</td></tr>
+        <tr><td>客単価（円）</td><td>6,523</td><td>6,841</td><td class="num-up">+318</td><td class="num-up">+4.9%</td></tr>
+        <tr><td>人時売上（円）</td><td>5,819</td><td>6,206</td><td class="num-up">+387</td><td class="num-up">+6.7%</td></tr>
+        <tr><td>人時生産性（円）</td><td>3,727</td><td>4,789</td><td class="num-up">+1,062</td><td class="num-up">+28.5%</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--muted);">客数+19.2%に加え、客単価も+4.9%上昇。量・質ともに改善し、売上の絶対額では+1,699,087円と最大の貢献。</p>
+  </section>
+
+  <section class="card">
+    <h2>6. 主要な気づきと示唆</h2>
+    <ol class="takeaways">
+      <li><strong>客数主導の成長</strong> — 組数+31.0%、客数+30.9%。客単価は微減（-2.6%）に留まり、トータル売上は+27.6%伸長。</li>
+      <li><strong>ランチの好調</strong> — 伸長率トップはランチ（売上+42.7%）。構成比も+2.38pt上昇し、稼ぎ頭の柱が複線化。</li>
+      <li><strong>ディナーの単価上昇</strong> — ディナーは客単価+4.9%、組単価+1.5%と単価が上昇。メニュー戦略・客層改善が示唆。</li>
+      <li><strong>労働生産性の大幅改善</strong> — 人時生産性は2,499円→3,557円（<strong style="color:var(--green)">+42.3%</strong>）。利益率改善に寄与。</li>
+      <li><strong>オペレーションの見直し</strong> — アイドル帯の計上消滅は、営業時間や勤怠区分の見直しを示唆。</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>7. 今後のアクション案</h2>
+    <table>
+      <thead>
+        <tr><th style="width:5%;">#</th><th>アクション</th><th>狙い</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>ランチ集客施策の継続強化（プロモーション・回転率向上）</td><td>構成比拡大のさらなる加速</td></tr>
+        <tr><td>2</td><td>ディナーの客単価向上施策（コース・ドリンクペアリング）</td><td>単価上昇トレンドの定着</td></tr>
+        <tr><td>3</td><td>アイドル帯運営の総括（廃止／再設計の意思決定）</td><td>生産性のさらなる改善</td></tr>
+        <tr><td>4</td><td>シフト最適化のベストプラクティス共有</td><td>人時生産性の他店展開</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    本資料は FoodingJournal「時間帯別売上」レポート（税抜・ファーストオーダー基準）を元に作成。
+  </footer>
+
+</div>
+</body>
+</html>
