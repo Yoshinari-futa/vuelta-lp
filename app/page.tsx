@@ -127,7 +127,7 @@ const Header = () => {
                   Menu
                 </Link>
                 <a href={isEnHome ? "#manager" : "/#manager"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isEnHome) handleAnchorClick(e, '#manager'); setIsMenuOpen(false) }}>Manager</a>
-                <a href={isEnHome ? "#reservation" : "/#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isEnHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Visit Us</a>
+                <Link href="/access" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Visit Us</Link>
                 <a href="/recruit" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isRecruitPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>Recruit</a>
                 <a href="/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</a>
                 <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Book Online</a>
@@ -205,9 +205,9 @@ export default function Home() {
       "@type": "BarOrPub",
       "@id": barStructuredDataId('en'),
       "name": "VUELTA",
-      "alternateName": "VUELTA Craft Cocktail Bar",
+      "alternateName": ["VUELTA Craft Cocktail Bar", "ブエルタ"],
       "url": barStructuredDataUrl('en'),
-      "description": "Speakeasy-style craft cocktail bar in Hiroshima city center, 1 min walk from Chuden-mae Station. Signature cocktails using local Hiroshima ingredients like Sakurao Gin and Hiroshima lemon. English spoken, walk-ins welcome.",
+      "description": "Speakeasy-style craft cocktail bar in Hiroshima city center, 1 min walk from Chuden-mae Station. Signature cocktails made with local Hiroshima ingredients (Sakurao Gin, Hiroshima lemon) paired with authentic tacos and Mexican-inspired bar food. English spoken, walk-ins welcome.",
       "image": [
         BAR_LOGO_IMAGE_URL,
         `${SITE_ORIGIN}/images/interior.png`,
@@ -245,7 +245,7 @@ export default function Home() {
       ],
       "priceRange": "¥¥",
       "currenciesAccepted": "JPY",
-      "servesCuisine": ["Craft Cocktails", "Finger Food", "Tacos"],
+      "servesCuisine": ["Craft Cocktails", "Mexican", "Tacos", "Bar Food", "Hiroshima Local"],
       "menu": "https://www.vuelta.jp/menu",
       "sameAs": barSameAsUrls(),
       "telephone": STORE_PHONE_SCHEMA,
