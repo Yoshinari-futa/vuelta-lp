@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import localFont from 'next/font/local'
+import { headers } from 'next/headers'
 import './globals.css'
 import LanguageSelector from './components/LanguageSelector'
 import CustomCursor from './components/CustomCursor'
@@ -50,30 +51,31 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.vuelta.jp'),
-  title: 'VUELTA — Craft Cocktail Bar in Hiroshima | English Friendly',
-  description: 'Speakeasy-style cocktail bar in Hiroshima city center, 1 min from Chuden-mae Station. Signature cocktails using local Hiroshima ingredients. English spoken, walk-ins welcome. Open Wed–Tue, 18:00–02:00.',
-  keywords: 'cocktail bar Hiroshima, VUELTA, Hiroshima bar, English speaking bar Hiroshima, speakeasy Hiroshima, craft cocktails, bar near Peace Park, Hiroshima nightlife, international bar Japan, best bar Hiroshima',
+  title: '広島のカクテルバー VUELTA｜大手町・中電前駅徒歩1分の隠れ家クラフトカクテルバー',
+  description: '広島・大手町のクラフトカクテルバーVUELTA。中電前駅徒歩1分。桜尾ジンや広島レモンなど地元食材を使ったシグネチャーカクテルを、デート・記念日や女性一人でも訪れやすい隠れ家空間で。英語対応・ウォークインOK。18:00–02:00／木曜定休。',
+  keywords: '広島 バー, 広島 カクテル, 広島 カクテルバー, 大手町 バー, 中電前 バー, 隠れ家バー 広島, 広島 おすすめ バー, クラフトカクテル 広島, 広島 デート バー, 広島 記念日 バー, VUELTA, ヴエルタ, cocktail bar Hiroshima, English speaking bar Hiroshima',
   openGraph: {
-    title: 'VUELTA — Craft Cocktail Bar in Hiroshima',
-    description: 'Where "Welcome Back" meets "Nice to Meet You". Speakeasy-style craft cocktails with Hiroshima local ingredients. English spoken, walk-ins welcome.',
+    title: '広島のカクテルバー VUELTA｜大手町・中電前駅徒歩1分の隠れ家クラフトカクテルバー',
+    description: '広島・大手町のクラフトカクテルバーVUELTA。桜尾ジンや広島レモンなど地元食材を使ったシグネチャーカクテルが楽しめる隠れ家バー。中電前駅徒歩1分。英語対応・ウォークインOK。',
     type: 'website',
     url: 'https://www.vuelta.jp',
-    locale: 'en_US',
+    locale: 'ja_JP',
+    alternateLocale: ['en_US'],
     siteName: 'VUELTA',
     images: [
       {
         url: '/images/ogp.png',
         width: 1200,
         height: 630,
-        alt: 'VUELTA - Craft Cocktail Bar in Hiroshima',
+        alt: '広島のクラフトカクテルバー VUELTA - 大手町・中電前駅徒歩1分',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@vuelta_bar',
-    title: 'VUELTA — Craft Cocktail Bar in Hiroshima',
-    description: 'Speakeasy-style bar near Chuden-mae St. Hiroshima local ingredients: Sakurao Gin, Hiroshima lemon. English spoken. Walk-ins welcome.',
+    title: '広島のカクテルバー VUELTA｜大手町・中電前駅徒歩1分',
+    description: '広島・大手町の隠れ家クラフトカクテルバー。桜尾ジン・広島レモンなど地元食材のシグネチャーカクテル。英語対応・ウォークインOK。',
     images: ['/images/ogp.png'],
   },
   icons: {
@@ -109,8 +111,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // 言語属性: ミドルウェアが設定した x-pathname を読み、/ja 配下なら "ja"、それ以外は "en"
+  const pathname = headers().get('x-pathname') ?? ''
+  const lang = pathname.startsWith('/ja') ? 'ja' : 'en'
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang={lang} className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://www.instagram.com" />
         <link rel="dns-prefetch" href="https://www.instagram.com" />

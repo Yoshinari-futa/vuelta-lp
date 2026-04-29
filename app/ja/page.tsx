@@ -190,16 +190,17 @@ export default function HomeJA() {
 
   const hoursStatus = getCurrentHours()
 
-  // Structured Data for SEO — BarOrPub + WebSite
+  // Structured Data for SEO — BarOrPub + WebSite + Breadcrumbs
   const structuredData = [
     {
       "@context": "https://schema.org",
       "@type": "BarOrPub",
       "@id": barStructuredDataId('ja'),
       "name": "VUELTA",
-      "alternateName": "ブエルタ",
+      "alternateName": ["ブエルタ", "ヴエルタ", "VUELTA 広島", "広島カクテルバー VUELTA"],
       "url": barStructuredDataUrl('ja'),
-      "description": "広島市中区大手町のスピークイージー風クラフトカクテルバー。中電前駅徒歩1分。桜尾ジン・広島レモンなど地元素材を使ったシグネチャーカクテル。女性一人でも入りやすい隠れ家空間。英語対応可。",
+      "inLanguage": "ja",
+      "description": "広島市中区大手町のクラフトカクテルバー。中電前駅徒歩1分。桜尾ジン・広島レモンなど広島の地酒・地元食材を使ったシグネチャーカクテル。デート・記念日にも、女性一人でも訪れやすい隠れ家空間。英語対応・ウォークインOK。",
       "image": [BAR_LOGO_IMAGE_URL],
       "logo": BAR_LOGO_IMAGE_URL,
       "address": {
@@ -261,6 +262,24 @@ export default function HomeJA() {
       "name": "VUELTA",
       "url": "https://www.vuelta.jp",
       "inLanguage": ["ja", "en"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://www.vuelta.jp/ja"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "メニュー",
+          "item": "https://www.vuelta.jp/menu"
+        }
+      ]
     }
   ]
 
@@ -294,13 +313,22 @@ export default function HomeJA() {
             <div className="flex flex-col items-center">
               {/* Text Content */}
               <div className="text-center mb-6 md:mb-12 w-full px-4">
-                <motion.h1
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.2 }}
                   className="font-annam text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light tracking-tight mb-4 md:mb-6 text-balance"
+                  aria-hidden="true"
                 >
                   V U E L T A
+                </motion.p>
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  className="font-japanese text-base sm:text-lg md:text-2xl lg:text-3xl text-vuelta-text font-normal leading-snug mb-3 md:mb-5 px-2"
+                >
+                  広島のクラフトカクテルバー VUELTA
                 </motion.h1>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -310,20 +338,20 @@ export default function HomeJA() {
                 >
                   <p>
                     <span className="md:hidden">
-                      おかえりとはじめましてが交差する。<br />
-                      雑居ビル2階に潜む、架空の貿易拠点。
+                      広島・大手町の隠れ家カクテルバー。<br />
+                      中電前駅から徒歩1分、雑居ビル2階に潜む架空の貿易拠点。
                     </span>
                     <span className="hidden md:inline">
-                      おかえりとはじめましてが交差する。雑居ビル2階に潜む、架空の貿易拠点。
+                      広島・大手町の隠れ家カクテルバー。中電前駅から徒歩1分、雑居ビル2階に潜む架空の貿易拠点。
                     </span>
                   </p>
                   <p>
                     <span className="md:hidden">
-                      世界中の洗練されたバーカルチャーを輸入し、<br />
-                      広島のローカルな魂を世界へ輸出する。
+                      おかえりとはじめましてが交差する場所。<br />
+                      世界中のバーカルチャーを輸入し、広島のローカルな魂を世界へ輸出する。
                     </span>
                     <span className="hidden md:inline">
-                      世界中の洗練されたバーカルチャーを輸入し、広島のローカルな魂を世界へ輸出する。
+                      おかえりとはじめましてが交差する場所。世界中のバーカルチャーを輸入し、広島のローカルな魂を世界へ輸出する。
                     </span>
                   </p>
                 </motion.div>
@@ -362,7 +390,7 @@ export default function HomeJA() {
                 <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-vuelta-gray group">
                   <Image
                     src="/images/hero.png"
-                    alt="VUELTA - 桜のガーニッシュのピンクカクテル"
+                    alt="広島・大手町のクラフトカクテルバー VUELTA — 桜のガーニッシュを添えたシグネチャーカクテル"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     style={{ objectPosition: '45% center' }}
@@ -398,10 +426,16 @@ export default function HomeJA() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start">
             <FadeInUp>
               <div className="space-y-6 md:space-y-8 lg:space-y-10">
-                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-vuelta-gold mb-6 md:mb-8">
-                  About<span className="inline-block w-2 sm:w-4 md:w-8"></span>V U E L T A
+                <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-vuelta-gold mb-3 md:mb-4 leading-tight">
+                  広島・大手町の隠れ家カクテルバー
                 </h2>
+                <p className="font-annam text-lg sm:text-xl md:text-2xl text-vuelta-gold-light tracking-wider mb-6 md:mb-8" aria-hidden="true">
+                  About<span className="inline-block w-2 sm:w-4 md:w-8"></span>V U E L T A
+                </p>
                 <div className="space-y-6 md:space-y-8 text-vuelta-text-light font-japanese text-sm sm:text-base md:text-lg leading-loose">
+                  <p className="font-japanese text-base md:text-lg leading-loose">
+                    広島・大手町の路面電車「中電前駅」から徒歩1分。掛江ビル2階にひっそりと佇むスピークイージー風の隠れ家カクテルバー、それがVUELTAです。重厚な扉を開けると、コンクリートと古材、鈍い真鍮の照明が織りなす貿易事務所の倉庫のような空間。広島の繁華街・紙屋町や本通からも徒歩圏内で、女性一人でも入りやすい落ち着いた雰囲気の中、本格的なクラフトカクテルをゆっくり楽しめます。
+                  </p>
                   <p className="text-xl text-vuelta-gold-light font-semibold">
                     おかえりとはじめましてが交差する。
                   </p>
@@ -464,7 +498,7 @@ export default function HomeJA() {
               <div className="relative aspect-[4/5] bg-vuelta-gray overflow-hidden group">
                 <Image
                   src="/images/interior.png"
-                  alt="VUELTA バー内装 - 掛江ビル入口"
+                  alt="広島・大手町の隠れ家カクテルバー VUELTA の店内 — 掛江ビル2階・中電前駅徒歩1分"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -481,12 +515,18 @@ export default function HomeJA() {
         <section className="py-12 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 bg-white">
           <div className="max-w-4xl mx-auto text-left">
             <FadeInUp>
-              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-12 text-vuelta-gold px-4">
-                Our Mission
+              <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-3 md:mb-4 text-vuelta-gold px-4 leading-tight">
+                広島の地酒・地元食材を使ったシグネチャーカクテル
               </h2>
+              <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-6 md:mb-10 px-4" aria-hidden="true">
+                Our Mission
+              </p>
               <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 lg:mb-16 text-vuelta-gold-light italic px-4">
                 Food is the Invitation,<br />
                 People are the Destination.
+              </p>
+              <p className="font-japanese text-sm sm:text-base md:text-lg leading-loose text-vuelta-text-light mb-8 md:mb-12 px-4">
+                VUELTAのクラフトカクテルは、広島県廿日市市の蒸溜所が生む桜尾ジンや戸河内ウイスキー、瀬戸内の太陽を浴びた広島レモン、わけぎ、賀茂鶴の日本酒など、広島の地酒と地元食材をふんだんに使ったシグネチャーが中心。お好み焼きの旨みをグラスに閉じ込めた「The OKONOMIYAKI」、広島の牡蠣に着想を得た「Shell We?」など、この街でしか飲めない一杯を、世界中のバーカルチャーと融合させて仕上げています。広島観光の夜に、地元の人とのささやかなお祝いに、静かな大人のバーで広島の味を確かめたい方へ。
               </p>
               <div className="space-y-6 md:space-y-8 text-vuelta-text font-japanese text-sm sm:text-base md:text-lg leading-relaxed w-full px-4">
                 <p className="leading-relaxed">
@@ -558,20 +598,24 @@ export default function HomeJA() {
           <div className="max-w-6xl mx-auto">
             <FadeInUp>
               <div className="text-center mb-12 md:mb-16 lg:mb-24 px-4">
-                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-3 md:mb-6">
-                  Menu
+                <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2 md:mb-3 leading-tight">
+                  広島ならではのシグネチャーカクテル
                 </h2>
+                <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light" aria-hidden="true">
+                  Menu
+                </p>
               </div>
             </FadeInUp>
 
             {/* Asymmetric grid layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
               {[
-                { name: 'Shell We?', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,600', image: '/images/cocktails/shellwe.png' },
-                { name: 'The OKONOMIYAKI', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの旨み、オタフクソース、トマトの甘みがグラスでひとつに。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
-                { name: '26 hours', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,250', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
+                { name: 'Shell We?', alt: '桜尾ジンと広島の牡蠣を使ったシグネチャーカクテル「Shell We?」', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,600', image: '/images/cocktails/shellwe.png' },
+                { name: 'The OKONOMIYAKI', alt: '広島のお好み焼きをグラスに閉じ込めたカクテル「The OKONOMIYAKI」', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの旨み、オタフクソース、トマトの甘みがグラスでひとつに。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
+                { name: '26 hours', alt: 'トマトときゅうりの透明感あるクラフトカクテル「26 hours」', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,250', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
                 {
                   name: 'Spring Bloom Margarita',
+                  alt: '桜リキュールとテキーラの春のマルガリータ「Spring Bloom Margarita」',
                   description:
                     '春の桜をグラスに。テキーラシルバー、桜リキュール、レモン、花びらの香り。伝統の枡（ます）で味わえば、桜の香りにレモンの酸味、テキーラのキレが重なり、春の夜にぴったりの一杯に。',
                   price: '¥950',
@@ -581,13 +625,13 @@ export default function HomeJA() {
               ].map((item, index) => {
                 return (
                   <FadeInUp key={index} delay={index * 0.1}>
-                    <div className="group cursor-pointer relative" role="article" aria-label={`${item.name} カクテル`}>
+                    <div className="group cursor-pointer relative" role="article" aria-label={item.alt}>
                       <div className="relative aspect-square bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white overflow-hidden mb-4 sm:mb-6 focus-within:ring-2 focus-within:ring-vuelta-gold focus-within:ring-offset-2 min-h-[280px] sm:min-h-[350px] md:min-h-[400px]">
                         {item.image && !imageErrors[index] ? (
                           <>
                             <Image
                               src={item.image}
-                              alt={`${item.name} カクテル`}
+                              alt={item.alt}
                               fill
                               className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                               style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
@@ -669,15 +713,52 @@ export default function HomeJA() {
           </div>
         </section>
 
+        {/* デート・記念日セクション */}
+        <section className="py-12 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8" aria-label="デート・記念日に静かに過ごせる広島のバー">
+          <div className="max-w-4xl mx-auto">
+            <FadeInUp>
+              <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-vuelta-gold mb-3 md:mb-5 leading-tight text-center md:text-left">
+                デート・記念日の夜に、静かな隠れ家を
+              </h2>
+              <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-6 md:mb-8 text-center md:text-left" aria-hidden="true">
+                Date &amp; Anniversary
+              </p>
+              <p className="font-japanese text-sm sm:text-base md:text-lg leading-loose text-vuelta-text-light">
+                カウンター8席とスタンディング8席のみ、計16席の小さな空間。コンクリートと古材、鈍く灯る真鍮の照明が、低い声で話すのにちょうどいい距離をつくります。広島で落ち着いて飲める隠れ家バーをお探しの方、二人の時間を邪魔されたくないデートに、ささやかに祝いたい記念日や誕生日に。バーテンダーがその日の気分や好みに合わせて広島の地元食材を使った一杯をご提案するので、カクテルが初めての方や女性一人でも、肩肘張らずにお過ごしいただけます。
+              </p>
+            </FadeInUp>
+          </div>
+        </section>
+
+        {/* 英語対応・インバウンド歓迎セクション */}
+        <section className="py-12 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-vuelta-gray/10" aria-label="英語対応・インバウンド歓迎">
+          <div className="max-w-4xl mx-auto">
+            <FadeInUp>
+              <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-vuelta-gold mb-3 md:mb-5 leading-tight text-center md:text-left">
+                英語対応・インバウンド歓迎
+              </h2>
+              <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-6 md:mb-8 text-center md:text-left" aria-hidden="true">
+                English Friendly &amp; International Guests
+              </p>
+              <p className="font-japanese text-sm sm:text-base md:text-lg leading-loose text-vuelta-text-light">
+                VUELTAは英語が話せるバーテンダーが在籍し、広島を訪れる海外ゲストにも安心して楽しんでいただけるカクテルバーです。原爆ドームや平和記念公園、宮島観光のあと、広島の夜を地元の人と一緒に過ごしたい旅行者の方にも人気。メニューは英訳付きで、桜尾ジンや戸河内ウイスキー、広島レモンなど地酒・地元食材の背景もご説明します。日本語と英語が自然に行き交う空間で、観光客と地元の方が一杯のカクテルを介して出会える、それがVUELTAの目指す広島のクラフトカクテルバーの形です。
+              </p>
+            </FadeInUp>
+          </div>
+        </section>
+
         {/* Location/Access Section */}
         <section id="reservation" className="py-12 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 scroll-mt-20" aria-label="アクセス">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
               <FadeInUp>
                 <div className="space-y-6 md:space-y-8 lg:space-y-10">
-                  <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-4 md:mb-6 lg:mb-8">
-                    Visit Us
+                  <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-3 md:mb-4 leading-tight">
+                    中電前駅から徒歩1分のアクセス
                   </h2>
+                  <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-4 md:mb-6 lg:mb-8" aria-hidden="true">
+                    Visit Us
+                  </p>
                   <div className="space-y-5 md:space-y-6 lg:space-y-8 font-japanese text-sm sm:text-base text-vuelta-text-light">
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
@@ -952,7 +1033,16 @@ export default function HomeJA() {
                 </ul>
               </div>
             </div>
-            <div className="pt-12 border-t border-vuelta-gray/30 text-center space-y-2">
+            {/* 周辺エリア紹介（広島中心部からのアクセス） */}
+            <div className="pt-10 md:pt-12 border-t border-vuelta-gray/30">
+              <h3 className="font-japanese text-base md:text-lg font-semibold text-vuelta-gold mb-3">
+                広島のカクテルバーをお探しの方へ
+              </h3>
+              <p className="font-japanese text-xs sm:text-sm text-vuelta-text-light leading-loose">
+                VUELTAは広島市中区大手町、路面電車「中電前駅」から徒歩1分の隠れ家クラフトカクテルバーです。広島の中心市街である紙屋町・本通商店街からは徒歩約7分、八丁堀エリアからも徒歩圏内。広島駅からは路面電車で約15分でアクセスできます。広島観光で原爆ドーム・平和記念公園・宮島を訪れた夜の一杯に、広島出張の締めくくりに、地元の方の二軒目に。広島で静かに飲める隠れ家バー、デートや記念日に使える落ち着いたカクテルバーをお探しの方は、ぜひ一度VUELTAへお立ち寄りください。
+              </p>
+            </div>
+            <div className="pt-8 md:pt-10 mt-8 md:mt-10 border-t border-vuelta-gray/30 text-center space-y-2">
               <p className="font-japanese text-xs text-vuelta-text-light">
                 © 2026 VUELTA. All rights reserved.
               </p>
