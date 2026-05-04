@@ -11,7 +11,7 @@ import { blurDataUrl } from '@/lib/blurPlaceholders'
 
 export const metadata: Metadata = {
   title: '特定商取引法に基づく表記 | VUELTA',
-  description: '株式会社VUELTAの特定商取引法に基づく表記（販売事業者・連絡先・支払方法等）',
+  description: '株式会社VUELTAの特定商取引法に基づく表記（販売事業者、連絡先、支払方法等）',
   alternates: {
     canonical: `${SITE_ORIGIN}/tokushoho`,
     languages: {
@@ -110,7 +110,7 @@ export default function TokushohoPage() {
             <Row label="支払方法" value="クレジットカード（Stripe決済）" />
             <Row label="支払時期" value="お申し込み時に即時決済。以降、毎月同日に自動決済されます。" />
             <Row label="商品の引渡時期" value="決済完了後、直ちにサービスをご利用いただけます。" />
-            <Row label="返品・キャンセルについて">
+            <Row label="返品やキャンセルについて">
               <span>
                 サブスクリプションはいつでもキャンセル可能です。
                 <br />キャンセル後も、当月の決済済み期間中はサービスをご利用いただけます。

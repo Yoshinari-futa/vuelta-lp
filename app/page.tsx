@@ -6,9 +6,7 @@ import {
   MAPS_SEARCH_URL,
   POSTAL_CODE,
   SITE_ORIGIN,
-  STORE_PHONE_DISPLAY,
   STORE_PHONE_SCHEMA,
-  STORE_PHONE_TEL_HREF,
   RESERVATION_URL,
   barSameAsUrls,
   barStructuredDataId,
@@ -23,7 +21,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import { PhoneContactBlock } from '@/app/components/PhoneContactBlock'
 import { blurDataUrl } from '@/lib/blurPlaceholders'
 
 // Header Component
@@ -130,7 +127,7 @@ const Header = () => {
                 <a href={isEnHome ? "#reservation" : "/#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isEnHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Visit Us</a>
                 <a href="/recruit" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isRecruitPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>Recruit</a>
                 <a href="/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</a>
-                <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Book Online</a>
+                <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
               </div>
             </motion.nav>
           )}
@@ -334,9 +331,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="font-sans text-sm sm:text-base md:text-lg text-vuelta-text-light mb-6 md:mb-4 leading-relaxed max-w-2xl mx-auto px-2"
+                className="font-sans text-sm sm:text-base md:text-lg text-vuelta-text-light mb-6 md:mb-4 leading-relaxed max-w-2xl mx-auto px-2 text-pretty"
               >
-                International guests welcome. We do our best to communicate. Located in Hiroshima city center.
+                An intimate craft cocktail bar in central Hiroshima — 1 min from Chuden-mae, walking distance from the Peace Park. Local Japanese spirits, real local stories.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0 }}
@@ -349,9 +346,9 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
-                  aria-label="Book online (Square)"
+                  aria-label="Reserve via Instagram DM"
                 >
-                  Book Online
+                  Reserve via DM
                 </a>
                 <Link
                   href="/menu"
@@ -404,54 +401,35 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Brand Concept Section */}
+      {/* About Section（旧 Brand Concept + Mission を統合） */}
       <section id="about" className="py-12 md:py-32 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-20" aria-label="About VUELTA">
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           <FadeInUp>
             <div className="space-y-6 md:space-y-8">
-              <div className="flex items-center gap-2 sm:gap-4">
-                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-vuelta-gold">
-                  About<span className="inline-block w-2 sm:w-4 md:w-8"></span>V U E L T A
-                </h2>
+              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-vuelta-gold">
+                About<span className="inline-block w-2 sm:w-4 md:w-8"></span>V U E L T A
+              </h2>
+              <div className="space-y-5 md:space-y-6 text-vuelta-text-light font-sans text-base md:text-lg leading-loose text-pretty">
+                <p className="text-xl text-vuelta-gold-light font-semibold leading-snug">
+                  In Hiroshima — where welcome back meets nice to meet you.
+                </p>
+                <p>
+                  1 minute from Chuden-mae, tucked on the 2nd floor of the Kakee Building. A small counter-led space where you can sip seriously crafted cocktails in calm.
+                </p>
+                <p>
+                  VUELTA means reunion, return, cycle in Spanish. We built this place for travellers and locals to meet over a glass — and feel the real Hiroshima.
+                </p>
               </div>
-              <div className="space-y-6 md:space-y-8 text-vuelta-text-light font-sans text-sm sm:text-base md:text-lg leading-relaxed">
-                <p className="text-xl text-vuelta-gold-light font-semibold leading-relaxed">
-                  In Hiroshima<br />
-                  where welcome back meets nice to meet you.
+              <div className="pt-6 md:pt-8 border-t border-vuelta-gray space-y-5 md:space-y-6">
+                <p className="font-annam text-xl sm:text-2xl md:text-3xl font-light text-vuelta-gold-light italic leading-snug">
+                  Food is the Invitation,<br />
+                  People are the Destination.
                 </p>
-                <p className="leading-loose">
-                  VUELTA means reunion, return, and cycle in Spanish.<br />
-                  But for us, it means something more special.
+                <p className="font-sans text-base md:text-lg leading-loose text-vuelta-text-light text-pretty">
+                  SAKURAO Gin from Hatsukaichi, Togouchi whisky, Hiroshima lemon, Kamotsuru sake — local spirits and ingredients, fused with bar culture from around the world. Try our signatures: <span className="text-vuelta-gold font-medium">The OKONOMIYAKI</span> (Hiroshima soul food in a glass) and <span className="text-vuelta-gold font-medium">Shell We?</span> (Hiroshima oysters, the sea in a glass).
                 </p>
-                <p className="leading-loose">
-                  Hiroshima is an international city of peace and culture,<br />
-                  welcoming diverse people from around the world.<br />
-                  We create a place where international visitors and locals intersect,<br />
-                  experiencing the true essence of Hiroshima<br />
-                  while locals gather to feel new connections and warmth.
-                </p>
-                <div className="space-y-6 pt-6 border-t border-vuelta-gray">
-                  <div>
-                    <p className="text-vuelta-gold font-semibold mb-2">For international guests.</p>
-                    <p className="leading-relaxed">
-                      Want to know where locals really go?<br />
-                      This is it.<br />
-                      Experience the real Hiroshima.<br />
-                      Not tourist spots, but sharing laughter side by side with locals at a genuine neighborhood bar.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-vuelta-gold font-semibold mb-2">For locals.</p>
-                    <p className="leading-relaxed">
-                      Feel new inspiration and connections<br />
-                      while experiencing a Western worldview in your everyday life.
-                    </p>
-                  </div>
-                </div>
-                <p className="text-vuelta-gold-light italic leading-relaxed pt-4">
-                  Where these two lives intersect,<br />
-                  the feeling of I want to come back is born.<br />
-                  That is VUELTA.
+                <p className="font-sans text-base md:text-lg leading-loose text-vuelta-gold-light text-pretty">
+                  The cocktail is the means. Connection is the goal.
                 </p>
               </div>
             </div>
@@ -469,31 +447,6 @@ export default function Home() {
                 blurDataURL={blurDataUrl('/images/interior.png')}
               />
               <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-all duration-500" />
-            </div>
-          </FadeInUp>
-        </div>
-      </section>
-
-      {/* Mission Section */}
-      <section className="py-12 md:py-32 px-4 sm:px-6 bg-vuelta-gray">
-        <div className="max-w-4xl mx-auto text-left">
-          <FadeInUp>
-            <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-8 text-vuelta-gold px-4">
-              Our Mission
-            </h2>
-            <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 text-vuelta-gold-light italic px-4">
-              Food is the Invitation, People are the Destination.
-            </p>
-            <div className="space-y-6 md:space-y-8 text-vuelta-text font-sans text-base sm:text-lg leading-relaxed w-full px-4">
-              <p className="leading-loose">
-                The cocktails and drinks we serve are merely an invitation to bring guests here.
-              </p>
-              <p className="leading-loose">
-                We believe what our guests truly seek is the people waiting there, the warm atmosphere they create, and connection with our staff.
-              </p>
-              <p className="text-vuelta-gold-light text-xl pt-6 leading-relaxed">
-                Our goal is to create it was great to meet you beyond it was delicious.
-              </p>
             </div>
           </FadeInUp>
         </div>
@@ -623,15 +576,12 @@ export default function Home() {
                   <p className="font-sans text-xs sm:text-sm text-vuelta-text-light uppercase tracking-wider mb-2">
                     Manager • Born and raised in Hiroshima
                   </p>
-                  <div className="space-y-3 md:space-y-4 font-sans text-base sm:text-lg text-vuelta-text-light leading-relaxed">
+                  <div className="space-y-3 md:space-y-4 font-sans text-base sm:text-lg text-vuelta-text-light leading-relaxed text-pretty">
                     <p>
-                      Hey, I'm Yuta. Most people call me Yuji. Born here, grew up here. Hiroshima's my whole life.
-                    </p>
-                    <p>
-                      I really want to show you the <span className="text-vuelta-gold font-semibold">real Hiroshima</span> where we actually hang out, not the tourist stuff. The places that make this city what it is.
+                      Hey, I'm Yuta — most people call me Yuji. Born and raised here. I'd love to show you the <span className="text-vuelta-gold font-semibold">real Hiroshima</span> we actually hang out in, not the tourist version.
                     </p>
                     <p className="text-vuelta-gold-light italic">
-                      I'm still learning English, but I'm trying my best. Come sit down. Let's make it work together.
+                      My English is still a work in progress. Come sit down — we'll make it work together.
                     </p>
                   </div>
                   <div className="pt-4">
@@ -685,25 +635,28 @@ export default function Home() {
       <section className="py-12 md:py-32 px-4 sm:px-6 bg-vuelta-gray" aria-label="Welcome International Guests">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInUp>
-            <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-8 text-vuelta-gold px-4">
+            <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-3 md:mb-4 text-vuelta-gold px-4">
               Welcome International Guests
             </h2>
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-12">
-              <div className="space-y-3 md:space-y-4">
-                <div className="flex justify-center mb-3 md:mb-4">
+            <p className="font-sans text-base sm:text-lg text-vuelta-text-light max-w-2xl mx-auto px-4 leading-relaxed text-pretty">
+              Where locals actually go after the Peace Park. Pull up a stool and we'll show you the real Hiroshima.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-14">
+              <div className="space-y-3">
+                <div className="flex justify-center">
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20">
                     <svg className="w-7 h-7 sm:w-8 sm:h-8 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
-                <h3 className="font-annam text-xl sm:text-2xl font-light text-vuelta-gold">We'll Do Our Best</h3>
-                <p className="text-vuelta-text font-sans text-sm sm:text-base">
-                  Our bartenders may not speak perfect English, but they'll do their best to communicate with you. We're here to help and share the real Hiroshima experience!
+                <h3 className="font-annam text-xl sm:text-2xl font-light text-vuelta-gold">English Friendly</h3>
+                <p className="text-vuelta-text font-sans text-sm sm:text-base text-pretty">
+                  Our English isn't perfect, but we'll figure it out together.
                 </p>
               </div>
-              <div className="space-y-3 md:space-y-4">
-                <div className="flex justify-center mb-3 md:mb-4">
+              <div className="space-y-3">
+                <div className="flex justify-center">
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20">
                     <svg className="w-7 h-7 sm:w-8 sm:h-8 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
@@ -711,12 +664,12 @@ export default function Home() {
                   </div>
                 </div>
                 <h3 className="font-annam text-xl sm:text-2xl font-light text-vuelta-gold">Cards Accepted</h3>
-                <p className="text-vuelta-text font-sans text-sm sm:text-base">
-                  We accept major credit cards (Visa, Mastercard, AMEX) and cash. No need to worry about payment methods.
+                <p className="text-vuelta-text font-sans text-sm sm:text-base text-pretty">
+                  Visa, Mastercard, AMEX, and cash all welcome.
                 </p>
               </div>
-              <div className="space-y-3 md:space-y-4">
-                <div className="flex justify-center mb-3 md:mb-4">
+              <div className="space-y-3">
+                <div className="flex justify-center">
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20">
                     <svg className="w-7 h-7 sm:w-8 sm:h-8 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
@@ -724,18 +677,10 @@ export default function Home() {
                   </div>
                 </div>
                 <h3 className="font-annam text-xl sm:text-2xl font-light text-vuelta-gold">Free Wi-Fi</h3>
-                <p className="text-vuelta-text font-sans text-sm sm:text-base">
-                  Stay connected with our free Wi-Fi. Perfect for sharing your VUELTA experience on social media.
+                <p className="text-vuelta-text font-sans text-sm sm:text-base text-pretty">
+                  Stay connected and share your night with us.
                 </p>
               </div>
-            </div>
-            <div className="mt-8 md:mt-12 p-4 sm:p-6 bg-white rounded-lg border border-vuelta-gray">
-              <p className="text-vuelta-text font-sans text-base sm:text-lg leading-relaxed mb-4">
-                <span className="font-semibold text-vuelta-gold">Want to know where locals really go?</span> This is it. VUELTA is where real Hiroshima locals gather. Not a tourist spot, but a genuine local bar where you can experience authentic Japanese hospitality.
-              </p>
-              <p className="text-vuelta-text font-sans text-base sm:text-lg leading-relaxed">
-                <span className="font-semibold text-vuelta-gold">First time in Hiroshima?</span> Our bartenders will do their best to recommend local spots and share stories about this beautiful city, even if communication takes a bit of effort. We're not just a bar. We're your connection to real Hiroshima life.
-              </p>
             </div>
           </FadeInUp>
         </div>
@@ -766,9 +711,6 @@ export default function Home() {
                       3-3-5 Otemachi, Naka-ku<br />
                       Hiroshima, Hiroshima Prefecture, Japan
                     </a>
-                  </div>
-                  <div>
-                    <PhoneContactBlock locale="en" />
                   </div>
                   <div>
                     <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
@@ -819,33 +761,22 @@ export default function Home() {
                       Reservations
                     </h3>
                     <p className="text-base sm:text-lg mb-4">
-                      Walk-ins welcome! For groups or guaranteed seating, reserve ahead.<br />
-                      <span className="text-sm text-vuelta-text-light">We&apos;ll do our best to communicate in English!</span>
+                      Walk-ins welcome. For groups or guaranteed seating, DM us on Instagram.<br />
+                      <span className="text-sm text-vuelta-text-light">We&apos;ll do our best in English.</span>
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
-                      {/* Book Online (Square) */}
+                      {/* Reserve via Instagram DM */}
                       <a
                         href={RESERVATION_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
-                        aria-label="Book online"
+                        aria-label="Reserve via Instagram DM"
                       >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
-                        <span>Book Online</span>
-                      </a>
-                      {/* Phone */}
-                      <a
-                        href={STORE_PHONE_TEL_HREF}
-                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-annam text-sm focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
-                        aria-label={`Call to reserve (${STORE_PHONE_DISPLAY})`}
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                        <span>Call</span>
+                        <span>Reserve via DM</span>
                       </a>
                     </div>
                   </div>
@@ -1060,12 +991,12 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-3 px-6 py-4 min-h-[52px] bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider uppercase w-full"
-          aria-label="Book online (Square)"
+          aria-label="Reserve via Instagram DM"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
-          <span>Book Online</span>
+          <span>Reserve via DM</span>
         </a>
       </motion.div>
 
@@ -1081,12 +1012,12 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-xl hover:bg-vuelta-gold-light hover:shadow-2xl transition-all duration-300 font-annam text-sm tracking-wider uppercase"
-          aria-label="Book online (Square)"
+          aria-label="Reserve via Instagram DM"
         >
-          <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
-          <span>Book Online</span>
+          <span>Reserve via DM</span>
         </a>
       </motion.div>
       </div>

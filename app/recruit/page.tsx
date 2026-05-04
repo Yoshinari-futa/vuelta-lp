@@ -112,7 +112,7 @@ const Header = () => {
                 rel="noopener noreferrer"
                 className="px-6 py-2 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs tracking-[0.15em] uppercase block"
               >
-                Book Online
+                Reserve via DM
               </a>
             </motion.div>
           </div>
@@ -151,7 +151,7 @@ const Header = () => {
               <Link href="/#manager" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Manager</Link>
               <Link href="/#reservation" className="font-annam text-sm text-vuelta-gold/80 hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Visit Us</Link>
               <Link href="/recruit" className="font-annam text-sm text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
-              <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gold/20" onClick={() => setIsMenuOpen(false)}>Book Online</a>
+              <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gold/20" onClick={() => setIsMenuOpen(false)}>Reserve via DM</a>
             </div>
           </motion.nav>
         )}
@@ -381,10 +381,10 @@ export default function Recruit() {
               >
                 <div className="md:col-span-2">
                   <h3 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-gold mb-4 group-hover:text-vuelta-gold-light transition-colors">
-                    Bartender & Server
+                    Bartender and Server
                   </h3>
                   <p className="font-japanese text-sm text-vuelta-gold/70 tracking-[0.15em] mb-6">
-                    バーテンダー・ホールスタッフ
+                    バーテンダーやホールスタッフ
                   </p>
                 </div>
                 <div className="md:col-span-3 space-y-8">
@@ -485,7 +485,7 @@ export default function Recruit() {
                   </div>
                   <div>
                     <h4 className="font-sans text-lg font-semibold text-vuelta-gold mb-2 tracking-wide">
-                      Training & Development
+                      Training and Development
                     </h4>
                     <p className="font-japanese text-base text-vuelta-gold/90 leading-relaxed">
                       カクテル作りから接客まで、<br />

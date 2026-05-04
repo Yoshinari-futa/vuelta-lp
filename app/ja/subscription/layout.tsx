@@ -4,7 +4,7 @@ import { SITE_ORIGIN } from '@/lib/site-seo'
 export const metadata: Metadata = {
   title: 'ファーストドリンクパス | VUELTA 広島',
   description:
-    '広島・中電前のクラフトカクテルバーVUELTAの月額ウェルカムドリンク。いつでも解約可能。',
+    '広島中電前のクラフトカクテルバーVUELTAの月額ウェルカムドリンク。いつでも解約可能。',
   alternates: {
     canonical: `${SITE_ORIGIN}/ja/subscription`,
     languages: {

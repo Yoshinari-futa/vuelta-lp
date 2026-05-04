@@ -35,9 +35,11 @@ export const BAR_LOGO_IMAGE_URL = `${SITE_ORIGIN}/images/vuelta-logo.png` as con
 /** 店舗 Instagram（JSON-LD・フッターと共通の固定URL） */
 export const INSTAGRAM_BAR_URL = 'https://www.instagram.com/vuelta_bar' as const
 
-/** Square Appointments 予約ページ */
-export const RESERVATION_URL =
-  'https://app.squareup.com/appointments/book/ymsnjpd4h45i8r/LJ9MN31J94JP0/start' as const
+/**
+ * 予約導線（2026-05-03 変更）: Squareオンライン予約 → Instagram DM 一本化。
+ * 電話は出られないため Call 導線も廃止。プロフィール経由で DM ボタンへ誘導する。
+ */
+export const RESERVATION_URL = INSTAGRAM_BAR_URL
 
 /**
  * Google ビジネスプロフィールの公開URL（管理画面の「共有」やマップの店舗ページURL）。

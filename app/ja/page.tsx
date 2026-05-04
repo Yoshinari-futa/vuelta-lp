@@ -6,9 +6,7 @@ import {
   MAPS_SEARCH_URL,
   POSTAL_CODE,
   STORE_ADDRESS_JA_LINE,
-  STORE_PHONE_DISPLAY,
   STORE_PHONE_SCHEMA,
-  STORE_PHONE_TEL_HREF,
   RESERVATION_URL,
   barSameAsUrls,
   barStructuredDataId,
@@ -23,7 +21,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import { PhoneContactBlock } from '@/app/components/PhoneContactBlock'
 import { blurDataUrl } from '@/lib/blurPlaceholders'
 
 // Header Component (日本語版)
@@ -125,7 +122,7 @@ const Header = () => {
                 <a href={isJaHome ? "#reservation" : "/ja#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isJaHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Access</a>
                 <Link href="/recruit" className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={() => setIsMenuOpen(false)}>Recruit</Link>
                 <Link href="/ja/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
-                <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Book Online</a>
+                <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>DMで予約</a>
               </div>
             </motion.nav>
           )}
@@ -200,7 +197,7 @@ export default function HomeJA() {
       "alternateName": ["ブエルタ", "ヴエルタ", "VUELTA 広島", "広島カクテルバー VUELTA"],
       "url": barStructuredDataUrl('ja'),
       "inLanguage": "ja",
-      "description": "広島市中区大手町のクラフトカクテルバー。中電前駅徒歩1分。桜尾ジン・広島レモンなど広島の地酒・地元食材を使ったシグネチャーカクテル。デート・記念日にも、女性一人でも訪れやすい隠れ家空間。英語対応・ウォークインOK。",
+      "description": "広島市中区大手町のクラフトカクテルバー。中電前駅徒歩1分。桜尾ジンや広島レモンなど広島の地酒や地元食材を使ったシグネチャーカクテル。デートや記念日にも、女性一人でも訪れやすい落ち着いた空間。英語対応、ウォークインOK。",
       "image": [BAR_LOGO_IMAGE_URL],
       "logo": BAR_LOGO_IMAGE_URL,
       "address": {
@@ -326,33 +323,18 @@ export default function HomeJA() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.3 }}
-                  className="font-japanese text-base sm:text-lg md:text-2xl lg:text-3xl text-vuelta-text font-normal leading-snug mb-3 md:mb-5 px-2"
+                  className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-text-light font-light leading-snug tracking-wide mb-3 md:mb-5 px-2"
                 >
-                  広島のクラフトカクテルバー VUELTA
+                  広島のクラフトカクテルバー
                 </motion.h1>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.4 }}
-                  className="font-japanese text-sm sm:text-base md:text-lg lg:text-xl text-vuelta-text-light leading-relaxed mb-4 md:mb-6 px-2 max-w-5xl mx-auto space-y-2"
+                  className="font-japanese text-sm sm:text-base md:text-lg lg:text-xl text-vuelta-text-light leading-relaxed mb-4 md:mb-6 px-2 max-w-3xl mx-auto text-pretty"
                 >
                   <p>
-                    <span className="md:hidden">
-                      広島・大手町の隠れ家カクテルバー。<br />
-                      中電前駅から徒歩1分、雑居ビル2階に潜む架空の貿易拠点。
-                    </span>
-                    <span className="hidden md:inline">
-                      広島・大手町の隠れ家カクテルバー。中電前駅から徒歩1分、雑居ビル2階に潜む架空の貿易拠点。
-                    </span>
-                  </p>
-                  <p>
-                    <span className="md:hidden">
-                      おかえりとはじめましてが交差する場所。<br />
-                      世界中のバーカルチャーを輸入し、広島のローカルな魂を世界へ輸出する。
-                    </span>
-                    <span className="hidden md:inline">
-                      おかえりとはじめましてが交差する場所。世界中のバーカルチャーを輸入し、広島のローカルな魂を世界へ輸出する。
-                    </span>
+                    中電前駅から徒歩1分、掛江ビル2階のちいさなカクテルバー。広島の地酒と地元食材で仕立てるクラフトカクテルを、静かな夜に。
                   </p>
                 </motion.div>
                 <motion.div
@@ -366,9 +348,9 @@ export default function HomeJA() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
-                    aria-label="Book online (Square)"
+                    aria-label="Instagram DMで予約する"
                   >
-                    Book Online
+                    DMで予約
                   </a>
                   <Link
                     href="/menu"
@@ -390,7 +372,7 @@ export default function HomeJA() {
                 <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-vuelta-gray group">
                   <Image
                     src="/images/hero.png"
-                    alt="広島・大手町のクラフトカクテルバー VUELTA — 桜のガーニッシュを添えたシグネチャーカクテル"
+                    alt="広島大手町のクラフトカクテルバー VUELTA — 桜のガーニッシュを添えたシグネチャーカクテル"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     style={{ objectPosition: '45% center' }}
@@ -421,75 +403,38 @@ export default function HomeJA() {
           </motion.div>
         </section>
 
-        {/* Brand Concept Section */}
+        {/* About Section（旧 Brand Concept + Mission を統合） */}
         <section id="about" className="py-12 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 max-w-6xl mx-auto scroll-mt-20" aria-label="VUELTAについて">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start">
             <FadeInUp>
-              <div className="space-y-6 md:space-y-8 lg:space-y-10">
-                <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-vuelta-gold mb-3 md:mb-4 leading-tight">
-                  広島・大手町の隠れ家カクテルバー
+              <div className="space-y-6 md:space-y-8">
+                <h2 className="font-japanese text-xl sm:text-2xl md:text-3xl font-light text-vuelta-gold leading-snug tracking-wide">
+                  広島大手町のクラフトカクテルバー
                 </h2>
-                <p className="font-annam text-lg sm:text-xl md:text-2xl text-vuelta-gold-light tracking-wider mb-6 md:mb-8" aria-hidden="true">
+                <p className="font-annam text-lg sm:text-xl md:text-2xl text-vuelta-gold-light tracking-wider" aria-hidden="true">
                   About<span className="inline-block w-2 sm:w-4 md:w-8"></span>V U E L T A
                 </p>
-                <div className="space-y-6 md:space-y-8 text-vuelta-text-light font-japanese text-sm sm:text-base md:text-lg leading-loose">
-                  <p className="font-japanese text-base md:text-lg leading-loose">
-                    広島・大手町の路面電車「中電前駅」から徒歩1分。掛江ビル2階にひっそりと佇むスピークイージー風の隠れ家カクテルバー、それがVUELTAです。広島の繁華街・紙屋町や本通からも徒歩圏内。カウンター中心の小さな空間で、女性一人でも入りやすい落ち着いた雰囲気のなか、本格的なクラフトカクテルをゆっくり楽しめます。
+                <div className="space-y-5 md:space-y-6 text-vuelta-text-light font-japanese text-base md:text-lg leading-loose text-pretty">
+                  <p>
+                    中電前駅から徒歩1分、掛江ビル2階。カウンター中心の小さな空間で、本格的なクラフトカクテルを静かに楽しめます。
                   </p>
                   <p className="text-xl text-vuelta-gold-light font-semibold">
                     おかえりとはじめましてが交差する。
                   </p>
                   <p>
-                    <span className="md:hidden">
-                      VUELTAは、スペイン語で<br />
-                      再会、回帰、循環を意味します。<br />
-                      でも、ここではもっと特別な意味を持っています。<br />
-                      広島は、世界中からいろんな人が訪れる街です。<br />
-                      私たちは、この街で観光で来る人と地元の人が出会い、<br />
-                      本当の広島を感じてもらえる場所を作りました。<br />
-                      地元の人も集まる場所です。
-                    </span>
-                    <span className="hidden md:inline">
-                      VUELTAは、スペイン語で再会、回帰、循環を意味します。<br />
-                      でも、ここではもっと特別な意味を持っています。<br />
-                      広島は、世界中からいろんな人が訪れる街です。<br />
-                      私たちは、この街で観光で来る人と地元の人が出会い、本当の広島を感じてもらえる場所を作りました。地元の人も集まる場所です。
-                    </span>
+                    VUELTA はスペイン語で「再会、回帰、循環」。広島を訪れる旅人と地元の人が一杯のカクテルを介して出会い、本当の広島を感じてもらう場所です。
                   </p>
-                  <div className="space-y-8 pt-8 border-t border-vuelta-gray/30">
-                    <div>
-                      <h3 className="font-annam text-lg text-vuelta-gold mb-3 tracking-wider uppercase">
-                        For International Guests
-                      </h3>
-                      <p className="text-vuelta-text-light leading-loose">
-                        観光地だけじゃなく地元の人と一緒に笑える本当の広島を体験できます。
-                      </p>
-                    </div>
-                    <div>
-                      <h3 className="font-annam text-lg text-vuelta-gold mb-3 tracking-wider uppercase">
-                        For Locals
-                      </h3>
-                      <p className="text-vuelta-text-light leading-loose">
-                        <span className="md:hidden">
-                          いつもの日常だけど海外の雰囲気も感じられる。<br />
-                          また新しい出会いがあって人とのつながりを感じられる場所です。
-                        </span>
-                        <span className="hidden md:inline">
-                          いつもの日常だけど海外の雰囲気も感じられる。また新しい出会いがあって人とのつながりを感じられる場所です。
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-vuelta-gold-light italic pt-4">
-                    <span className="md:hidden">
-                      この二つの人生が交差して、<br />
-                      また来たいと思う場所。<br />
-                      それがVUELTAです。
-                    </span>
-                    <span className="hidden md:inline">
-                      この二つの人生が交差してまた来たいと思う場所。<br />
-                      それがVUELTAです。
-                    </span>
+                </div>
+                <div className="pt-6 md:pt-8 border-t border-vuelta-gray/30 space-y-5 md:space-y-6">
+                  <p className="font-annam text-xl sm:text-2xl md:text-3xl font-light text-vuelta-gold-light italic leading-snug">
+                    Food is the Invitation,<br />
+                    People are the Destination.
+                  </p>
+                  <p className="font-japanese text-base md:text-lg leading-loose text-vuelta-text-light text-pretty">
+                    桜尾ジン、戸河内ウイスキー、広島レモン、賀茂鶴の日本酒。広島の地酒と地元食材を、世界中のバーカルチャーと融合させた一杯に。お好み焼きをグラスに閉じ込めた「The OKONOMIYAKI」、牡蠣に着想を得た「Shell We?」など、この街でしか飲めないシグネチャーをご用意しています。
+                  </p>
+                  <p className="font-japanese text-base md:text-lg leading-loose text-vuelta-gold-light text-pretty">
+                    カクテルは手段、目的は人と人をつなぐこと。それが私たちの使命です。
                   </p>
                 </div>
               </div>
@@ -498,7 +443,7 @@ export default function HomeJA() {
               <div className="relative aspect-[4/5] bg-vuelta-gray overflow-hidden group">
                 <Image
                   src="/images/interior.png"
-                  alt="広島・大手町の隠れ家カクテルバー VUELTA の店内 — 掛江ビル2階・中電前駅徒歩1分"
+                  alt="広島大手町のクラフトカクテルバー VUELTA の店内 — 掛江ビル2階、中電前駅徒歩1分"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -511,94 +456,12 @@ export default function HomeJA() {
           </div>
         </section>
 
-        {/* Mission Section */}
-        <section className="py-12 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 bg-white">
-          <div className="max-w-4xl mx-auto text-left">
-            <FadeInUp>
-              <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-3 md:mb-4 text-vuelta-gold px-4 leading-tight">
-                広島の地酒・地元食材を使ったシグネチャーカクテル
-              </h2>
-              <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-6 md:mb-10 px-4" aria-hidden="true">
-                Our Mission
-              </p>
-              <p className="font-annam text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 md:mb-12 lg:mb-16 text-vuelta-gold-light italic px-4">
-                Food is the Invitation,<br />
-                People are the Destination.
-              </p>
-              <p className="font-japanese text-sm sm:text-base md:text-lg leading-loose text-vuelta-text-light mb-8 md:mb-12 px-4">
-                VUELTAのクラフトカクテルは、広島県廿日市市の蒸溜所が生む桜尾ジンや戸河内ウイスキー、瀬戸内の太陽を浴びた広島レモン、わけぎ、賀茂鶴の日本酒など、広島の地酒と地元食材をふんだんに使ったシグネチャーが中心。お好み焼きの旨みをグラスに閉じ込めた「The OKONOMIYAKI」、広島の牡蠣に着想を得た「Shell We?」など、この街でしか飲めない一杯を、世界中のバーカルチャーと融合させて仕上げています。広島観光の夜に、地元の人とのささやかなお祝いに、静かな大人のバーで広島の味を確かめたい方へ。
-              </p>
-              <div className="space-y-6 md:space-y-8 text-vuelta-text font-japanese text-sm sm:text-base md:text-lg leading-relaxed w-full px-4">
-                <p className="leading-relaxed">
-                  <span className="md:hidden">
-                    私たちが出す飲み物や料理は<br />
-                    この場所に来てもらうための招待状です。<br />
-                    広島の海と陸と里から生まれた素材を使い、<br />
-                    世界中のバーカルチャーと融合させたカクテル。<br />
-                    それらは単なる飲み物ではなく、<br />
-                    お客様をこの空間へと導く最初のきっかけです。
-                  </span>
-                  <span className="hidden md:inline">
-                    私たちが出す飲み物や料理はこの場所に来てもらうための招待状です。広島の海と陸と里から生まれた素材を使い、世界中のバーカルチャーと融合させたカクテル。それらは単なる飲み物ではなく、お客様をこの空間へと導く最初のきっかけです。
-                  </span>
-                </p>
-                <p className="leading-relaxed">
-                  <span className="md:hidden">
-                    私たちはお客様が本当に求めているのは<br />
-                    そこで待っている人が作る温かい空間や、<br />
-                    スタッフとのコミニケーションだと考えています。<br />
-                    カウンター越しの会話、<br />
-                    隣に座る見知らぬ人との偶然の出会い、<br />
-                    スタッフが語るカクテルに込められたストーリー。<br />
-                    それらすべてが織りなす、<br />
-                    この場所だけの特別な時間。
-                  </span>
-                  <span className="hidden md:inline">
-                    私たちはお客様が本当に求めているのはそこで待っている人が作る温かい空間や、<br />
-                    スタッフとのコミニケーションだと考えています。カウンター越しの会話、隣に座る見知らぬ人との偶然の出会い、スタッフが語るカクテルに込められたストーリー。
-                  </span>
-                </p>
-                <p className="leading-relaxed hidden md:block">
-                  それらすべてが織りなす、<br />
-                  この場所だけの特別な時間。
-                </p>
-                <p className="leading-relaxed">
-                  <span className="md:hidden">
-                    美味しかったという記憶は、<br />
-                    いつか薄れていくかもしれません。<br />
-                    しかし、そこで生まれた人とのつながり、<br />
-                    会話の温かさ、<br />
-                    また来たいと思える居心地の良さ。<br />
-                    それらは時間が経っても色褪せない、<br />
-                    かけがえのない体験として残ります。
-                  </span>
-                  <span className="hidden md:inline">
-                    美味しかったという記憶は、いつか薄れていくかもしれません。しかし、そこで生まれた人とのつながり、会話の温かさ、また来たいと思える居心地の良さ。それらは時間が経っても色褪せない、かけがえのない体験として残ります。
-                  </span>
-                </p>
-                <p className="text-vuelta-gold-light pt-4 md:pt-6 leading-relaxed">
-                  <span className="md:hidden">
-                    私たちの目標は美味しかったの先に<br />
-                    あるあなたに会えてよかったを生み出すことです。
-                  </span>
-                  <span className="hidden md:inline">
-                    私たちの目標は美味しかったの先にあるあなたに会えてよかったを生み出すことです。
-                  </span>
-                </p>
-                <p className="text-vuelta-gold-light leading-relaxed">
-                  カクテルは手段であり、目的は人と人をつなぐこと。それが私たちの使命です。
-                </p>
-              </div>
-            </FadeInUp>
-          </div>
-        </section>
-
         {/* Featured Menu Section */}
         <section id="menu" className="py-12 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 bg-white scroll-mt-20" aria-label="メニュー">
           <div className="max-w-6xl mx-auto">
             <FadeInUp>
               <div className="text-center mb-12 md:mb-16 lg:mb-24 px-4">
-                <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2 md:mb-3 leading-tight">
+                <h2 className="font-japanese text-xl sm:text-2xl md:text-3xl font-light mb-2 md:mb-3 leading-snug tracking-wide">
                   広島ならではのシグネチャーカクテル
                 </h2>
                 <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light" aria-hidden="true">
@@ -713,36 +576,63 @@ export default function HomeJA() {
           </div>
         </section>
 
-        {/* デート・記念日セクション */}
-        <section className="py-12 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8" aria-label="デート・記念日に静かに過ごせる広島のバー">
-          <div className="max-w-4xl mx-auto">
+        {/* こんな夜に — デート/英語対応/ひとり飲み歓迎 */}
+        <section className="py-12 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-vuelta-gray/10" aria-label="VUELTAでの過ごし方">
+          <div className="max-w-5xl mx-auto text-center">
             <FadeInUp>
-              <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-vuelta-gold mb-3 md:mb-5 leading-tight text-center md:text-left">
-                デート・記念日の夜に、静かな隠れ家を
+              <h2 className="font-japanese text-xl sm:text-2xl md:text-3xl font-light text-vuelta-gold mb-3 md:mb-5 leading-snug tracking-wide">
+                VUELTAでの夜
               </h2>
-              <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-6 md:mb-8 text-center md:text-left" aria-hidden="true">
-                Date &amp; Anniversary
+              <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-10 md:mb-14" aria-hidden="true">
+                An Evening at VUELTA
               </p>
-              <p className="font-japanese text-sm sm:text-base md:text-lg leading-loose text-vuelta-text-light">
-                カウンター8席とスタンディング8席のみ、計16席の小さな空間。声を張らずに話せる距離感が、二人の会話をそっと邪魔しません。広島で落ち着いて飲める隠れ家バーをお探しの方、二人の時間を邪魔されたくないデートに、ささやかに祝いたい記念日や誕生日に。バーテンダーがその日の気分や好みに合わせて広島の地元食材を使った一杯をご提案するので、カクテルが初めての方や女性一人でも、肩肘張らずにお過ごしいただけます。
-              </p>
-            </FadeInUp>
-          </div>
-        </section>
-
-        {/* 英語対応・インバウンド歓迎セクション */}
-        <section className="py-12 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-vuelta-gray/10" aria-label="英語対応・インバウンド歓迎">
-          <div className="max-w-4xl mx-auto">
-            <FadeInUp>
-              <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-vuelta-gold mb-3 md:mb-5 leading-tight text-center md:text-left">
-                英語対応・インバウンド歓迎
-              </h2>
-              <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-6 md:mb-8 text-center md:text-left" aria-hidden="true">
-                English Friendly &amp; International Guests
-              </p>
-              <p className="font-japanese text-sm sm:text-base md:text-lg leading-loose text-vuelta-text-light">
-                VUELTAは英語が話せるバーテンダーが在籍し、広島を訪れる海外ゲストにも安心して楽しんでいただけるカクテルバーです。原爆ドームや平和記念公園、宮島観光のあと、広島の夜を地元の人と一緒に過ごしたい旅行者の方にも人気。メニューは英訳付きで、桜尾ジンや戸河内ウイスキー、広島レモンなど地酒・地元食材の背景もご説明します。日本語と英語が自然に行き交う空間で、観光客と地元の方が一杯のカクテルを介して出会える、それがVUELTAの目指す広島のクラフトカクテルバーの形です。
-              </p>
+              <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+                <div className="space-y-3">
+                  <div className="flex justify-center">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20">
+                      <svg className="w-7 h-7 sm:w-8 sm:h-8 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 className="font-annam text-base md:text-lg text-vuelta-gold tracking-wider uppercase">
+                    Date and Anniversary
+                  </h3>
+                  <p className="font-japanese text-sm sm:text-base leading-loose text-vuelta-text-light text-pretty">
+                    16席の小さな空間。声を張らずに話せる距離感が、二人の会話を邪魔しません。デートや記念日、誕生日に。
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex justify-center">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20">
+                      <svg className="w-7 h-7 sm:w-8 sm:h-8 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 className="font-annam text-base md:text-lg text-vuelta-gold tracking-wider uppercase">
+                    English Friendly
+                  </h3>
+                  <p className="font-japanese text-sm sm:text-base leading-loose text-vuelta-text-light text-pretty">
+                    英語対応スタッフが在籍。原爆ドームや宮島観光のあと、広島の夜を地元の人と過ごしたい旅人を歓迎します。メニューは英訳付き。
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex justify-center">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20">
+                      <svg className="w-7 h-7 sm:w-8 sm:h-8 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 className="font-annam text-base md:text-lg text-vuelta-gold tracking-wider uppercase">
+                    Solo Friendly
+                  </h3>
+                  <p className="font-japanese text-sm sm:text-base leading-loose text-vuelta-text-light text-pretty">
+                    カウンター中心の小さな店。お一人でも肩肘張らず、バーテンダーがその日の気分に合わせた一杯をご提案します。
+                  </p>
+                </div>
+              </div>
             </FadeInUp>
           </div>
         </section>
@@ -753,7 +643,7 @@ export default function HomeJA() {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
               <FadeInUp>
                 <div className="space-y-6 md:space-y-8 lg:space-y-10">
-                  <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-3 md:mb-4 leading-tight">
+                  <h2 className="font-japanese text-xl sm:text-2xl md:text-3xl font-light mb-3 md:mb-4 leading-snug tracking-wide">
                     中電前駅から徒歩1分のアクセス
                   </h2>
                   <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-4 md:mb-6 lg:mb-8" aria-hidden="true">
@@ -773,9 +663,6 @@ export default function HomeJA() {
                         〒{POSTAL_CODE}<br />
                         {STORE_ADDRESS_JA_LINE}
                       </a>
-                    </div>
-                    <div>
-                      <PhoneContactBlock locale="ja" />
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
@@ -803,22 +690,21 @@ export default function HomeJA() {
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                        Hours
+                        営業時間
                       </h3>
                       <p className="text-base sm:text-lg">
-                        Wed, Fri - Tue: 18:00 - 02:00<br />
-                        <span className="text-vuelta-text-light">Closed on Thursdays</span><br />
+                        18:00 – 02:00（水、金〜火）<br />
+                        <span className="text-vuelta-text-light">木曜定休</span><br />
                         <span className="text-sm text-vuelta-text-light">ラストオーダー 1:00</span>
                       </p>
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                        Capacity
+                        席数
                       </h3>
                       <p className="text-base sm:text-lg">
-                        Counter: 8 seats<br />
-                        Standing area: 8 seats<br />
-                        <span className="text-sm text-vuelta-text-light">Intimate atmosphere perfect for conversation.</span>
+                        カウンター 8席 / スタンディング 8席<br />
+                        <span className="text-sm text-vuelta-text-light">会話を楽しめる、親密な小空間。</span>
                       </p>
                     </div>
                     <div>
@@ -826,32 +712,21 @@ export default function HomeJA() {
                         Reservation
                       </h3>
                       <p className="text-base sm:text-lg mb-3">
-                        オンライン予約またはお電話で承ります。
+                        Instagram DM で承ります。
                       </p>
                       <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
-                        {/* Book Online (Square) */}
+                        {/* Reserve via Instagram DM */}
                         <a
                           href={RESERVATION_URL}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
-                          aria-label="Book online (Square)"
+                          aria-label="Instagram DMで予約する"
                         >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                           </svg>
-                          <span>Book Online</span>
-                        </a>
-                        {/* Phone */}
-                        <a
-                          href={STORE_PHONE_TEL_HREF}
-                          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-colors rounded-lg font-annam text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
-                          aria-label={`Call to reserve (${STORE_PHONE_DISPLAY})`}
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                          </svg>
-                          <span>Call</span>
+                          <span>DMで予約</span>
                         </a>
                       </div>
                     </div>
@@ -1039,7 +914,7 @@ export default function HomeJA() {
                 広島のカクテルバーをお探しの方へ
               </h3>
               <p className="font-japanese text-xs sm:text-sm text-vuelta-text-light leading-loose">
-                VUELTAは広島市中区大手町、路面電車「中電前駅」から徒歩1分の隠れ家クラフトカクテルバーです。広島の中心市街である紙屋町・本通商店街からは徒歩約7分、八丁堀エリアからも徒歩圏内。広島駅からは路面電車で約15分でアクセスできます。広島観光で原爆ドーム・平和記念公園・宮島を訪れた夜の一杯に、広島出張の締めくくりに、地元の方の二軒目に。広島で静かに飲める隠れ家バー、デートや記念日に使える落ち着いたカクテルバーをお探しの方は、ぜひ一度VUELTAへお立ち寄りください。
+                VUELTAは広島市中区大手町、路面電車「中電前駅」から徒歩1分のクラフトカクテルバーです。広島の中心市街である紙屋町や本通商店街からは徒歩約7分、八丁堀エリアからも徒歩圏内。広島駅からは路面電車で約15分でアクセスできます。広島観光で原爆ドームや平和記念公園、宮島を訪れた夜の一杯に、広島出張の締めくくりに、地元の方の二軒目に。広島で静かに飲めるカクテルバー、デートや記念日に使える落ち着いた一軒をお探しの方は、ぜひ一度VUELTAへお立ち寄りください。
               </p>
             </div>
             <div className="pt-8 md:pt-10 mt-8 md:mt-10 border-t border-vuelta-gray/30 text-center space-y-2">
@@ -1068,12 +943,12 @@ export default function HomeJA() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 px-6 py-4 min-h-[52px] bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider uppercase w-full"
-            aria-label="Book online (Square)"
+            aria-label="Instagram DMで予約する"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
-            <span>Book Online</span>
+            <span>DMで予約</span>
           </a>
         </motion.div>
 
@@ -1089,12 +964,12 @@ export default function HomeJA() {
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-xl hover:bg-vuelta-gold-light hover:shadow-2xl transition-all duration-300 font-annam text-sm tracking-wider uppercase"
-            aria-label="Book online (Square)"
+            aria-label="Instagram DMで予約する"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
-            <span>Book Online</span>
+            <span>DMで予約</span>
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
