@@ -238,28 +238,6 @@ export default function MenuPage() {
 
         {/* Content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
-          {/* ---- COVER CHARGE ---- */}
-          <div className="mb-16">
-            <div className="border-b border-vuelta-gold/30 mb-10 pb-2">
-              <span className="font-annam text-xs uppercase tracking-[.25em] text-vuelta-gold">
-                Cover Charge
-              </span>
-            </div>
-            <MenuSection category={coverCharge} />
-          </div>
-
-          {/* ---- FOOD ---- */}
-          <div className="mb-20">
-            <div className="border-b border-vuelta-gold/30 mb-10 pb-2">
-              <span className="font-annam text-xs uppercase tracking-[.25em] text-vuelta-gold">
-                Food
-              </span>
-            </div>
-            {foodCategories.map((cat) => (
-              <MenuSection key={cat.title} category={cat} />
-            ))}
-          </div>
-
           {/* ---- SIGNATURE COCKTAILS ---- */}
           <div className="mb-20">
             <div className="border-b border-vuelta-gold/30 mb-10 pb-2">
@@ -284,31 +262,39 @@ export default function MenuPage() {
             ))}
           </div>
 
-          {/* ---- PDF Download ---- */}
-          <div className="text-center border-t border-vuelta-gray pt-10">
-            <p className="font-sans text-vuelta-text-light text-sm mb-4">
-              Prefer a printable version?
+          {/* ---- FOOD ---- */}
+          <div className="mb-20">
+            <div className="border-b border-vuelta-gold/30 mb-10 pb-2">
+              <span className="font-annam text-xs uppercase tracking-[.25em] text-vuelta-gold">
+                Food
+              </span>
+            </div>
+            {foodCategories.map((cat) => (
+              <MenuSection key={cat.title} category={cat} />
+            ))}
+          </div>
+
+          {/* ---- COVER CHARGE (控えめノート扱い) ---- */}
+          <div className="mt-10 mb-12 border-t border-vuelta-gray pt-6">
+            <p className="font-sans text-xs text-vuelta-text-light leading-relaxed">
+              <span className="font-annam uppercase tracking-[.2em] text-vuelta-text-light/80 mr-2">
+                Cover Charge
+              </span>
+              {coverCharge.items.map((item, i) => (
+                <span key={item.name}>
+                  {i > 0 && ' / '}
+                  {item.name}
+                  {item.nameJa ? `（${item.nameJa}）` : ''}
+                  {' '}
+                  <span className="tabular-nums">{fmtPrice(item)}</span>
+                </span>
+              ))}
+              {coverCharge.subtitle && (
+                <span className="block mt-1 text-vuelta-text-light/70">
+                  {coverCharge.subtitle}
+                </span>
+              )}
             </p>
-            <a
-              href="/VUELTA-menu.pdf"
-              download
-              className="inline-flex items-center gap-2 px-6 py-3 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded font-annam text-sm uppercase tracking-wider"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-              Download PDF Menu
-            </a>
           </div>
 
           {/* ---- CTA: Reservation ---- */}
