@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import { headers } from 'next/headers'
+import Script from 'next/script'
 import './globals.css'
 import LanguageSelector from './components/LanguageSelector'
 import CustomCursor from './components/CustomCursor'
@@ -122,6 +123,19 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.instagram.com" />
       </head>
       <body className={`${playfair.variable} ${inter.variable} ${annamNeue.variable} ${japaneseFont.variable} font-sans antialiased`}>
+        {/* Google tag (gtag.js) - Google Ads AW-18075065916 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18075065916"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18075065916');
+          `}
+        </Script>
         <CustomCursor />
         <LanguageSelector />
         {children}
