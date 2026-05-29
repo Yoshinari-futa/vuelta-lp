@@ -1,7 +1,7 @@
 // ========================================
 // VUELTA — Menu Data (Single Source of Truth)
 // メニューの追加・変更はここだけ編集する
-// 最終更新: 2026-04-26（最新PDFに準拠）
+// 最終更新: 2026-05-30（最新PDFに準拠）
 // ========================================
 
 export interface MenuItem {
@@ -50,21 +50,10 @@ export const foodCategories: MenuCategory[] = [
         description:
           "Hiroshima's signature crispy fish cutlet with a savory, spicy kick.",
       },
-      { name: 'Olives', nameJa: 'オリーブ', price: 600 },
       {
         name: 'Rum Raisin Butter',
         nameJa: 'ラムレーズンバター',
         price: 600,
-      },
-      {
-        name: 'Sweet Potato Crisps Mascarpone',
-        nameJa: 'チップス ハニーマスカルポーネ',
-        price: 650,
-      },
-      {
-        name: 'Spinach',
-        nameJa: 'スピナッチ',
-        price: 550,
       },
       {
         name: 'Hand-Cut Fries',
@@ -142,6 +131,12 @@ export const cocktails: MenuCategory = {
   title: 'COCKTAILS',
   items: [
     {
+      name: 'VUELTA Lemon Sour',
+      nameJa: 'ブエルタ レモンサワー',
+      price: 1200,
+      ingredients: 'SG KOME / Fresh Lemon / Soda',
+    },
+    {
       name: 'Spring Bloom Margarita',
       nameJa: 'サクラマルガリータ',
       price: 1000,
@@ -186,17 +181,11 @@ export const recommend: MenuCategory = {
   title: 'RECOMMEND',
   items: [
     {
-      name: 'VUELTA Lemon Sour',
-      nameJa: 'ブエルタ レモンサワー',
-      price: 1200,
-      ingredients: 'SG KOME / Fresh Lemon / Soda',
-    },
-    {
       name: 'Hiroshima Cocktail Journey',
       nameJa: 'ヒロシマ カクテル ジャーニー',
       price: 4000,
-      ingredients: 'Tipsy Crane / Shell We? / The OKONOMIYAKI + any 1 food of your choice',
-      description: 'The best way to begin your night in Hiroshima.',
+      description:
+        "Your Hiroshima adventure starts here. The Cocktail Journey takes you through three house-crafted cocktails inspired by the city's soul, paired with a food of your choice. It's not just a drink package; it's the perfect introduction to everything this city has to offer.",
     },
   ],
 }
@@ -208,21 +197,7 @@ export const spiritsCategories: MenuCategory[] = [
     title: 'BEER',
     items: [
       { name: 'Sapporo Lager "AKABOSHI"', nameJa: 'サッポロ 赤星', price: 850 },
-    ],
-  },
-  {
-    title: 'WHISKY',
-    subtitle: 'Neat, Rocks, Water, or Highball',
-    items: [
-      { name: 'Kaku', nameJa: '角', price: 650 },
-      {
-        name: 'Taketsuru Pure Malt',
-        nameJa: '竹鶴',
-        price: 1450,
-        description: "The Founder's Roots",
-      },
-      { name: 'Yamazaki NV', nameJa: '山崎', price: 800 },
-      { name: 'Yamazaki 12y', nameJa: '山崎12年', price: 1000 },
+      { name: 'Kirin Lager', nameJa: 'キリンラガー', price: 850 },
     ],
   },
   {
@@ -237,7 +212,6 @@ export const spiritsCategories: MenuCategory[] = [
     title: 'SHOCHU',
     subtitle: 'Rocks, Water, or Highball',
     items: [
-      { name: 'DAIYAME', nameJa: 'だいやめ', price: 700, description: 'Sweet Potato' },
       { name: 'Torikai', nameJa: '鳥飼（米）', price: 900, description: 'Rice' },
     ],
   },
@@ -249,31 +223,33 @@ export const spiritsCategories: MenuCategory[] = [
         nameJa: '竹鶴',
         price: 800,
       },
+    ],
+  },
+  {
+    title: 'JAPANESE WHISKY',
+    subtitle: 'Neat, Rocks, Water, or Highball',
+    items: [
+      { name: 'Kaku', nameJa: '角', price: 650 },
       {
-        name: 'Kamotsuru',
-        nameJa: '賀茂鶴 大吟醸 特製ゴールド',
-        price: 1000,
+        name: 'Taketsuru Pure Malt',
+        nameJa: '竹鶴',
+        price: 980,
+      },
+      { name: 'Yamazaki 12y', nameJa: '山崎12年', price: 1800 },
+      {
+        name: 'Hibiki Japanese Harmony',
+        nameJa: '響 JAPANESE HARMONY',
+        price: 2800,
       },
     ],
   },
   {
-    title: 'CHAMPAGNE',
+    title: 'Japanese Peated Collection',
+    subtitle: 'Neat, Rocks, Water, or Highball',
     items: [
-      {
-        name: 'Perrier-Jouët Belle Epoque',
-        nameJa: 'ペリエ ジュエ ベル エポック',
-        price: 50000,
-      },
-      {
-        name: 'Dom Pérignon Vintage',
-        nameJa: 'ドン ペリニヨン ヴィンテージ',
-        price: 65000,
-      },
-      {
-        name: 'Louis Roederer Cristal',
-        nameJa: 'ルイ ロデレール クリスタル',
-        price: 80000,
-      },
+      { name: 'Yoichi', nameJa: '余市', price: 980 },
+      { name: 'Hakushu 12y', nameJa: '白州12年', price: 1800 },
+      { name: 'Akkeshi', nameJa: '厚岸', price: 2800 },
     ],
   },
 ]
