@@ -123,7 +123,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.instagram.com" />
       </head>
       <body className={`${playfair.variable} ${inter.variable} ${annamNeue.variable} ${japaneseFont.variable} font-sans antialiased`}>
-        {/* Google tag (gtag.js) - Google Ads AW-18075065916 */}
+        {/* Google tag (gtag.js) - Google Ads AW-18075065916 + GA4 G-HJ7LZN0WLL */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18075065916"
           strategy="afterInteractive"
@@ -134,6 +134,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-18075065916');
+            gtag('config', 'G-HJ7LZN0WLL');
           `}
         </Script>
         <CustomCursor />
