@@ -56,11 +56,11 @@ const Header = () => {
           <Link 
             href="/ja"
             className="transition-opacity hover:opacity-80"
-            aria-label="VUELTA ホーム"
+            aria-label="Bar VUELTA ホーム"
           >
             <Image
               src="/images/vuelta-logo.png"
-              alt="VUELTA"
+              alt="Bar VUELTA"
               width={250}
               height={85}
               className="h-8 md:h-10 w-auto object-contain"
@@ -193,7 +193,7 @@ export default function HomeJA() {
       "@context": "https://schema.org",
       "@type": "BarOrPub",
       "@id": barStructuredDataId('ja'),
-      "name": "VUELTA",
+      "name": "Bar VUELTA",
       "alternateName": ["ブエルタ", "ヴエルタ", "VUELTA 広島", "広島カクテルバー VUELTA"],
       "url": barStructuredDataUrl('ja'),
       "inLanguage": "ja",
@@ -256,7 +256,7 @@ export default function HomeJA() {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "VUELTA",
+      "name": "Bar VUELTA",
       "url": "https://www.vuelta.jp",
       "inLanguage": ["ja", "en"]
     },
@@ -763,7 +763,7 @@ export default function HomeJA() {
               <div>
                 <Image
                   src="/images/vuelta-logo.png"
-                  alt="VUELTA"
+                  alt="Bar VUELTA"
                   width={200}
                   height={68}
                   className="h-10 w-auto mb-6 object-contain opacity-80"
@@ -919,7 +919,7 @@ export default function HomeJA() {
             </div>
             <div className="pt-8 md:pt-10 mt-8 md:mt-10 border-t border-vuelta-gray/30 text-center space-y-2">
               <p className="font-japanese text-xs text-vuelta-text-light">
-                © 2026 VUELTA. All rights reserved.
+                © 2026 Bar VUELTA. All rights reserved.
               </p>
               <p className="font-japanese text-xs">
                 <Link href="/tokushoho" className="text-vuelta-text-light hover:text-vuelta-gold transition-colors">

@@ -35,7 +35,7 @@ const Header = () => {
           >
             <Image
               src="/images/vuelta-logo.png"
-              alt="VUELTA"
+              alt="Bar VUELTA"
               width={250}
               height={85}
               className="h-8 md:h-10 w-auto object-contain"
@@ -194,7 +194,7 @@ export default function Recruit() {
     "description": "Join VUELTA team. We are looking for passionate people who love food and hospitality. English speakers welcome.",
     "identifier": {
       "@type": "PropertyValue",
-      "name": "VUELTA",
+      "name": "Bar VUELTA",
       "value": "RECRUIT"
     },
     "datePosted": "2026-03-15",
@@ -202,7 +202,7 @@ export default function Recruit() {
     "employmentType": "PART_TIME",
     "hiringOrganization": {
       "@type": "Organization",
-      "name": "VUELTA",
+      "name": "Bar VUELTA",
       "sameAs": barSameAsUrls()
     },
     "jobLocation": {
@@ -600,7 +600,7 @@ export default function Recruit() {
             <div>
               <Image
                 src="/images/vuelta-logo.png"
-                alt="VUELTA"
+                alt="Bar VUELTA"
                 width={200}
                 height={68}
                 className="h-10 w-auto mb-4 object-contain opacity-80"
@@ -698,7 +698,7 @@ export default function Recruit() {
           </div>
           <div className="pt-8 border-t border-vuelta-gold/20 text-center">
             <p className="font-sans text-xs text-vuelta-gold/60">
-              © 2026 VUELTA. All rights reserved.
+              © 2026 Bar VUELTA. All rights reserved.
             </p>
           </div>
         </div>

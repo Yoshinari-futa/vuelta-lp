@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: 'ファーストドリンクパス | VUELTA',
     description: 'VUELTAの月額ウェルカムドリンク',
     url: `${SITE_ORIGIN}/ja/subscription`,
-    siteName: 'VUELTA',
+    siteName: 'Bar VUELTA',
     locale: 'ja_JP',
     type: 'website',
-    images: [{ url: `${SITE_ORIGIN}/images/ogp.png`, width: 1200, height: 630, alt: 'VUELTA' }],
+    images: [{ url: `${SITE_ORIGIN}/images/ogp.png`, width: 1200, height: 630, alt: 'Bar VUELTA' }],
   },
   twitter: {
     card: 'summary_large_image',

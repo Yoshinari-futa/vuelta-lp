@@ -57,11 +57,11 @@ const Header = () => {
           <a 
             href="/"
             className="transition-opacity hover:opacity-80"
-            aria-label="VUELTA Home"
+            aria-label="Bar VUELTA Home"
           >
             <Image
               src="/images/vuelta-logo.png"
-              alt="VUELTA"
+              alt="Bar VUELTA"
               width={250}
               height={85}
               className="h-8 md:h-10 w-auto object-contain"
@@ -201,7 +201,7 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "BarOrPub",
       "@id": barStructuredDataId('en'),
-      "name": "VUELTA",
+      "name": "Bar VUELTA",
       "alternateName": "VUELTA Craft Cocktail Bar",
       "url": barStructuredDataUrl('en'),
       "description": "Speakeasy-style craft cocktail bar in Hiroshima city center, 1 min walk from Chuden-mae Station. Signature cocktails using local Hiroshima ingredients like Sakurao Gin and Hiroshima lemon. English spoken, walk-ins welcome.",
@@ -274,7 +274,7 @@ export default function Home() {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "VUELTA",
+      "name": "Bar VUELTA",
       "url": "https://www.vuelta.jp",
       "inLanguage": ["en", "ja"]
     }
@@ -813,7 +813,7 @@ export default function Home() {
             <div>
               <Image
                 src="/images/vuelta-logo.png"
-                alt="VUELTA"
+                alt="Bar VUELTA"
                 width={200}
                 height={68}
                 className="h-10 w-auto mb-4 object-contain opacity-80"
@@ -967,7 +967,7 @@ export default function Home() {
           </div>
           <div className="pt-8 border-t border-vuelta-gray text-center space-y-2">
             <p className="font-sans text-xs text-vuelta-text-light">
-              © 2026 VUELTA. All rights reserved.
+              © 2026 Bar VUELTA. All rights reserved.
             </p>
             <p className="font-sans text-xs">
               <Link href="/tokushoho" className="text-vuelta-text-light hover:text-vuelta-gold transition-colors">

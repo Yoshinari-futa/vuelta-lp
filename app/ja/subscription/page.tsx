@@ -45,11 +45,11 @@ const Header = () => {
           <Link
             href="/ja"
             className="transition-opacity hover:opacity-80"
-            aria-label="VUELTA ホーム"
+            aria-label="Bar VUELTA ホーム"
           >
             <Image
               src="/images/vuelta-logo.png"
-              alt="VUELTA"
+              alt="Bar VUELTA"
               width={250}
               height={85}
               className="h-8 md:h-10 w-auto object-contain"
@@ -146,7 +146,7 @@ export default function SubscriptionPageJA() {
     "name": "FIRST DRINK PASS",
     "description": "広島のカクテルバーVUELTAで毎日1杯無料になる月額サブスクリプション。",
     "image": `${SITE_ORIGIN}/images/ogp.png`,
-    "brand": { "@type": "Brand", "name": "VUELTA" },
+    "brand": { "@type": "Brand", "name": "Bar VUELTA" },
     "offers": {
       "@type": "Offer",
       "price": "1980",
@@ -402,7 +402,7 @@ export default function SubscriptionPageJA() {
           <Link href="/ja" className="transition-opacity hover:opacity-80">
             <Image
               src="/images/vuelta-logo.png"
-              alt="VUELTA"
+              alt="Bar VUELTA"
               width={160}
               height={55}
               className="h-8 w-auto object-contain opacity-80"
@@ -418,7 +418,7 @@ export default function SubscriptionPageJA() {
           </div>
           <div className="pt-8 border-t border-vuelta-gray text-center space-y-2">
             <p className="font-sans text-xs text-vuelta-text-light">
-              &copy; {new Date().getFullYear()} VUELTA. All rights reserved.
+              &copy; {new Date().getFullYear()} Bar VUELTA. All rights reserved.
             </p>
             <p className="font-sans text-xs">
               <Link href="/tokushoho" className="text-vuelta-text-light hover:text-vuelta-gold transition-colors">

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description:
       'Signature cocktails and Hiroshima soul food. The OKONOMIYAKI, Shell We?, Gansu Tacos and more.',
     url: `${SITE_ORIGIN}/menu`,
-    siteName: 'VUELTA',
+    siteName: 'Bar VUELTA',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -84,7 +84,7 @@ function MenuJsonLd() {
     url: `${SITE_ORIGIN}/menu`,
     mainEntity: {
       '@type': 'Restaurant',
-      name: 'VUELTA',
+      name: 'Bar VUELTA',
       url: SITE_ORIGIN,
       servesCuisine: ['Cocktails', 'Japanese Bar Food', 'Hiroshima Local'],
       address: {
@@ -226,7 +226,7 @@ export default function MenuPage() {
             href="/"
             className="inline-block font-annam text-sm uppercase tracking-[.3em] text-vuelta-text-light hover:text-vuelta-gold transition-colors mb-6"
           >
-            ← VUELTA
+            ← Bar VUELTA
           </Link>
           <h1 className="font-annam text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wide">
             Menu

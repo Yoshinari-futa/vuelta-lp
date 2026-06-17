@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     alternateLocale: ['en_US'],
     url: 'https://www.vuelta.jp/ja',
-    siteName: 'VUELTA',
+    siteName: 'Bar VUELTA',
     images: [
       {
         url: '/images/ogp.png',

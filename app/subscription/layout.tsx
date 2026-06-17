@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: 'First Drink Pass — VUELTA',
     description: 'Monthly welcome drink at VUELTA, Hiroshima.',
     url: `${SITE_ORIGIN}/subscription`,
-    siteName: 'VUELTA',
+    siteName: 'Bar VUELTA',
     locale: 'en_US',
     type: 'website',
-    images: [{ url: `${SITE_ORIGIN}/images/ogp.png`, width: 1200, height: 630, alt: 'VUELTA' }],
+    images: [{ url: `${SITE_ORIGIN}/images/ogp.png`, width: 1200, height: 630, alt: 'Bar VUELTA' }],
   },
   twitter: {
     card: 'summary_large_image',

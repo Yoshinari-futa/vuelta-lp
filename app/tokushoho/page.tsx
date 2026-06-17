@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: '特定商取引法に基づく表記 | VUELTA',
     description: '株式会社VUELTAの特定商取引法に基づく表記',
     url: `${SITE_ORIGIN}/tokushoho`,
-    siteName: 'VUELTA',
+    siteName: 'Bar VUELTA',
     locale: 'ja_JP',
     type: 'website',
     images: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         url: `${SITE_ORIGIN}/images/ogp.png`,
         width: 1200,
         height: 630,
-        alt: 'VUELTA',
+        alt: 'Bar VUELTA',
       },
     ],
   },
@@ -56,10 +56,10 @@ export default function TokushohoPage() {
       {/* Header */}
       <header className="site-header-fixed fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gray/50">
         <nav className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="transition-opacity hover:opacity-80" aria-label="VUELTA Home">
+          <Link href="/" className="transition-opacity hover:opacity-80" aria-label="Bar VUELTA Home">
             <Image
               src="/images/vuelta-logo.png"
-              alt="VUELTA"
+              alt="Bar VUELTA"
               width={250}
               height={85}
               className="h-8 md:h-10 w-auto object-contain"
@@ -130,7 +130,7 @@ export default function TokushohoPage() {
       <footer className="border-t border-vuelta-gray py-10 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-2">
           <p className="font-sans text-xs text-vuelta-text-light">
-            &copy; {new Date().getFullYear()} VUELTA. All rights reserved.
+            &copy; {new Date().getFullYear()} Bar VUELTA. All rights reserved.
           </p>
         </div>
       </footer>

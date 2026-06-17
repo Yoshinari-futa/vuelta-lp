@@ -4,7 +4,7 @@ import type { MetadataRoute } from 'next'
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'VUELTA — Craft Cocktail Bar Hiroshima',
-    short_name: 'VUELTA',
+    short_name: 'Bar VUELTA',
     description:
       'Speakeasy-style craft cocktail bar in Hiroshima. 1 min from Chuden-mae Station.',
     id: '/',

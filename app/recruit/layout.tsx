@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     description: 'Join VUELTA team. We are looking for passionate people who love food and hospitality.',
     type: 'website',
     url: `${SITE_ORIGIN}/recruit`,
-    siteName: 'VUELTA',
+    siteName: 'Bar VUELTA',
     images: [
       {
         url: '/images/ogp.png',
         width: 1200,
         height: 630,
-        alt: 'VUELTA Logo',
+        alt: 'Bar VUELTA Logo',
       },
     ],
   },
