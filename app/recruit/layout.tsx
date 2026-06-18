@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { SITE_ORIGIN } from '@/lib/site-seo'
 
 export const metadata: Metadata = {
-  title: 'Recruit | VUELTA In Hiroshima',
-  description: 'Join VUELTA team. We are looking for passionate people who love food and hospitality. English speakers welcome. Located in Hiroshima city center.',
+  title: 'Recruit | Bar VUELTA In Hiroshima',
+  description: 'Join Bar VUELTA team. We are looking for passionate people who love food and hospitality. English speakers welcome. Located in Hiroshima city center.',
   openGraph: {
-    title: 'Recruit | VUELTA In Hiroshima',
-    description: 'Join VUELTA team. We are looking for passionate people who love food and hospitality.',
+    title: 'Recruit | Bar VUELTA In Hiroshima',
+    description: 'Join Bar VUELTA team. We are looking for passionate people who love food and hospitality.',
     type: 'website',
     url: `${SITE_ORIGIN}/recruit`,
     siteName: 'Bar VUELTA',
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Recruit | VUELTA In Hiroshima',
-    description: 'Join VUELTA team. We are looking for passionate people who love food and hospitality.',
+    title: 'Recruit | Bar VUELTA In Hiroshima',
+    description: 'Join Bar VUELTA team. We are looking for passionate people who love food and hospitality.',
     images: ['/images/ogp.png'],
   },
   robots: {

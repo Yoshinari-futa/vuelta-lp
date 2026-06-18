@@ -145,7 +145,7 @@ export default function SubscriptionPage() {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "FIRST DRINK PASS",
-    "description": "Monthly subscription for one free drink per day at VUELTA cocktail bar in Hiroshima.",
+    "description": "Monthly subscription for one free drink per day at Bar VUELTA cocktail bar in Hiroshima.",
     "image": `${SITE_ORIGIN}/images/ogp.png`,
     "brand": { "@type": "Brand", "name": "Bar VUELTA" },
     "offers": {
@@ -300,7 +300,7 @@ export default function SubscriptionPage() {
                   <div className="font-annam text-5xl md:text-6xl font-light text-vuelta-gold/20 leading-none">02</div>
                   <h3 className="font-annam text-xl font-light text-vuelta-gold">Show Your Pass</h3>
                   <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">
-                    When you arrive at VUELTA, show your QR code at the counter. Takes just a second.
+                    When you arrive at Bar VUELTA, show your QR code at the counter. Takes just a second.
                   </p>
                 </div>
                 <div className="text-center space-y-4">
@@ -377,7 +377,7 @@ export default function SubscriptionPage() {
                 Ready to Join?
               </h2>
               <p className="font-sans text-base text-vuelta-text-light mb-8 max-w-xl mx-auto">
-                Start your FIRST DRINK PASS today and make every visit to VUELTA a little more special.
+                Start your FIRST DRINK PASS today and make every visit to Bar VUELTA a little more special.
               </p>
               <a
                 href={STRIPE_LINK}

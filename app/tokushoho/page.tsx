@@ -10,7 +10,7 @@ import {
 import { blurDataUrl } from '@/lib/blurPlaceholders'
 
 export const metadata: Metadata = {
-  title: '特定商取引法に基づく表記 | VUELTA',
+  title: '特定商取引法に基づく表記 | Bar VUELTA',
   description: '株式会社VUELTAの特定商取引法に基づく表記（販売事業者、連絡先、支払方法等）',
   alternates: {
     canonical: `${SITE_ORIGIN}/tokushoho`,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: '特定商取引法に基づく表記 | VUELTA',
+    title: '特定商取引法に基づく表記 | Bar VUELTA',
     description: '株式会社VUELTAの特定商取引法に基づく表記',
     url: `${SITE_ORIGIN}/tokushoho`,
     siteName: 'Bar VUELTA',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '特定商取引法に基づく表記 | VUELTA',
+    title: '特定商取引法に基づく表記 | Bar VUELTA',
     description: '株式会社VUELTAの特定商取引法に基づく表記',
     images: [`${SITE_ORIGIN}/images/ogp.png`],
   },

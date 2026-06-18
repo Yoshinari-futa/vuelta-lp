@@ -14,11 +14,11 @@ import { RESERVATION_URL, SITE_ORIGIN } from '@/lib/site-seo'
 
 // ── SEO Metadata ──────────────────────────
 export const metadata: Metadata = {
-  title: 'Menu — VUELTA | Craft Cocktail Bar in Hiroshima',
+  title: 'Menu — Bar VUELTA | Craft Cocktail Bar in Hiroshima',
   description:
-    'Explore VUELTA\'s full cocktail and food menu. Signature cocktails crafted with Hiroshima local ingredients — SAKURAO Gin, Kamotsuru Sake, Gansu Tacos, and more. Prices in JPY.',
+    'Explore Bar VUELTA\'s full cocktail and food menu. Signature cocktails crafted with Hiroshima local ingredients — SAKURAO Gin, Kamotsuru Sake, Gansu Tacos, and more. Prices in JPY.',
   keywords:
-    'VUELTA menu, Hiroshima cocktail menu, craft cocktails Hiroshima, bar menu Japan, Hiroshima bar food, Japanese whisky, sake Hiroshima',
+    'Bar VUELTA menu, VUELTA menu, Hiroshima cocktail menu, craft cocktails Hiroshima, bar menu Japan, Hiroshima bar food, Japanese whisky, sake Hiroshima',
   alternates: {
     canonical: `${SITE_ORIGIN}/menu`,
     languages: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Menu — VUELTA Craft Cocktail Bar',
+    title: 'Menu — Bar VUELTA Craft Cocktail Bar',
     description:
       'Signature cocktails and Hiroshima soul food. The OKONOMIYAKI, Shell We?, Gansu Tacos and more.',
     url: `${SITE_ORIGIN}/menu`,
@@ -40,13 +40,13 @@ export const metadata: Metadata = {
         url: `${SITE_ORIGIN}/images/ogp.png`,
         width: 1200,
         height: 630,
-        alt: 'VUELTA — Craft Cocktail Bar in Hiroshima',
+        alt: 'Bar VUELTA — Craft Cocktail Bar in Hiroshima',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Menu — VUELTA Craft Cocktail Bar',
+    title: 'Menu — Bar VUELTA Craft Cocktail Bar',
     description:
       'Signature cocktails and Hiroshima soul food. The OKONOMIYAKI, Shell We?, Gansu Tacos and more.',
     images: [`${SITE_ORIGIN}/images/ogp.png`],
@@ -79,7 +79,7 @@ function MenuJsonLd() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Menu',
-    name: 'VUELTA Menu',
+    name: 'Bar VUELTA Menu',
     description: 'Craft cocktails and Hiroshima soul food',
     url: `${SITE_ORIGIN}/menu`,
     mainEntity: {

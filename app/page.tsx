@@ -697,6 +697,7 @@ export default function Home() {
                 </h2>
                 <div className="space-y-5 md:space-y-6 font-sans text-sm sm:text-base text-vuelta-text-light">
                   <div>
+                    <p className="font-annam text-2xl sm:text-3xl font-light text-vuelta-text mb-3">Bar VUELTA</p>
                     <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
                       Address
                     </h3>

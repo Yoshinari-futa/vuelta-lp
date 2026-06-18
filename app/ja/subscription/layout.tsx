@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { SITE_ORIGIN } from '@/lib/site-seo'
 
 export const metadata: Metadata = {
-  title: 'ファーストドリンクパス | VUELTA 広島',
+  title: 'ファーストドリンクパス | Bar VUELTA 広島',
   description:
-    '広島中電前のクラフトカクテルバーVUELTAの月額ウェルカムドリンク。いつでも解約可能。',
+    'Bar VUELTA（広島中電前のクラフトカクテルバー）の月額ウェルカムドリンク。いつでも解約可能。',
   alternates: {
     canonical: `${SITE_ORIGIN}/ja/subscription`,
     languages: {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'ファーストドリンクパス | VUELTA',
-    description: 'VUELTAの月額ウェルカムドリンク',
+    title: 'ファーストドリンクパス | Bar VUELTA',
+    description: 'Bar VUELTAの月額ウェルカムドリンク',
     url: `${SITE_ORIGIN}/ja/subscription`,
     siteName: 'Bar VUELTA',
     locale: 'ja_JP',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ファーストドリンクパス | VUELTA',
+    title: 'ファーストドリンクパス | Bar VUELTA',
     images: [`${SITE_ORIGIN}/images/ogp.png`],
   },
   robots: { index: true, follow: true },

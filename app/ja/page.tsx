@@ -651,6 +651,7 @@ export default function HomeJA() {
                   </p>
                   <div className="space-y-5 md:space-y-6 lg:space-y-8 font-japanese text-sm sm:text-base text-vuelta-text-light">
                     <div>
+                      <p className="font-annam text-2xl sm:text-3xl font-light text-vuelta-text mb-3">Bar VUELTA</p>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
                         住所
                       </h3>
@@ -914,7 +915,7 @@ export default function HomeJA() {
                 広島のカクテルバーをお探しの方へ
               </h3>
               <p className="font-japanese text-xs sm:text-sm text-vuelta-text-light leading-loose">
-                VUELTAは広島市中区大手町、路面電車「中電前駅」から徒歩1分のクラフトカクテルバーです。広島の中心市街である紙屋町や本通商店街からは徒歩約7分、八丁堀エリアからも徒歩圏内。広島駅からは路面電車で約15分でアクセスできます。広島観光で原爆ドームや平和記念公園、宮島を訪れた夜の一杯に、広島出張の締めくくりに、地元の方の二軒目に。広島で静かに飲めるカクテルバー、デートや記念日に使える落ち着いた一軒をお探しの方は、ぜひ一度VUELTAへお立ち寄りください。
+                Bar VUELTAは広島市中区大手町、路面電車「中電前駅」から徒歩1分のクラフトカクテルバーです。広島の中心市街である紙屋町や本通商店街からは徒歩約7分、八丁堀エリアからも徒歩圏内。広島駅からは路面電車で約15分でアクセスできます。広島観光で原爆ドームや平和記念公園、宮島を訪れた夜の一杯に、広島出張の締めくくりに、地元の方の二軒目に。広島で静かに飲めるカクテルバー、デートや記念日に使える落ち着いた一軒をお探しの方は、ぜひ一度Bar VUELTAへお立ち寄りください。
               </p>
             </div>
             <div className="pt-8 md:pt-10 mt-8 md:mt-10 border-t border-vuelta-gray/30 text-center space-y-2">

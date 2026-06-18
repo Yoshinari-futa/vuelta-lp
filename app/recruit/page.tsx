@@ -190,8 +190,8 @@ export default function Recruit() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "JobPosting",
-    "title": "Bartender and Service Staff - VUELTA",
-    "description": "Join VUELTA team. We are looking for passionate people who love food and hospitality. English speakers welcome.",
+    "title": "Bartender and Service Staff - Bar VUELTA",
+    "description": "Join Bar VUELTA team. We are looking for passionate people who love food and hospitality. English speakers welcome.",
     "identifier": {
       "@type": "PropertyValue",
       "name": "Bar VUELTA",
@@ -269,7 +269,7 @@ export default function Recruit() {
                 </h1>
                 <div className="h-px w-24 bg-vuelta-gold mb-12"></div>
                 <p className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-gold/90 leading-relaxed mb-12">
-                  VUELTAで、<span className="text-vuelta-gold font-medium">一緒に働きませんか？</span><br />
+                  Bar VUELTAで、<span className="text-vuelta-gold font-medium">一緒に働きませんか？</span><br />
                   新しい出会いと繋がりを生み出す場所です。
                 </p>
               </div>
@@ -311,7 +311,7 @@ export default function Recruit() {
               <div className="space-y-6 font-japanese text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
                 <p>
                   <span className="text-white font-medium">おかえりとはじめましてが交差する。</span><br />
-                  VUELTAは、ただのバーではありません。<br />
+                  Bar VUELTAは、ただのバーではありません。<br />
                   世界中から平和を願う人たちと、地元の人々が出会う場所です。
                 </p>
                 <p>
@@ -568,7 +568,7 @@ export default function Recruit() {
           <FadeInUp delay={0.1}>
             <div className="max-w-3xl">
               <p className="font-japanese text-xl md:text-2xl text-vuelta-gold/90 leading-relaxed mb-12">
-                VUELTAで一緒に働きませんか？<br />
+                Bar VUELTAで一緒に働きませんか？<br />
                 InstagramのDMでお気軽にご連絡ください。
               </p>
 

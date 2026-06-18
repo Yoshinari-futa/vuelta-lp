@@ -144,7 +144,7 @@ export default function SubscriptionPageJA() {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "FIRST DRINK PASS",
-    "description": "広島のカクテルバーVUELTAで毎日1杯無料になる月額サブスクリプション。",
+    "description": "Bar VUELTA（広島のカクテルバー）で毎日1杯無料になる月額サブスクリプション。",
     "image": `${SITE_ORIGIN}/images/ogp.png`,
     "brand": { "@type": "Brand", "name": "Bar VUELTA" },
     "offers": {
@@ -299,7 +299,7 @@ export default function SubscriptionPageJA() {
                   <div className="font-annam text-5xl md:text-6xl font-light text-vuelta-gold/20 leading-none">02</div>
                   <h3 className="font-annam text-xl font-light text-vuelta-gold">パスを見せる</h3>
                   <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">
-                    VUELTAに来たら、カウンターでQRコードを見せるだけ。数秒で完了です。
+                    Bar VUELTAに来たら、カウンターでQRコードを見せるだけ。数秒で完了です。
                   </p>
                 </div>
                 <div className="text-center space-y-4">
@@ -376,7 +376,7 @@ export default function SubscriptionPageJA() {
                 始めてみませんか？
               </h2>
               <p className="font-sans text-base text-vuelta-text-light mb-8 max-w-xl mx-auto">
-                FIRST DRINK PASSで、VUELTAに来るたびにちょっと特別な時間を。
+                FIRST DRINK PASSで、Bar VUELTAに来るたびにちょっと特別な時間を。
               </p>
               <a
                 href={STRIPE_LINK}

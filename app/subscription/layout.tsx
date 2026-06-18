@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { SITE_ORIGIN } from '@/lib/site-seo'
 
 export const metadata: Metadata = {
-  title: 'First Drink Pass — VUELTA | Monthly Cocktail Subscription',
+  title: 'First Drink Pass — Bar VUELTA | Monthly Cocktail Subscription',
   description:
-    'Subscribe for a monthly welcome drink at VUELTA in Hiroshima. Craft cocktail bar near Chuden-mae Station. Cancel anytime.',
+    'Subscribe for a monthly welcome drink at Bar VUELTA in Hiroshima. Craft cocktail bar near Chuden-mae Station. Cancel anytime.',
   alternates: {
     canonical: `${SITE_ORIGIN}/subscription`,
     languages: {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'First Drink Pass — VUELTA',
-    description: 'Monthly welcome drink at VUELTA, Hiroshima.',
+    title: 'First Drink Pass — Bar VUELTA',
+    description: 'Monthly welcome drink at Bar VUELTA, Hiroshima.',
     url: `${SITE_ORIGIN}/subscription`,
     siteName: 'Bar VUELTA',
     locale: 'en_US',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'First Drink Pass — VUELTA',
+    title: 'First Drink Pass — Bar VUELTA',
     images: [`${SITE_ORIGIN}/images/ogp.png`],
   },
   robots: { index: true, follow: true },
