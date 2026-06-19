@@ -187,6 +187,37 @@ export default function HomeJA() {
 
   const hoursStatus = getCurrentHours()
 
+  const faqs = [
+    {
+      q: '英語は通じますか？',
+      a: 'はい。完璧ではありませんが英語で対応します。海外からのお客様も歓迎しています。',
+    },
+    {
+      q: '予約は必要ですか？',
+      a: 'ウォークイン歓迎です。グループや確実な着席をご希望の場合はオンラインでご予約いただけます。',
+    },
+    {
+      q: '中電前駅からの行き方は？',
+      a: '路面電車「中電前」から徒歩1分。広島市中区大手町3-3-5 掛江ビル2階(201号)です。',
+    },
+    {
+      q: '営業時間は？',
+      a: '18:00から02:00（ラストオーダー1:00）。木曜定休です。',
+    },
+    {
+      q: '一人でも入れますか？',
+      a: 'はい。カウンター中心の小さな空間で、お一人でも過ごしやすいです。',
+    },
+    {
+      q: 'どんなお酒がありますか？',
+      a: '桜尾ジンや広島レモンなど広島の地元食材を使ったクラフトカクテルが中心です。タコスなどのフードもあります。',
+    },
+    {
+      q: '支払い方法は？',
+      a: '現金、クレジットカード（Visa、Mastercard、AMEX）、電子マネーがご利用いただけます。',
+    },
+  ]
+
   // Structured Data for SEO — BarOrPub + WebSite + Breadcrumbs
   const structuredData = [
     {
@@ -259,6 +290,16 @@ export default function HomeJA() {
       "name": "Bar VUELTA",
       "url": "https://www.vuelta.jp",
       "inLanguage": ["ja", "en"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${barStructuredDataUrl('ja')}#faq`,
+      "mainEntity": faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a },
+      })),
     },
     {
       "@context": "https://schema.org",
@@ -754,6 +795,23 @@ export default function HomeJA() {
                 </div>
               </FadeInUp>
             </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className="py-12 md:py-24 px-4 sm:px-8 border-t border-vuelta-gray/30" aria-label="よくある質問">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl font-light mb-8 md:mb-12 text-center text-vuelta-text">
+              よくある質問
+            </h2>
+            <dl className="space-y-8">
+              {faqs.map((f) => (
+                <div key={f.q}>
+                  <dt className="font-japanese text-base sm:text-lg font-semibold text-vuelta-text mb-2">{f.q}</dt>
+                  <dd className="font-japanese text-sm sm:text-base text-vuelta-text-light leading-relaxed">{f.a}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 

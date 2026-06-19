@@ -195,6 +195,37 @@ export default function Home() {
 
   const hoursStatus = getCurrentHours()
 
+  const faqs = [
+    {
+      q: 'Is English spoken at Bar VUELTA?',
+      a: 'Yes. Our English is not perfect, but we will do our best, and international guests are very welcome.',
+    },
+    {
+      q: 'Do I need a reservation?',
+      a: 'Walk-ins are welcome. For groups or guaranteed seating, you can book online.',
+    },
+    {
+      q: 'How do I get to Bar VUELTA from Chuden-mae Station?',
+      a: 'It is a 1-minute walk from the Chuden-mae tram stop, on the 2nd floor of the Kakee Building (room 201), 3-3-5 Otemachi, Naka-ku, Hiroshima.',
+    },
+    {
+      q: 'What are the opening hours?',
+      a: 'Open 18:00 to 02:00 (last order 01:00), closed on Thursdays.',
+    },
+    {
+      q: 'Can I come alone?',
+      a: 'Yes. It is a small, counter-led space that is comfortable for solo guests.',
+    },
+    {
+      q: 'What kind of drinks do you serve?',
+      a: 'Craft cocktails made with local Hiroshima ingredients such as Sakurao Gin and Hiroshima lemon, plus finger food and tacos.',
+    },
+    {
+      q: 'What payment methods can I use?',
+      a: 'Cash, credit cards (Visa, Mastercard, AMEX) and electronic money.',
+    },
+  ]
+
   // Structured Data for SEO — BarOrPub + WebSite
   const structuredData = [
     {
@@ -277,6 +308,16 @@ export default function Home() {
       "name": "Bar VUELTA",
       "url": "https://www.vuelta.jp",
       "inLanguage": ["en", "ja"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${barStructuredDataUrl('en')}#faq`,
+      "mainEntity": faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a },
+      })),
     }
   ]
 
@@ -804,6 +845,23 @@ export default function Home() {
               </div>
             </FadeInUp>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-12 md:py-24 px-4 sm:px-6 border-t border-vuelta-gray" aria-label="Frequently asked questions">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light mb-8 md:mb-12 text-center">
+            FAQ
+          </h2>
+          <dl className="space-y-8">
+            {faqs.map((f) => (
+              <div key={f.q}>
+                <dt className="font-sans text-base sm:text-lg font-semibold text-vuelta-text mb-2">{f.q}</dt>
+                <dd className="font-sans text-sm sm:text-base text-vuelta-text-light leading-relaxed">{f.a}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
