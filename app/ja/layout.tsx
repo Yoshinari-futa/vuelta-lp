@@ -57,6 +57,7 @@ export const metadata: Metadata = {
     languages: {
       'en': 'https://www.vuelta.jp',
       'ja': 'https://www.vuelta.jp/ja',
+      'x-default': 'https://www.vuelta.jp',
     },
   },
 }
