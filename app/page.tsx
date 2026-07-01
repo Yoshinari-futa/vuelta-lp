@@ -205,24 +205,52 @@ export default function Home() {
       a: 'Walk-ins are welcome. For groups or guaranteed seating, you can book online.',
     },
     {
+      q: 'How do I make a reservation?',
+      a: 'You can book online through our Square reservation page, linked from the Reserve button on this site. Walk-ins are also welcome whenever we have space.',
+    },
+    {
       q: 'How do I get to Bar VUELTA from Chuden-mae Station?',
       a: 'It is a 1-minute walk from the Chuden-mae tram stop, on the 2nd floor of the Kakee Building (room 201), 3-3-5 Otemachi, Naka-ku, Hiroshima.',
+    },
+    {
+      q: 'Is Bar VUELTA near the Peace Memorial Park?',
+      a: 'Yes. We are in central Naka-ku, within walking distance of the Peace Memorial Park, so it is an easy stop for a drink after sightseeing.',
     },
     {
       q: 'What are the opening hours?',
       a: 'Open 18:00 to 02:00 (last order 01:00), closed on Thursdays.',
     },
     {
-      q: 'Can I come alone?',
-      a: 'Yes. It is a small, counter-led space that is comfortable for solo guests.',
-    },
-    {
       q: 'What kind of drinks do you serve?',
       a: 'Craft cocktails made with local Hiroshima ingredients such as Sakurao Gin and Hiroshima lemon, plus finger food and tacos.',
     },
     {
+      q: 'What are your signature cocktails?',
+      a: 'Signatures include The OKONOMIYAKI (Hiroshima soul food in a glass) and Shell We? (Hiroshima oysters, the sea in a glass). Cocktails range roughly from 950 to 1,600 yen.',
+    },
+    {
+      q: 'Can I come alone?',
+      a: 'Yes. It is a small, counter-led space that is comfortable for solo guests.',
+    },
+    {
+      q: 'How many seats does Bar VUELTA have?',
+      a: 'Eight counter seats plus a standing area for about eight more, an intimate room made for conversation.',
+    },
+    {
+      q: 'Is Bar VUELTA good for a date or an anniversary?',
+      a: 'Yes. The calm, counter-led room suits dates and anniversaries as well as a relaxed drink on your own.',
+    },
+    {
+      q: 'Is there Wi-Fi?',
+      a: 'Yes, free Wi-Fi is available for our guests.',
+    },
+    {
       q: 'What payment methods can I use?',
       a: 'Cash, credit cards (Visa, Mastercard, AMEX) and electronic money.',
+    },
+    {
+      q: 'What is the First Drink Pass?',
+      a: 'A membership for 1,980 yen per month that includes one free drink on each day you visit, a simple reason to come back often.',
     },
   ]
 
@@ -253,21 +281,15 @@ export default function Home() {
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "34.3886",
-        "longitude": "132.4530"
+        "latitude": "34.3893126",
+        "longitude": "132.4541761"
       },
       "hasMap": "https://www.google.com/maps/place/VUELTA/@34.3893126,132.4516012,17z/data=!3m1!4b1!4m6!3m5!1s0x355aa37721226999:0xf75145855610694e!8m2!3d34.3893126!4d132.4541761!16s%2Fg%2F11n52pm3sh",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Wednesday", "Friday", "Saturday", "Sunday", "Monday"],
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"],
           "opens": "18:00",
-          "closes": "23:59"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Thursday", "Saturday", "Sunday", "Monday", "Tuesday"],
-          "opens": "00:00",
           "closes": "02:00"
         }
       ],
