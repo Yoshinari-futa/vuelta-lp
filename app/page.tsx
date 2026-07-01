@@ -213,8 +213,16 @@ export default function Home() {
       a: 'It is a 1-minute walk from the Chuden-mae tram stop, on the 2nd floor of the Kakee Building (room 201), 3-3-5 Otemachi, Naka-ku, Hiroshima.',
     },
     {
+      q: 'Can I book the whole bar for a private party?',
+      a: 'Yes. We take private hire and group bookings. Please contact us in advance and we will arrange it.',
+    },
+    {
       q: 'Is Bar VUELTA near the Peace Memorial Park?',
       a: 'Yes. We are in central Naka-ku, within walking distance of the Peace Memorial Park, so it is an easy stop for a drink after sightseeing.',
+    },
+    {
+      q: 'Is there parking?',
+      a: 'We do not have our own car park, but there are coin parking lots nearby.',
     },
     {
       q: 'What are the opening hours?',
@@ -229,6 +237,10 @@ export default function Home() {
       a: 'Signatures include The OKONOMIYAKI (Hiroshima soul food in a glass) and Shell We? (Hiroshima oysters, the sea in a glass). Cocktails range roughly from 950 to 1,600 yen.',
     },
     {
+      q: 'Do you have non-alcoholic drinks?',
+      a: 'Yes. We make non-alcoholic cocktails, so guests who do not drink can enjoy the bar too.',
+    },
+    {
       q: 'Can I come alone?',
       a: 'Yes. It is a small, counter-led space that is comfortable for solo guests.',
     },
@@ -241,8 +253,16 @@ export default function Home() {
       a: 'Yes. The calm, counter-led room suits dates and anniversaries as well as a relaxed drink on your own.',
     },
     {
+      q: 'Can I smoke at Bar VUELTA?',
+      a: 'Yes, smoking is allowed inside the bar.',
+    },
+    {
       q: 'Is there Wi-Fi?',
       a: 'Yes, free Wi-Fi is available for our guests.',
+    },
+    {
+      q: 'Is there a cover charge?',
+      a: 'Yes. There is a cover charge of 300 yen per person.',
     },
     {
       q: 'What payment methods can I use?',
@@ -300,6 +320,7 @@ export default function Home() {
       "sameAs": barSameAsUrls(),
       "telephone": STORE_PHONE_SCHEMA,
       "acceptsReservations": true,
+      "smokingAllowed": true,
       "potentialAction": {
         "@type": "ReserveAction",
         "target": {
