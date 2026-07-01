@@ -571,7 +571,7 @@ export default function HomeJA() {
                   alt: '桜リキュールとテキーラの春のマルガリータ「Spring Bloom Margarita」',
                   description:
                     '春の桜をグラスに。テキーラシルバー、桜リキュール、レモン、花びらの香り。伝統の枡（ます）で味わえば、桜の香りにレモンの酸味、テキーラのキレが重なり、春の夜にぴったりの一杯に。',
-                  price: '¥950',
+                  price: '¥1,000',
                   image: '/images/cocktails/sakura-margarita.png',
                   objectPosition: 'center 42%',
                 },

@@ -560,7 +560,7 @@ export default function Home() {
                 name: 'Spring Bloom Margarita',
                 description:
                   'Cherry blossom in a glass—silver tequila, sakura liqueur, and fresh lemon, kissed with sakura petal. A seasonal margarita with Hiroshima heart, often served in a traditional masu.',
-                price: '¥950',
+                price: '¥1,000',
                 image: '/images/cocktails/sakura-margarita.png',
                 objectPosition: 'center 42%',
               },
