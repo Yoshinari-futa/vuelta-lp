@@ -70,9 +70,26 @@ const Header = () => {
             />
           </Link>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 lg:gap-6">
+            {/* Desktop inline nav */}
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="メインナビゲーション">
+              <a href="#about" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors" onClick={(e) => handleAnchorClick(e, '#about')}>About</a>
+              <Link href="/menu" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors">Menu</Link>
+              <Link href="/ja/subscription" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors">Pass</Link>
+              <a href="#reservation" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors" onClick={(e) => handleAnchorClick(e, '#reservation')}>Visit</a>
+              <a href="#faq" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors" onClick={(e) => handleAnchorClick(e, '#faq')}>FAQ</a>
+              <Link href="/recruit" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors">Recruit</Link>
+            </nav>
+            <a
+              href={RESERVATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center px-5 py-2 min-h-[36px] bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors font-annam text-[11.5px] tracking-[0.2em] uppercase rounded"
+            >
+              予約する
+            </a>
             {/* EN/JA - Left of menu button (both mobile and desktop) */}
-            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0">
+            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0 md:border-r-0 md:pr-0">
               <a
                 href="/"
                 className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block"
@@ -89,7 +106,7 @@ const Header = () => {
             </div>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex flex-col gap-1.5 p-3 min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded transition-all"
+              className="flex md:hidden flex-col gap-1.5 p-3 min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded transition-all"
               aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
               aria-expanded={isMenuOpen}
             >
@@ -394,6 +411,7 @@ export default function HomeJA() {
         <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-20 md:pt-24" aria-label="ヒーローセクション">
           {/* Background */}
           <div className="absolute inset-0 bg-white">
+            <div className="absolute inset-0 bg-[radial-gradient(58%_42%_at_50%_0%,rgba(18,41,31,0.06),transparent_70%)]"></div>
           </div>
 
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12">
@@ -404,7 +422,7 @@ export default function HomeJA() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.2 }}
-                  className="font-annam text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light tracking-tight mb-4 md:mb-6 text-balance"
+                  className="font-annam text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light tracking-[0.08em] md:tracking-[0.12em] mb-4 md:mb-6 text-balance"
                   aria-hidden="true"
                 >
                   V U E L T A
@@ -437,14 +455,14 @@ export default function HomeJA() {
                     href={RESERVATION_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
+                    className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
                     aria-label="オンラインで予約する"
                   >
                     予約する
                   </a>
                   <Link
                     href="/menu"
-                    className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light hover:text-vuelta-text transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
+                    className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
                     aria-label="View full menu"
                   >
                     View Menu
@@ -468,7 +486,7 @@ export default function HomeJA() {
                       transition={{ duration: 1, delay: 0.7 }}
                       className="w-full max-w-5xl"
                     >
-                <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-vuelta-gray group">
+                <div className="relative aspect-video rounded-md overflow-hidden shadow-[0_30px_70px_-30px_rgba(18,41,31,0.45)] bg-vuelta-gray group">
                   <Image
                     src="/images/hero.png"
                     alt="広島大手町のクラフトカクテルバー VUELTA — 桜のガーニッシュを添えたシグネチャーカクテル"
@@ -580,7 +598,7 @@ export default function HomeJA() {
             </FadeInUp>
 
             {/* Asymmetric grid layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 max-w-7xl mx-auto items-stretch">
               {[
                 { name: 'Shell We?', alt: '桜尾ジンと広島の牡蠣を使ったシグネチャーカクテル「Shell We?」', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,600', tag: 'Signature', image: '/images/cocktails/shellwe.png' },
                 { name: 'The OKONOMIYAKI', alt: '広島のお好み焼きをグラスに閉じ込めたカクテル「The OKONOMIYAKI」', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの旨み、オタフクソース、トマトの甘みがグラスでひとつに。広島の食文化を、そのまま飲む体験。', price: '¥1,200', tag: 'Signature', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
@@ -598,8 +616,8 @@ export default function HomeJA() {
               ].map((item, index) => {
                 return (
                   <FadeInUp key={index} delay={index * 0.1}>
-                    <div className="group cursor-pointer relative" role="article" aria-label={item.alt}>
-                      <div className="relative aspect-square bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white overflow-hidden mb-4 sm:mb-6 focus-within:ring-2 focus-within:ring-vuelta-gold focus-within:ring-offset-2 min-h-[280px] sm:min-h-[350px] md:min-h-[400px]">
+                    <div className="group relative h-full flex flex-col bg-white border border-vuelta-light rounded-md overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(18,41,31,0.35)]" role="article" aria-label={item.alt}>
+                      <div className="relative aspect-square bg-gradient-to-br from-vuelta-gray via-vuelta-light to-white overflow-hidden focus-within:ring-2 focus-within:ring-vuelta-gold focus-within:ring-offset-2">
                         {item.image && !imageErrors[index] ? (
                           <>
                             <Image
@@ -616,10 +634,6 @@ export default function HomeJA() {
                                 setImageErrors(prev => ({ ...prev, [index]: true }))
                               }}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" aria-hidden="true">
-                              <span className="text-white font-annam text-2xl bg-vuelta-gold/95 px-6 py-3 rounded-lg backdrop-blur-sm shadow-lg">{item.price}</span>
-                            </div>
                           </>
                         ) : (
                           <>
@@ -638,15 +652,17 @@ export default function HomeJA() {
                           </>
                         )}
                       </div>
-                      <h3 className="font-annam text-2xl mb-3 group-hover:text-vuelta-gold transition-colors duration-300">
-                        {item.name}
-                      </h3>
-                      <p className="font-japanese text-vuelta-text-light text-sm leading-loose">
-                        {item.description}
-                      </p>
-                      <div className="mt-4 pt-3 border-t border-dashed border-vuelta-light flex justify-between items-center">
-                        <span className="font-mono text-sm tracking-wide text-vuelta-gold tabular-nums">{item.price}</span>
-                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-vuelta-text-light">{item.tag}</span>
+                      <div className="flex flex-col flex-1 p-5 sm:p-6">
+                        <h3 className="font-annam text-xl sm:text-2xl mb-2 group-hover:text-vuelta-gold transition-colors duration-300">
+                          {item.name}
+                        </h3>
+                        <p className="font-japanese text-vuelta-text-light text-[13px] leading-relaxed flex-1">
+                          {item.description}
+                        </p>
+                        <div className="mt-4 pt-3 border-t border-dashed border-vuelta-light flex justify-between items-center">
+                          <span className="font-mono text-sm tracking-wide text-vuelta-gold tabular-nums">{item.price}</span>
+                          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-vuelta-text-light">{item.tag}</span>
+                        </div>
                       </div>
                     </div>
                   </FadeInUp>
@@ -928,174 +944,33 @@ export default function HomeJA() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 md:py-24 px-4 sm:px-8 border-t border-vuelta-gray/30">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-10 md:mb-12">
+        <footer className="bg-vuelta-pine py-16 md:py-20 px-4 sm:px-6 text-[#e9efe7]">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-wrap justify-between items-start gap-10 mb-12">
               <div>
-                <Image
-                  src="/images/vuelta-logo.png"
-                  alt="Bar VUELTA"
-                  width={200}
-                  height={68}
-                  className="h-10 w-auto mb-6 object-contain opacity-80"
-                  placeholder="blur"
-                  blurDataURL={blurDataUrl('/images/vuelta-logo.png')}
-                />
+                <p className="font-annam text-2xl tracking-[0.3em]">VUELTA</p>
+                <p className="font-mono text-[10.5px] tracking-[0.26em] uppercase text-vuelta-mint/70 mt-3">Craft cocktail bar — Hiroshima, Japan</p>
               </div>
-              <div>
-                <h4 className="font-annam text-sm uppercase tracking-wider mb-6 text-vuelta-gold">
-                  Quick Links
-                </h4>
-                <ul className="space-y-4 font-japanese text-sm">
-                  <li>
-                    <Link
-                      href="/menu"
-                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
-                        <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                      </div>
-                      <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-annam font-medium flex-1">Menu</span>
-                      <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </li>
-                  <li>
-                    <a 
-                      href="#about" 
-                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
-                        <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-annam font-medium flex-1">About</span>
-                      <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <Link 
-                      href="/recruit" 
-                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
-                        <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                      <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-annam font-medium flex-1">Recruit</span>
-                      <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </li>
-                  <li>
-                    <a
-                      href={footerGoogleHref()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
-                        <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                      </div>
-                      <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-japanese font-medium flex-1">
-                        {isGoogleBusinessProfileConfigured() ? 'Google' : 'Google マップ'}
-                      </span>
-                      <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={footerTripAdvisorHref()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
-                        <svg className="w-3 h-3 text-vuelta-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                        </svg>
-                      </div>
-                      <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-japanese font-medium flex-1">TripAdvisor</span>
-                      <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-annam text-sm uppercase tracking-wider mb-4 text-vuelta-gold">
-                  Follow Us
-                </h4>
-                <ul className="space-y-3 font-japanese text-sm">
-                  <li>
-                    <a 
-                      href="https://www.instagram.com/vuelta_bar" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
-                        <svg className="w-3 h-3 text-vuelta-gold" fill="currentColor" viewBox="0 0 24 24">
-                          <path fillRule="evenodd" clipRule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3a.75.75 0 0 1 1.5 0v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"/>
-                        </svg>
-                      </div>
-                      <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-japanese font-medium flex-1">@vuelta_bar</span>
-                      <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a 
-                      href="https://www.instagram.com/yuji_miyake"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg border border-vuelta-gray hover:border-vuelta-gold hover:bg-vuelta-gold/5 transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-vuelta-gold/20 to-vuelta-gold/10 flex items-center justify-center border border-vuelta-gold/20 group-hover:border-vuelta-gold/40 transition-colors">
-                        <svg className="w-3 h-3 text-vuelta-gold" fill="currentColor" viewBox="0 0 24 24">
-                          <path fillRule="evenodd" clipRule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3a.75.75 0 0 1 1.5 0v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"/>
-                        </svg>
-                      </div>
-                      <span className="text-vuelta-text-light group-hover:text-vuelta-gold transition-colors font-japanese font-medium flex-1">@yuji_miyake</span>
-                      <svg className="w-3 h-3 text-vuelta-text-light group-hover:text-vuelta-gold transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <nav className="flex flex-wrap gap-x-7 gap-y-4 items-center" aria-label="フッターナビゲーション">
+                <Link href="/menu" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">Menu</Link>
+                <a href="#about" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">About</a>
+                <Link href="/ja/subscription" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">First Drink Pass</Link>
+                <a href="/recruit" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">Recruit</a>
+                <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">Instagram</a>
+                <a href={footerGoogleHref()} target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">
+                  {isGoogleBusinessProfileConfigured() ? 'Google' : 'Google マップ'}
+                </a>
+                <a href={footerTripAdvisorHref()} target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">TripAdvisor</a>
+              </nav>
             </div>
-            {/* 周辺エリア紹介（広島中心部からのアクセス） */}
-            <div className="pt-10 md:pt-12 border-t border-vuelta-gray/30">
-              <h3 className="font-japanese text-base md:text-lg font-semibold text-vuelta-gold mb-3">
-                広島のカクテルバーをお探しの方へ
-              </h3>
-              <p className="font-japanese text-xs sm:text-sm text-vuelta-text-light leading-loose">
-                Bar VUELTAは広島市中区大手町、路面電車「中電前駅」から徒歩1分のクラフトカクテルバーです。広島の中心市街である紙屋町や本通商店街からは徒歩約7分、八丁堀エリアからも徒歩圏内。広島駅からは路面電車で約15分でアクセスできます。広島観光で原爆ドームや平和記念公園、宮島を訪れた夜の一杯に、広島出張の締めくくりに、地元の方の二軒目に。広島で静かに飲めるカクテルバー、デートや記念日に使える落ち着いた一軒をお探しの方は、ぜひ一度Bar VUELTAへお立ち寄りください。
-              </p>
-            </div>
-            <div className="pt-8 md:pt-10 mt-8 md:mt-10 border-t border-vuelta-gray/30 text-center space-y-2">
-              <p className="font-japanese text-xs text-vuelta-text-light">
-                © 2026 Bar VUELTA. All rights reserved.
-              </p>
-              <p className="font-japanese text-xs">
-                <Link href="/tokushoho" className="text-vuelta-text-light hover:text-vuelta-gold transition-colors">
+            <div className="pt-8 border-t border-white/10 font-japanese text-xs text-[#7f9488] leading-relaxed space-y-2">
+              <p>Bar VUELTA — 〒730-0051 広島県広島市中区大手町3-3-5 掛江ビル201</p>
+              <p>
+                <Link href="/tokushoho" className="text-[#a9bcae] hover:text-vuelta-mint-light transition-colors underline underline-offset-4 decoration-white/20">
                   特定商取引法に基づく表記
                 </Link>
+                <span className="mx-3">|</span>
+                © 2026 Bar VUELTA. All rights reserved.
               </p>
             </div>
           </div>
