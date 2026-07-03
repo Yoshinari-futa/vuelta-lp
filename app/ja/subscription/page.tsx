@@ -240,7 +240,7 @@ export default function SubscriptionPageJA() {
                           </svg>
                         </div>
                       </div>
-                      <h3 className="font-annam text-xl font-light text-vuelta-gold">毎日1杯無料</h3>
+                      <h3 className="font-annam text-xl font-light text-vuelta-gold">1 Free Drink Daily</h3>
                       <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">
                         来店するたびに1杯無料。毎日0時にリセットされるので、毎日楽しめます。
                       </p>
@@ -254,7 +254,7 @@ export default function SubscriptionPageJA() {
                           </svg>
                         </div>
                       </div>
-                      <h3 className="font-annam text-xl font-light text-vuelta-gold whitespace-nowrap">QRで簡単チェックイン</h3>
+                      <h3 className="font-annam text-xl font-light text-vuelta-gold whitespace-nowrap">Easy QR Check-in</h3>
                       <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">
                         カウンターでスマホを見せるだけ。カードもスタンプも不要です。
                       </p>
@@ -268,7 +268,7 @@ export default function SubscriptionPageJA() {
                           </svg>
                         </div>
                       </div>
-                      <h3 className="font-annam text-xl font-light text-vuelta-gold">安心と安全</h3>
+                      <h3 className="font-annam text-xl font-light text-vuelta-gold">Safe and Flexible</h3>
                       <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">
                         Stripeによる安全な決済。いつでも解約でき、解約手数料もありません。
                       </p>
@@ -284,27 +284,28 @@ export default function SubscriptionPageJA() {
         <section className="py-12 md:py-20 px-4 sm:px-6 bg-vuelta-gray">
           <div className="max-w-4xl mx-auto">
             <FadeInUp>
-              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-center mb-10 md:mb-14">
-                ご利用の流れ
+              <p className="font-japanese text-xs sm:text-sm tracking-[0.2em] text-vuelta-gold text-center mb-3">ご利用の流れ</p>
+              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-center mb-10 md:mb-14 tracking-wide">
+                How It Works
               </h2>
               <div className="grid md:grid-cols-3 gap-8 md:gap-12">
                 <div className="text-center space-y-4">
                   <div className="font-annam text-5xl md:text-6xl font-light text-vuelta-gold/20 leading-none">01</div>
-                  <h3 className="font-annam text-xl font-light text-vuelta-gold">登録する</h3>
+                  <h3 className="font-annam text-xl font-light text-vuelta-gold">Subscribe</h3>
                   <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">
                     オンラインで1分で登録完了。すぐにデジタルパスが届きます。
                   </p>
                 </div>
                 <div className="text-center space-y-4">
                   <div className="font-annam text-5xl md:text-6xl font-light text-vuelta-gold/20 leading-none">02</div>
-                  <h3 className="font-annam text-xl font-light text-vuelta-gold">パスを見せる</h3>
+                  <h3 className="font-annam text-xl font-light text-vuelta-gold">Show Your Pass</h3>
                   <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">
                     Bar VUELTAに来たら、カウンターでQRコードを見せるだけ。数秒で完了です。
                   </p>
                 </div>
                 <div className="text-center space-y-4">
                   <div className="font-annam text-5xl md:text-6xl font-light text-vuelta-gold/20 leading-none">03</div>
-                  <h3 className="font-annam text-xl font-light text-vuelta-gold">1杯楽しむ</h3>
+                  <h3 className="font-annam text-xl font-light text-vuelta-gold">Enjoy Your Drink</h3>
                   <p className="font-sans text-sm text-vuelta-text-light leading-relaxed">
                     それだけ。最初の1杯は無料。ゆっくりくつろいで、夜を楽しんでください。
                   </p>
@@ -318,8 +319,9 @@ export default function SubscriptionPageJA() {
         <section className="py-12 md:py-20 px-4 sm:px-6">
           <div className="max-w-3xl mx-auto">
             <FadeInUp>
-              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-center mb-8 md:mb-12">
-                お得なの？
+              <p className="font-japanese text-xs sm:text-sm tracking-[0.2em] text-vuelta-gold text-center mb-3">お得なの？</p>
+              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-center mb-8 md:mb-12 tracking-wide">
+                Is It Worth It?
               </h2>
               <div className="bg-vuelta-gold/5 rounded-lg border border-vuelta-gold/20 p-6 sm:p-8">
                 <div className="space-y-4 font-sans text-base text-vuelta-text-light leading-relaxed">
@@ -340,8 +342,9 @@ export default function SubscriptionPageJA() {
         <section className="py-12 md:py-20 px-4 sm:px-6 bg-vuelta-gray">
           <div className="max-w-3xl mx-auto">
             <FadeInUp>
-              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-center mb-8 md:mb-12">
-                よくある質問
+              <p className="font-japanese text-xs sm:text-sm tracking-[0.2em] text-vuelta-gold text-center mb-3">よくある質問</p>
+              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-center mb-8 md:mb-12 tracking-wide">
+                Questions
               </h2>
               <div className="space-y-6">
                 {[
@@ -372,8 +375,9 @@ export default function SubscriptionPageJA() {
         <section className="py-16 md:py-24 px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <FadeInUp>
-              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-                始めてみませんか？
+              <p className="font-japanese text-xs sm:text-sm tracking-[0.2em] text-vuelta-gold mb-3">始めてみませんか？</p>
+              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light mb-4 tracking-wide">
+                Ready to Join?
               </h2>
               <p className="font-sans text-base text-vuelta-text-light mb-8 max-w-xl mx-auto">
                 FIRST DRINK PASSで、Bar VUELTAに来るたびにちょっと特別な時間を。

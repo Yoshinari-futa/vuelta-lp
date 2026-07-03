@@ -450,6 +450,15 @@ export default function HomeJA() {
                     View Menu
                   </Link>
                 </motion.div>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.7 }}
+                  className="flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-vuelta-text-light mb-4"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-vuelta-gold shadow-[0_0_8px_rgba(26,58,46,0.55)]" aria-hidden="true"></span>
+                  営業 18:00 – 02:00 木曜定休
+                </motion.p>
               </div>
 
                     {/* Image - Below VUELTA */}
@@ -493,17 +502,27 @@ export default function HomeJA() {
           </motion.div>
         </section>
 
+        {/* Info bar — 主要情報を一列で */}
+        <div className="border-y border-vuelta-light/60 bg-white" aria-label="基本情報">
+          <ul className="flex flex-wrap justify-center items-center px-4 sm:px-6 py-4 list-none">
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap">営業 18:00 – 02:00 木曜定休</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">中電前から徒歩1分</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">カウンター8席 スタンディング8席</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">ウォークイン歓迎</li>
+          </ul>
+        </div>
+
         {/* About Section（旧 Brand Concept + Mission を統合） */}
         <section id="about" className="py-12 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 max-w-6xl mx-auto scroll-mt-20" aria-label="VUELTAについて">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start">
             <FadeInUp>
               <div className="space-y-6 md:space-y-8">
-                <h2 className="font-japanese text-xl sm:text-2xl md:text-3xl font-light text-vuelta-gold leading-snug tracking-wide">
+                <p className="font-japanese text-xs sm:text-sm tracking-[0.2em] text-vuelta-gold">
                   広島大手町のクラフトカクテルバー
-                </h2>
-                <p className="font-annam text-lg sm:text-xl md:text-2xl text-vuelta-gold-light tracking-wider" aria-hidden="true">
-                  About<span className="inline-block w-2 sm:w-4 md:w-8"></span>V U E L T A
                 </p>
+                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold">
+                  About<span className="inline-block w-2 sm:w-4 md:w-8"></span>V U E L T A
+                </h2>
                 <div className="space-y-5 md:space-y-6 text-vuelta-text-light font-japanese text-base md:text-lg leading-loose text-pretty">
                   <p>
                     中電前駅から徒歩1分、掛江ビル2階。カウンター中心の小さな空間で、本格的なクラフトカクテルを静かに楽しめます。
@@ -551,11 +570,11 @@ export default function HomeJA() {
           <div className="max-w-6xl mx-auto">
             <FadeInUp>
               <div className="text-center mb-12 md:mb-16 lg:mb-24 px-4">
-                <h2 className="font-japanese text-xl sm:text-2xl md:text-3xl font-light mb-2 md:mb-3 leading-snug tracking-wide">
-                  広島ならではのシグネチャーカクテル
-                </h2>
-                <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light" aria-hidden="true">
+                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light mb-2 md:mb-3 tracking-wide">
                   Menu
+                </h2>
+                <p className="font-japanese text-sm sm:text-base text-vuelta-text-light tracking-wide">
+                  広島ならではのシグネチャーカクテル
                 </p>
               </div>
             </FadeInUp>
@@ -563,15 +582,16 @@ export default function HomeJA() {
             {/* Asymmetric grid layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
               {[
-                { name: 'Shell We?', alt: '桜尾ジンと広島の牡蠣を使ったシグネチャーカクテル「Shell We?」', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,600', image: '/images/cocktails/shellwe.png' },
-                { name: 'The OKONOMIYAKI', alt: '広島のお好み焼きをグラスに閉じ込めたカクテル「The OKONOMIYAKI」', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの旨み、オタフクソース、トマトの甘みがグラスでひとつに。広島の食文化を、そのまま飲む体験。', price: '¥1,200', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
-                { name: '26 hours', alt: 'トマトときゅうりの透明感あるクラフトカクテル「26 hours」', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,250', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
+                { name: 'Shell We?', alt: '桜尾ジンと広島の牡蠣を使ったシグネチャーカクテル「Shell We?」', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,600', tag: 'Signature', image: '/images/cocktails/shellwe.png' },
+                { name: 'The OKONOMIYAKI', alt: '広島のお好み焼きをグラスに閉じ込めたカクテル「The OKONOMIYAKI」', description: '鉄板の音と湯気の向こうに見える、あの味覚。だしの旨み、オタフクソース、トマトの甘みがグラスでひとつに。広島の食文化を、そのまま飲む体験。', price: '¥1,200', tag: 'Signature', image: '/images/cocktails/okonomiyaki.png', objectPosition: 'center 55%' },
+                { name: '26 hours', alt: 'トマトときゅうりの透明感あるクラフトカクテル「26 hours」', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,250', tag: 'Late pour', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
                 {
                   name: 'Spring Bloom Margarita',
                   alt: '桜リキュールとテキーラの春のマルガリータ「Spring Bloom Margarita」',
                   description:
                     '春の桜をグラスに。テキーラシルバー、桜リキュール、レモン、花びらの香り。伝統の枡（ます）で味わえば、桜の香りにレモンの酸味、テキーラのキレが重なり、春の夜にぴったりの一杯に。',
                   price: '¥1,000',
+                  tag: 'Seasonal',
                   image: '/images/cocktails/sakura-margarita.png',
                   objectPosition: 'center 42%',
                 },
@@ -624,6 +644,10 @@ export default function HomeJA() {
                       <p className="font-japanese text-vuelta-text-light text-sm leading-loose">
                         {item.description}
                       </p>
+                      <div className="mt-4 pt-3 border-t border-dashed border-vuelta-light flex justify-between items-center">
+                        <span className="font-mono text-sm tracking-wide text-vuelta-gold tabular-nums">{item.price}</span>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-vuelta-text-light">{item.tag}</span>
+                      </div>
                     </div>
                   </FadeInUp>
                 )
@@ -643,25 +667,44 @@ export default function HomeJA() {
           </div>
         </section>
 
-        {/* FIRST DRINK PASS Banner */}
-        <section className="py-10 md:py-16 px-4 sm:px-6 bg-gradient-to-r from-vuelta-gold/10 to-vuelta-gold/5 border-y border-vuelta-gold/20">
-          <div className="max-w-4xl mx-auto text-center">
+        {/* FIRST DRINK PASS — 浮き上がるチケット */}
+        <section className="py-14 md:py-24 px-4 sm:px-6 bg-white" aria-label="First Drink Pass">
+          <div className="max-w-4xl mx-auto">
             <FadeInUp>
-              <h2 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-text mb-3">
-                FIRST DRINK PASS
-              </h2>
-              <p className="font-japanese text-base text-vuelta-text-light mb-6 max-w-xl mx-auto leading-relaxed">
-                ウォレットカードを使ったサブスクリプション
-              </p>
-              <Link
-                href="/ja/subscription"
-                className="inline-flex items-center gap-3 px-8 py-3.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm uppercase tracking-wider group"
-              >
-                Learn More
-                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
+              <div className="text-center mb-10 md:mb-12">
+                <p className="font-annam text-sm uppercase tracking-[0.3em] text-vuelta-gold mb-2">Membership</p>
+                <h2 className="font-annam text-2xl sm:text-3xl md:text-4xl font-light text-vuelta-text mb-3">
+                  Your first drink is on us. Every visit.
+                </h2>
+                <p className="font-japanese text-sm text-vuelta-text-light tracking-wide">
+                  来店のたびに一杯目が無料になる、ウォレットカードのサブスクリプション。
+                </p>
+              </div>
+              <div className="relative max-w-3xl mx-auto grid sm:grid-cols-[minmax(0,1fr)_190px] bg-white border border-vuelta-light rounded shadow-[0_44px_90px_-36px_rgba(26,58,46,0.42),0_18px_40px_-22px_rgba(26,58,46,0.3)] hover:-translate-y-1.5 hover:shadow-[0_56px_100px_-36px_rgba(26,58,46,0.48),0_24px_48px_-22px_rgba(26,58,46,0.34)] transition-all duration-300">
+                <span className="hidden sm:block absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white ring-1 ring-vuelta-light" aria-hidden="true"></span>
+                <span className="hidden sm:block absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white ring-1 ring-vuelta-light" aria-hidden="true"></span>
+                <div className="p-8 sm:p-11 text-left">
+                  <p className="font-mono text-[10.5px] uppercase tracking-[0.34em] text-vuelta-gold mb-2">Membership — First Drink Pass</p>
+                  <h3 className="font-annam text-3xl sm:text-4xl font-normal tracking-wide mb-3">FIRST DRINK PASS</h3>
+                  <p className="font-japanese text-[15px] text-vuelta-text-light mb-6 max-w-md leading-relaxed">
+                    月額1,980円で、来店するたびに1杯無料。VUELTAは「再会」という意味 — これはそのためのチケットです。
+                  </p>
+                  <Link
+                    href="/ja/subscription"
+                    className="inline-flex items-center gap-3 px-8 py-3.5 border border-vuelta-gold text-vuelta-gold hover:bg-vuelta-gold hover:text-white transition-all duration-300 font-annam text-sm uppercase tracking-wider rounded group"
+                  >
+                    Learn More
+                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+                <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-dashed border-vuelta-light flex flex-col items-center justify-center gap-1 p-6 font-mono uppercase">
+                  <span className="text-[10px] tracking-[0.3em] text-vuelta-gold">Admit one, daily</span>
+                  <span className="text-3xl text-vuelta-text tabular-nums">¥1,980</span>
+                  <span className="text-[10px] tracking-[0.3em] text-vuelta-gold">per month</span>
+                </div>
+              </div>
             </FadeInUp>
           </div>
         </section>
@@ -670,12 +713,12 @@ export default function HomeJA() {
         <section className="py-12 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-vuelta-gray/10" aria-label="VUELTAでの過ごし方">
           <div className="max-w-5xl mx-auto text-center">
             <FadeInUp>
-              <h2 className="font-japanese text-xl sm:text-2xl md:text-3xl font-light text-vuelta-gold mb-3 md:mb-5 leading-snug tracking-wide">
+              <p className="font-japanese text-xs sm:text-sm tracking-[0.2em] text-vuelta-gold mb-3">
                 VUELTAでの夜
-              </h2>
-              <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-10 md:mb-14" aria-hidden="true">
-                An Evening at VUELTA
               </p>
+              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-10 md:mb-14 tracking-wide">
+                An Evening at VUELTA
+              </h2>
               <div className="grid md:grid-cols-3 gap-8 md:gap-10">
                 <div className="space-y-3">
                   <div className="flex justify-center">
@@ -733,12 +776,12 @@ export default function HomeJA() {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
               <FadeInUp>
                 <div className="space-y-6 md:space-y-8 lg:space-y-10">
-                  <h2 className="font-japanese text-xl sm:text-2xl md:text-3xl font-light mb-3 md:mb-4 leading-snug tracking-wide">
-                    中電前駅から徒歩1分のアクセス
-                  </h2>
-                  <p className="font-annam text-lg sm:text-xl md:text-2xl tracking-wider text-vuelta-gold-light mb-4 md:mb-6 lg:mb-8" aria-hidden="true">
-                    Visit Us
+                  <p className="font-japanese text-xs sm:text-sm tracking-[0.2em] text-vuelta-gold mb-3">
+                    中電前駅から徒歩1分
                   </p>
+                  <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light mb-4 md:mb-6 lg:mb-8 tracking-wide">
+                    Visit Us
+                  </h2>
                   <div className="space-y-5 md:space-y-6 lg:space-y-8 font-japanese text-sm sm:text-base text-vuelta-text-light">
                     <div>
                       <p className="font-annam text-2xl sm:text-3xl font-light text-vuelta-text mb-3">Bar VUELTA</p>
@@ -783,10 +826,23 @@ export default function HomeJA() {
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
                         営業時間
                       </h3>
-                      <p className="text-base sm:text-lg">
-                        18:00 – 02:00（水、金〜火）<br />
-                        <span className="text-vuelta-text-light">木曜定休</span><br />
-                        <span className="text-sm text-vuelta-text-light">ラストオーダー 1:00</span>
+                      <div className="flex gap-1.5 max-w-[340px] mb-3" aria-label="木曜以外、毎日営業">
+                        {(['月', '火', '水', '木', '金', '土', '日'] as const).map((d) => (
+                          d === '木' ? (
+                            <span key={d} className="flex-1 text-center font-mono text-[11px] py-2 rounded border border-dashed border-[#d9c3bc] text-[#9c5844] line-through">
+                              {d}
+                            </span>
+                          ) : (
+                            <span key={d} className="flex-1 text-center font-mono text-[11px] py-2 rounded border border-vuelta-gold/30 bg-vuelta-gold/5 text-vuelta-gold">
+                              {d}
+                            </span>
+                          )
+                        ))}
+                      </div>
+                      <p className="text-lg tabular-nums">
+                        18:00 – 02:00<br />
+                        <span className="text-sm text-vuelta-text-light">ラストオーダー 1:00</span><br />
+                        <span className="text-sm text-[#9c5844]">木曜定休</span>
                       </p>
                     </div>
                     <div>
@@ -850,17 +906,24 @@ export default function HomeJA() {
         {/* FAQ Section */}
         <section id="faq" className="py-12 md:py-24 px-4 sm:px-8 border-t border-vuelta-gray/30" aria-label="よくある質問">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-japanese text-2xl sm:text-3xl md:text-4xl font-light mb-8 md:mb-12 text-center text-vuelta-text">
-              よくある質問
-            </h2>
-            <dl className="space-y-8">
-              {faqs.map((f) => (
-                <div key={f.q}>
-                  <dt className="font-japanese text-base sm:text-lg font-semibold text-vuelta-text mb-2">{f.q}</dt>
-                  <dd className="font-japanese text-sm sm:text-base text-vuelta-text-light leading-relaxed">{f.a}</dd>
-                </div>
+            <div className="text-center mb-8 md:mb-12">
+              <p className="font-japanese text-xs sm:text-sm tracking-[0.2em] text-vuelta-gold mb-3">よくある質問</p>
+              <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-text tracking-wide">FAQ</h2>
+            </div>
+            <div className="border-t border-vuelta-light">
+              {faqs.map((f, i) => (
+                <details key={f.q} className="group border-b border-vuelta-light/70" open={i === 0}>
+                  <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden flex justify-between items-baseline gap-5 py-5 font-japanese text-base sm:text-lg font-medium">
+                    <span>{f.q}</span>
+                    <span className="font-mono text-vuelta-gold shrink-0" aria-hidden="true">
+                      <span className="group-open:hidden">+</span>
+                      <span className="hidden group-open:inline">&ndash;</span>
+                    </span>
+                  </summary>
+                  <p className="pb-6 font-japanese text-sm sm:text-base text-vuelta-text-light leading-relaxed max-w-2xl">{f.a}</p>
+                </details>
               ))}
-            </dl>
+            </div>
           </div>
         </section>
 

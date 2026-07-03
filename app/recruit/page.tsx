@@ -360,11 +360,11 @@ export default function Recruit() {
             <div className="flex items-start gap-4 mb-16">
               <Number num="02" />
               <div className="pt-4">
-                <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
-                  Open Positions
-                </span>
-                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2">
+                <span className="font-japanese text-xs text-vuelta-gold/70 tracking-[0.3em] mb-4 block">
                   募集職種
+                </span>
+                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2 tracking-wide">
+                  Open Positions
                 </h2>
                 <div className="h-px w-16 bg-vuelta-gold mt-4"></div>
               </div>
@@ -465,11 +465,11 @@ export default function Recruit() {
             <div className="flex items-start gap-4 mb-16">
               <Number num="03" />
               <div className="pt-4">
-                <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
-                  What We Offer
-                </span>
-                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2">
+                <span className="font-japanese text-xs text-vuelta-gold/70 tracking-[0.3em] mb-4 block">
                   私たちが提供するもの
+                </span>
+                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2 tracking-wide">
+                  What We Offer
                 </h2>
                 <div className="h-px w-16 bg-vuelta-gold mt-4"></div>
               </div>
@@ -554,11 +554,11 @@ export default function Recruit() {
             <div className="flex items-start gap-4 mb-16">
               <Number num="04" />
               <div className="pt-4">
-                <span className="font-sans text-xs text-vuelta-gold/60 tracking-[0.3em] uppercase mb-4 block">
-                  How to Apply
-                </span>
-                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2">
+                <span className="font-japanese text-xs text-vuelta-gold/70 tracking-[0.3em] mb-4 block">
                   応募方法
+                </span>
+                <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2 tracking-wide">
+                  How to Apply
                 </h2>
                 <div className="h-px w-16 bg-vuelta-gold mt-4"></div>
               </div>

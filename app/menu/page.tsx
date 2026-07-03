@@ -231,7 +231,10 @@ export default function MenuPage() {
           <h1 className="font-annam text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wide">
             Menu
           </h1>
-          <p className="font-sans text-vuelta-text-light text-sm sm:text-base mt-3 max-w-md mx-auto">
+          <p className="font-annam text-vuelta-gold text-base sm:text-lg tracking-wider mt-3">
+            Crafted with Precision.
+          </p>
+          <p className="font-sans text-vuelta-text-light text-xs sm:text-sm mt-3 max-w-md mx-auto">
             All prices in JPY (tax included). Menu may change with seasonal availability.
           </p>
         </header>
