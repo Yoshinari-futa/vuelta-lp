@@ -277,7 +277,7 @@ export default function HomeJA() {
                   className="flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-vuelta-text-light mb-4"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-vuelta-gold shadow-[0_0_8px_rgba(26,58,46,0.55)]" aria-hidden="true"></span>
-                  営業 18:00 – 02:00 木曜定休
+                  OPEN 18:00 – 02:00 / CLOSED THU
                 </motion.p>
               </div>
 
@@ -325,10 +325,10 @@ export default function HomeJA() {
         {/* Info bar — 主要情報を一列で */}
         <div className="border-y border-vuelta-light/60 bg-white" aria-label="基本情報">
           <ul className="flex flex-wrap justify-center items-center px-4 sm:px-6 py-4 list-none">
-            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap">営業 18:00 – 02:00 木曜定休</li>
-            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">中電前から徒歩1分</li>
-            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">カウンター8席 スタンディング8席</li>
-            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">ウォークイン歓迎</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap">OPEN 18:00 – 02:00 / CLOSED THU</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">1 MIN WALK FROM CHUDENMAE</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">COUNTER 8 / STANDING 8</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">WALK-INS WELCOME</li>
           </ul>
         </div>
 
@@ -604,7 +604,7 @@ export default function HomeJA() {
                     <div>
                       <p className="font-annam text-2xl sm:text-3xl font-light text-vuelta-text mb-3">Bar VUELTA</p>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                        住所
+                        Address
                       </h3>
                       <a
                         href={MAPS_SEARCH_URL}
@@ -642,11 +642,11 @@ export default function HomeJA() {
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                        営業時間
+                        Opening Hours
                       </h3>
                       <div className="flex gap-1.5 max-w-[340px] mb-3" aria-label="木曜以外、毎日営業">
-                        {(['月', '火', '水', '木', '金', '土', '日'] as const).map((d) => (
-                          d === '木' ? (
+                        {(['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'] as const).map((d) => (
+                          d === 'THU' ? (
                             <span key={d} className="flex-1 text-center font-mono text-[11px] py-2 rounded border border-dashed border-[#d9c3bc] text-[#9c5844] line-through">
                               {d}
                             </span>
@@ -659,16 +659,16 @@ export default function HomeJA() {
                       </div>
                       <p className="text-lg tabular-nums">
                         18:00 – 02:00<br />
-                        <span className="text-sm text-vuelta-text-light">ラストオーダー 1:00</span><br />
+                        <span className="text-sm text-vuelta-text-light">Last Order 1:00</span><br />
                         <span className="text-sm text-[#9c5844]">木曜定休</span>
                       </p>
                     </div>
                     <div>
                       <h3 className="text-vuelta-gold mb-2 uppercase tracking-wider text-sm font-semibold">
-                        席数
+                        Seating
                       </h3>
                       <p className="text-base sm:text-lg">
-                        カウンター 8席 / スタンディング 8席<br />
+                        Counter 8 / Standing 8<br />
                         <span className="text-sm text-vuelta-text-light">会話を楽しめる、親密な小空間。</span>
                       </p>
                     </div>
