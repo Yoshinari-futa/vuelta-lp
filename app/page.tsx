@@ -264,7 +264,7 @@ export default function Home() {
                 className="flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.18em] uppercase text-vuelta-text-light mb-4"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-vuelta-gold shadow-[0_0_8px_rgba(26,58,46,0.55)]" aria-hidden="true"></span>
-                Open tonight 18:00 – 02:00 — closed Thursdays
+                Open 18:00 – 02:00 / Closed Thu
               </motion.p>
             </div>
 
@@ -312,9 +312,9 @@ export default function Home() {
       {/* Info bar — key facts at a glance */}
       <div className="border-y border-vuelta-light/60 bg-white" aria-label="Key information">
         <ul className="flex flex-wrap justify-center items-center px-4 sm:px-6 py-4 list-none">
-          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap">Open 18:00 – 02:00, closed Thu</li>
+          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap">Open 18:00 – 02:00 / Closed Thu</li>
           <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">1 min from Chuden-mae</li>
-          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">Counter 8 + standing 8</li>
+          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">Counter 8 / Standing 8</li>
           <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">Walk-ins welcome</li>
           <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">English friendly</li>
         </ul>

@@ -56,7 +56,7 @@ export default function SiteHeader({ lang }: { lang: Lang }) {
   }
 
   return (
-    <header className="site-header-fixed fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gray/50">
+    <header className="site-header-fixed fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-vuelta-gray/50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
