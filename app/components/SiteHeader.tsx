@@ -97,13 +97,13 @@ export default function SiteHeader({ lang }: { lang: Lang }) {
               {lang === 'en' ? (
                 <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">EN</span>
               ) : (
-                <a href="/" className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block" onClick={(e) => switchLang(e, 'en')}>EN</a>
+                <a href="/" className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase min-w-[44px] min-h-[44px] -mx-3 -my-3.5 inline-flex items-center justify-center" onClick={(e) => switchLang(e, 'en')}>EN</a>
               )}
               <span className="text-vuelta-gray/60 text-xs flex-shrink-0">/</span>
               {lang === 'ja' ? (
                 <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">JA</span>
               ) : (
-                <a href="/ja" className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block" onClick={(e) => switchLang(e, 'ja')}>JA</a>
+                <a href="/ja" className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase min-w-[44px] min-h-[44px] -mx-3 -my-3.5 inline-flex items-center justify-center" onClick={(e) => switchLang(e, 'ja')}>JA</a>
               )}
             </div>
 

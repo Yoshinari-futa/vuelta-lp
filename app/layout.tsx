@@ -142,7 +142,7 @@ export default function RootLayout({
         <LanguageSelector />
         {children}
         {/* 酒類広告ポリシー対応: 全ページ共通の飲酒注意表示（Google広告アルコールポリシー要件） */}
-        <div className="bg-black text-center text-[11px] text-white/40 py-3 px-4 tracking-wider">
+        <div className="age-notice bg-black text-center text-[11px] text-white/40 py-3 px-4 tracking-wider">
           20歳未満の飲酒は法律で禁じられています。飲酒は20歳になってから。
         </div>
       </body>

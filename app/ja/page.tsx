@@ -758,7 +758,7 @@ export default function HomeJA() {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
-          className="fixed z-50 md:hidden left-4 right-4 sm:left-1/2 sm:right-auto sm:w-auto sm:max-w-sm sm:-translate-x-1/2"
+          className="js-mobile-cta fixed z-50 md:hidden left-4 right-4 sm:left-1/2 sm:right-auto sm:w-auto sm:max-w-sm sm:-translate-x-1/2"
           style={{ bottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
         >
           <a

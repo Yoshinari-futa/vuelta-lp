@@ -69,3 +69,10 @@
   background-color: theme('colors.vuelta-gold');
   color: white;
 }
+
+/* モバイル固定予約CTAが法定表示(.age-notice)を覆わないための余白。CTAを持つページ(ホームJA/EN)だけで効く */
+@media (max-width: 767px) {
+  body:has(.js-mobile-cta) .age-notice {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+}
