@@ -312,11 +312,11 @@ export default function Home() {
       {/* Info bar — key facts at a glance */}
       <div className="border-y border-vuelta-light/60 bg-white" aria-label="Key information">
         <ul className="flex flex-wrap justify-center items-center px-4 sm:px-6 py-4 list-none">
-          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap">Open 18:00 – 02:00 / Closed Thu</li>
-          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">1 min from Chuden-mae</li>
-          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">Counter 8 / Standing 8</li>
-          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">Walk-ins welcome</li>
-          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">English friendly</li>
+          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center">Open 18:00 – 02:00 / Closed Thu</li>
+          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">1 min from Chuden-mae</li>
+          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">Counter 8 / Standing 8</li>
+          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">Walk-ins welcome</li>
+          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">English friendly</li>
         </ul>
       </div>
 

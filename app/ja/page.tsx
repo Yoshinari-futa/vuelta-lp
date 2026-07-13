@@ -326,10 +326,10 @@ export default function HomeJA() {
         {/* Info bar — 主要情報を一列で */}
         <div className="border-y border-vuelta-light/60 bg-white" aria-label="基本情報">
           <ul className="flex flex-wrap justify-center items-center px-4 sm:px-6 py-4 list-none">
-            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap">OPEN 18:00 – 02:00 / CLOSED THU</li>
-            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">1 MIN WALK FROM CHUDENMAE</li>
-            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">COUNTER 8 / STANDING 8</li>
-            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap border-l border-vuelta-light">WALK-INS WELCOME</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center">OPEN 18:00 – 02:00 / CLOSED THU</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">1 MIN WALK FROM CHUDENMAE</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">COUNTER 8 / STANDING 8</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">WALK-INS WELCOME</li>
           </ul>
         </div>
 
