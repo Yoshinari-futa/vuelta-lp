@@ -7,15 +7,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${SITE_WWW}/`,
-      lastModified: new Date('2026-04-14'),
+      lastModified: new Date('2026-07-13'),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${SITE_WWW}/ja`,
-      lastModified: new Date('2026-04-14'),
+      lastModified: new Date('2026-07-13'),
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${SITE_WWW}/faq`,
+      lastModified: new Date('2026-07-13'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_WWW}/ja/faq`,
+      lastModified: new Date('2026-07-13'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: `${SITE_WWW}/menu`,

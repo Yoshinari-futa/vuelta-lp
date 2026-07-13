@@ -15,6 +15,7 @@ import {
   footerTripAdvisorHref,
   isGoogleBusinessProfileConfigured,
 } from '@/lib/site-seo'
+import { featuredFaqs } from '@/lib/faqData'
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
@@ -22,137 +23,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { blurDataUrl } from '@/lib/blurPlaceholders'
+import SiteHeader from './components/SiteHeader'
+import SiteFooter from './components/SiteFooter'
 
 // Header Component
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const pathname = usePathname()
-  const router = useRouter()
-  const isRecruitPage = pathname === '/recruit'
-  const isEnHome = pathname === '/'
-  const isSubscriptionPage = pathname === '/subscription'
-
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault()
-      const element = document.querySelector(href)
-      if (element) {
-        const headerHeight = 80 // ヘッダーの高さ（px）
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-        const offsetPosition = elementPosition - headerHeight
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        })
-      }
-    }
-  }
-
-  return (
-    <header className={`site-header-fixed fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/50'}`}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a 
-            href="/"
-            className="transition-opacity hover:opacity-80"
-            aria-label="Bar VUELTA Home"
-          >
-            <Image
-              src="/images/vuelta-logo.png"
-              alt="Bar VUELTA"
-              width={250}
-              height={85}
-              className="h-8 md:h-10 w-auto object-contain"
-              priority
-              placeholder="blur"
-              blurDataURL={blurDataUrl('/images/vuelta-logo.png')}
-            />
-          </a>
-          
-          <div className="flex items-center gap-4 lg:gap-6">
-            {/* Desktop inline nav */}
-            <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Primary">
-              <a href="#about" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors" onClick={(e) => handleAnchorClick(e, '#about')}>About</a>
-              <Link href="/menu" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors">Menu</Link>
-              <Link href="/subscription" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors">Pass</Link>
-              <a href="#reservation" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors" onClick={(e) => handleAnchorClick(e, '#reservation')}>Visit</a>
-              <a href="#faq" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors" onClick={(e) => handleAnchorClick(e, '#faq')}>FAQ</a>
-              <Link href="/recruit" className="font-mono text-[11px] tracking-[0.2em] uppercase text-vuelta-text-light hover:text-vuelta-gold transition-colors">Recruit</Link>
-            </nav>
-            <a
-              href={RESERVATION_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center px-5 py-2 min-h-[36px] bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors font-annam text-[11.5px] tracking-[0.2em] uppercase rounded"
-            >
-              Reserve
-            </a>
-            {/* EN/JA - Left of menu button (both mobile and desktop) */}
-            <div className="flex items-center gap-2 border-r border-vuelta-gray/40 pr-4 min-w-[3rem] flex-shrink-0 md:border-r-0 md:pr-0">
-              <span className="font-annam text-xs text-vuelta-gold tracking-wider uppercase w-5 text-center">EN</span>
-              <span className="text-vuelta-gray/60 text-xs flex-shrink-0">/</span>
-              <a
-                href="/ja"
-                className="font-annam text-xs text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-wider uppercase w-5 text-center inline-block"
-                onClick={(e) => {
-                  e.preventDefault()
-                  localStorage.setItem('vuelta-language', 'ja')
-                  router.push(pathname === '/subscription' ? '/ja/subscription' : '/ja')
-                }}
-              >
-                JA
-              </a>
-            </div>
-
-            {/* Hamburger Menu Button - Mobile only */}
-            <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex md:hidden flex-col gap-1.5 p-3 min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded transition-all"
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMenuOpen}
-          >
-              <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-              <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? 'opacity-0' : ''}`} />
-              <span className={`w-6 h-px transition-all duration-300 ${isRecruitPage ? 'bg-vuelta-gold' : 'bg-vuelta-text'} ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-            </button>
-          </div>
-        </div>
-
-        {/* Menu - All Devices */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.nav
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-              className={`mt-6 pt-6 border-t ${isRecruitPage ? 'border-vuelta-gold/20' : 'border-vuelta-gray/20'}`}
-              aria-label="Main navigation"
-            >
-              <div className="flex flex-col">
-                <a href={isEnHome ? "#about" : "/#about"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isEnHome) handleAnchorClick(e, '#about'); setIsMenuOpen(false) }}>About</a>
-                <Link
-                  href="/menu"
-                  className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center touch-manipulation"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Menu
-                </Link>
-                <a href={isEnHome ? "#manager" : "/#manager"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isEnHome) handleAnchorClick(e, '#manager'); setIsMenuOpen(false) }}>Manager</a>
-                <a href={isEnHome ? "#reservation" : "/#reservation"} className="font-annam text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center" onClick={(e) => { if (isEnHome) handleAnchorClick(e, '#reservation'); setIsMenuOpen(false) }}>Visit Us</a>
-                <a href="/recruit" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isRecruitPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>Recruit</a>
-                <a href="/subscription" className={`font-annam text-sm transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center ${isSubscriptionPage ? 'text-vuelta-gold' : 'text-vuelta-text-light hover:text-vuelta-gold'}`} onClick={() => setIsMenuOpen(false)}>First Drink Pass</a>
-                <a href={RESERVATION_URL} target="_blank" rel="noopener noreferrer" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-[0.2em] uppercase py-3 min-h-[44px] flex items-center mt-4 pt-4 border-t border-vuelta-gray/20" onClick={() => setIsMenuOpen(false)}>Reserve</a>
-              </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
-      </nav>
-    </header>
-  )
-}
 
 // Animation component with enhanced scroll animations
 const FadeInUp = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
@@ -212,84 +86,7 @@ export default function Home() {
 
   const hoursStatus = getCurrentHours()
 
-  const faqs = [
-    {
-      q: 'Is English spoken at Bar VUELTA?',
-      a: 'Yes. Our English is not perfect, but we will do our best, and international guests are very welcome.',
-    },
-    {
-      q: 'Do I need a reservation?',
-      a: 'Walk-ins are welcome. For groups or guaranteed seating, you can book online.',
-    },
-    {
-      q: 'How do I make a reservation?',
-      a: 'You can book online through our Square reservation page, linked from the Reserve button on this site. Walk-ins are also welcome whenever we have space.',
-    },
-    {
-      q: 'How do I get to Bar VUELTA from Chuden-mae Station?',
-      a: 'It is a 1-minute walk from the Chuden-mae tram stop, on the 2nd floor of the Kakee Building (room 201), 3-3-5 Otemachi, Naka-ku, Hiroshima.',
-    },
-    {
-      q: 'Can I book the whole bar for a private party?',
-      a: 'Yes. We take private hire and group bookings. Please contact us in advance and we will arrange it.',
-    },
-    {
-      q: 'Is Bar VUELTA near the Peace Memorial Park?',
-      a: 'Yes. We are in central Naka-ku, within walking distance of the Peace Memorial Park, so it is an easy stop for a drink after sightseeing.',
-    },
-    {
-      q: 'Is there parking?',
-      a: 'We do not have our own car park, but there are coin parking lots nearby.',
-    },
-    {
-      q: 'What are the opening hours?',
-      a: 'Open 18:00 to 02:00 (last order 01:00), closed on Thursdays.',
-    },
-    {
-      q: 'What kind of drinks do you serve?',
-      a: 'Craft cocktails made with local Hiroshima ingredients such as Sakurao Gin and Hiroshima lemon, plus finger food and tacos.',
-    },
-    {
-      q: 'What are your signature cocktails?',
-      a: 'Signatures include The OKONOMIYAKI (Hiroshima soul food in a glass) and Shell We? (Hiroshima oysters, the sea in a glass). Cocktails range roughly from 950 to 1,600 yen.',
-    },
-    {
-      q: 'Do you have non-alcoholic drinks?',
-      a: 'Yes. We make non-alcoholic cocktails, so guests who do not drink can enjoy the bar too.',
-    },
-    {
-      q: 'Can I come alone?',
-      a: 'Yes. It is a small, counter-led space that is comfortable for solo guests.',
-    },
-    {
-      q: 'How many seats does Bar VUELTA have?',
-      a: 'Eight counter seats plus a standing area for about eight more, an intimate room made for conversation.',
-    },
-    {
-      q: 'Is Bar VUELTA good for a date or an anniversary?',
-      a: 'Yes. The calm, counter-led room suits dates and anniversaries as well as a relaxed drink on your own.',
-    },
-    {
-      q: 'Can I smoke at Bar VUELTA?',
-      a: 'Yes, smoking is allowed inside the bar.',
-    },
-    {
-      q: 'Is there Wi-Fi?',
-      a: 'Yes, free Wi-Fi is available for our guests.',
-    },
-    {
-      q: 'Is there a cover charge?',
-      a: 'Yes. There is a cover charge of 300 yen per person.',
-    },
-    {
-      q: 'What payment methods can I use?',
-      a: 'Cash, credit cards (Visa, Mastercard, AMEX) and electronic money.',
-    },
-    {
-      q: 'What is the First Drink Pass?',
-      a: 'A membership for 1,980 yen per month that includes one free drink on each day you visit, a simple reason to come back often.',
-    },
-  ]
+  const faqs = featuredFaqs.map((f) => ({ q: f.en.q, a: f.en.a }))
 
   // Structured Data for SEO — BarOrPub + WebSite
   const structuredData = [
@@ -398,7 +195,7 @@ export default function Home() {
       <link rel="dns-prefetch" href="https://images.unsplash.com" />
       
       {/* Header */}
-      <Header />
+      <SiteHeader lang="en" />
       
       <div id="main-content" tabIndex={-1}>
       {/* Hero Section */}
@@ -984,42 +781,16 @@ export default function Home() {
               </details>
             ))}
           </div>
+            <div className="mt-8 text-center">
+              <Link href="/faq" className="font-annam text-sm text-vuelta-gold hover:text-vuelta-gold-light transition-colors tracking-wider uppercase">
+                View All Questions →
+              </Link>
+            </div>
         </div>
       </section>
 
       {/* Footer — pine */}
-      <footer className="bg-vuelta-pine py-16 md:py-20 px-4 sm:px-6 text-[#e9efe7]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-between items-start gap-10 mb-12">
-            <div>
-              <p className="font-annam text-2xl tracking-[0.3em]">VUELTA</p>
-              <p className="font-mono text-[10.5px] tracking-[0.26em] uppercase text-vuelta-mint/70 mt-3">Craft cocktail bar — Hiroshima, Japan</p>
-            </div>
-            <nav className="flex flex-wrap gap-x-7 gap-y-4 items-center" aria-label="Footer">
-              <Link href="/menu" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">Menu</Link>
-              <a href="#about" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">About</a>
-              <Link href="/subscription" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">First Drink Pass</Link>
-              <a href="/recruit" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">Recruit</a>
-              <a href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">Instagram</a>
-              <a href={footerGoogleHref()} target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">
-                {isGoogleBusinessProfileConfigured() ? 'Google' : 'Google Maps'}
-              </a>
-              <a href={footerTripAdvisorHref()} target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#8fa697] hover:text-vuelta-mint-light transition-colors">TripAdvisor</a>
-            </nav>
-          </div>
-          <div className="pt-8 border-t border-white/10 font-sans text-xs text-[#7f9488] leading-relaxed space-y-2">
-            <p>Bar VUELTA — Kakee Building 201, 3-3-5 Otemachi, Naka-ku, Hiroshima 730-0051, Japan</p>
-            <p>We'll do our best to communicate. International guests welcome. Free Wi-Fi available. Where locals really go.</p>
-            <p>
-              <Link href="/tokushoho" className="text-[#a9bcae] hover:text-vuelta-mint-light transition-colors underline underline-offset-4 decoration-white/20">
-                特定商取引法に基づく表記
-              </Link>
-              <span className="mx-3">|</span>
-              © 2026 Bar VUELTA. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+            <SiteFooter lang="en" />
 
       {/* Fixed CTA Button */}
       <motion.div
