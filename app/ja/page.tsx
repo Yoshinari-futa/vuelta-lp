@@ -25,6 +25,7 @@ import { useRouter } from 'next/navigation'
 import { blurDataUrl } from '@/lib/blurPlaceholders'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
+import MobileReserveCta from '../components/MobileReserveCta'
 
 // Header Component (日本語版)
 
@@ -754,26 +755,7 @@ export default function HomeJA() {
                 <SiteFooter lang="ja" />
 
         {/* Fixed CTA Button */}
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="js-mobile-cta fixed z-50 md:hidden left-4 right-4 sm:left-1/2 sm:right-auto sm:w-auto sm:max-w-sm sm:-translate-x-1/2"
-          style={{ bottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
-        >
-          <a
-            href={RESERVATION_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 px-6 py-4 min-h-[52px] bg-vuelta-gold text-white rounded-full shadow-lg hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-sm tracking-wider uppercase w-full"
-            aria-label="オンラインで予約する"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fillRule="evenodd" clipRule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3a.75.75 0 0 1 1.5 0v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"/>
-            </svg>
-            <span>予約する</span>
-          </a>
-        </motion.div>
+        <MobileReserveCta href={RESERVATION_URL} label="予約する" ariaLabel="オンラインで予約する" />
 
         {/* Fixed CTA Button - Desktop */}
         <motion.div
