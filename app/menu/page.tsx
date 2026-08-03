@@ -5,7 +5,6 @@ import {
   foodCategories,
   cocktailCategories,
   recommend,
-  subscription,
   spiritsCategories,
   type MenuCategory,
   type MenuItem,
@@ -248,25 +247,6 @@ export default function MenuPage() {
             {cocktailCategories.map((cat) => (
               <MenuSection key={cat.title} category={cat} />
             ))}
-          </div>
-
-          {/* ---- SUBSCRIPTION ---- */}
-          <div className="mb-20">
-            <div className="border-b border-vuelta-gold/30 mb-10 pb-2">
-              <span className="font-annam text-xs uppercase tracking-[.25em] text-vuelta-gold">
-                Subscription
-              </span>
-            </div>
-            <MenuSection category={subscription} />
-            <p className="font-sans text-xs sm:text-sm text-vuelta-text-light -mt-8">
-              One drink from this lineup, every day you visit.{' '}
-              <Link
-                href="/subscription"
-                className="text-vuelta-gold hover:text-vuelta-gold-light underline underline-offset-2 transition-colors"
-              >
-                About the First Drink Pass
-              </Link>
-            </p>
           </div>
 
           {/* ---- SPIRITS / BEER / WINE ---- */}
