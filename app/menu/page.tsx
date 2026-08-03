@@ -3,14 +3,16 @@ import Link from 'next/link'
 import {
   coverCharge,
   foodCategories,
-  signatureCocktails,
-  cocktails,
+  cocktailCategories,
   recommend,
+  subscription,
   spiritsCategories,
   type MenuCategory,
   type MenuItem,
 } from '@/lib/menuData'
 import { RESERVATION_URL, SITE_ORIGIN } from '@/lib/site-seo'
+import SiteHeader from '../components/SiteHeader'
+import SiteFooter from '../components/SiteFooter'
 
 // ── SEO Metadata ──────────────────────────
 export const metadata: Metadata = {
@@ -111,26 +113,16 @@ function MenuJsonLd() {
           },
         })),
       })),
-      {
+      ...cocktailCategories.map((cat) => ({
         '@type': 'MenuSection',
-        name: signatureCocktails.title,
-        hasMenuItem: signatureCocktails.items.map((item) => ({
-          '@type': 'MenuItem',
-          name: item.name,
-          description: item.description ?? item.ingredients ?? '',
-          offers: { '@type': 'Offer', price: item.price, priceCurrency: 'JPY' },
-        })),
-      },
-      {
-        '@type': 'MenuSection',
-        name: cocktails.title,
-        hasMenuItem: cocktails.items.map((item) => ({
+        name: cat.title,
+        hasMenuItem: cat.items.map((item) => ({
           '@type': 'MenuItem',
           name: item.name,
           description: item.ingredients ?? item.description ?? '',
           offers: { '@type': 'Offer', price: item.price, priceCurrency: 'JPY' },
         })),
-      },
+      })),
     ],
   }
   return (
@@ -142,8 +134,9 @@ function MenuJsonLd() {
 }
 
 // ── Price formatter ───────────────────────
-function fmtPrice(item: MenuItem) {
-  if (item.priceLabel) return `¥${item.priceLabel}`
+function fmtPrice(item: MenuItem): string | null {
+  if (item.priceLabel) return item.priceLabel
+  if (item.price == null) return null
   return `¥${item.price.toLocaleString()}`
 }
 
@@ -169,9 +162,11 @@ function MenuSection({ category }: { category: MenuCategory }) {
               <h3 className="font-annam text-base sm:text-lg md:text-xl leading-snug">
                 {item.name}
               </h3>
-              <span className="flex-shrink-0 font-sans text-sm sm:text-base tabular-nums text-vuelta-gold font-medium">
-                {fmtPrice(item)}
-              </span>
+              {fmtPrice(item) && (
+                <span className="flex-shrink-0 font-sans text-sm sm:text-base tabular-nums text-vuelta-gold font-medium">
+                  {fmtPrice(item)}
+                </span>
+              )}
             </div>
 
             {/* Japanese name */}
@@ -216,6 +211,7 @@ export default function MenuPage() {
         { name: 'Menu', url: 'https://www.vuelta.jp/menu' },
       ]} />
 
+      <SiteHeader lang="en" />
       <a href="#main-content" className="skip-link">
         Skip to menu
       </a>
@@ -249,8 +245,28 @@ export default function MenuPage() {
               </span>
             </div>
             <MenuSection category={recommend} />
-            <MenuSection category={signatureCocktails} />
-            <MenuSection category={cocktails} />
+            {cocktailCategories.map((cat) => (
+              <MenuSection key={cat.title} category={cat} />
+            ))}
+          </div>
+
+          {/* ---- SUBSCRIPTION ---- */}
+          <div className="mb-20">
+            <div className="border-b border-vuelta-gold/30 mb-10 pb-2">
+              <span className="font-annam text-xs uppercase tracking-[.25em] text-vuelta-gold">
+                Subscription
+              </span>
+            </div>
+            <MenuSection category={subscription} />
+            <p className="font-sans text-xs sm:text-sm text-vuelta-text-light -mt-8">
+              One drink from this lineup, every day you visit.{' '}
+              <Link
+                href="/subscription"
+                className="text-vuelta-gold hover:text-vuelta-gold-light underline underline-offset-2 transition-colors"
+              >
+                About the First Drink Pass
+              </Link>
+            </p>
           </div>
 
           {/* ---- SPIRITS / BEER / WINE ---- */}
@@ -322,6 +338,7 @@ export default function MenuPage() {
           </div>
         </div>
       </main>
+      <SiteFooter lang="en" />
     </>
   )
 }

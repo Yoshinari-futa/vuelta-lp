@@ -1,14 +1,15 @@
 // ========================================
 // VUELTA — Menu Data (Single Source of Truth)
 // メニューの追加・変更はここだけ編集する
-// 最終更新: 2026-05-30（最新PDFに準拠）
+// 最終更新: 2026-08-03（最新PDFに準拠）
 // ========================================
 
 export interface MenuItem {
   name: string
   nameJa?: string
-  price: number
-  /** "1,000 / 2 pc" のような特殊表記 */
+  /** 単品価格（税込）。サブスク対象など個別価格なしの品は省略 */
+  price?: number
+  /** "¥900 / 2 pc" のような特殊表記。指定時はこの文字列をそのまま表示する */
   priceLabel?: string
   description?: string
   descriptionJa?: string
@@ -37,23 +38,212 @@ export const coverCharge: MenuCategory = {
   ],
 }
 
+// ── RECOMMEND ─────────────────────────────
+
+export const recommend: MenuCategory = {
+  title: 'RECOMMEND',
+  items: [
+    {
+      name: 'Hiroshima Cocktail Journey',
+      nameJa: 'ヒロシマ カクテル ジャーニー',
+      price: 4000,
+      descriptionJa: '広島を、飲んで旅する。',
+      description:
+        "Drink your way through Hiroshima in three acts. 1st: Tipsy Crane, Hiroshima sake as a Negroni. 2nd: Shell We?, Miyajima oysters as a gin sonic. 3rd: The OKONOMIYAKI, Hiroshima's soul food in a glass. Plus one dish of your choice.",
+    },
+    {
+      name: 'Short Journey',
+      nameJa: 'ショート ジャーニー',
+      priceLabel: '+¥600',
+      descriptionJa: '寄り道も、旅のうち。',
+      description: 'A detour is still a journey. Two tacos with any cocktail.',
+    },
+  ],
+}
+
+// ── COCKTAILS ─────────────────────────────
+
+export const cocktailCategories: MenuCategory[] = [
+  {
+    title: 'HIROSHIMA',
+    items: [
+      {
+        name: 'Hiroshima 75',
+        nameJa: 'ヒロシマ セブンティファイブ',
+        price: 900,
+        ingredients: 'SAKURAO / Taketsuru / St-Germain / Lemon / Peach',
+      },
+      {
+        name: 'The OKONOMIYAKI #2',
+        nameJa: 'ザ オコノミヤキ',
+        price: 1000,
+        ingredients: 'Shochu / Otafuku Sauce / Cabbage Water / Bacon / Aosa',
+        description:
+          "Okonomiyaki is Hiroshima's post-war soul food. We distilled that legacy into a glass—rich sauce and savory umami, our history served with pride.",
+      },
+      {
+        name: 'VUELTA Lemon Sour',
+        nameJa: 'ブエルタ レモンサワー',
+        price: 1200,
+        ingredients: 'KOME / Lemon / Tonic',
+      },
+      {
+        name: 'Shell We?',
+        nameJa: 'シェル ウィー？',
+        price: 1600,
+        ingredients: 'Gin / Dashi Rice Vinegar / Tonic Soda',
+        description:
+          'Celebrating the world-famous oysters of the Seto Inland Sea. Briny minerals, fresh citrus, and coastal elegance in a glass. Shall we toast?',
+      },
+      {
+        name: "Don't Feed the Dear",
+        nameJa: 'ドント フィード ザ ディア',
+        price: 1850,
+        ingredients: 'Mizunara / Azuki / Chestnut / Milk / Momiji Leaf',
+      },
+      {
+        name: 'Tipsy Crane',
+        nameJa: 'ヨイヅル',
+        price: 2200,
+        ingredients: 'Gin / Sake / Campari / Sweet Vermouth',
+      },
+    ],
+  },
+  {
+    title: 'JAPAN',
+    items: [
+      {
+        name: 'Cherry Blossoms Margarita',
+        nameJa: 'サクラマルガリータ',
+        price: 1000,
+        ingredients: 'Tequila / Sakura / Lemon',
+      },
+      {
+        name: 'Electric Buck',
+        nameJa: 'デンゲキバック',
+        price: 850,
+        ingredients: 'Sansho-Gin / Ginger Ale',
+      },
+      {
+        name: 'Yaoyorozu Mule ∞',
+        nameJa: 'ヤオヨロズミュール∞',
+        price: 1200,
+        ingredients: '"WA"PIRITS / Ginger Vinegar / Myoga / Shiso / Ginger',
+      },
+      {
+        name: 'Kaku-Gari-Ta',
+        nameJa: 'カクガリータ',
+        price: 1800,
+        ingredients: 'Tequila / Mezcal / KOME / Wasabi',
+      },
+    ],
+  },
+  {
+    title: 'ELSEWHERE',
+    items: [
+      {
+        name: '1886',
+        nameJa: 'エイティーン・エイティシックス',
+        price: 950,
+        ingredients: 'Cherry Brandy / Cynar / Angostura Bitters / Cola',
+        description:
+          'Not what it seems. A sophisticated botanical cocktail disguised in a classic cola bottle. Expect the unexpected.',
+      },
+      {
+        name: '26 hours',
+        nameJa: 'トゥエンティーシックスアワーズ',
+        price: 1250,
+        ingredients: 'Beefeater 24 / Tomato / Cucumber',
+        description:
+          'We stay open until the 26th hour—2 AM. Clear tomato, cucumber, and light minerals. Refreshing enough to keep the magic alive until last call.',
+      },
+      {
+        name: 'Smoked Cheese Paloma',
+        nameJa: 'スモークチーズパロマ',
+        price: 1100,
+        ingredients: 'Tequila / Smoked Cheese / Grapefruit / Tonic / Black Pepper',
+      },
+    ],
+  },
+  {
+    title: 'MOCKTAILS',
+    items: [
+      {
+        name: 'Hiroshima Lemon Tonic',
+        nameJa: '広島檸檬スカッシュ',
+        price: 800,
+        ingredients: 'Lemon / Homemade Syrup / Tonic',
+      },
+    ],
+  },
+]
+
+// ── SUBSCRIPTION（First Drink Pass 対象ラインナップ）──
+
+export const subscription: MenuCategory = {
+  title: 'SUBSCRIPTION',
+  subtitle: 'month / ¥1,980',
+  items: [
+    {
+      name: 'The OKONOMIYAKI #2',
+      nameJa: 'ザ オコノミヤキ',
+      ingredients: 'Shochu / Otafuku Sauce / Cabbage Water / Bacon / Aosa',
+    },
+    {
+      name: '26 hours',
+      nameJa: 'トゥエンティーシックスアワーズ',
+      ingredients: 'Beefeater 24 / Clarified Tomato / Cucumber / Soda',
+    },
+    {
+      name: 'VUELTA Lemon Sour',
+      nameJa: 'ブエルタ レモンサワー',
+      ingredients: 'SG KOME / Fresh Lemon / Soda',
+    },
+    {
+      name: 'Electric Buck',
+      nameJa: 'デンゲキバック',
+      ingredients: 'Sansho-Infused Gin / Dry Ginger Ale',
+    },
+    { name: 'Yamazaki NV', nameJa: '山崎NV', description: 'Single Malt Whisky' },
+    { name: 'SAKURAO GIN', nameJa: '桜尾ジン', description: 'Hiroshima Dry Gin' },
+    { name: 'Nikaido', nameJa: '二階堂', description: 'Barley Shochu, Oita' },
+    {
+      name: 'Kurokirishima',
+      nameJa: '黒霧島',
+      description: 'Sweet Potato Shochu, Miyazaki',
+    },
+    { name: 'Torikai', nameJa: '鳥飼', description: 'Barley Shochu, Oita' },
+  ],
+}
+
 // ── FOOD ──────────────────────────────────
 
 export const foodCategories: MenuCategory[] = [
   {
-    title: 'THE REPERTOIRE',
+    title: 'FOOD',
     items: [
+      {
+        name: 'Chocolate Bonbon',
+        nameJa: 'ボンボンショコラ',
+        price: 350,
+        priceLabel: '¥350 / pc',
+      },
+      {
+        name: 'Olives',
+        nameJa: 'オリーブ',
+        price: 500,
+      },
+      {
+        name: 'Rum Raisin Butter',
+        nameJa: 'ラムレーズンバター',
+        price: 500,
+      },
       {
         name: 'Gansu',
         nameJa: '草津 坂井屋のガンス',
         price: 500,
         description:
           "Hiroshima's signature crispy fish cutlet with a savory, spicy kick.",
-      },
-      {
-        name: 'Rum Raisin Butter',
-        nameJa: 'ラムレーズンバター',
-        price: 600,
       },
       {
         name: 'Hand-Cut Fries',
@@ -64,131 +254,26 @@ export const foodCategories: MenuCategory[] = [
       {
         name: 'Gansu Tacos',
         nameJa: 'ガンスタコス',
-        price: 1000,
-        priceLabel: '1,000 / 2 pc',
+        price: 900,
+        priceLabel: '¥900 / 2 pc',
         description:
           'A crispy, golden-fried fish cutlet blended with sweet onions and a savory, spicy kick.',
       },
       {
         name: 'Carnitas Tacos',
         nameJa: 'ポーク カルニタス タコス',
-        price: 900,
-        priceLabel: '900 / 2 pc',
+        price: 850,
+        priceLabel: '¥850 / 2 pc',
       },
       {
         name: 'Cheesy Carnitas',
         nameJa: 'チーズタコス',
         price: 950,
-        priceLabel: '950 / 2 pc',
+        priceLabel: '¥950 / 2 pc',
       },
     ],
   },
 ]
-
-// ── SIGNATURE COCKTAILS ───────────────────
-
-export const signatureCocktails: MenuCategory = {
-  title: 'SIGNATURE COCKTAILS',
-  items: [
-    {
-      name: 'The OKONOMIYAKI',
-      nameJa: 'ザ オコノミヤキ',
-      price: 1200,
-      ingredients: 'Dashi-Infused Vodka / Spiced Clam Tomato / Campari / Lemon',
-      description:
-        "Okonomiyaki is Hiroshima's post-war soul food. We distilled that legacy into a glass. Savory dashi and rich sauce—our history, served with pride.",
-    },
-    {
-      name: '26 hours',
-      nameJa: 'トゥエンティーシックスアワーズ',
-      price: 1250,
-      ingredients: 'Beefeater 24 / Clarified Tomato / Cucumber / Soda',
-      description:
-        'We stay open until the 26th hour—2 AM. Clear tomato, cucumber, and light minerals. Refreshing enough to keep the magic alive until last call.',
-    },
-    {
-      name: '1886',
-      nameJa: 'エイティーン・エイティシックス',
-      price: 1300,
-      ingredients: 'Cherry Brandy / Amer Picon / Angostura Bitters / Cola',
-      description:
-        'Not what it seems. A sophisticated botanical cocktail disguised in a classic cola bottle. Expect the unexpected.',
-    },
-    {
-      name: 'Shell We?',
-      nameJa: 'シェル ウィー？',
-      price: 1600,
-      ingredients: 'SAKURAO Gin / Shiro-Dashi / Rice Vinegar / Lemon / Tonic Soda',
-      description:
-        "Celebrating the world-famous oysters of the Seto Inland Sea. Briny minerals, fresh citrus, and coastal elegance in a glass. Shall we toast?",
-    },
-  ],
-}
-
-// ── COCKTAILS ─────────────────────────────
-
-export const cocktails: MenuCategory = {
-  title: 'COCKTAILS',
-  items: [
-    {
-      name: 'VUELTA Lemon Sour',
-      nameJa: 'ブエルタ レモンサワー',
-      price: 1200,
-      ingredients: 'SG KOME / Fresh Lemon / Soda',
-    },
-    {
-      name: 'Spring Bloom Margarita',
-      nameJa: 'サクラマルガリータ',
-      price: 1000,
-      ingredients: 'Tequila Silver / Sakura Liqueur / Lemon / Sakura Petal',
-    },
-    {
-      name: 'Electric Buck',
-      nameJa: 'デンゲキバック',
-      price: 850,
-      ingredients: 'Sansho-Infused Gin / Dry Ginger Ale',
-    },
-    {
-      name: 'Smoked Cheese Paloma',
-      nameJa: 'スモークチーズパロマ',
-      price: 1100,
-      ingredients: 'Agaveros Tequila / Smoked Cheese / Grapefruit / Tonic / Black Pepper',
-    },
-    {
-      name: 'Yaoyorozu Mule ∞',
-      nameJa: 'ヤオヨロズミュール∞',
-      price: 1200,
-      ingredients: 'WAPIRITS TUMUGI / Ginger Vinegar / Myoga / Shiso / Ginger beer',
-    },
-    {
-      name: 'Tipsy Crane',
-      nameJa: 'ヨイヅル',
-      price: 1500,
-      ingredients: 'Sakurao Gin / Kamotsuru Sake / Campari / Sweet Vermouth / Sakura Bitters',
-    },
-    {
-      name: 'Kaku-Gari-Ta',
-      nameJa: 'カクガリータ',
-      price: 1800,
-      ingredients: 'Tequila / Mezcal / SG KOME / Wasabi Salt',
-    },
-  ],
-}
-
-// ── RECOMMEND ─────────────────────────────
-
-export const recommend: MenuCategory = {
-  title: 'RECOMMEND',
-  items: [
-    {
-      name: 'Hiroshima Cocktail Journey',
-      nameJa: 'ヒロシマ カクテル ジャーニー',
-      price: 4000,
-      description:
-        "Your Hiroshima adventure starts here. The Cocktail Journey takes you through three house-crafted cocktails inspired by the city's soul, paired with a food of your choice. It's not just a drink package; it's the perfect introduction to everything this city has to offer.",
-    },
-  ],
-}
 
 // ── SPIRITS & DRINKS ──────────────────────
 
@@ -196,8 +281,8 @@ export const spiritsCategories: MenuCategory[] = [
   {
     title: 'BEER',
     items: [
-      { name: 'Sapporo Lager "AKABOSHI"', nameJa: 'サッポロ 赤星', price: 850 },
-      { name: 'Kirin Lager', nameJa: 'キリンラガー', price: 850 },
+      { name: 'Sapporo Lager "AKABOSHI"', nameJa: 'サッポロ 赤星', price: 700 },
+      { name: 'Kirin Lager', nameJa: 'キリンラガー', price: 700 },
     ],
   },
   {
@@ -212,7 +297,7 @@ export const spiritsCategories: MenuCategory[] = [
     title: 'SHOCHU',
     subtitle: 'Rocks, Water, or Highball',
     items: [
-      { name: 'Torikai', nameJa: '鳥飼（米）', price: 900, description: 'Rice' },
+      { name: 'Torikai', nameJa: '鳥飼（米）', price: 800, description: 'Rice' },
     ],
   },
   {
@@ -221,7 +306,7 @@ export const spiritsCategories: MenuCategory[] = [
       {
         name: 'Taketsuru',
         nameJa: '竹鶴',
-        price: 800,
+        price: 700,
       },
     ],
   },
@@ -229,16 +314,16 @@ export const spiritsCategories: MenuCategory[] = [
     title: 'JAPANESE WHISKY',
     subtitle: 'Neat, Rocks, Water, or Highball',
     items: [
-      { name: 'Kaku', nameJa: '角', price: 650 },
+      { name: 'Kaku', nameJa: '角', price: 600 },
       {
         name: 'Taketsuru Pure Malt',
         nameJa: '竹鶴',
-        price: 980,
+        price: 1000,
       },
       { name: 'Yamazaki 12y', nameJa: '山崎12年', price: 1800 },
       {
-        name: 'Hibiki Japanese Harmony',
-        nameJa: '響 JAPANESE HARMONY',
+        name: "Hibiki Blender's Choice",
+        nameJa: '響 ブレンダーズチョイス',
         price: 2800,
       },
     ],
@@ -247,7 +332,7 @@ export const spiritsCategories: MenuCategory[] = [
     title: 'Japanese Peated Collection',
     subtitle: 'Neat, Rocks, Water, or Highball',
     items: [
-      { name: 'Yoichi', nameJa: '余市', price: 980 },
+      { name: 'Yoichi', nameJa: '余市', price: 1000 },
       { name: 'Hakushu 12y', nameJa: '白州12年', price: 1800 },
       { name: 'Akkeshi', nameJa: '厚岸', price: 2800 },
     ],

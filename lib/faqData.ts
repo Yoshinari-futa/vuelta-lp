@@ -283,23 +283,23 @@ export const faqEntries: FaqEntry[] = [
     featured: true,
     en: {
       q: 'What are your signature cocktails?',
-      a: 'Signatures include The OKONOMIYAKI (Hiroshima soul food in a glass) and Shell We? (Hiroshima oysters, the sea in a glass). Cocktails range roughly from 950 to 1,600 yen.',
+      a: 'Signatures include The OKONOMIYAKI #2 (Hiroshima soul food in a glass) and Shell We? (Hiroshima oysters, the sea in a glass). Cocktails range roughly from 850 to 2,200 yen.',
     },
     ja: {
       q: 'おすすめや名物のカクテルは？',
-      a: '看板は「The OKONOMIYAKI」（広島のソウルフードを一杯に）と「Shell We?」（広島の牡蠣、海を一杯に）です。カクテルはおよそ950円から1,600円です。',
+      a: '看板は「The OKONOMIYAKI #2」（広島のソウルフードを一杯に）と「Shell We?」（広島の牡蠣、海を一杯に）です。カクテルはおよそ850円から2,200円です。',
     },
   },
   {
     id: 'okonomiyaki-cocktail',
     category: 'drinks',
     en: {
-      q: 'What is "The OKONOMIYAKI" cocktail?',
-      a: "Our signature cocktail that turns okonomiyaki, Hiroshima's post-war soul food, into a drink (1,200 yen). Dashi-infused vodka meets spiced clam tomato, Campari and lemon, finished with bacon grilled with Otafuku sauce — savory umami in a glass.",
+      q: 'What is "The OKONOMIYAKI #2" cocktail?',
+      a: "Our signature cocktail that turns okonomiyaki, Hiroshima's post-war soul food, into a drink (1,000 yen). Now in its second edition: shochu meets Otafuku sauce and cabbage water, finished with bacon and aosa seaweed — savory umami in a glass.",
     },
     ja: {
-      q: '「The OKONOMIYAKI」とはどんなカクテルですか？',
-      a: '広島のソウルフード、お好み焼きをグラスの中に表現した看板カクテルです（1,200円）。出汁を移したウォッカに、スパイスを効かせたクラムトマトとカンパリ、レモンを重ね、おたふくソースを絡めて焼いたベーコンを添えています。',
+      q: '「The OKONOMIYAKI #2」とはどんなカクテルですか？',
+      a: '広島のソウルフード、お好み焼きをグラスの中に表現した看板カクテルです（1,000円）。現在は2代目レシピ。焼酎にオタフクソースとキャベツウォーターを重ね、ベーコンとあおさを添えています。',
     },
   },
   {
@@ -307,11 +307,11 @@ export const faqEntries: FaqEntry[] = [
     category: 'drinks',
     en: {
       q: 'What is the "Shell We?" cocktail?',
-      a: 'An original cocktail celebrating the famous oysters of the Seto Inland Sea (1,600 yen). SAKURAO Gin from Hiroshima meets shiro-dashi, rice vinegar, lemon and tonic soda — briny minerals and fresh citrus in a glass.',
+      a: 'An original cocktail celebrating the famous oysters of the Seto Inland Sea (1,600 yen). Gin meets dashi rice vinegar and tonic soda — briny minerals and fresh citrus in a glass.',
     },
     ja: {
       q: '「Shell We?」とはどんなカクテルですか？',
-      a: '瀬戸内海の名物である牡蠣をテーマにしたオリジナルカクテルです（1,600円）。広島の桜尾ジンに白だしと米酢、レモン、トニックソーダを合わせ、磯のミネラルと柑橘の爽やかさを一杯にしました。',
+      a: '瀬戸内海の名物である牡蠣をテーマにしたオリジナルカクテルです（1,600円）。ジンに出汁を効かせた米酢とトニックソーダを合わせ、磯のミネラルと柑橘の爽やかさを一杯にしました。',
     },
   },
   {
@@ -497,11 +497,11 @@ export const faqEntries: FaqEntry[] = [
     category: 'payment',
     en: {
       q: 'How much should I budget for a visit?',
-      a: 'Cocktails range roughly from 950 to 1,600 yen, plus a 300 yen cover charge per person. As a guide, two cocktails come to about 2,500 to 3,500 yen.',
+      a: 'Cocktails range roughly from 850 to 2,200 yen, plus a 300 yen cover charge per person. As a guide, two cocktails come to about 2,300 to 3,500 yen.',
     },
     ja: {
       q: '予算はどのくらい見ておけばいいですか？',
-      a: 'カクテルはおよそ950円から1,600円、チャージがお一人様300円です。2杯ほどで2,500円から3,500円が目安です。',
+      a: 'カクテルはおよそ850円から2,200円、チャージがお一人様300円です。2杯ほどで2,300円から3,500円が目安です。',
     },
   },
   {
