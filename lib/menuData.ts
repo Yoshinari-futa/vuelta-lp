@@ -197,7 +197,7 @@ export const subscription: MenuCategory = {
     {
       name: 'VUELTA Lemon Sour',
       nameJa: 'ブエルタ レモンサワー',
-      ingredients: 'SG KOME / Fresh Lemon / Soda',
+      ingredients: 'SG KOME / Fresh Lemon / Tonic',
     },
     {
       name: 'Electric Buck',
