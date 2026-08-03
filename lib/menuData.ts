@@ -144,7 +144,7 @@ export const cocktailCategories: MenuCategory[] = [
       {
         name: '1886',
         nameJa: 'エイティーン・エイティシックス',
-        price: 950,
+        price: 1000,
         ingredients: 'Cherry Brandy / Cynar / Angostura Bitters / Cola',
         description:
           'Not what it seems. A sophisticated botanical cocktail disguised in a classic cola bottle. Expect the unexpected.',
