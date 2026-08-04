@@ -143,7 +143,7 @@ footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;
 var LANGS=['en','es','fr','ko','zh'];
 function applyLang(l){
   if(LANGS.indexOf(l)<0) l='en';
-  document.body.classList.remove('lang-en','lang-es','lang-fr');
+  document.body.classList.remove('lang-en','lang-es','lang-fr','lang-ko','lang-zh');
   document.body.classList.add('lang-'+l);
   document.documentElement.lang=({en:'en',es:'es',fr:'fr',ko:'ko',zh:'zh-Hant'})[l];
   LANGS.forEach(function(x){document.getElementById('btn-'+x).classList.toggle('active',x===l);});
