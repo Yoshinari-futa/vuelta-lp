@@ -53,6 +53,8 @@ header{text-align:center;padding:44px 0 8px}
 .btn-primary{background:var(--green);color:#ffffff;font-weight:500}
 .btn-ghost{border:1px solid var(--green);color:var(--green)}
 
+.wrap{transition:opacity .17s ease}
+body.fading .wrap{opacity:0}
 footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;color:var(--sub);margin-top:44px;line-height:2}
 </style>
 </head>
@@ -139,16 +141,42 @@ footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;
 
 <script>
 var LANGS=['en','es','fr','ko','zh'];
-function setLang(l){
+function applyLang(l){
   if(LANGS.indexOf(l)<0) l='en';
   document.body.classList.remove('lang-en','lang-es','lang-fr');
   document.body.classList.add('lang-'+l);
   document.documentElement.lang=({en:'en',es:'es',fr:'fr',ko:'ko',zh:'zh-Hant'})[l];
   LANGS.forEach(function(x){document.getElementById('btn-'+x).classList.toggle('active',x===l);});
 }
+var _fadeT=null;
+function setLang(l, instant){
+  if(LANGS.indexOf(l)<0) l='en';
+  if(instant || document.body.classList.contains('lang-'+l)){ applyLang(l); return; }
+  LANGS.forEach(function(x){var b=document.getElementById('btn-'+x); if(b){b.classList.toggle('active',x===l);}});
+  clearTimeout(_fadeT);
+  document.body.classList.add('fading');
+  _fadeT=setTimeout(function(){
+    applyLang(l);
+    requestAnimationFrame(function(){document.body.classList.remove('fading');});
+  }, 175);
+}
 (function(){
   var p=new URLSearchParams(location.search);
-  setLang(p.get('lang'));
+  setLang(p.get('lang'), true);
+})();
+
+(function(){
+  setTimeout(function(){
+    ['serif','sans'].forEach(function(v){
+      var d=document.createElement('div');
+      d.setAttribute('aria-hidden','true');
+      d.style.cssText='position:absolute;left:-9999px;top:0;visibility:hidden;pointer-events:none;font-family:var(--'+v+')';
+      var t=[];
+      document.querySelectorAll('.l-ko,.l-zh').forEach(function(el){t.push(el.textContent);});
+      d.textContent=t.join('');
+      document.body.appendChild(d);
+    });
+  }, 1200);
 })();
 </script>
 </body>
