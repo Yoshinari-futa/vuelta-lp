@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#14120f; --ink:#efe9dd; --sub:#a89f8d; --line:#3a352c; --gold:#c2a468;
+  --bg:#ffffff; --ink:#0a0a0a; --sub:#4a4a4a; --line:#e5e5e5; --green:#1a3a2e; --mint:#c6e3d1;
   --serif:'Cormorant Garamond', Georgia, serif;
   --sans:'Noto Sans JP', sans-serif;
 }
@@ -26,30 +26,30 @@ header{text-align:center;padding:44px 0 8px}
 .wordmark{font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:.42em;text-indent:.42em;color:var(--ink)}
 .wordmark-sub{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.55em;text-indent:.55em;color:var(--sub);margin-top:6px}
 .slogan{font-style:italic;font-size:14.5px;color:var(--sub);text-align:center;margin-top:14px}
-.rule{width:44px;height:1px;background:var(--gold);margin:22px auto;opacity:.7}
+.rule{width:44px;height:1px;background:var(--green);margin:22px auto;opacity:.8}
 
 .lang-toggle{display:flex;justify-content:center;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden;width:max-content;margin:0 auto}
 .lang-toggle button{appearance:none;border:none;background:none;font-family:var(--sans);font-size:11.5px;letter-spacing:.08em;padding:7px 16px;color:var(--sub);cursor:pointer}
 .lang-toggle button.active{background:var(--ink);color:var(--bg)}
 
-.coupon{border:1px solid var(--gold);border-radius:4px;padding:30px 24px;text-align:center;margin-top:30px;position:relative;background:rgba(194,164,104,.05)}
-.coupon:before{content:'';position:absolute;inset:6px;border:1px solid rgba(194,164,104,.35);border-radius:2px;pointer-events:none}
-.coupon .icon{display:block;width:40px;height:40px;margin:0 auto 12px;color:var(--gold)}
+.coupon{border-radius:4px;padding:30px 24px;text-align:center;margin-top:30px;position:relative;background:var(--green);color:#ffffff}
+.coupon:before{content:'';position:absolute;inset:7px;border:1px solid rgba(255,255,255,.4);border-radius:2px;pointer-events:none}
+.coupon .icon{display:block;width:40px;height:40px;margin:0 auto 12px;color:var(--mint)}
 .coupon .icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
 .coupon h1{font-family:var(--serif);font-weight:600;font-size:30px;letter-spacing:.08em;line-height:1.25}
-.coupon .how{font-family:var(--sans);font-weight:400;font-size:13px;color:var(--ink);margin-top:14px;line-height:1.9}
-.coupon .fine{font-family:var(--sans);font-weight:300;font-size:10.5px;color:var(--sub);margin-top:12px;line-height:1.8}
+.coupon .how{font-family:var(--sans);font-weight:400;font-size:13px;color:#ffffff;margin-top:14px;line-height:1.9}
+.coupon .fine{font-family:var(--sans);font-weight:300;font-size:10.5px;color:var(--mint);margin-top:12px;line-height:1.8}
 
 .about{margin-top:38px}
-.about h2{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.32em;text-indent:.32em;text-align:center;color:var(--gold)}
+.about h2{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.32em;text-indent:.32em;text-align:center;color:var(--green)}
 .about p{font-size:16.5px;margin-top:16px;color:var(--ink)}
 .facts{margin-top:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 4px;font-family:var(--sans);font-weight:300;font-size:13px;color:var(--sub);line-height:2.1}
 .facts b{color:var(--ink);font-weight:400}
 
 .actions{display:flex;flex-direction:column;gap:12px;margin-top:30px}
 .btn{display:block;text-align:center;font-family:var(--sans);font-size:12.5px;letter-spacing:.14em;text-decoration:none;padding:13px 18px;border-radius:2px}
-.btn-primary{background:var(--gold);color:#14120f;font-weight:500}
-.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-primary{background:var(--green);color:#ffffff;font-weight:500}
+.btn-ghost{border:1px solid var(--green);color:var(--green)}
 
 footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;color:var(--sub);margin-top:44px;line-height:2}
 </style>
