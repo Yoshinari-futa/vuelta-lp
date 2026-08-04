@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>One drink, on us — Bar VUELTA</title>
+<link rel="icon" href="/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#14120f; --ink:#efe9dd; --sub:#a89f8d; --line:#3a352c; --gold:#c2a468;
+  --serif:'Cormorant Garamond', Georgia, serif;
+  --sans:'Noto Sans JP', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-weight:500;line-height:1.7;font-size:16px}
+body.lang-en .l-es, body.lang-en .l-fr {display:none !important}
+body.lang-es .l-en, body.lang-es .l-fr {display:none !important}
+body.lang-fr .l-en, body.lang-fr .l-es {display:none !important}
+
+.wrap{max-width:560px;margin:0 auto;padding:0 22px 60px}
+header{text-align:center;padding:44px 0 8px}
+.wordmark{font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:.42em;text-indent:.42em;color:var(--ink)}
+.wordmark-sub{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.55em;text-indent:.55em;color:var(--sub);margin-top:6px}
+.slogan{font-style:italic;font-size:14.5px;color:var(--sub);text-align:center;margin-top:14px}
+.rule{width:44px;height:1px;background:var(--gold);margin:22px auto;opacity:.7}
+
+.lang-toggle{display:flex;justify-content:center;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden;width:max-content;margin:0 auto}
+.lang-toggle button{appearance:none;border:none;background:none;font-family:var(--sans);font-size:11.5px;letter-spacing:.08em;padding:7px 16px;color:var(--sub);cursor:pointer}
+.lang-toggle button.active{background:var(--ink);color:var(--bg)}
+
+.coupon{border:1px solid var(--gold);border-radius:4px;padding:30px 24px;text-align:center;margin-top:30px;position:relative;background:rgba(194,164,104,.05)}
+.coupon:before{content:'';position:absolute;inset:6px;border:1px solid rgba(194,164,104,.35);border-radius:2px;pointer-events:none}
+.coupon .icon{width:40px;height:40px;margin:0 auto 12px;color:var(--gold)}
+.coupon .icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.coupon h1{font-family:var(--serif);font-weight:600;font-size:30px;letter-spacing:.08em;line-height:1.25}
+.coupon .how{font-family:var(--sans);font-weight:400;font-size:13px;color:var(--ink);margin-top:14px;line-height:1.9}
+.coupon .fine{font-family:var(--sans);font-weight:300;font-size:10.5px;color:var(--sub);margin-top:12px;line-height:1.8}
+
+.about{margin-top:38px}
+.about h2{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.32em;text-indent:.32em;text-align:center;color:var(--gold)}
+.about p{font-size:16.5px;margin-top:16px;color:var(--ink)}
+.facts{margin-top:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 4px;font-family:var(--sans);font-weight:300;font-size:13px;color:var(--sub);line-height:2.1}
+.facts b{color:var(--ink);font-weight:400}
+
+.actions{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+.btn{display:block;text-align:center;font-family:var(--sans);font-size:12.5px;letter-spacing:.14em;text-decoration:none;padding:13px 18px;border-radius:2px}
+.btn-primary{background:var(--gold);color:#14120f;font-weight:500}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+
+footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;color:var(--sub);margin-top:44px;line-height:2}
+</style>
+</head>
+<body class="lang-en">
+
+<div class="wrap">
+
+<header>
+  <div class="wordmark">VUELTA</div>
+  <div class="wordmark-sub">BAR&nbsp;—&nbsp;HIROSHIMA</div>
+  <p class="slogan">"Where welcome back meets nice to meet you."</p>
+  <div class="rule"></div>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+    <button id="btn-fr" onclick="setLang('fr')">FR</button>
+  </div>
+</header>
+
+<div class="coupon">
+  <span class="icon"><svg viewBox="0 0 24 24"><path d="M7 3h10l-1.2 7.5a3.8 3.8 0 0 1-7.6 0L7 3z"/><path d="M12 14.5V20M8.5 20h7"/><path d="M7.8 7h8.4"/></svg></span>
+  <h1>
+    <span class="l-en">One drink,<br>on us.</span>
+    <span class="l-es">Una copa,<br>por nuestra cuenta.</span>
+    <span class="l-fr">Un verre,<br>offert par la maison.</span>
+  </h1>
+  <p class="how">
+    <span class="l-en">Show this screen to our bartender<br>and your first drink is on the house.</span>
+    <span class="l-es">Muestre esta pantalla a nuestro barman<br>y su primera copa corre de nuestra cuenta.</span>
+    <span class="l-fr">Montrez cet écran à notre barman<br>et votre premier verre est offert.</span>
+  </p>
+  <p class="fine">
+    <span class="l-en">One drink per guest. Legal drinking age in Japan is 20.</span>
+    <span class="l-es">Una copa por persona. La edad legal para beber en Japón es de 20 años.</span>
+    <span class="l-fr">Un verre par personne. L'âge légal pour consommer de l'alcool au Japon est de 20 ans.</span>
+  </p>
+</div>
+
+<div class="about">
+  <h2>
+    <span class="l-en">ABOUT VUELTA</span>
+    <span class="l-es">SOBRE VUELTA</span>
+    <span class="l-fr">VUELTA</span>
+  </h2>
+  <p class="l-en">VUELTA is an intimate counter bar of eight seats in Otemachi, opened in 2026 by a former member of the MORETHAN team — a few minutes' walk from the hotel, three from the Peace Memorial Park.</p>
+  <p class="l-en">The cocktails are built on Hiroshima itself: SAKURAO gin distilled in Hatsukaichi, Togouchi whisky, local lemons. Come for one drink after dinner; the counter does the rest.</p>
+  <p class="l-es">VUELTA es un íntimo bar de barra con ocho asientos en Otemachi, abierto en 2026 por un antiguo miembro del equipo de MORETHAN, a pocos minutos a pie del hotel y a tres del Parque Memorial de la Paz.</p>
+  <p class="l-es">Sus cócteles se construyen sobre la propia Hiroshima: ginebra SAKURAO destilada en Hatsukaichi, whisky Togouchi, limones locales. Venga a tomar una copa después de cenar; la barra hace el resto.</p>
+  <p class="l-fr">VUELTA est un bar de comptoir intime de huit places à Otemachi, ouvert en 2026 par un ancien membre de l'équipe MORETHAN — à quelques minutes à pied de l'hôtel, à trois du Parc du Mémorial de la Paix.</p>
+  <p class="l-fr">Les cocktails s'appuient sur Hiroshima même : gin SAKURAO distillé à Hatsukaichi, whisky Togouchi, citrons locaux. Venez pour un verre après le dîner ; le comptoir fait le reste.</p>
+
+  <div class="facts">
+    <div><b>
+      <span class="l-en">Open</span><span class="l-es">Horario</span><span class="l-fr">Horaires</span>
+    </b> — 18:00–02:00 (L.O. 01:00)
+      <span class="l-en">/ Closed Thursdays</span>
+      <span class="l-es">/ Cerrado los jueves</span>
+      <span class="l-fr">/ Fermé le jeudi</span>
+    </div>
+    <div><b>
+      <span class="l-en">Address</span><span class="l-es">Dirección</span><span class="l-fr">Adresse</span>
+    </b> — 3-3-5 Otemachi, Naka-ku, Hiroshima — 2F (掛江ビル 201)</div>
+    <div><b>Instagram</b> — @vuelta_bar</div>
+  </div>
+</div>
+
+<div class="actions">
+  <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=730-0051+%E5%BA%83%E5%B3%B6%E7%9C%8C%E5%BA%83%E5%B3%B6%E5%B8%82%E4%B8%AD%E5%8C%BA%E5%A4%A7%E6%89%8B%E7%94%BA3-3-5+%E6%8E%9B%E6%B1%9F%E3%83%93%E3%83%AB201" target="_blank" rel="noopener">
+    <span class="l-en">OPEN IN GOOGLE MAPS</span>
+    <span class="l-es">ABRIR EN GOOGLE MAPS</span>
+    <span class="l-fr">OUVRIR DANS GOOGLE MAPS</span>
+  </a>
+  <a class="btn btn-ghost" href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener">INSTAGRAM — @vuelta_bar</a>
+</div>
+
+<footer>
+  Bar VUELTA — Hiroshima<br>
+  vuelta.jp
+</footer>
+
+</div>
+
+<script>
+var LANGS=['en','es','fr'];
+function setLang(l){
+  if(LANGS.indexOf(l)<0) l='en';
+  document.body.classList.remove('lang-en','lang-es','lang-fr');
+  document.body.classList.add('lang-'+l);
+  document.documentElement.lang=l;
+  LANGS.forEach(function(x){document.getElementById('btn-'+x).classList.toggle('active',x===l);});
+}
+(function(){
+  var p=new URLSearchParams(location.search);
+  setLang(p.get('lang'));
+})();
+</script>
+</body>
+</html>
