@@ -76,12 +76,48 @@ function BreadcrumbJsonLd({ items }: { items: { name: string; url: string }[] })
 }
 
 // ── Structured Data (JSON-LD) ─────────────
+// AI検索(AEO)向け: 説明文+素材+価格を全品まとめて渡す。
+// description と ingredients は排他にせず結合する(片方だけだとAIに情報が半分しか届かない)。
+function menuItemJsonLd(item: MenuItem) {
+  const description = [
+    item.description,
+    item.ingredients
+      ? `Ingredients: ${item.ingredients.split(' / ').join(', ')}.`
+      : null,
+  ]
+    .filter(Boolean)
+    .join(' ')
+  return {
+    '@type': 'MenuItem',
+    name: item.name,
+    ...(item.nameJa && { alternateName: item.nameJa }),
+    ...(description && { description }),
+    ...(item.price != null && {
+      offers: {
+        '@type': 'Offer',
+        price: item.price,
+        priceCurrency: 'JPY',
+      },
+    }),
+  }
+}
+
 function MenuJsonLd() {
+  // ページに表示している全カテゴリを載せる(RECOMMENDとスピリッツの脱落を修正)
+  const sections: MenuCategory[] = [
+    recommend,
+    ...cocktailCategories,
+    ...spiritsCategories,
+    ...foodCategories,
+    coverCharge,
+  ]
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Menu',
     name: 'Bar VUELTA Menu',
-    description: 'Craft cocktails and Hiroshima soul food',
+    description:
+      'Craft cocktails built on Hiroshima ingredients — SAKURAO gin, Taketsuru sake, Miyajima motifs and Hiroshima lemon — plus tacos and Hiroshima bar food. All prices in JPY, tax included.',
+    inLanguage: 'en',
     url: `${SITE_ORIGIN}/menu`,
     mainEntity: {
       '@type': 'Restaurant',
@@ -97,32 +133,12 @@ function MenuJsonLd() {
         addressCountry: 'JP',
       },
     },
-    hasMenuSection: [
-      ...foodCategories.map((cat) => ({
-        '@type': 'MenuSection',
-        name: cat.title,
-        hasMenuItem: cat.items.map((item) => ({
-          '@type': 'MenuItem',
-          name: item.name,
-          description: item.description ?? item.nameJa ?? '',
-          offers: {
-            '@type': 'Offer',
-            price: item.price,
-            priceCurrency: 'JPY',
-          },
-        })),
-      })),
-      ...cocktailCategories.map((cat) => ({
-        '@type': 'MenuSection',
-        name: cat.title,
-        hasMenuItem: cat.items.map((item) => ({
-          '@type': 'MenuItem',
-          name: item.name,
-          description: item.ingredients ?? item.description ?? '',
-          offers: { '@type': 'Offer', price: item.price, priceCurrency: 'JPY' },
-        })),
-      })),
-    ],
+    hasMenuSection: sections.map((cat) => ({
+      '@type': 'MenuSection',
+      name: cat.title,
+      ...(cat.subtitle && { description: cat.subtitle }),
+      hasMenuItem: cat.items.map(menuItemJsonLd),
+    })),
   }
   return (
     <script

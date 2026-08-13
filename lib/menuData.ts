@@ -1,7 +1,7 @@
 // ========================================
 // VUELTA — Menu Data (Single Source of Truth)
 // メニューの追加・変更はここだけ編集する
-// 最終更新: 2026-08-03（最新PDFに準拠）
+// 最終更新: 2026-08-13（最新PDFに準拠）
 // ========================================
 
 export interface MenuItem {
@@ -70,8 +70,10 @@ export const cocktailCategories: MenuCategory[] = [
       {
         name: 'Hiroshima 75',
         nameJa: 'ヒロシマ セブンティファイブ',
-        price: 900,
+        price: 1300,
         ingredients: 'SAKURAO / Taketsuru / St-Germain / Lemon / Peach',
+        description:
+          'A French 75 rebuilt with Hiroshima spirits — SAKURAO gin from Hatsukaichi and Taketsuru sake — brightened with St-Germain, lemon and peach.',
       },
       {
         name: 'The OKONOMIYAKI #2',
@@ -86,6 +88,8 @@ export const cocktailCategories: MenuCategory[] = [
         nameJa: 'ブエルタ レモンサワー',
         price: 1200,
         ingredients: 'KOME / Lemon / Tonic',
+        description:
+          "Japan's izakaya-standard lemon sour, rebuilt as a craft cocktail: KOME rice shochu, fresh lemon and tonic.",
       },
       {
         name: 'Shell We?',
@@ -96,16 +100,20 @@ export const cocktailCategories: MenuCategory[] = [
           'Celebrating the world-famous oysters of the Seto Inland Sea. Briny minerals, fresh citrus, and coastal elegance in a glass. Shall we toast?',
       },
       {
-        name: "Don't Feed the Dear",
+        name: "Don't Feed the Deer",
         nameJa: 'ドント フィード ザ ディア',
         price: 1850,
         ingredients: 'Mizunara / Azuki / Chestnut / Milk / Momiji Leaf',
+        description:
+          "Named after the signs that protect the wild deer of Miyajima island. A dessert cocktail of mizunara oak, azuki red bean, chestnut and milk — the flavors of Miyajima's momiji manju sweets — finished with a red maple leaf.",
       },
       {
         name: 'Tipsy Crane',
         nameJa: 'ヨイヅル',
         price: 2200,
         ingredients: 'Gin / Sake / Campari / Sweet Vermouth',
+        description:
+          "A Negroni reimagined with Hiroshima sake alongside gin, Campari and sweet vermouth. Named for the origami crane, Hiroshima's symbol of peace.",
       },
     ],
   },
@@ -117,24 +125,32 @@ export const cocktailCategories: MenuCategory[] = [
         nameJa: 'サクラマルガリータ',
         price: 1000,
         ingredients: 'Tequila / Sakura / Lemon',
+        description:
+          'A margarita in spring form: tequila, sakura cherry blossom and lemon.',
       },
       {
         name: 'Electric Buck',
         nameJa: 'デンゲキバック',
         price: 850,
         ingredients: 'Sansho-Gin / Ginger Ale',
+        description:
+          "Gin infused with sansho — the Japanese pepper that tingles on the tongue — topped with dry ginger ale. The 'electric' in the name is literal.",
       },
       {
         name: 'Yaoyorozu Mule ∞',
         nameJa: 'ヤオヨロズミュール∞',
         price: 1200,
         ingredients: '"WA"PIRITS / Ginger Vinegar / Myoga / Shiso / Ginger',
+        description:
+          'A Japanese mule of craft "WA"PIRITS with ginger vinegar, myoga and shiso. Named for the yaoyorozu — the eight million gods of Japanese folklore.',
       },
       {
         name: 'Kaku-Gari-Ta',
         nameJa: 'カクガリータ',
         price: 1800,
         ingredients: 'Tequila / Mezcal / KOME / Wasabi',
+        description:
+          'A margarita gone smoky and savoury: tequila and mezcal layered with KOME rice shochu and the slow-building heat of fresh wasabi.',
       },
     ],
   },
@@ -162,6 +178,8 @@ export const cocktailCategories: MenuCategory[] = [
         nameJa: 'スモークチーズパロマ',
         price: 1100,
         ingredients: 'Tequila / Smoked Cheese / Grapefruit / Tonic / Black Pepper',
+        description:
+          'A savoury paloma of tequila, grapefruit and tonic, layered with smoked cheese and cracked black pepper.',
       },
     ],
   },
@@ -173,6 +191,8 @@ export const cocktailCategories: MenuCategory[] = [
         nameJa: '広島檸檬スカッシュ',
         price: 800,
         ingredients: 'Lemon / Homemade Syrup / Tonic',
+        description:
+          "Non-alcoholic. Hiroshima lemon — Japan's largest lemon-growing region — with homemade syrup and tonic.",
       },
     ],
   },
@@ -227,29 +247,33 @@ export const foodCategories: MenuCategory[] = [
         nameJa: 'ボンボンショコラ',
         price: 350,
         priceLabel: '¥350 / pc',
+        description: 'A single chocolate bonbon, made to sit beside whisky or a dessert cocktail.',
       },
       {
         name: 'Olives',
         nameJa: 'オリーブ',
         price: 500,
+        description: 'The classic partner for gin, whisky and dry cocktails.',
       },
       {
         name: 'Rum Raisin Butter',
         nameJa: 'ラムレーズンバター',
         price: 500,
+        description: 'Rum-soaked raisins folded into butter. Sweet, salty and made for whisky.',
       },
       {
         name: 'Gansu',
         nameJa: '草津 坂井屋のガンス',
         price: 500,
         description:
-          "Hiroshima's signature crispy fish cutlet with a savory, spicy kick.",
+          "Hiroshima's signature crispy fish cutlet with a savory, spicy kick — made by Sakaiya, a fishcake shop in Hiroshima's Kusatsu district.",
       },
       {
         name: 'Hand-Cut Fries',
         nameJa: '手切り生ポテトフライ',
         price: 650,
-        description: 'Truffle Salt +200 / Sweet Chili +300',
+        description:
+          'Cut by hand from fresh potatoes, never frozen. Add Truffle Salt +200 or Sweet Chili +300.',
       },
       {
         name: 'Gansu Tacos',
@@ -264,12 +288,14 @@ export const foodCategories: MenuCategory[] = [
         nameJa: 'ポーク カルニタス タコス',
         price: 850,
         priceLabel: '¥850 / 2 pc',
+        description: 'Tacos filled with slow-cooked pork carnitas. Two per order.',
       },
       {
         name: 'Cheesy Carnitas',
         nameJa: 'チーズタコス',
         price: 950,
         priceLabel: '¥950 / 2 pc',
+        description: 'Pork carnitas tacos with cheese. Two per order.',
       },
     ],
   },
