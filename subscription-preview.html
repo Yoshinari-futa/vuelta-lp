@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIRST DRINK PASS — プレビュー</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'BTAnnamNeue';
+    src: url('BTAnnamNeue-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  :root {
+    --green: #1a3a2e;
+    --green-light: #2d4a3e;
+    --text: #0a0a0a;
+    --text-light: #4a4a4a;
+    --gray: #f5f5f5;
+    --light: #e5e5e5;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection { background: var(--green); color: white; }
+
+  /* ── Header (vuelta.jp style: logo left, hamburger right) ── */
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    padding: 16px 24px;
+  }
+  .header-inner {
+    max-width: 1120px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo-text {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 22px; font-weight: 400;
+    letter-spacing: 0.12em; color: var(--text);
+    text-decoration: none;
+  }
+  .header-right {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .lang-switch {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 11px; letter-spacing: 0.1em;
+    color: var(--text-light);
+    padding-right: 16px;
+    border-right: 1px solid var(--light);
+  }
+  .lang-switch .active { color: var(--green); }
+  .hamburger {
+    display: flex; flex-direction: column; gap: 5px;
+    padding: 10px; cursor: pointer; background: none; border: none;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 1px; background: var(--text);
+  }
+
+  /* ── Hero (vuelta.jp style: huge type, lots of space) ── */
+  .hero {
+    padding: 200px 24px 120px;
+    text-align: center;
+    background: var(--white);
+  }
+  .hero .label {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.35em;
+    color: var(--green); margin-bottom: 28px; font-weight: 400;
+  }
+  .hero h1 {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: clamp(44px, 8vw, 96px); font-weight: 300;
+    color: var(--text); line-height: 1.0;
+    letter-spacing: 0.06em;
+  }
+  .hero .subtitle {
+    font-size: 15px; color: var(--text-light);
+    margin-top: 40px; max-width: 480px; margin-left: auto; margin-right: auto;
+    line-height: 2.0; letter-spacing: 0.02em;
+  }
+
+  /* ── Section common ── */
+  .section {
+    max-width: 640px; margin: 0 auto;
+    padding: 80px 24px;
+  }
+  .section-large {
+    max-width: 800px; margin: 0 auto;
+    padding: 100px 24px;
+  }
+  .section-title {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: clamp(28px, 5vw, 48px); font-weight: 300;
+    letter-spacing: 0.03em;
+    margin-bottom: 48px;
+  }
+  .divider {
+    width: 100%; height: 1px;
+    background: var(--light);
+  }
+
+  /* ── Price block (minimal, no card) ── */
+  .price-block { text-align: center; }
+  .price-block .amount {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: clamp(56px, 10vw, 96px); font-weight: 300;
+    color: var(--text); letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .price-block .unit {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; color: var(--text-light); font-weight: 400;
+  }
+  .price-block .note {
+    font-size: 13px; color: var(--text-light); margin-top: 16px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Benefits (simple text list, no icons/cards) ── */
+  .benefits-list {
+    display: flex; flex-direction: column; gap: 40px;
+    margin-top: 64px;
+  }
+  .benefit-item {
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--light);
+  }
+  .benefit-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .benefit-item h3 {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 14px; font-weight: 400;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--green); margin-bottom: 12px;
+  }
+  .benefit-item p {
+    font-size: 14px; color: var(--text-light); line-height: 1.9;
+  }
+
+  /* ── Steps (editorial style: large numbers, text) ── */
+  .step-item {
+    display: grid; grid-template-columns: 80px 1fr; gap: 24px;
+    align-items: start;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--light);
+  }
+  .step-item:first-child { padding-top: 0; }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 48px; font-weight: 300;
+    color: var(--light); line-height: 1;
+  }
+  .step-content h3 {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 16px; font-weight: 400;
+    color: var(--text); margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .step-content p {
+    font-size: 14px; color: var(--text-light); line-height: 1.9;
+  }
+
+  /* ── Worth section (simple text) ── */
+  .worth-text {
+    font-size: 15px; color: var(--text-light); line-height: 2.0;
+  }
+  .worth-text .hl { color: var(--green); font-weight: 500; }
+
+  /* ── FAQ (clean, no cards) ── */
+  .faq-item {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--light);
+  }
+  .faq-item:first-child { padding-top: 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h3 {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 15px; font-weight: 400; color: var(--text);
+    margin-bottom: 10px; letter-spacing: 0.02em;
+  }
+  .faq-item p { font-size: 14px; color: var(--text-light); line-height: 1.9; }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 120px 24px;
+    text-align: center;
+  }
+  .cta-section h2 {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: clamp(28px, 5vw, 48px); font-weight: 300;
+    margin-bottom: 20px; letter-spacing: 0.02em;
+  }
+  .cta-section .desc {
+    font-size: 14px; color: var(--text-light);
+    margin-bottom: 48px; max-width: 420px; margin-left: auto; margin-right: auto;
+    line-height: 1.9;
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 48px;
+    border: 1px solid var(--green); color: var(--green);
+    background: transparent;
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em;
+    text-decoration: none; cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 400;
+  }
+  .cta-btn:hover { background: var(--green); color: white; }
+  .cta-btn svg { width: 14px; height: 14px; transition: transform 0.2s; }
+  .cta-btn:hover svg { transform: translateX(3px); }
+  .cta-note { font-size: 11px; color: var(--text-light); margin-top: 20px; letter-spacing: 0.02em; }
+
+  /* ── Footer (vuelta.jp style) ── */
+  .footer {
+    padding: 40px 24px;
+    border-top: 1px solid var(--light);
+  }
+  .footer-inner {
+    max-width: 1120px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .footer-logo {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 14px; letter-spacing: 0.12em;
+    color: var(--text-light); font-weight: 400;
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 11px; letter-spacing: 0.08em;
+    color: var(--text-light); text-decoration: none;
+    text-transform: uppercase;
+  }
+  .footer-links a:hover { color: var(--green); }
+  .footer-copy {
+    font-family: 'BTAnnamNeue', sans-serif;
+    font-size: 11px; color: var(--text-light);
+  }
+
+  /* ── Draft banner ── */
+  .draft-banner {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--green); color: white;
+    text-align: center; padding: 10px;
+    font-size: 12px; font-weight: 500;
+    z-index: 100; letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) both; }
+  .fade-up-d1 { animation-delay: 0.15s; }
+  .fade-up-d2 { animation-delay: 0.3s; }
+  .fade-up-d3 { animation-delay: 0.5s; }
+
+  @media (max-width: 640px) {
+    .step-item { grid-template-columns: 56px 1fr; gap: 16px; }
+    .step-num { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-banner">Draft Preview — 本番未公開</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" style="display:inline-block;"><img src="public/images/vuelta-logo.png" alt="VUELTA" style="height:32px; width:auto; object-fit:contain;"></a>
+    <div class="header-right">
+      <div class="lang-switch">
+        <span>EN</span> / <span class="active">JA</span>
+      </div>
+      <button class="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="fade-up">
+    <div class="label">Membership</div>
+  </div>
+  <h1 class="fade-up fade-up-d1">FIRST DRINK<br>PASS</h1>
+  <p class="subtitle fade-up fade-up-d2">
+    毎日1杯無料。月額1,980円で始める、<br>新しいバーの楽しみ方。
+  </p>
+</section>
+
+<!-- Divider -->
+<div class="divider"></div>
+
+<!-- Price -->
+<div class="section" style="padding-top:100px; padding-bottom:100px;">
+  <div class="price-block fade-up">
+    <div class="amount">¥1,980<span class="unit"> /月</span></div>
+    <div class="note">いつでも解約OK。縛りなし。</div>
+  </div>
+
+  <div class="benefits-list">
+    <div class="benefit-item fade-up">
+      <h3>1 Free Drink Daily</h3>
+      <p>来店するたびに1杯無料。毎日0時にリセットされるので、毎日楽しめます。</p>
+    </div>
+    <div class="benefit-item fade-up">
+      <h3>QR Check-in</h3>
+      <p>カウンターでスマホを見せるだけ。カードもスタンプも不要です。</p>
+    </div>
+    <div class="benefit-item fade-up">
+      <h3>Secure Payment</h3>
+      <p>Stripeによる安全な決済。いつでも解約でき、手数料もありません。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="divider"></div>
+
+<!-- How It Works -->
+<div class="section-large" style="padding-top:100px; padding-bottom:100px;">
+  <div class="section-title fade-up">ご利用の流れ</div>
+  <div>
+    <div class="step-item fade-up">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>登録する</h3>
+        <p>オンラインで1分で登録完了。すぐにデジタルパスが届きます。</p>
+      </div>
+    </div>
+    <div class="step-item fade-up">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>パスを見せる</h3>
+        <p>VUELTAに来たら、カウンターでQRコードを見せるだけ。</p>
+      </div>
+    </div>
+    <div class="step-item fade-up">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>1杯楽しむ</h3>
+        <p>最初の1杯は無料。ゆっくりくつろいで、夜を楽しんでください。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="divider"></div>
+
+<!-- Worth It -->
+<div class="section" style="padding-top:100px; padding-bottom:100px;">
+  <div class="section-title fade-up">お得なの？</div>
+  <div class="worth-text fade-up">
+    <p>月に<span class="hl">3回来店</span>するだけで元が取れます。</p>
+    <p style="margin-top:16px;">1杯あたり約800円として、3杯で2,400円分 — たった1,980円で。</p>
+    <p style="margin-top:16px;">もっと来る？もっとお得。毎週来れば、同じ月額で3,200円以上のドリンクが無料に。</p>
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="divider"></div>
+
+<!-- FAQ -->
+<div class="section" style="padding-top:100px; padding-bottom:100px;">
+  <div class="section-title fade-up">よくある質問</div>
+  <div>
+    <div class="faq-item fade-up">
+      <h3>対象のドリンクは？</h3>
+      <p>オリジナルカクテル、ハイボール、ジントニックなど通常メニューから選べます。一部プレミアムスピリッツは差額をいただく場合があります。</p>
+    </div>
+    <div class="faq-item fade-up">
+      <h3>1日に何回使える？</h3>
+      <p>パスは1日1杯無料です。夜に来て、日付が変わった0時以降にもう一度使えます。</p>
+    </div>
+    <div class="faq-item fade-up">
+      <h3>解約するには？</h3>
+      <p>Stripeアカウントからいつでも解約できます。解約手数料は一切かかりません。</p>
+    </div>
+    <div class="faq-item fade-up">
+      <h3>友達と共有できる？</h3>
+      <p>パスはご本人のアカウントに紐づいています。ぜひお友達にもパスを勧めてください。</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="divider"></div>
+<section class="cta-section">
+  <h2 class="fade-up">始めてみませんか？</h2>
+  <p class="desc fade-up fade-up-d1">
+    FIRST DRINK PASSで、<br>VUELTAに来るたびにちょっと特別な時間を。
+  </p>
+  <a href="#" class="cta-btn fade-up fade-up-d2" onclick="alert('プレビューです。本番ではStripeリンクに遷移します。'); return false;">
+    パスを取得する
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </a>
+  <p class="cta-note fade-up fade-up-d3">Stripe による安全な決済。カード情報は常に保護されています。</p>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="#" style="display:inline-block;"><img src="public/images/vuelta-logo.png" alt="VUELTA" style="height:24px; width:auto; object-fit:contain;"></a>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Menu</a>
+      <a href="#">Instagram</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 VUELTA</span>
+  </div>
+</footer>
+
+<div style="height:50px;"></div>
+
+</body>
+</html>

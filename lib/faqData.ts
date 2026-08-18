@@ -104,11 +104,11 @@ export const faqEntries: FaqEntry[] = [
     featured: true,
     en: {
       q: 'What are the opening hours?',
-      a: 'Open 18:00 to 02:00 (last order 01:00), closed on Thursdays.',
+      a: 'Open 18:00 to 02:00 (Sundays until midnight, last order 01:00), closed on Thursdays.',
     },
     ja: {
       q: '営業時間は？',
-      a: '18:00から02:00（ラストオーダー1:00）。木曜定休です。',
+      a: '18:00から02:00（日曜は24:00まで、ラストオーダー1:00）。木曜定休です。',
     },
   },
   {

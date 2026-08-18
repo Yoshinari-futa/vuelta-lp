@@ -75,11 +75,16 @@ export default function Home() {
     const day = now.getDay() // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
     const hour = now.getHours()
     
+    // 深夜0-2時は前日の営業扱い(木曜夜は定休、日曜夜は24:00クローズ)
+    if (hour < 2) {
+      const prevDay = (day + 6) % 7
+      if (prevDay === 4 || prevDay === 0) return { isOpen: false, status: 'Opens at 18:00' }
+      return { isOpen: true, status: 'Open Now' }
+    }
     // Thursday (4) は閉店
     if (day === 4) return { isOpen: false, status: 'Closed Today' }
-    
-    // Wed, Fri-Sun, Mon-Tue: 18:00 - 02:00
-    if (hour >= 18 || hour < 2) {
+    // Mon-Wed, Fri-Sat: 18:00 - 02:00 / Sun: 18:00 - 24:00
+    if (hour >= 18) {
       return { isOpen: true, status: 'Open Now' }
     }
     return { isOpen: false, status: 'Opens at 18:00' }
@@ -123,9 +128,15 @@ export default function Home() {
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"],
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday"],
           "opens": "18:00",
           "closes": "02:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday"],
+          "opens": "18:00",
+          "closes": "00:00"
         }
       ],
       "priceRange": "¥¥",
@@ -264,7 +275,7 @@ export default function Home() {
                 className="flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.18em] uppercase text-vuelta-text-light mb-4"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-vuelta-gold shadow-[0_0_8px_rgba(26,58,46,0.55)]" aria-hidden="true"></span>
-                Open 18:00 – 02:00 / Closed Thu
+                Open 18:00 – 02:00 (Sun – 24:00) / Closed Thu
               </motion.p>
             </div>
 
@@ -312,7 +323,7 @@ export default function Home() {
       {/* Info bar — key facts at a glance */}
       <div className="border-y border-vuelta-light/60 bg-white" aria-label="Key information">
         <ul className="flex flex-wrap justify-center items-center px-4 sm:px-6 py-4 list-none">
-          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center">Open 18:00 – 02:00 / Closed Thu</li>
+          <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center">Open 18:00 – 02:00 (Sun – 24:00) / Closed Thu</li>
           <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">1 min from Chuden-mae</li>
           <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">Counter 8 / Standing 8</li>
           <li className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">Walk-ins welcome</li>
@@ -697,7 +708,7 @@ export default function Home() {
                       ))}
                     </div>
                     <p className="text-lg tabular-nums">
-                      18:00 – 02:00<br />
+                      18:00 – 02:00 <span className="text-sm text-vuelta-text-light">(Sun – 24:00)</span><br />
                       <span className="text-sm text-vuelta-text-light">Last order 01:00</span><br />
                       <span className="text-sm text-[#9c5844]">Closed on Thursdays</span>
                     </p>

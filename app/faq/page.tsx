@@ -112,7 +112,7 @@ export default function FaqPage() {
           </p>
           <p className="font-sans text-vuelta-text-light text-xs sm:text-sm mt-3 max-w-md mx-auto">
             Bar VUELTA is a craft cocktail bar in Otemachi, Naka-ku, Hiroshima — a 1-minute
-            walk from the Chuden-mae tram stop. Open 18:00 to 02:00, closed Thursdays.
+            walk from the Chuden-mae tram stop. Open 18:00 to 02:00 (Sundays until midnight), closed Thursdays.
           </p>
         </header>
 

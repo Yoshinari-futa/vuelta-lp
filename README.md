@@ -69,3 +69,7 @@ npm run dev:3001
 npm run build
 npm start
 ```
+
+## 本番デプロイ（Vercel）
+
+手順の**正**は **`公開手順.md`**（GitHub に push → Vercel、初回 Import、CLI フォールバック）。英語パスで探す場合は `DEPLOY.md` が同じ内容への案内。

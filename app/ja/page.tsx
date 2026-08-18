@@ -74,9 +74,14 @@ export default function HomeJA() {
     const day = now.getDay()
     const hour = now.getHours()
     
+    // 深夜0-2時は前日の営業扱い(木曜夜は定休、日曜夜は24:00クローズ)
+    if (hour < 2) {
+      const prevDay = (day + 6) % 7
+      if (prevDay === 4 || prevDay === 0) return { isOpen: false, status: '18:00 開店' }
+      return { isOpen: true, status: '営業中' }
+    }
     if (day === 4) return { isOpen: false, status: '本日休業' }
-    
-    if (hour >= 18 || hour < 2) {
+    if (hour >= 18) {
       return { isOpen: true, status: '営業中' }
     }
     return { isOpen: false, status: '18:00 開店' }
@@ -116,9 +121,15 @@ export default function HomeJA() {
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"],
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday"],
           "opens": "18:00",
           "closes": "02:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday"],
+          "opens": "18:00",
+          "closes": "00:00"
         }
       ],
       "priceRange": "¥¥",
@@ -278,7 +289,7 @@ export default function HomeJA() {
                   className="flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-vuelta-text-light mb-4"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-vuelta-gold shadow-[0_0_8px_rgba(26,58,46,0.55)]" aria-hidden="true"></span>
-                  OPEN 18:00 – 02:00 / CLOSED THU
+                  OPEN 18:00 – 02:00 (SUN – 24:00) / CLOSED THU
                 </motion.p>
               </div>
 
@@ -326,7 +337,7 @@ export default function HomeJA() {
         {/* Info bar — 主要情報を一列で */}
         <div className="border-y border-vuelta-light/60 bg-white" aria-label="基本情報">
           <ul className="flex flex-wrap justify-center items-center px-4 sm:px-6 py-4 list-none">
-            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center">OPEN 18:00 – 02:00 / CLOSED THU</li>
+            <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-gold px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center">OPEN 18:00 – 02:00 (SUN – 24:00) / CLOSED THU</li>
             <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">1 MIN WALK FROM CHUDENMAE</li>
             <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">COUNTER 8 / STANDING 8</li>
             <li className="font-mono text-[10.5px] tracking-[0.18em] text-vuelta-text-light px-4 sm:px-7 py-1 whitespace-nowrap w-full sm:w-auto text-center sm:border-l border-vuelta-light">WALK-INS WELCOME</li>
@@ -659,7 +670,7 @@ export default function HomeJA() {
                         ))}
                       </div>
                       <p className="text-lg tabular-nums">
-                        18:00 – 02:00<br />
+                        18:00 – 02:00 <span className="text-sm text-vuelta-text-light">(日曜は24:00まで)</span><br />
                         <span className="text-sm text-vuelta-text-light">Last Order 1:00</span><br />
                         <span className="text-sm text-[#9c5844]">木曜定休</span>
                       </p>

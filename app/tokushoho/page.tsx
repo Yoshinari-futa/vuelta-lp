@@ -8,6 +8,8 @@ import {
   STORE_PHONE_DISPLAY,
 } from '@/lib/site-seo'
 import { blurDataUrl } from '@/lib/blurPlaceholders'
+import SiteHeader from '../components/SiteHeader'
+import SiteFooter from '../components/SiteFooter'
 
 export const metadata: Metadata = {
   title: '特定商取引法に基づく表記 | Bar VUELTA',
@@ -54,28 +56,7 @@ export default function TokushohoPage() {
         本文へスキップ
       </a>
       {/* Header */}
-      <header className="site-header-fixed fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-vuelta-gray/50">
-        <nav className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="transition-opacity hover:opacity-80" aria-label="Bar VUELTA Home">
-            <Image
-              src="/images/vuelta-logo.png"
-              alt="Bar VUELTA"
-              width={250}
-              height={85}
-              className="h-8 md:h-10 w-auto object-contain"
-              priority
-              placeholder="blur"
-              blurDataURL={blurDataUrl('/images/vuelta-logo.png')}
-            />
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-vuelta-text-light hover:text-vuelta-gold transition-colors"
-          >
-            &larr; Back
-          </Link>
-        </nav>
-      </header>
+      <SiteHeader lang="ja" />
 
       {/* Content */}
       <main id="main-content" tabIndex={-1} className="pt-28 pb-20 px-4 sm:px-6 outline-none">
@@ -127,13 +108,7 @@ export default function TokushohoPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-vuelta-gray py-10 px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center space-y-2">
-          <p className="font-sans text-xs text-vuelta-text-light">
-            &copy; {new Date().getFullYear()} Bar VUELTA. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <SiteFooter lang="ja" />
     </div>
   )
 }
