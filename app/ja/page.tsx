@@ -270,9 +270,9 @@ export default function HomeJA() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 sm:px-8 py-3 min-h-[44px] flex items-center justify-center bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-annam text-xs sm:text-sm tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2 rounded w-full sm:w-auto"
-                    aria-label="オンラインで予約する"
+                    aria-label="Reserve online"
                   >
-                    予約する
+                    Reserve
                   </a>
                   <Link
                     href="/menu"
@@ -698,12 +698,12 @@ export default function HomeJA() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-colors rounded-lg font-annam text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-vuelta-gold focus:ring-offset-2"
-                          aria-label="オンラインで予約する"
+                          aria-label="Reserve online"
                         >
                           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path fillRule="evenodd" clipRule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3a.75.75 0 0 1 1.5 0v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"/>
                           </svg>
-                          <span>予約する</span>
+                          <span>Reserve</span>
                         </a>
                       </div>
                     </div>
@@ -766,7 +766,7 @@ export default function HomeJA() {
                 <SiteFooter lang="ja" />
 
         {/* Fixed CTA Button */}
-        <MobileReserveCta href={RESERVATION_URL} label="予約する" ariaLabel="オンラインで予約する" />
+        <MobileReserveCta href={RESERVATION_URL} label="Reserve" ariaLabel="Reserve online" />
 
         {/* Fixed CTA Button - Desktop */}
         <motion.div
@@ -780,12 +780,12 @@ export default function HomeJA() {
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-3 px-6 py-4 bg-vuelta-gold text-white rounded-full shadow-xl hover:bg-vuelta-gold-light hover:shadow-2xl transition-all duration-300 font-annam text-sm tracking-wider uppercase"
-            aria-label="オンラインで予約する"
+            aria-label="Reserve online"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fillRule="evenodd" clipRule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3a.75.75 0 0 1 1.5 0v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"/>
             </svg>
-            <span>予約する</span>
+            <span>Reserve</span>
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

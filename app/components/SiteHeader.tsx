@@ -28,7 +28,7 @@ export default function SiteHeader({ lang }: { lang: Lang }) {
   const home = lang === 'ja' ? '/ja' : '/'
   const passHref = lang === 'ja' ? '/ja/subscription' : '/subscription'
   const isHome = pathname === home
-  const reserveLabel = lang === 'ja' ? '予約する' : 'Reserve'
+  const reserveLabel = 'Reserve'
 
   const anchorHref = (id: string) => (isHome ? `#${id}` : `${home}#${id}`)
 
