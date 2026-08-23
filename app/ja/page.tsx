@@ -671,7 +671,7 @@ export default function HomeJA() {
                       </div>
                       <p className="text-lg tabular-nums">
                         18:00 – 02:00 <span className="text-sm text-vuelta-text-light">(日曜は24:00まで)</span><br />
-                        <span className="text-sm text-vuelta-text-light">Last Order 1:00</span><br />
+                        <span className="text-sm text-vuelta-text-light">Last Order 1:00 (日曜は23:30)</span><br />
                         <span className="text-sm text-[#9c5844]">木曜定休</span>
                       </p>
                     </div>

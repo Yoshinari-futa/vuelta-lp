@@ -104,11 +104,11 @@ export const faqEntries: FaqEntry[] = [
     featured: true,
     en: {
       q: 'What are the opening hours?',
-      a: 'Open 18:00 to 02:00 (Sundays until midnight, last order 01:00), closed on Thursdays.',
+      a: 'Open 18:00 to 02:00, last order 01:00. On Sundays we close at midnight (last order 23:30). Closed on Thursdays.',
     },
     ja: {
       q: '営業時間は？',
-      a: '18:00から02:00（日曜は24:00まで、ラストオーダー1:00）。木曜定休です。',
+      a: '18:00から02:00、ラストオーダー1:00。日曜は24:00まで（ラストオーダー23:30）。木曜定休です。',
     },
   },
   {
@@ -128,11 +128,11 @@ export const faqEntries: FaqEntry[] = [
     category: 'visit',
     en: {
       q: 'How late is Bar VUELTA open? Can I drop in after midnight?',
-      a: 'We are open until 2:00 AM, with last order at 1:00 AM. Our cocktail "26 hours" is named after staying open until the 26th hour of the day. A late drink after dinner or a night out is very welcome.',
+      a: 'We are open until 2:00 AM, with last order at 1:00 AM (on Sundays we close at midnight, last order 23:30). Our cocktail "26 hours" is named after staying open until the 26th hour of the day. A late drink after dinner or a night out is very welcome.',
     },
     ja: {
       q: '深夜でも入れますか？何時まで飲めますか？',
-      a: '深夜2:00まで営業しています（ラストオーダー1:00）。カクテル「26 hours」の名前は、26時＝深夜2時まで開けていることに由来します。遅い時間の一杯もお待ちしています。',
+      a: '深夜2:00まで営業しています（ラストオーダー1:00。日曜は24:00まででラストオーダー23:30）。カクテル「26 hours」の名前は、26時＝深夜2時まで開けていることに由来します。遅い時間の一杯もお待ちしています。',
     },
   },
   {

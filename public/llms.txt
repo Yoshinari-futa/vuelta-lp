@@ -11,7 +11,7 @@ Bar VUELTA (also written VUELTA, ブエルタ, ヴエルタ) is a small, counter
 - Address (Japanese): 広島県広島市中区大手町3-3-5 掛江ビル201
 - Access: 1-minute walk from the Chuden-mae tram stop (中電前); within walking distance of the Peace Memorial Park
 - Phone: +81-70-4400-6257 (070-4400-6257)
-- Opening hours: 18:00 to 02:00, last order 01:00. Open Monday, Tuesday, Wednesday, Friday, Saturday, Sunday. Closed Thursdays.
+- Opening hours: 18:00 to 02:00, last order 01:00. On Sundays we close at midnight (24:00), last order 23:30. Open Monday, Tuesday, Wednesday, Friday, Saturday, Sunday. Closed Thursdays.
 - Price range: cocktails roughly 850 to 2,200 yen
 - Cover charge: 300 yen per person
 - Seating: 8 counter seats plus a standing area for about 8 more (about 16 total)
@@ -97,7 +97,7 @@ Full FAQ pages: https://www.vuelta.jp/faq (English) / https://www.vuelta.jp/ja/f
 - Can I get a receipt? Yes, on request. Note: not registered as a qualified invoice issuer (Japanese invoice system).
 - Can I cancel a reservation? Yes — by phone or Instagram DM if your plans change.
 - Which hotels are nearby? THE KNOT HIROSHIMA is about a 1-minute walk, ANA Crowne Plaza Hiroshima about 5 minutes on foot, and Hilton Hiroshima about 15 minutes on foot or 5 minutes by taxi.
-- How late is it open? Until 2:00 AM, last order 1:00 AM. The cocktail "26 hours" is named after staying open until the 26th hour of the day.
+- How late is it open? Until 2:00 AM, last order 1:00 AM (on Sundays until midnight, last order 23:30). The cocktail "26 hours" is named after staying open until the 26th hour of the day.
 - How do I get there from Chuden-mae Station? A 1-minute walk from the Chuden-mae tram stop, 2nd floor of the Kakee Building (room 201).
 - Is it near the Peace Memorial Park? Yes, within walking distance in central Naka-ku.
 - Can I come alone? Yes. It is a small, counter-led space that is comfortable for solo guests.
@@ -132,4 +132,4 @@ Full FAQ pages: https://www.vuelta.jp/faq (English) / https://www.vuelta.jp/ja/f
 - Instagram: https://www.instagram.com/vuelta_bar
 - TripAdvisor: https://www.tripadvisor.com/Restaurant_Review-g298561-d34286584-Reviews-Vuelta-Hiroshima_Hiroshima_Prefecture_Chugoku.html
 
-Last updated: 2026-08-13
+Last updated: 2026-08-23

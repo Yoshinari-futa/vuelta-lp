@@ -709,7 +709,7 @@ export default function Home() {
                     </div>
                     <p className="text-lg tabular-nums">
                       18:00 – 02:00 <span className="text-sm text-vuelta-text-light">(Sun – 24:00)</span><br />
-                      <span className="text-sm text-vuelta-text-light">Last order 01:00</span><br />
+                      <span className="text-sm text-vuelta-text-light">Last order 01:00 (Sun 23:30)</span><br />
                       <span className="text-sm text-[#9c5844]">Closed on Thursdays</span>
                     </p>
                   </div>
