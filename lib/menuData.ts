@@ -49,7 +49,7 @@ export const recommend: MenuCategory = {
       price: 4000,
       descriptionJa: '広島を、飲んで旅する。',
       description:
-        "Drink your way through Hiroshima in three acts. 1st: Tipsy Crane, Hiroshima sake as a Negroni. 2nd: Shell We?, Miyajima oysters as a gin sonic. 3rd: The OKONOMIYAKI, Hiroshima's soul food in a glass. Plus one dish of your choice.",
+        "Drink your way through Hiroshima in three acts. 1st: Tipsy Crane, Hiroshima sake as a Negroni. 2nd: Shell We?, Seto Inland Sea oysters as a gin sonic. 3rd: The OKONOMIYAKI, Hiroshima's soul food in a glass. Plus one dish of your choice.",
     },
     {
       name: 'Short Journey',
@@ -74,6 +74,8 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'SAKURAO / Taketsuru / St-Germain / Lemon / Peach',
         description:
           'A French 75 rebuilt with Hiroshima spirits — SAKURAO gin from Hatsukaichi and Taketsuru sake — brightened with St-Germain, lemon and peach.',
+        descriptionJa:
+          'シャンパンの定番カクテル、フレンチ75を広島の酒で組み直しました。廿日市の桜尾ジンと竹鶴の日本酒を土台に、エルダーフラワーと桃、レモンを重ねて華やかに。',
       },
       {
         name: 'The OKONOMIYAKI #2',
@@ -82,6 +84,8 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Shochu / Otafuku Sauce / Cabbage Water / Bacon / Aosa',
         description:
           "Okonomiyaki is Hiroshima's post-war soul food. We distilled that legacy into a glass—rich sauce and savory umami, our history served with pride.",
+        descriptionJa:
+          '広島のソウルフード、お好み焼きをまるごとグラスに。焼酎にオタフクソースとキャベツウォーターを重ね、ベーコンとあおさで香ばしく。想像より、ちゃんとお好み焼き。改良を重ねた2代目です。',
       },
       {
         name: 'VUELTA Lemon Sour',
@@ -90,6 +94,8 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'KOME / Lemon / Tonic',
         description:
           "Japan's izakaya-standard lemon sour, rebuilt as a craft cocktail: KOME rice shochu, fresh lemon and tonic.",
+        descriptionJa:
+          '居酒屋の定番レモンサワーを、うちのクラフトカクテルとして組み直しました。敬愛するSG Clubの米焼酎をベースに、広島の地で広島のレモンを搾って合わせています。飲み飽きない一杯です。',
       },
       {
         name: 'Shell We?',
@@ -98,6 +104,8 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Gin / Dashi Rice Vinegar / Tonic Soda',
         description:
           'Celebrating the world-famous oysters of the Seto Inland Sea. Briny minerals, fresh citrus, and coastal elegance in a glass. Shall we toast?',
+        descriptionJa:
+          '開店の日から出している、うちの原点。広島で名高い牡蠣から生まれた一杯です。ジンと自家製の出汁酢、トニックソーダで潮の旨味とキレを。牡蠣のShellと『Shall we toast your trip to Hiroshima?（広島への旅に乾杯）』を掛けた名前。遠くから来てくれたあなたへ、乾杯を。',
       },
       {
         name: "Don't Feed the Deer",
@@ -106,6 +114,8 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Mizunara / Azuki / Chestnut / Milk / Momiji Leaf',
         description:
           "Named after the signs that protect the wild deer of Miyajima island. A dessert cocktail of mizunara oak, azuki red bean, chestnut and milk — the flavors of Miyajima's momiji manju sweets — finished with a red maple leaf.",
+        descriptionJa:
+          '宮島の鹿に「餌をあげないで」の看板から名づけたデザートカクテル。ミズナラと小豆、栗、ミルクで宮島名物もみじ饅頭の味をグラスに。仕上げに紅葉を一枚。',
       },
       {
         name: 'Tipsy Crane',
@@ -114,6 +124,8 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Gin / Sake / Campari / Sweet Vermouth',
         description:
           "A Negroni reimagined with Hiroshima sake alongside gin, Campari and sweet vermouth. Named for the origami crane, Hiroshima's symbol of peace.",
+        descriptionJa:
+          '広島の日本酒を効かせたネグローニ。ジンとカンパリ、スイートベルモットに地酒を重ね、ほろ酔いの折り鶴に。名前は平和の象徴、折り鶴から。',
       },
     ],
   },
@@ -127,6 +139,7 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Tequila / Sakura / Lemon',
         description:
           'A margarita in spring form: tequila, sakura cherry blossom and lemon.',
+        descriptionJa: '春をグラスに閉じ込めたマルガリータ。テキーラに桜リキュールとレモン、花びらの香り。桜の甘い香りとレモンの酸、テキーラのキレが重なる春の一杯。',
       },
       {
         name: 'Electric Buck',
@@ -135,6 +148,7 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Sansho-Gin / Ginger Ale',
         description:
           "Gin infused with sansho — the Japanese pepper that tingles on the tongue — topped with dry ginger ale. The 'electric' in the name is literal.",
+        descriptionJa: '山椒を漬け込んだジンにドライジンジャーエール。ひと口で舌がピリッとしびれる、名前どおり電気が走る一杯です。',
       },
       {
         name: 'Yaoyorozu Mule ∞',
@@ -143,6 +157,7 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: '"WA"PIRITS / Ginger Vinegar / Myoga / Shiso / Ginger',
         description:
           'A Japanese mule of craft "WA"PIRITS with ginger vinegar, myoga and shiso. Named for the yaoyorozu — the eight million gods of Japanese folklore.',
+        descriptionJa: '和のクラフトスピリッツに生姜酢とみょうが、しそを合わせた和風のモスコミュール。名前は八百万の神から。和の素材を数えきれないほど重ねました。',
       },
       {
         name: 'Kaku-Gari-Ta',
@@ -151,6 +166,7 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Tequila / Mezcal / KOME / Wasabi',
         description:
           'A margarita gone smoky and savoury: tequila and mezcal layered with KOME rice shochu and the slow-building heat of fresh wasabi.',
+        descriptionJa: 'テキーラとメスカルに米焼酎を重ね、生わさびの辛さを効かせたマルガリータ。燻した香りとツンと来る刺激が後を引きます。',
       },
     ],
   },
@@ -164,6 +180,7 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Cherry Brandy / Cynar / Angostura Bitters / Cola',
         description:
           'Not what it seems. A sophisticated botanical cocktail disguised in a classic cola bottle. Expect the unexpected.',
+        descriptionJa: '見た目はただのコーラ瓶。中身はチェリーブランデーとチナール、アンゴスチュラビターズを忍ばせたボタニカルカクテルです。名前の1886は、コーラが生まれた年から。',
       },
       {
         name: '26 hours',
@@ -172,6 +189,7 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Beefeater 24 / Tomato / Cucumber',
         description:
           'We stay open until the 26th hour—2 AM. Clear tomato, cucumber, and light minerals. Refreshing enough to keep the magic alive until last call.',
+        descriptionJa: '閉店は深夜2時、つまり24+2で26時間目。まだ帰りたくない夜のための一杯です。澄んだトマトときゅうりで、軽やかにすっと。',
       },
       {
         name: 'Smoked Cheese Paloma',
@@ -180,6 +198,7 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Tequila / Smoked Cheese / Grapefruit / Tonic / Black Pepper',
         description:
           'A savoury paloma of tequila, grapefruit and tonic, layered with smoked cheese and cracked black pepper.',
+        descriptionJa: 'テキーラとグレープフルーツのパロマに、スモークチーズと黒胡椒をひとふり。爽やかさの奥に燻製の香りと塩気がのぞく、少し大人の一杯。',
       },
     ],
   },
@@ -193,6 +212,7 @@ export const cocktailCategories: MenuCategory[] = [
         ingredients: 'Lemon / Homemade Syrup / Tonic',
         description:
           "Non-alcoholic. Hiroshima lemon — Japan's largest lemon-growing region — with homemade syrup and tonic.",
+        descriptionJa: 'ノンアルコール。実は広島は日本一のレモンの産地。その広島レモンを自家製シロップとトニックで、すっきり爽やかに。',
       },
     ],
   },
