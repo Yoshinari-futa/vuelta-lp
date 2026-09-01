@@ -17,11 +17,12 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:500;line-height:1.7;font-size:16px}
-body.lang-en .l-es,body.lang-en .l-fr,body.lang-en .l-ko,body.lang-en .l-zh{display:none !important}
-body.lang-es .l-en,body.lang-es .l-fr,body.lang-es .l-ko,body.lang-es .l-zh{display:none !important}
-body.lang-fr .l-en,body.lang-fr .l-es,body.lang-fr .l-ko,body.lang-fr .l-zh{display:none !important}
-body.lang-ko .l-en,body.lang-ko .l-es,body.lang-ko .l-fr,body.lang-ko .l-zh{display:none !important}
-body.lang-zh .l-en,body.lang-zh .l-es,body.lang-zh .l-fr,body.lang-zh .l-ko{display:none !important}
+body.lang-en .l-es,body.lang-en .l-fr,body.lang-en .l-ja,body.lang-en .l-ko,body.lang-en .l-zh{display:none !important}
+body.lang-es .l-en,body.lang-es .l-fr,body.lang-es .l-ja,body.lang-es .l-ko,body.lang-es .l-zh{display:none !important}
+body.lang-fr .l-en,body.lang-fr .l-es,body.lang-fr .l-ja,body.lang-fr .l-ko,body.lang-fr .l-zh{display:none !important}
+body.lang-ja .l-en,body.lang-ja .l-es,body.lang-ja .l-fr,body.lang-ja .l-ko,body.lang-ja .l-zh{display:none !important}
+body.lang-ko .l-en,body.lang-ko .l-es,body.lang-ko .l-fr,body.lang-ko .l-ja,body.lang-ko .l-zh{display:none !important}
+body.lang-zh .l-en,body.lang-zh .l-es,body.lang-zh .l-fr,body.lang-zh .l-ja,body.lang-zh .l-ko{display:none !important}
 
 .wrap{max-width:560px;margin:0 auto;padding:0 22px 60px}
 header{text-align:center;padding:44px 0 8px}
@@ -30,8 +31,8 @@ header{text-align:center;padding:44px 0 8px}
 .slogan{font-family:var(--sans);font-style:italic;font-weight:500;font-size:14.5px;color:var(--sub);text-align:center;margin-top:14px}
 .rule{width:44px;height:1px;background:var(--green);margin:22px auto;opacity:.8}
 
-.lang-toggle{display:flex;justify-content:center;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden;width:max-content;margin:0 auto}
-.lang-toggle button{appearance:none;border:none;background:none;font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;white-space:nowrap;padding:7px 11px;color:var(--sub);cursor:pointer}
+.lang-toggle{display:flex;justify-content:center;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden;width:max-content;max-width:100%;margin:0 auto}
+.lang-toggle button{appearance:none;border:none;background:none;font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;white-space:nowrap;padding:7px 10px;color:var(--sub);cursor:pointer}
 .lang-toggle button.active{background:var(--ink);color:var(--bg)}
 
 .coupon{border-radius:4px;padding:30px 24px;text-align:center;margin-top:30px;position:relative;background:var(--green);color:#ffffff}
@@ -39,8 +40,18 @@ header{text-align:center;padding:44px 0 8px}
 .coupon .icon{display:block;width:40px;height:40px;margin:0 auto 12px;color:var(--mint)}
 .coupon .icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
 .coupon h1{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:.04em;line-height:1.3}
+.coupon h1 .l-ja,.coupon h1 .l-ko,.coupon h1 .l-zh{font-family:'Noto Serif KR','Noto Serif TC',var(--serif);font-size:25px}
 .coupon .how{font-family:var(--sans);font-weight:400;font-size:13px;color:#ffffff;margin-top:14px;line-height:1.9}
 .coupon .fine{font-family:var(--sans);font-weight:300;font-size:10.5px;color:var(--mint);margin-top:12px;line-height:1.8}
+
+.drinks{margin-top:38px}
+.drinks h2{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.32em;text-indent:.32em;text-align:center;color:var(--green);text-transform:uppercase}
+.drinks .lead{font-family:var(--sans);font-weight:300;font-size:13px;color:var(--sub);text-align:center;margin-top:8px}
+.drinks .list{margin-top:18px;border-top:1px solid var(--line)}
+.drink{border-bottom:1px solid var(--line);padding:15px 2px}
+.drink b{font-family:var(--serif);font-weight:400;font-size:17.5px;letter-spacing:.04em;color:var(--ink)}
+.drink p{font-size:13.5px;color:var(--sub);margin-top:5px;line-height:1.8}
+.drinks .also{font-family:var(--sans);font-weight:300;font-size:13px;color:var(--sub);text-align:center;margin-top:16px;line-height:1.9}
 
 .about{margin-top:38px}
 .about h2{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.32em;text-indent:.32em;text-align:center;color:var(--green);text-transform:uppercase}
@@ -78,6 +89,7 @@ footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;
     <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
     <button id="btn-es" onclick="setLang('es')">ES</button>
     <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    <button id="btn-ja" onclick="setLang('ja')">日本語</button>
     <button id="btn-ko" onclick="setLang('ko')">한국어</button>
     <button id="btn-zh" onclick="setLang('zh')">中文</button>
   </div>
@@ -88,17 +100,67 @@ footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;
   <h1>
     <span class="l-en">One drink,<br>on us.</span>
     <span class="l-es">Una copa,<br>por nuestra cuenta.</span>
-    <span class="l-fr">Un verre,<br>offert par la maison.</span><span class="l-ko">한 잔은,<br>저희가 사겠습니다.</span><span class="l-zh">第一杯，<br>由我們招待。</span>
+    <span class="l-fr">Un verre,<br>offert par la maison.</span><span class="l-ja">一杯目は、<br>ごちそうします。</span><span class="l-ko">한 잔은,<br>저희가 사겠습니다.</span><span class="l-zh">第一杯，<br>由我們招待。</span>
   </h1>
   <p class="how">
     <span class="l-en">Show this screen to our bartender<br>and your first drink is on the house.</span>
     <span class="l-es">Muestre esta pantalla a nuestro barman<br>y su primera copa corre de nuestra cuenta.</span>
-    <span class="l-fr">Montrez cet écran à notre barman<br>et votre premier verre est offert.</span><span class="l-ko">이 화면을 바텐더에게 보여 주시면<br>첫 잔은 무료입니다.</span><span class="l-zh">向調酒師出示此畫面，<br>您的第一杯由本店招待。</span>
+    <span class="l-fr">Montrez cet écran à notre barman<br>et votre premier verre est offert.</span><span class="l-ja">この画面をバーテンダーに見せてください。<br>最初の一杯は、店のおごりです。</span><span class="l-ko">이 화면을 바텐더에게 보여 주시면<br>첫 잔은 무료입니다.</span><span class="l-zh">向調酒師出示此畫面，<br>您的第一杯由本店招待。</span>
   </p>
   <p class="fine">
-    <span class="l-en">One drink per guest. Legal drinking age in Japan is 20.</span>
-    <span class="l-es">Una copa por persona. La edad legal para beber en Japón es de 20 años.</span>
-    <span class="l-fr">Un verre par personne. L'âge légal pour consommer de l'alcool au Japon est de 20 ans.</span><span class="l-ko">1인 1잔. 일본의 음주 가능 연령은 20세입니다.</span><span class="l-zh">每位限一杯。日本法定飲酒年齡為20歲。</span>
+    <span class="l-en">One drink per guest. Cocktail sets excluded. Legal drinking age in Japan is 20.</span>
+    <span class="l-es">Una copa por persona. No incluye los menús de varios cócteles. La edad legal para beber en Japón es de 20 años.</span>
+    <span class="l-fr">Un verre par personne. Les formules de plusieurs cocktails ne sont pas incluses. L'âge légal pour consommer de l'alcool au Japon est de 20 ans.</span><span class="l-ja">お一人様一杯。カクテルのセットは対象外です。</span><span class="l-ko">1인 1잔. 칵테일 세트는 제외됩니다. 일본의 음주 가능 연령은 20세입니다.</span><span class="l-zh">每位限一杯。調酒套組除外。日本法定飲酒年齡為20歲。</span>
+  </p>
+</div>
+
+<div class="drinks">
+  <h2>
+    <span class="l-en">YOUR FIRST DRINK</span>
+    <span class="l-es">SU PRIMERA COPA</span>
+    <span class="l-fr">VOTRE PREMIER VERRE</span><span class="l-ja">最初の一杯に</span><span class="l-ko">첫 잔으로</span><span class="l-zh">第一杯喝什麼</span>
+  </h2>
+  <p class="lead">
+    <span class="l-en">A few of the glasses guests often start with.</span>
+    <span class="l-es">Algunas de las copas con las que suelen empezar nuestros clientes.</span>
+    <span class="l-fr">Quelques verres par lesquels nos hôtes aiment commencer.</span><span class="l-ja">よく最初の一杯に選ばれているカクテルです。</span><span class="l-ko">손님들이 첫 잔으로 자주 고르는 칵테일입니다.</span><span class="l-zh">客人常拿來開場的幾杯。</span>
+  </p>
+  <div class="list">
+    <div class="drink">
+      <b>Shell We?</b>
+      <p class="l-en">Our first cocktail since opening day, born from Hiroshima's famous oysters: gin, house dashi vinegar and tonic soda. Briny and sharp.</p>
+      <p class="l-es">Nuestro primer cóctel desde el día de la apertura, nacido de las famosas ostras de Hiroshima: ginebra, vinagre de dashi casero y tónica. Salino y fresco.</p>
+      <p class="l-fr">Notre premier cocktail depuis le jour de l'ouverture, né des fameuses huîtres de Hiroshima : gin, vinaigre au dashi maison et tonic. Iodé et net.</p><p class="l-ja">開店の日から出している、うちの原点。広島の牡蠣から生まれた一杯で、ジンと自家製の出汁酢、トニックソーダで潮の旨味とキレを。</p><p class="l-ko">개업 첫날부터 만들어 온 원점의 한 잔. 히로시마의 굴에서 태어난 칵테일로, 진과 수제 다시 식초, 토닉소다로 바다의 감칠맛과 산뜻함을 담았습니다.</p><p class="l-zh">開店第一天就有的原點之作。誕生自廣島著名的牡蠣：琴酒、自製高湯醋與通寧蘇打，鹹鮮而俐落。</p>
+    </div>
+    <div class="drink">
+      <b>Hiroshima 75</b>
+      <p class="l-en">A French 75 rebuilt with Hiroshima spirits, SAKURAO gin and Taketsuru sake, brightened with elderflower, lemon and peach.</p>
+      <p class="l-es">Un French 75 reconstruido con destilados de Hiroshima, ginebra SAKURAO y sake Taketsuru, iluminado con flor de saúco, limón y melocotón.</p>
+      <p class="l-fr">Un French 75 repensé avec les alcools de Hiroshima, gin SAKURAO et saké Taketsuru, éclairé de fleur de sureau, citron et pêche.</p><p class="l-ja">シャンパンカクテルの定番フレンチ75を、廿日市の桜尾ジンと竹鶴の日本酒で組み直した華やかな一杯。</p><p class="l-ko">샴페인 칵테일의 클래식 프렌치 75를 히로시마의 술로 다시 만들었습니다. SAKURAO 진과 다케쓰루 사케에 엘더플라워, 레몬, 복숭아.</p><p class="l-zh">以廣島之酒重組的經典香檳調酒French 75：SAKURAO琴酒與竹鶴清酒，加上接骨木花、檸檬與桃子的明亮香氣。</p>
+    </div>
+    <div class="drink">
+      <b>The OKONOMIYAKI #2</b>
+      <p class="l-en">Hiroshima's soul food in a glass: shochu, okonomiyaki sauce and cabbage water. Tastes more like the real thing than you expect.</p>
+      <p class="l-es">La comida del alma de Hiroshima en una copa: shochu, salsa de okonomiyaki y agua de col. Sabe más al original de lo que espera.</p>
+      <p class="l-fr">La cuisine populaire de Hiroshima dans un verre : shochu, sauce okonomiyaki et eau de chou. Plus fidèle à l'original qu'on ne l'imagine.</p><p class="l-ja">広島のソウルフード、お好み焼きをまるごとグラスに。想像より、ちゃんとお好み焼きです。</p><p class="l-ko">히로시마의 소울푸드 오코노미야키를 그대로 잔에 담았습니다. 소주와 오코노미야키 소스, 양배추 워터. 상상보다 훨씬 진짜 같은 맛입니다.</p><p class="l-zh">廣島的靈魂料理御好燒裝進酒杯：燒酎、御好燒醬與高麗菜水。比想像中更像御好燒。</p>
+    </div>
+    <div class="drink">
+      <b>Don't Feed the Deer</b>
+      <p class="l-en">A dessert cocktail of mizunara oak, red bean, chestnut and milk, the flavors of Miyajima's momiji manju sweets. Named after the island's deer signs.</p>
+      <p class="l-es">Un cóctel de postre de roble mizunara, judía roja, castaña y leche: los sabores del dulce momiji manju de Miyajima. El nombre viene de los carteles que protegen a sus ciervos.</p>
+      <p class="l-fr">Un cocktail dessert de chêne mizunara, haricot rouge, châtaigne et lait : les saveurs du momiji manju de Miyajima. Le nom vient des panneaux qui protègent les daims de l'île.</p><p class="l-ja">宮島の「鹿に餌をあげないで」の看板から名づけたデザートカクテル。ミズナラと小豆、栗、ミルクで、もみじ饅頭の味わいをグラスに。</p><p class="l-ko">미즈나라 오크와 팥, 밤, 우유로 미야지마 명물 모미지만주의 맛을 담은 디저트 칵테일. 이름은 섬의 '사슴에게 먹이를 주지 마세요' 표지판에서 왔습니다.</p><p class="l-zh">以水楢桶、紅豆、栗子與牛奶調成的甜點調酒，正是宮島名物紅葉饅頭的味道。名字來自島上「請勿餵鹿」的告示牌。</p>
+    </div>
+    <div class="drink">
+      <b>26 hours</b>
+      <p class="l-en">Clear tomato and cucumber, light and cool. Named for our closing time: the 26th hour, 2 a.m.</p>
+      <p class="l-es">Tomate claro y pepino, ligero y fresco. El nombre viene de nuestra hora de cierre: la hora 26, las 2 de la madrugada.</p>
+      <p class="l-fr">Tomate clarifiée et concombre, léger et frais. Le nom vient de l'heure de fermeture : la 26e heure, 2 h du matin.</p><p class="l-ja">澄んだトマトときゅうりで、軽やかにすっと。名前は閉店時刻の深夜2時、つまり26時から。</p><p class="l-ko">맑은 토마토와 오이로 가볍고 산뜻하게. 이름은 폐점 시간인 새벽 2시, 즉 26시에서 왔습니다.</p><p class="l-zh">澄清番茄與小黃瓜，輕盈爽快。名字取自打烊時間：第26小時，凌晨兩點。</p>
+    </div>
+  </div>
+  <p class="also">
+    <span class="l-en">Can't decide? Tell the bartender what you usually drink. Alcohol-free cocktails are on the menu too.</span>
+    <span class="l-es">¿No se decide? Diga al barman lo que suele beber. También hay cócteles sin alcohol.</span>
+    <span class="l-fr">Vous hésitez ? Dites au barman ce que vous buvez d'habitude. Il y a aussi des cocktails sans alcool.</span><span class="l-ja">迷ったら、ふだん飲むお酒をバーテンダーに伝えてください。ノンアルコールのカクテルもあります。</span><span class="l-ko">고르기 어려우면 평소 즐기는 술을 바텐더에게 말씀해 주세요. 무알코올 칵테일도 있습니다.</span><span class="l-zh">拿不定主意的話，告訴調酒師您平常喝什麼就好。也備有無酒精調酒。</span>
   </p>
 </div>
 
@@ -106,14 +168,14 @@ footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;
   <h2>
     <span class="l-en">ABOUT VUELTA</span>
     <span class="l-es">SOBRE VUELTA</span>
-    <span class="l-fr">VUELTA</span><span class="l-ko">VUELTA 소개</span><span class="l-zh">關於 VUELTA</span>
+    <span class="l-fr">VUELTA</span><span class="l-ja">VUELTAについて</span><span class="l-ko">VUELTA 소개</span><span class="l-zh">關於 VUELTA</span>
   </h2>
   <p class="l-en">VUELTA is an eight-seat counter bar in Otemachi, a one-minute walk from the hotel and three minutes from the Peace Memorial Park. It opened in 2026. The owner is a former member of the MORETHAN team.</p>
   <p class="l-en">The cocktails lean local: SAKURAO gin from Hatsukaichi, Togouchi whisky, Hiroshima lemons. Come for one drink after dinner, or stay for a few.</p>
   <p class="l-es">VUELTA es una barra de ocho asientos en Otemachi, a un minuto a pie del hotel y a tres del Parque Memorial de la Paz. Abrió en 2026 y su dueño formó parte del equipo de MORETHAN.</p>
   <p class="l-es">Los cócteles tiran de lo local: ginebra SAKURAO de Hatsukaichi, whisky Togouchi, limones de Hiroshima. Venga a tomar una copa después de cenar, o quédese a unas cuantas.</p>
-  <p class="l-fr">VUELTA est un bar de comptoir de huit places à Otemachi, à une minute à pied de l'hôtel et à trois du Parc du Mémorial de la Paix. Il a ouvert en 2026. Son patron est un ancien de l'équipe MORETHAN.</p><p class="l-ko">VUELTA는 오테마치에 있는 8석짜리 카운터 바입니다. 호텔에서 걸어서 1분, 평화기념공원에서 3분 거리입니다. 2026년에 문을 열었고, 오너는 MORETHAN 팀 출신입니다.</p><p class="l-zh">VUELTA是大手町一間只有八個吧檯座位的小酒吧，從飯店走過來一分鐘，離和平紀念公園三分鐘。2026年開業，老闆曾是MORETHAN團隊的一員。</p>
-  <p class="l-fr">Les cocktails jouent local : gin SAKURAO de Hatsukaichi, whisky Togouchi, citrons de Hiroshima. Venez prendre un verre après le dîner, ou deux.</p><p class="l-ko">칵테일은 히로시마의 재료가 중심입니다. 하쓰카이치에서 증류한 SAKURAO 진, 도고우치 위스키, 히로시마 레몬. 저녁 식사 후 가볍게 한 잔 하기 좋은 곳입니다.</p><p class="l-zh">調酒多用在地材料：廿日市蒸餾的SAKURAO琴酒、戶河內威士忌、廣島檸檬。晚餐後過來喝一杯剛剛好。</p>
+  <p class="l-fr">VUELTA est un bar de comptoir de huit places à Otemachi, à une minute à pied de l'hôtel et à trois du Parc du Mémorial de la Paix. Il a ouvert en 2026. Son patron est un ancien de l'équipe MORETHAN.</p><p class="l-ja">VUELTAは大手町の8席のカウンターバーです。ホテルから歩いて1分、平和記念公園から3分。2026年にオープンしました。オーナーは元MORETHANチームの一員です。</p><p class="l-ko">VUELTA는 오테마치에 있는 8석짜리 카운터 바입니다. 호텔에서 걸어서 1분, 평화기념공원에서 3분 거리입니다. 2026년에 문을 열었고, 오너는 MORETHAN 팀 출신입니다.</p><p class="l-zh">VUELTA是大手町一間只有八個吧檯座位的小酒吧，從飯店走過來一分鐘，離和平紀念公園三分鐘。2026年開業，老闆曾是MORETHAN團隊的一員。</p>
+  <p class="l-fr">Les cocktails jouent local : gin SAKURAO de Hatsukaichi, whisky Togouchi, citrons de Hiroshima. Venez prendre un verre après le dîner, ou deux.</p><p class="l-ja">カクテルは広島の素材が中心です。廿日市の桜尾ジン、戸河内ウイスキー、広島のレモン。食事のあとの一杯にも、もう少し長い夜にも。</p><p class="l-ko">칵테일은 히로시마의 재료가 중심입니다. 하쓰카이치에서 증류한 SAKURAO 진, 도고우치 위스키, 히로시마 레몬. 저녁 식사 후 가볍게 한 잔 하기 좋은 곳입니다.</p><p class="l-zh">調酒多用在地材料：廿日市蒸餾的SAKURAO琴酒、戶河內威士忌、廣島檸檬。晚餐後過來喝一杯剛剛好。</p>
 
   <div class="portrait">
     <div class="rule"></div>
@@ -123,27 +185,27 @@ footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;
       <span class="roman">
         <span class="l-en">Yuta "Yuji" Miyake</span>
         <span class="l-es">Yuta "Yuji" Miyake</span>
-        <span class="l-fr">Yuta "Yuji" Miyake</span><span class="l-ko">미야케 유타 "유지"</span><span class="l-zh">Yuta "Yuji" Miyake</span>
+        <span class="l-fr">Yuta "Yuji" Miyake</span><span class="l-ja">Yuta "Yuji" Miyake</span><span class="l-ko">미야케 유타 "유지"</span><span class="l-zh">Yuta "Yuji" Miyake</span>
       </span>
       <span class="l-en">Manager</span>
       <span class="l-es">Gerente</span>
-      <span class="l-fr">Gérant</span><span class="l-ko">점장</span><span class="l-zh">店長</span>
+      <span class="l-fr">Gérant</span><span class="l-ja">店長</span><span class="l-ko">점장</span><span class="l-zh">店長</span>
     </p>
     <p class="invite l-en">Yuta worked at MORETHAN before coming here. If you have just had dinner there, stop by and say hello. He'll be glad to see you.</p>
     <p class="invite l-es">Yuta trabajó en MORETHAN antes de llegar aquí. Si acaba de cenar allí, pásese a saludarlo. Le alegrará verle.</p>
-    <p class="invite l-fr">Yuta a travaillé chez MORETHAN avant d'arriver ici. Si vous venez d'y dîner, passez lui dire bonjour. Il sera content de vous voir.</p><p class="invite l-ko">유타는 이곳에 오기 전 MORETHAN에서 일했습니다. 그곳에서 식사를 하고 오셨다면, 들러서 인사해 주세요. 반가워할 겁니다.</p><p class="invite l-zh">悠太來這裡之前在MORETHAN工作。若您剛在那裡用完餐，歡迎過來打聲招呼，他會很高興見到您。</p>
+    <p class="invite l-fr">Yuta a travaillé chez MORETHAN avant d'arriver ici. Si vous venez d'y dîner, passez lui dire bonjour. Il sera content de vous voir.</p><p class="invite l-ja">三宅はここに来る前、MORETHANで働いていました。あちらで食事をされた帰りでしたら、ぜひ顔を見せてやってください。喜びます。</p><p class="invite l-ko">유타는 이곳에 오기 전 MORETHAN에서 일했습니다. 그곳에서 식사를 하고 오셨다면, 들러서 인사해 주세요. 반가워할 겁니다.</p><p class="invite l-zh">悠太來這裡之前在MORETHAN工作。若您剛在那裡用完餐，歡迎過來打聲招呼，他會很高興見到您。</p>
   </div>
 
   <div class="facts">
     <div><b>
-      <span class="l-en">Open</span><span class="l-es">Horario</span><span class="l-fr">Horaires</span><span class="l-ko">영업시간</span><span class="l-zh">營業時間</span>
+      <span class="l-en">Open</span><span class="l-es">Horario</span><span class="l-fr">Horaires</span><span class="l-ja">営業時間</span><span class="l-ko">영업시간</span><span class="l-zh">營業時間</span>
     </b> — 18:00–02:00 (L.O. 01:00)
       <span class="l-en">/ Closed Thursdays</span>
       <span class="l-es">/ Cerrado los jueves</span>
-      <span class="l-fr">/ Fermé le jeudi</span><span class="l-ko">/ 목요일 휴무</span><span class="l-zh">/ 週四公休</span>
+      <span class="l-fr">/ Fermé le jeudi</span><span class="l-ja">/ 木曜定休</span><span class="l-ko">/ 목요일 휴무</span><span class="l-zh">/ 週四公休</span>
     </div>
     <div><b>
-      <span class="l-en">Address</span><span class="l-es">Dirección</span><span class="l-fr">Adresse</span><span class="l-ko">주소</span><span class="l-zh">地址</span>
+      <span class="l-en">Address</span><span class="l-es">Dirección</span><span class="l-fr">Adresse</span><span class="l-ja">住所</span><span class="l-ko">주소</span><span class="l-zh">地址</span>
     </b> — 3-3-5 Otemachi, Naka-ku, Hiroshima — 2F (掛江ビル 201)</div>
     <div><b>Instagram</b> — @vuelta_bar</div>
   </div>
@@ -153,7 +215,12 @@ footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;
   <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=730-0051+%E5%BA%83%E5%B3%B6%E7%9C%8C%E5%BA%83%E5%B3%B6%E5%B8%82%E4%B8%AD%E5%8C%BA%E5%A4%A7%E6%89%8B%E7%94%BA3-3-5+%E6%8E%9B%E6%B1%9F%E3%83%93%E3%83%AB201" target="_blank" rel="noopener">
     <span class="l-en">OPEN IN GOOGLE MAPS</span>
     <span class="l-es">ABRIR EN GOOGLE MAPS</span>
-    <span class="l-fr">OUVRIR DANS GOOGLE MAPS</span><span class="l-ko">구글 지도에서 열기</span><span class="l-zh">在 GOOGLE 地圖開啟</span>
+    <span class="l-fr">OUVRIR DANS GOOGLE MAPS</span><span class="l-ja">OPEN IN GOOGLE MAPS</span><span class="l-ko">구글 지도에서 열기</span><span class="l-zh">在 GOOGLE 地圖開啟</span>
+  </a>
+  <a class="btn btn-ghost" href="https://www.vuelta.jp/menu" target="_blank" rel="noopener">
+    <span class="l-en">SEE THE FULL MENU</span>
+    <span class="l-es">VER LA CARTA COMPLETA</span>
+    <span class="l-fr">VOIR LA CARTE COMPLÈTE</span><span class="l-ja">SEE THE FULL MENU</span><span class="l-ko">전체 메뉴 보기</span><span class="l-zh">查看完整酒單</span>
   </a>
   <a class="btn btn-ghost" href="https://www.instagram.com/vuelta_bar" target="_blank" rel="noopener">INSTAGRAM — @vuelta_bar</a>
 </div>
@@ -166,12 +233,12 @@ footer{text-align:center;font-family:var(--sans);font-weight:300;font-size:11px;
 </div>
 
 <script>
-var LANGS=['en','es','fr','ko','zh'];
+var LANGS=['en','es','fr','ja','ko','zh'];
 function applyLang(l){
   if(LANGS.indexOf(l)<0) l='en';
-  document.body.classList.remove('lang-en','lang-es','lang-fr','lang-ko','lang-zh');
+  document.body.classList.remove('lang-en','lang-es','lang-fr','lang-ja','lang-ko','lang-zh');
   document.body.classList.add('lang-'+l);
-  document.documentElement.lang=({en:'en',es:'es',fr:'fr',ko:'ko',zh:'zh-Hant'})[l];
+  document.documentElement.lang=({en:'en',es:'es',fr:'fr',ja:'ja',ko:'ko',zh:'zh-Hant'})[l];
   LANGS.forEach(function(x){document.getElementById('btn-'+x).classList.toggle('active',x===l);});
 }
 var _fadeT=null;
