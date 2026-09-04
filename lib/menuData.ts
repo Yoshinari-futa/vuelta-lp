@@ -78,14 +78,14 @@ export const cocktailCategories: MenuCategory[] = [
           'シャンパンの定番カクテル、フレンチ75を広島の酒で組み直しました。廿日市の桜尾ジンと竹鶴の日本酒を土台に、エルダーフラワーと桃、レモンを重ねて華やかに。',
       },
       {
-        name: 'The OKONOMIYAKI #2',
+        name: 'The OKONOMIYAKI #3',
         nameJa: 'ザ オコノミヤキ',
         price: 1000,
-        ingredients: 'Shochu / Otafuku Sauce / Cabbage Water / Bacon / Aosa',
+        ingredients: 'Shochu / Otafuku Sauce / Cabbage Water / Milk Wash / Bacon / Aosa',
         description:
-          "Okonomiyaki is Hiroshima's post-war soul food. We distilled that legacy into a glass—rich sauce and savory umami, our history served with pride.",
+          "Okonomiyaki is Hiroshima's post-war soul food. We distilled that legacy into a glass—now milk-washed silky and clear. Rich sauce and savory umami, our history served with pride.",
         descriptionJa:
-          '広島のソウルフード、お好み焼きをまるごとグラスに。焼酎にオタフクソースとキャベツウォーターを重ね、ベーコンとあおさで香ばしく。想像より、ちゃんとお好み焼き。改良を重ねた2代目です。',
+          '広島のソウルフード、お好み焼きをまるごとグラスに。焼酎にオタフクソースとキャベツウォーターを重ね、ミルクウォッシュで澄んだ口当たりに。ベーコンとあおさで香ばしく。想像より、ちゃんとお好み焼き。改良を重ねた3代目です。',
       },
       {
         name: 'VUELTA Lemon Sour',
@@ -225,9 +225,9 @@ export const subscription: MenuCategory = {
   subtitle: 'month / ¥1,980',
   items: [
     {
-      name: 'The OKONOMIYAKI #2',
+      name: 'The OKONOMIYAKI #3',
       nameJa: 'ザ オコノミヤキ',
-      ingredients: 'Shochu / Otafuku Sauce / Cabbage Water / Bacon / Aosa',
+      ingredients: 'Shochu / Otafuku Sauce / Cabbage Water / Milk Wash / Bacon / Aosa',
     },
     {
       name: '26 hours',

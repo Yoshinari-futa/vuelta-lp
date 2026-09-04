@@ -283,23 +283,23 @@ export const faqEntries: FaqEntry[] = [
     featured: true,
     en: {
       q: 'What are your signature cocktails?',
-      a: 'Signatures include The OKONOMIYAKI #2 (Hiroshima soul food in a glass) and Shell We? (Hiroshima oysters, the sea in a glass). Cocktails range roughly from 850 to 2,200 yen.',
+      a: 'Signatures include The OKONOMIYAKI #3 (Hiroshima soul food in a glass) and Shell We? (Hiroshima oysters, the sea in a glass). Cocktails range roughly from 850 to 2,200 yen.',
     },
     ja: {
       q: 'おすすめや名物のカクテルは？',
-      a: '看板は「The OKONOMIYAKI #2」（広島のソウルフードを一杯に）と「Shell We?」（広島の牡蠣、海を一杯に）です。カクテルはおよそ850円から2,200円です。',
+      a: '看板は「The OKONOMIYAKI #3」（広島のソウルフードを一杯に）と「Shell We?」（広島の牡蠣、海を一杯に）です。カクテルはおよそ850円から2,200円です。',
     },
   },
   {
     id: 'okonomiyaki-cocktail',
     category: 'drinks',
     en: {
-      q: 'What is "The OKONOMIYAKI #2" cocktail?',
-      a: "Our signature cocktail that turns okonomiyaki, Hiroshima's post-war soul food, into a drink (1,000 yen). Now in its second edition: shochu meets Otafuku sauce and cabbage water, finished with bacon and aosa seaweed — savory umami in a glass.",
+      q: 'What is "The OKONOMIYAKI #3" cocktail?',
+      a: "Our signature cocktail that turns okonomiyaki, Hiroshima's post-war soul food, into a drink (1,000 yen). Now in its third edition, milk-washed silky and clear: shochu meets Otafuku sauce and cabbage water, finished with bacon and aosa seaweed — savory umami in a glass.",
     },
     ja: {
-      q: '「The OKONOMIYAKI #2」とはどんなカクテルですか？',
-      a: '広島のソウルフード、お好み焼きをグラスの中に表現した看板カクテルです（1,000円）。現在は2代目レシピ。焼酎にオタフクソースとキャベツウォーターを重ね、ベーコンとあおさを添えています。',
+      q: '「The OKONOMIYAKI #3」とはどんなカクテルですか？',
+      a: '広島のソウルフード、お好み焼きをグラスの中に表現した看板カクテルです（1,000円）。現在は3代目レシピ。焼酎にオタフクソースとキャベツウォーターを重ね、ミルクウォッシュで澄んだ口当たりに。ベーコンとあおさを添えています。',
     },
   },
   {

@@ -23,7 +23,7 @@ const FILES = [
   'images/manager-yuta.png',
   'images/vuelta-logo.png',
   'images/cocktails/shellwe.png',
-  'images/cocktails/okonomiyaki.png',
+  'images/cocktails/okonomiyaki-3.jpg',
   'images/cocktails/26hours.png',
   'images/cocktails/sakura-margarita.png',
 ]
