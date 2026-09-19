@@ -48,26 +48,26 @@ body.lang-zh .l-en,body.lang-zh .l-es,body.lang-zh .l-fr,body.lang-zh .l-ja,body
 .lang button.c-zh{font-family:var(--zh);font-size:11.5px;letter-spacing:.06em}
 .lang button.active{color:var(--green);border-bottom-color:var(--green)}
 
-.hero{margin:0 -22px}
-.hero img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%}
-@media (min-width:600px){.hero{margin:0}}
+.hero{display:flex;align-items:flex-end;gap:18px;padding-top:10px}
+.hero img{display:block;width:clamp(132px,38%,168px);height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 15%;flex:none}
+.hero .id{min-width:0;padding-bottom:4px}
 
-.intro{padding-top:26px}
+.intro{padding-top:0}
 .who{font-family:var(--display);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);line-height:1.5}
 .who .l-ja,.who .l-ko,.who .l-zh{letter-spacing:.18em}
-.name{font-family:var(--display);font-size:23px;letter-spacing:.06em;color:var(--ink);margin-top:5px;line-height:1.25}
+.name{font-family:var(--display);font-size:23px;letter-spacing:.06em;color:var(--ink);margin-top:6px;line-height:1.25;overflow-wrap:anywhere}
 .name .l-ko{font-family:var(--ko-serif);font-weight:500;font-size:21px;letter-spacing:.08em}
 .name .l-zh{font-family:var(--zh-serif);font-weight:500;font-size:22px;letter-spacing:.12em}
 .name .l-ja{font-size:22px;letter-spacing:.14em}
-.name small{display:block;font-family:var(--display);font-size:12px;letter-spacing:.14em;color:var(--sub);margin-top:3px}
+.name small{display:block;font-family:var(--display);font-size:11.5px;letter-spacing:.08em;color:var(--sub);margin-top:3px;white-space:nowrap}
 .name small .jp{font-size:12.5px;letter-spacing:.2em}
 .name small .l-ja,.name small .l-ko,.name small .l-zh,.btn .l-ja{font-family:var(--display)}
 
-h1{font-family:var(--display);font-weight:400;font-size:42px;line-height:1.08;letter-spacing:.01em;color:var(--green);margin-top:24px}
+h1{font-family:var(--display);font-weight:400;font-size:42px;line-height:1.08;letter-spacing:.01em;color:var(--green);margin-top:26px}
 h1 .l-ja{font-size:31px;line-height:1.32;letter-spacing:.05em}
 h1 .l-ko{font-family:var(--ko-serif);font-weight:500;font-size:30px;line-height:1.32}
 h1 .l-zh{font-family:var(--zh-serif);font-weight:500;font-size:31px;line-height:1.32;letter-spacing:.05em}
-@media (max-width:359px){h1{font-size:36px}}
+@media (max-width:379px){h1{font-size:36px}.name{font-size:20px}.hero img{width:122px}.hero{gap:14px}}
 
 .lede{margin-top:18px;font-size:16px;line-height:1.8;color:var(--ink)}
 .lede.l-ja{font-size:15.5px;line-height:1.95}
@@ -125,11 +125,9 @@ footer{margin-top:48px;text-align:center;font-family:var(--display);font-size:10
   </nav>
 </header>
 
-<figure class="hero">
+<div class="hero">
   <img src="/images/miyake.jpg?v=2" alt="Yuta Miyake, manager of Bar VUELTA" width="480" height="600" fetchpriority="high">
-</figure>
-
-<section class="intro">
+  <div class="id">
   <p class="who">
     <span class="l-en">Manager, Bar VUELTA</span>
     <span class="l-es">Gerente, Bar VUELTA</span>
@@ -145,7 +143,10 @@ footer{margin-top:48px;text-align:center;font-family:var(--display);font-size:10
       <span class="l-fr jp">三宅悠太</span><span class="l-ja">Yuta "Yuji" Miyake</span><span class="l-ko">Yuta "Yuji" Miyake</span><span class="l-zh">Yuta "Yuji" Miyake</span>
     </small>
   </p>
+  </div>
+</div>
 
+<section class="intro">
   <h1>
     <span class="l-en">Your first drink<br>is free.</span>
     <span class="l-es">Su primera copa<br>es gratis.</span>
