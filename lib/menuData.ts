@@ -378,7 +378,7 @@ export const spiritsCategories: MenuCategory[] = [
 // ── RECOMMEND ─────────────────────────────
 // 各カクテルの正本(価格と説明)から引く。品目を変える時は名前だけ差し替える
 
-const recommendNames = ['Hiroshima 75', '1886', 'Yaoyorozu Mule ∞']
+const recommendNames = ['Hiroshima 75', "Don't Feed the Deer", '1886', 'Yaoyorozu Mule ∞']
 
 export const recommend: MenuCategory = {
   title: 'RECOMMEND',
