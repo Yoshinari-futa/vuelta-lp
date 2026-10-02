@@ -401,7 +401,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 max-w-7xl mx-auto items-stretch">
             {[
               { name: 'Shell We?', description: 'The very first cocktail we created—our origin. Hiroshima\'s oysters, the sea in a glass. The name is a pun: "Shall we?" meets oyster "Shell." SAKURAO Gin and house-made dashi vinegar. Shall we toast?', price: '¥1,600', tag: 'Signature', image: '/images/cocktails/shellwe.png' },
-              { name: 'The OKONOMIYAKI #3', description: 'Hiroshima\'s soul food, reimagined as a cocktail—now in its third edition, milk-washed silky and clear. Shochu meets Otafuku sauce and cabbage water, finished with bacon and aosa seaweed. A local flavor you won\'t find anywhere else.', price: '¥1,000', tag: 'Signature', image: '/images/cocktails/okonomiyaki-3.jpg', objectPosition: 'center 55%' },
+              { name: 'The OKONOMIYAKI #3', description: 'Hiroshima\'s soul food, reimagined as a cocktail—now in its third edition, milk-washed silky and clear. Shochu meets Otafuku sauce and cabbage water, finished with bacon and aosa seaweed. A local flavor you won\'t find anywhere else.', price: '¥1,300', tag: 'Signature', image: '/images/cocktails/okonomiyaki-3.jpg', objectPosition: 'center 55%' },
               { name: '26 hours', description: 'We stay open until the 26th hour—2 AM. Crystal-clear tomato and cucumber, light minerals. Refreshing enough to keep the magic alive until last call.', price: '¥1,250', tag: 'Late pour', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
               {
                 name: 'Cherry Blossoms Margarita',

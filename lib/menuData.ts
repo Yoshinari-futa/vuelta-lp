@@ -70,7 +70,7 @@ export const cocktailCategories: MenuCategory[] = [
       {
         name: 'Hiroshima 75',
         nameJa: 'ヒロシマ セブンティファイブ',
-        price: 1300,
+        price: 1200,
         ingredients: 'SAKURAO / Taketsuru / St-Germain / Lemon / Peach',
         description:
           'A French 75 rebuilt with Hiroshima spirits — SAKURAO gin from Hatsukaichi and Taketsuru sake — brightened with St-Germain, lemon and peach.',
@@ -80,7 +80,7 @@ export const cocktailCategories: MenuCategory[] = [
       {
         name: 'The OKONOMIYAKI #3',
         nameJa: 'ザ オコノミヤキ',
-        price: 1000,
+        price: 1300,
         ingredients: 'Shochu / Otafuku Sauce / Cabbage Water / Milk Wash / Bacon / Aosa',
         description:
           "Okonomiyaki is Hiroshima's post-war soul food. We distilled that legacy into a glass—now milk-washed silky and clear. Rich sauce and savory umami, our history served with pride.",
