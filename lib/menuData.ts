@@ -187,8 +187,8 @@ export const cocktailCategories: MenuCategory[] = [
         price: 1800,
         ingredients: 'Tequila / Mezcal / KOME / Wasabi',
         description:
-          'A margarita gone smoky and savoury: tequila and mezcal layered with KOME rice shochu and the slow-building heat of fresh wasabi.',
-        descriptionJa: 'テキーラとメスカルに米焼酎を重ね、生わさびの辛さを効かせたマルガリータ。燻した香りとツンと来る刺激が後を引きます。',
+          'A margarita gone smoky and savoury: tequila and mezcal layered with KOME rice shochu and the slow-building heat of wasabi.',
+        descriptionJa: 'テキーラとメスカルに米焼酎を重ね、わさびの辛さを効かせたマルガリータ。燻した香りとツンと来る刺激が後を引きます。',
       },
     ],
   },
