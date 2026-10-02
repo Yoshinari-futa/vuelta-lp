@@ -460,11 +460,11 @@ export const faqEntries: FaqEntry[] = [
     featured: true,
     en: {
       q: 'Is there a cover charge?',
-      a: 'Yes. There is a cover charge of 300 yen per person.',
+      a: 'Yes. There is a cover charge of 500 yen per person.',
     },
     ja: {
       q: 'チャージ（席料）はかかりますか？',
-      a: 'はい。お一人様300円のチャージをいただいています。',
+      a: 'はい。お一人様500円のチャージをいただいています。',
     },
   },
   {
@@ -497,11 +497,11 @@ export const faqEntries: FaqEntry[] = [
     category: 'payment',
     en: {
       q: 'How much should I budget for a visit?',
-      a: 'Cocktails range roughly from 850 to 2,200 yen, plus a 300 yen cover charge per person. As a guide, two cocktails come to about 2,300 to 3,500 yen.',
+      a: 'Cocktails range roughly from 850 to 2,200 yen, plus a 500 yen cover charge per person. As a guide, two cocktails come to about 2,500 to 3,700 yen.',
     },
     ja: {
       q: '予算はどのくらい見ておけばいいですか？',
-      a: 'カクテルはおよそ850円から2,200円、チャージがお一人様300円です。2杯ほどで2,300円から3,500円が目安です。',
+      a: 'カクテルはおよそ850円から2,200円、チャージがお一人様500円です。2杯ほどで2,500円から3,700円が目安です。',
     },
   },
   {
@@ -509,11 +509,11 @@ export const faqEntries: FaqEntry[] = [
     category: 'payment',
     en: {
       q: 'Do I need to tip?',
-      a: 'No. Tipping is not customary in Japan and we do not expect it at Bar VUELTA. Instead there is a small cover charge of 300 yen per person.',
+      a: 'No. Tipping is not customary in Japan and we do not expect it at Bar VUELTA. Instead there is a small cover charge of 500 yen per person.',
     },
     ja: {
       q: 'チップは必要ですか？',
-      a: '不要です。日本にはチップの習慣がなく、当店でもいただいていません。席料としてお一人様300円のチャージのみ頂戴しています。',
+      a: '不要です。日本にはチップの習慣がなく、当店でもいただいていません。席料としてお一人様500円のチャージのみ頂戴しています。',
     },
   },
   {

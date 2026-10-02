@@ -32,7 +32,7 @@ export const coverCharge: MenuCategory = {
     {
       name: 'Cover Charge',
       nameJa: 'お通し（席料）',
-      price: 300,
+      price: 500,
       description: 'A traditional Japanese bar seating fee per person.',
     },
   ],
@@ -135,7 +135,7 @@ export const cocktailCategories: MenuCategory[] = [
       {
         name: 'Cherry Blossoms Margarita',
         nameJa: 'サクラマルガリータ',
-        price: 1000,
+        price: 1200,
         ingredients: 'Tequila / Sakura / Lemon',
         description:
           'A margarita in spring form: tequila, sakura cherry blossom and lemon.',
