@@ -327,8 +327,8 @@ export const spiritsCategories: MenuCategory[] = [
   {
     title: 'BEER',
     items: [
-      { name: 'Sapporo Lager "AKABOSHI"', nameJa: 'サッポロ 赤星', price: 700 },
-      { name: 'Kirin Lager', nameJa: 'キリンラガー', price: 700 },
+      { name: 'Sapporo Lager "AKABOSHI"', nameJa: 'サッポロ 赤星', price: 750 },
+      { name: 'Kirin Lager', nameJa: 'キリンラガー', price: 750 },
     ],
   },
   {
