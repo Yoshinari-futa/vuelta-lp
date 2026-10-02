@@ -57,8 +57,10 @@ export const journey: MenuCategory = {
 // ── COCKTAILS ─────────────────────────────
 
 export const cocktailCategories: MenuCategory[] = [
+  // 区切りと並び順は店内メニューブック(08_デザイン素材/menu-book/menu.html)に合わせる
   {
-    title: 'HIROSHIMA',
+    title: 'LOCAL SOUL',
+    subtitle: '広島の魂を、グラスに。',
     items: [
       {
         name: 'Hiroshima 75',
@@ -79,16 +81,6 @@ export const cocktailCategories: MenuCategory[] = [
           "Okonomiyaki is Hiroshima's post-war soul food. We distilled that legacy into a glass—now milk-washed silky and clear. Rich sauce and savory umami, our history served with pride.",
         descriptionJa:
           '広島のソウルフード、お好み焼きをまるごとグラスに。焼酎にオタフクソースとキャベツウォーターを重ね、ミルクウォッシュで澄んだ口当たりに。ベーコンとあおさで香ばしく。想像より、ちゃんとお好み焼き。改良を重ねた3代目です。',
-      },
-      {
-        name: 'VUELTA Lemon Sour',
-        nameJa: 'ブエルタ レモンサワー',
-        price: 1200,
-        ingredients: 'KOME / Lemon / Tonic',
-        description:
-          "Japan's izakaya-standard lemon sour, rebuilt as a craft cocktail: KOME rice shochu, fresh lemon and tonic.",
-        descriptionJa:
-          '居酒屋の定番レモンサワーを、うちのクラフトカクテルとして組み直しました。敬愛するSG Clubの米焼酎をベースに、広島の地で広島のレモンを搾って合わせています。飲み飽きない一杯です。',
       },
       {
         name: 'Shell We?',
@@ -123,16 +115,17 @@ export const cocktailCategories: MenuCategory[] = [
     ],
   },
   {
-    title: 'JAPAN',
+    title: 'ORIGINAL COCKTAILS',
     items: [
       {
-        name: 'Cherry Blossoms Margarita',
-        nameJa: 'サクラマルガリータ',
+        name: 'VUELTA Lemon Sour',
+        nameJa: 'ブエルタ レモンサワー',
         price: 1200,
-        ingredients: 'Tequila / Sakura / Lemon',
+        ingredients: 'KOME / Lemon / Tonic',
         description:
-          'A margarita in spring form: tequila, sakura cherry blossom and lemon.',
-        descriptionJa: '春をグラスに閉じ込めたマルガリータ。テキーラに桜リキュールとレモン、花びらの香り。桜の甘い香りとレモンの酸、テキーラのキレが重なる春の一杯。',
+          "Japan's izakaya-standard lemon sour, rebuilt as a craft cocktail: KOME rice shochu, fresh lemon and tonic.",
+        descriptionJa:
+          '居酒屋の定番レモンサワーを、うちのクラフトカクテルとして組み直しました。敬愛するSG Clubの米焼酎をベースに、広島の地で広島のレモンを搾って合わせています。飲み飽きない一杯です。',
       },
       {
         name: 'Electric Buck',
@@ -144,6 +137,15 @@ export const cocktailCategories: MenuCategory[] = [
         descriptionJa: '山椒を漬け込んだジンにドライジンジャーエール。ひと口で舌がピリッとしびれる、名前どおり電気が走る一杯です。',
       },
       {
+        name: 'Cherry Blossoms Margarita',
+        nameJa: 'サクラマルガリータ',
+        price: 1200,
+        ingredients: 'Tequila / Sakura / Lemon',
+        description:
+          'A margarita in spring form: tequila, sakura cherry blossom and lemon.',
+        descriptionJa: '春をグラスに閉じ込めたマルガリータ。テキーラに桜リキュールとレモン、花びらの香り。桜の甘い香りとレモンの酸、テキーラのキレが重なる春の一杯。',
+      },
+      {
         name: 'Yaoyorozu Mule ∞',
         nameJa: 'ヤオヨロズミュール∞',
         price: 1200,
@@ -151,29 +153,6 @@ export const cocktailCategories: MenuCategory[] = [
         description:
           'A Japanese mule of craft "WA"PIRITS with ginger vinegar, myoga and shiso. Named for the yaoyorozu — the eight million gods of Japanese folklore.',
         descriptionJa: '和のクラフトスピリッツに生姜酢とみょうが、しそを合わせた和風のモスコミュール。名前は八百万の神から。和の素材を数えきれないほど重ねました。',
-      },
-      {
-        name: 'Kaku-Gari-Ta',
-        nameJa: 'カクガリータ',
-        price: 1800,
-        ingredients: 'Tequila / Mezcal / KOME / Wasabi',
-        description:
-          'A margarita gone smoky and savoury: tequila and mezcal layered with KOME rice shochu and the slow-building heat of fresh wasabi.',
-        descriptionJa: 'テキーラとメスカルに米焼酎を重ね、生わさびの辛さを効かせたマルガリータ。燻した香りとツンと来る刺激が後を引きます。',
-      },
-    ],
-  },
-  {
-    title: 'ELSEWHERE',
-    items: [
-      {
-        name: '1886',
-        nameJa: 'エイティーン・エイティシックス',
-        price: 1000,
-        ingredients: 'Cherry Brandy / Cynar / Angostura Bitters / Cola',
-        description:
-          'Not what it seems. A sophisticated botanical cocktail disguised in a classic cola bottle. Expect the unexpected.',
-        descriptionJa: '見た目はただのコーラ瓶。中身はチェリーブランデーとチナール、アンゴスチュラビターズを忍ばせたボタニカルカクテルです。名前の1886は、コーラが生まれた年から。',
       },
       {
         name: '26 hours',
@@ -192,6 +171,24 @@ export const cocktailCategories: MenuCategory[] = [
         description:
           'A savoury paloma of tequila, grapefruit and tonic, layered with smoked cheese and cracked black pepper.',
         descriptionJa: 'テキーラとグレープフルーツのパロマに、スモークチーズと黒胡椒をひとふり。爽やかさの奥に燻製の香りと塩気がのぞく、少し大人の一杯。',
+      },
+      {
+        name: '1886',
+        nameJa: 'エイティーン・エイティシックス',
+        price: 1000,
+        ingredients: 'Cherry Brandy / Cynar / Angostura Bitters / Cola',
+        description:
+          'Not what it seems. A sophisticated botanical cocktail disguised in a classic cola bottle. Expect the unexpected.',
+        descriptionJa: '見た目はただのコーラ瓶。中身はチェリーブランデーとチナール、アンゴスチュラビターズを忍ばせたボタニカルカクテルです。名前の1886は、コーラが生まれた年から。',
+      },
+      {
+        name: 'Kaku-Gari-Ta',
+        nameJa: 'カクガリータ',
+        price: 1800,
+        ingredients: 'Tequila / Mezcal / KOME / Wasabi',
+        description:
+          'A margarita gone smoky and savoury: tequila and mezcal layered with KOME rice shochu and the slow-building heat of fresh wasabi.',
+        descriptionJa: 'テキーラとメスカルに米焼酎を重ね、生わさびの辛さを効かせたマルガリータ。燻した香りとツンと来る刺激が後を引きます。',
       },
     ],
   },
