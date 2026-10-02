@@ -51,13 +51,6 @@ export const journey: MenuCategory = {
       description:
         "Drink your way through Hiroshima in three acts. 1st: Tipsy Crane, Hiroshima sake as a Negroni. 2nd: Shell We?, Seto Inland Sea oysters as a gin sonic. 3rd: The OKONOMIYAKI, Hiroshima's soul food in a glass. Plus one dish of your choice.",
     },
-    {
-      name: 'Short Journey',
-      nameJa: 'ショート ジャーニー',
-      priceLabel: '+¥600',
-      descriptionJa: '寄り道も、旅のうち。',
-      description: 'A detour is still a journey. Two tacos with any cocktail.',
-    },
   ],
 }
 
@@ -392,9 +385,12 @@ const recommendNames = ['Hiroshima 75', '1886', 'Yaoyorozu Mule ∞']
 
 export const recommend: MenuCategory = {
   title: 'RECOMMEND',
-  items: recommendNames.map((n) => {
-    const item = cocktailCategories.flatMap((c) => c.items).find((i) => i.name === n)
-    if (!item) throw new Error(`recommend: ${n} が cocktailCategories にありません`)
-    return item
-  }),
+  items: [
+    ...journey.items,
+    ...recommendNames.map((n) => {
+      const item = cocktailCategories.flatMap((c) => c.items).find((i) => i.name === n)
+      if (!item) throw new Error(`recommend: ${n} が cocktailCategories にありません`)
+      return item
+    }),
+  ],
 }

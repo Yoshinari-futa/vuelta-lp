@@ -261,7 +261,6 @@ export default function MenuPage() {
               </span>
             </div>
             <MenuSection category={recommend} />
-            <MenuSection category={journey} />
             {cocktailCategories.map((cat) => (
               <MenuSection key={cat.title} category={cat} />
             ))}
