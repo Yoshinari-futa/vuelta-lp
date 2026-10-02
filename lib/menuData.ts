@@ -38,10 +38,10 @@ export const coverCharge: MenuCategory = {
   ],
 }
 
-// ── RECOMMEND ─────────────────────────────
+// ── JOURNEY ───────────────────────────────
 
-export const recommend: MenuCategory = {
-  title: 'RECOMMEND',
+export const journey: MenuCategory = {
+  title: 'JOURNEY',
   items: [
     {
       name: 'Hiroshima Cocktail Journey',
@@ -70,7 +70,7 @@ export const cocktailCategories: MenuCategory[] = [
       {
         name: 'Hiroshima 75',
         nameJa: 'ヒロシマ セブンティファイブ',
-        price: 1200,
+        price: 1300,
         ingredients: 'SAKURAO / Taketsuru / St-Germain / Lemon / Peach',
         description:
           'A French 75 rebuilt with Hiroshima spirits — SAKURAO gin from Hatsukaichi and Taketsuru sake — brightened with St-Germain, lemon and peach.',
@@ -80,7 +80,7 @@ export const cocktailCategories: MenuCategory[] = [
       {
         name: 'The OKONOMIYAKI #3',
         nameJa: 'ザ オコノミヤキ',
-        price: 1300,
+        price: 1000,
         ingredients: 'Shochu / Otafuku Sauce / Cabbage Water / Milk Wash / Bacon / Aosa',
         description:
           "Okonomiyaki is Hiroshima's post-war soul food. We distilled that legacy into a glass—now milk-washed silky and clear. Rich sauce and savory umami, our history served with pride.",
@@ -384,3 +384,17 @@ export const spiritsCategories: MenuCategory[] = [
     ],
   },
 ]
+
+// ── RECOMMEND ─────────────────────────────
+// 各カクテルの正本(価格と説明)から引く。品目を変える時は名前だけ差し替える
+
+const recommendNames = ['Hiroshima 75', '1886', 'Yaoyorozu Mule ∞']
+
+export const recommend: MenuCategory = {
+  title: 'RECOMMEND',
+  items: recommendNames.map((n) => {
+    const item = cocktailCategories.flatMap((c) => c.items).find((i) => i.name === n)
+    if (!item) throw new Error(`recommend: ${n} が cocktailCategories にありません`)
+    return item
+  }),
+}

@@ -5,6 +5,7 @@ import {
   foodCategories,
   cocktailCategories,
   recommend,
+  journey,
   spiritsCategories,
   type MenuCategory,
   type MenuItem,
@@ -103,9 +104,9 @@ function menuItemJsonLd(item: MenuItem) {
 }
 
 function MenuJsonLd() {
-  // ページに表示している全カテゴリを載せる(RECOMMENDとスピリッツの脱落を修正)
+  // ページに表示している全カテゴリを載せる。RECOMMENDはカクテルの再掲なので重複を避けて載せない
   const sections: MenuCategory[] = [
-    recommend,
+    journey,
     ...cocktailCategories,
     ...spiritsCategories,
     ...foodCategories,
@@ -260,6 +261,7 @@ export default function MenuPage() {
               </span>
             </div>
             <MenuSection category={recommend} />
+            <MenuSection category={journey} />
             {cocktailCategories.map((cat) => (
               <MenuSection key={cat.title} category={cat} />
             ))}

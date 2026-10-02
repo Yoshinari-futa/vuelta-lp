@@ -415,7 +415,7 @@ export default function HomeJA() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 max-w-7xl mx-auto items-stretch">
               {[
                 { name: 'Shell We?', alt: '桜尾ジンと広島の牡蠣を使ったシグネチャーカクテル「Shell We?」', description: '当店誕生時に考案した原点の一杯。広島の牡蠣。Shall we?とShell（貝）を掛けた名前。桜尾ジンと自家製出汁酢が旨味を引き立てる。広島の海を五感で、この一杯から。', price: '¥1,600', tag: 'Signature', image: '/images/cocktails/shellwe.png' },
-                { name: 'The OKONOMIYAKI #3', alt: '広島のお好み焼きをグラスに閉じ込めたカクテル「The OKONOMIYAKI #3」', description: '鉄板の音と湯気の向こうに見える、あの味覚。3代目レシピは焼酎にオタフクソースとキャベツウォーターを重ね、ミルクウォッシュで澄んだ一杯に。ベーコンとあおさを添えて。広島の食文化を、そのまま飲む体験。', price: '¥1,300', tag: 'Signature', image: '/images/cocktails/okonomiyaki-3.jpg', objectPosition: 'center 55%' },
+                { name: 'The OKONOMIYAKI #3', alt: '広島のお好み焼きをグラスに閉じ込めたカクテル「The OKONOMIYAKI #3」', description: '鉄板の音と湯気の向こうに見える、あの味覚。3代目レシピは焼酎にオタフクソースとキャベツウォーターを重ね、ミルクウォッシュで澄んだ一杯に。ベーコンとあおさを添えて。広島の食文化を、そのまま飲む体験。', price: '¥1,000', tag: 'Signature', image: '/images/cocktails/okonomiyaki-3.jpg', objectPosition: 'center 55%' },
                 { name: '26 hours', alt: 'トマトときゅうりの透明感あるクラフトカクテル「26 hours」', description: '閉店は深夜2時。24+2=26時間飲み続けていられる想いを込めた一杯。クリスタルのような透明感。澄んだトマトときゅうりの清涼感、スッと喉を通る軽やかさ。', price: '¥1,250', tag: 'Late pour', image: '/images/cocktails/26hours.png', objectPosition: 'center center' },
                 {
                   name: 'Cherry Blossoms Margarita',
