@@ -681,7 +681,7 @@ export default function HomeJA() {
                       </h3>
                       <p className="text-base sm:text-lg">
                         Counter 8 / Standing 8<br />
-                        <span className="text-sm text-vuelta-text-light">会話を楽しめる、親密な小空間。</span>
+                        <span className="text-sm text-vuelta-text-light">小さな店なので、週末はご予約がおすすめです。</span>
                       </p>
                     </div>
                     <div>
