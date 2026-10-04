@@ -129,7 +129,6 @@ export default function Recruit() {
                 <h1 className="font-annam text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-vuelta-gold mb-8 leading-[0.9]">
                   RECRUIT
                 </h1>
-                <div className="h-px w-24 bg-vuelta-gold mb-12"></div>
                 <p className="font-japanese text-base sm:text-lg md:text-xl text-vuelta-gold/90 leading-relaxed mb-12">
                   Bar VUELTAで、<span className="text-vuelta-gold font-medium">一緒に働きませんか？</span><br />
                   新しい出会いと繋がりを生み出す場所です。
@@ -228,7 +227,6 @@ export default function Recruit() {
                 <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2 tracking-wide">
                   Open Positions
                 </h2>
-                <div className="h-px w-16 bg-vuelta-gold mt-4"></div>
               </div>
             </div>
           </FadeInUp>
@@ -333,7 +331,6 @@ export default function Recruit() {
                 <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2 tracking-wide">
                   What We Offer
                 </h2>
-                <div className="h-px w-16 bg-vuelta-gold mt-4"></div>
               </div>
             </div>
           </FadeInUp>
@@ -422,7 +419,6 @@ export default function Recruit() {
                 <h2 className="font-annam text-3xl sm:text-4xl md:text-5xl font-light text-vuelta-gold mb-2 tracking-wide">
                   How to Apply
                 </h2>
-                <div className="h-px w-16 bg-vuelta-gold mt-4"></div>
               </div>
             </div>
           </FadeInUp>
