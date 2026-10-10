@@ -1,121 +1,110 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { CONTACT_EMAIL } from '@/lib/site-seo'
+
+/**
+ * お問い合わせフォーム（/contact, /ja/contact）の受け口。
+ * 届け先は Slack（square-bot → 布田さん DM）。返信は head_office@ から手動で行う。
+ * 環境変数: SLACK_BOT_TOKEN, SLACK_CONTACT_CHANNEL
+ * 送れなかった時は必ずエラーを返す（受け付けたふりをしない）。
+ */
+
+const TOPIC_LABELS: Record<string, string> = {
+  private: '少人数の貸切',
+  request: 'ご要望',
+  question: 'ご質問',
+  other: 'その他',
+}
+
+const LIMITS = { name: 80, email: 200, date: 60, guests: 30, message: 3000 }
+
+const clean = (v: unknown, max: number) =>
+  typeof v === 'string' ? v.trim().slice(0, max) : ''
+
+// Slack mrkdwn の制御文字を無害化
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export async function POST(request: NextRequest) {
+  let body: Record<string, unknown>
   try {
-    const body = await request.json()
-    const { category, name, company, email, message } = body
-
-    // バリデーション
-    if (!category || !name || !email || !message) {
-      return NextResponse.json(
-        { error: '必須項目が入力されていません' },
-        { status: 400 }
-      )
-    }
-
-    const categoryLabel = category === 'recruit' ? '採用について' : category === 'reservation' ? '予約について' : 'その他'
-
-    // メール本文（HTML形式）
-    const emailHtml = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-</head>
-<body style="font-family: sans-serif; line-height: 1.6; color: #333;">
-  <h2 style="color: #1a3a2e;">お問い合わせが届きました</h2>
-  
-  <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-    <tr>
-      <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; width: 150px;">お問い合わせカテゴリ</td>
-      <td style="padding: 8px; border-bottom: 1px solid #eee;">${categoryLabel}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">お名前</td>
-      <td style="padding: 8px; border-bottom: 1px solid #eee;">${name}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">会社名</td>
-      <td style="padding: 8px; border-bottom: 1px solid #eee;">${company || '未入力'}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">メールアドレス</td>
-      <td style="padding: 8px; border-bottom: 1px solid #eee;">${email}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; vertical-align: top;">お問い合わせ内容</td>
-      <td style="padding: 8px; border-bottom: 1px solid #eee; white-space: pre-wrap;">${message}</td>
-    </tr>
-  </table>
-</body>
-</html>
-    `.trim()
-
-    // プレーンテキスト版
-    const emailText = `
-お問い合わせが届きました。
-
-【お問い合わせカテゴリ】
-${categoryLabel}
-
-【お名前】
-${name}
-
-【会社名】
-${company || '未入力'}
-
-【メールアドレス】
-${email}
-
-【お問い合わせ内容】
-${message}
-    `.trim()
-
-    // Resend APIを使用してメール送信
-    // 環境変数 RESEND_API_KEY が必要です
-    const resendApiKey = process.env.RESEND_API_KEY
-
-    if (resendApiKey) {
-      const resendResponse = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${resendApiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          from: 'VUELTA <noreply@vuelta.jp>',
-          to: ['head_office@vuelta-hr.com'],
-          reply_to: email,
-          subject: `【お問い合わせ】${categoryLabel} - ${name}様`,
-          html: emailHtml,
-          text: emailText,
-        }),
-      })
-
-      if (!resendResponse.ok) {
-        const errorData = await resendResponse.json()
-        console.error('Resend API error:', errorData)
-        throw new Error('メール送信に失敗しました')
-      }
-    } else {
-      // APIキーが設定されていない場合はログ出力のみ
-      console.log('=== お問い合わせメール ===')
-      console.log(`To: head_office@vuelta-hr.com`)
-      console.log(`Subject: 【お問い合わせ】${categoryLabel} - ${name}様`)
-      console.log(emailText)
-      console.log('========================')
-      console.log('注意: RESEND_API_KEYが設定されていないため、メールは送信されませんでした。')
-    }
-
-    return NextResponse.json(
-      { message: 'お問い合わせを受け付けました' },
-      { status: 200 }
-    )
-  } catch (error) {
-    console.error('Error processing contact form:', error)
-    return NextResponse.json(
-      { error: 'サーバーエラーが発生しました' },
-      { status: 500 }
-    )
+    body = await request.json()
+  } catch {
+    return NextResponse.json({ error: 'bad_request' }, { status: 400 })
   }
+
+  // スパム対策: 見えない欄に入力がある、または表示から3秒未満の送信は捨てる（成功扱いで返す）
+  const elapsed = Date.now() - Number(body.startedAt || 0)
+  if (clean(body.website, 200) || !(elapsed > 3000)) {
+    return NextResponse.json({ ok: true })
+  }
+
+  const topic = TOPIC_LABELS[clean(body.topic, 20)] ? clean(body.topic, 20) : 'other'
+  const name = clean(body.name, LIMITS.name)
+  const email = clean(body.email, LIMITS.email)
+  const date = clean(body.date, LIMITS.date)
+  const guests = clean(body.guests, LIMITS.guests)
+  const message = clean(body.message, LIMITS.message)
+  const lang = body.lang === 'en' ? 'en' : 'ja'
+
+  if (!name || !EMAIL_RE.test(email) || !message) {
+    return NextResponse.json({ error: 'missing_fields' }, { status: 400 })
+  }
+
+  const token = process.env.SLACK_BOT_TOKEN
+  const channel = process.env.SLACK_CONTACT_CHANNEL
+  if (!token || !channel) {
+    console.error('contact: SLACK_BOT_TOKEN / SLACK_CONTACT_CHANNEL が未設定')
+    return NextResponse.json({ error: 'not_configured' }, { status: 500 })
+  }
+
+  const label = TOPIC_LABELS[topic]
+  const replySubject = encodeURIComponent(`Re: Bar VUELTA ${lang === 'en' ? 'Inquiry' : 'お問い合わせ'}`)
+  const lines = [
+    `*vuelta.jp からお問い合わせ*（${label}${lang === 'en' ? '、英語ページ' : ''}）`,
+    `お名前: ${esc(name)}`,
+    `メール: ${esc(email)}`,
+    date && `日にち: ${esc(date)}`,
+    guests && `人数: ${esc(guests)}`,
+  ].filter(Boolean)
+
+  const blocks = [
+    { type: 'section', text: { type: 'mrkdwn', text: lines.join('\n') } },
+    { type: 'section', text: { type: 'mrkdwn', text: `>${esc(message).replace(/\n/g, '\n>')}` } },
+    {
+      type: 'context',
+      elements: [
+        {
+          type: 'mrkdwn',
+          text: `<mailto:${encodeURIComponent(email)}?subject=${replySubject}|${esc(email)} に返信する>（${CONTACT_EMAIL} から送ってください）`,
+        },
+      ],
+    },
+  ]
+
+  try {
+    const res = await fetch('https://slack.com/api/chat.postMessage', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify({
+        channel,
+        text: `vuelta.jp からお問い合わせ（${label}）${name}様`,
+        blocks,
+        unfurl_links: false,
+      }),
+    })
+    const data = await res.json()
+    if (!data.ok) {
+      console.error('contact: Slack error', data.error)
+      return NextResponse.json({ error: 'send_failed' }, { status: 502 })
+    }
+  } catch (err) {
+    console.error('contact: Slack request failed', err)
+    return NextResponse.json({ error: 'send_failed' }, { status: 502 })
+  }
+
+  return NextResponse.json({ ok: true })
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_ORIGIN, RESERVATION_URL, CONTACT_EMAIL } from '@/lib/site-seo'
+import ContactForm from '../../components/ContactForm'
 import SiteHeader from '../../components/SiteHeader'
 import SiteFooter from '../../components/SiteFooter'
 
@@ -34,14 +35,6 @@ export const metadata: Metadata = {
   },
 }
 
-const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Bar VUELTA お問い合わせ')}`
-
-const TOPICS = [
-  { en: 'Private hire', ja: '少人数の貸切', body: '日にちと人数、だいたいの時間を書いてもらえると話が早いです。' },
-  { en: 'Requests', ja: 'ご要望', body: '記念日のこと、苦手な食材やアレルギーのこと。来る前に伝えておきたいことがあれば。' },
-  { en: 'Questions', ja: 'ご質問', body: 'お店のことなら、なんでも。' },
-]
-
 export default function ContactPageJa() {
   return (
     <>
@@ -64,30 +57,20 @@ export default function ContactPageJa() {
             お問い合わせ
           </p>
           <p className="font-japanese text-vuelta-text-light text-sm sm:text-base mt-6 max-w-md mx-auto leading-relaxed">
-            少人数での貸切や、ちょっとしたご要望、聞いてみたいことがあれば、メールでご連絡ください。
+            少人数での貸切や、ちょっとしたご要望、聞いてみたいことがあれば、こちらからご連絡ください。
           </p>
         </header>
 
         <div className="max-w-2xl mx-auto px-4 sm:px-6 pb-20">
-          <dl className="border-t border-vuelta-gold/30">
-            {TOPICS.map((t) => (
-              <div key={t.en} className="border-b border-vuelta-gold/30 py-6 sm:py-7 sm:grid sm:grid-cols-[11rem_1fr] sm:gap-6">
-                <dt className="mb-2 sm:mb-0">
-                  <span className="block font-annam text-xs uppercase tracking-[.25em] text-vuelta-text-light">{t.en}</span>
-                  <span className="block font-japanese text-base sm:text-lg text-vuelta-gold mt-1">{t.ja}</span>
-                </dt>
-                <dd className="font-japanese text-sm sm:text-base text-vuelta-text-light leading-relaxed sm:pt-5">
-                  {t.body}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <ContactForm lang="ja" />
 
-          <div className="text-center mt-14">
-            <p className="font-annam text-xs uppercase tracking-[.3em] text-vuelta-text-light mb-4">Email</p>
+          <div className="text-center mt-16 pt-10 border-t border-vuelta-gold/30">
+            <p className="font-japanese text-xs sm:text-sm text-vuelta-text-light leading-relaxed">
+              メールで直接でも受け付けています。
+            </p>
             <a
-              href={MAILTO}
-              className="font-annam text-lg sm:text-2xl tracking-wide text-vuelta-gold border-b border-vuelta-gold/40 pb-1 hover:border-vuelta-gold transition-colors break-all"
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="inline-block mt-2 font-annam text-base sm:text-lg tracking-wide text-vuelta-gold border-b border-vuelta-gold/40 pb-0.5 hover:border-vuelta-gold transition-colors break-all"
             >
               {CONTACT_EMAIL}
             </a>
