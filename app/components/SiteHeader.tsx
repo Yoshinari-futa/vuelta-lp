@@ -28,6 +28,7 @@ export default function SiteHeader({ lang }: { lang: Lang }) {
 
   const home = lang === 'ja' ? '/ja' : '/'
   const passHref = lang === 'ja' ? '/ja/subscription' : '/subscription'
+  const contactHref = lang === 'ja' ? '/ja/contact' : '/contact'
   const isHome = pathname === home
   const reserveLabel = 'Reserve'
 
@@ -83,6 +84,7 @@ export default function SiteHeader({ lang }: { lang: Lang }) {
               <a href={anchorHref('reservation')} className={NAV_LINK_CLASS} onClick={(e) => handleAnchorClick(e, 'reservation')}>Visit</a>
               <a href={anchorHref('faq')} className={NAV_LINK_CLASS} onClick={(e) => handleAnchorClick(e, 'faq')}>FAQ</a>
               <Link href="/recruit" className={NAV_LINK_CLASS}>Recruit</Link>
+              <Link href={contactHref} className={`${NAV_LINK_CLASS} hidden lg:inline`}>Contact</Link>
             </nav>
             <a
               href={RESERVATION_URL}
@@ -139,6 +141,7 @@ export default function SiteHeader({ lang }: { lang: Lang }) {
                 <a href={anchorHref('reservation')} className={MOBILE_LINK_CLASS} onClick={(e) => handleAnchorClick(e, 'reservation')}>Visit Us</a>
                 <a href={anchorHref('faq')} className={MOBILE_LINK_CLASS} onClick={(e) => handleAnchorClick(e, 'faq')}>FAQ</a>
                 <Link href="/recruit" className={MOBILE_LINK_CLASS} onClick={() => setIsMenuOpen(false)}>Recruit</Link>
+                <Link href={contactHref} className={MOBILE_LINK_CLASS} onClick={() => setIsMenuOpen(false)}>Contact</Link>
                 <Link href={passHref} className={MOBILE_LINK_CLASS} onClick={() => setIsMenuOpen(false)}>First Drink Pass</Link>
                 <a
                   href={RESERVATION_URL}
