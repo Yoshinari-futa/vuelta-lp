@@ -8,6 +8,7 @@ import {
   footerGoogleHref,
   footerTripAdvisorHref,
   isGoogleBusinessProfileConfigured,
+  CONTACT_EMAIL,
 } from '@/lib/site-seo'
 import { MENU_DRIVE_URL } from '@/lib/menuUrl'
 import { blurDataUrl } from '@/lib/blurPlaceholders'
@@ -427,25 +428,27 @@ export default function Recruit() {
             <div className="max-w-3xl">
               <p className="font-japanese text-xl md:text-2xl text-vuelta-gold/90 leading-relaxed mb-12">
                 Bar VUELTAで一緒に働きませんか？<br />
-                InstagramのDMでお気軽にご連絡ください。
+                メールでお気軽にご連絡ください。
               </p>
 
               <div className="flex justify-center md:justify-start">
                 <a
-                  href="https://www.instagram.com/vuelta_bar"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('採用応募')}`}
                   className="group inline-flex items-center gap-4 px-10 py-5 bg-vuelta-gold text-white hover:bg-vuelta-gold-light transition-all duration-300 font-sans text-sm tracking-[0.2em] uppercase"
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="1" strokeWidth={1.5} />
+                    <path d="M3.5 6l8.5 7 8.5-7" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                  <span>Instagram DMで応募する</span>
+                  <span>メールで応募する</span>
                   <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
               </div>
+              <p className="font-annam text-base md:text-lg tracking-wide text-vuelta-gold/90 mt-6 text-center md:text-left break-all">
+                {CONTACT_EMAIL}
+              </p>
             </div>
           </FadeInUp>
         </div>
