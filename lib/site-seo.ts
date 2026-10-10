@@ -102,3 +102,6 @@ export function barStructuredDataUrl(locale: 'en' | 'ja'): string {
 export function barStructuredDataId(locale: 'en' | 'ja'): string {
   return locale === 'ja' ? `${SITE_ORIGIN}/ja#bar` : `${SITE_ORIGIN}/#bar`
 }
+
+/** お問い合わせ窓口（/contact, /ja/contact, 特商法表記と共通） */
+export const CONTACT_EMAIL = 'head_office@vuelta-hr.com' as const

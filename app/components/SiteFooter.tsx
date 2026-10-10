@@ -17,6 +17,7 @@ const FOOT_LINK_CLASS =
 export default function SiteFooter({ lang }: { lang: Lang }) {
   const home = lang === 'ja' ? '/ja' : '/'
   const passHref = lang === 'ja' ? '/ja/subscription' : '/subscription'
+  const contactHref = lang === 'ja' ? '/ja/contact' : '/contact'
 
   return (
     <footer className="bg-vuelta-pine py-16 md:py-20 px-4 sm:px-6 text-[#e9efe7]">
@@ -33,6 +34,7 @@ export default function SiteFooter({ lang }: { lang: Lang }) {
             <Link href={`${home}#about`} className={FOOT_LINK_CLASS}>About</Link>
             <Link href={passHref} className={FOOT_LINK_CLASS}>First Drink Pass</Link>
             <Link href="/recruit" className={FOOT_LINK_CLASS}>Recruit</Link>
+            <Link href={contactHref} className={FOOT_LINK_CLASS}>Contact</Link>
             <a href={INSTAGRAM_BAR_URL} target="_blank" rel="noopener noreferrer" className={FOOT_LINK_CLASS}>Instagram</a>
             <a href={footerGoogleHref()} target="_blank" rel="noopener noreferrer" className={FOOT_LINK_CLASS}>
               {isGoogleBusinessProfileConfigured() ? 'Google' : 'Google Maps'}

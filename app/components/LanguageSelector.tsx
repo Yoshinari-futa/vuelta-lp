@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
+import { PAIRED_PATHS, toJa, toEn } from '@/lib/langPaths'
 
 type Language = 'en' | 'ja'
 
@@ -25,12 +26,12 @@ export default function LanguageSelector() {
       setSelectedLanguage('ja')
       setIsVisible(false)
 
-      // EN 保存で日本語URLにいる → 英語の対応ページへ（サブスクはペアでリダイレクト）
+      // EN 保存で日本語URLにいる → 英語の対応ページへ（対のあるページとトップのみ）
       if (savedLanguage === 'en') {
-        if (currentPath === '/ja/subscription') {
-          router.replace('/subscription')
-        } else if (currentPath === '/ja' || currentPath === '/ja/') {
+        if (currentPath === '/ja' || currentPath === '/ja/') {
           router.replace('/')
+        } else if (Object.values(PAIRED_PATHS).includes(currentPath)) {
+          router.replace(toEn(currentPath))
         }
       }
       return
@@ -48,11 +49,7 @@ export default function LanguageSelector() {
       // JA 保存で英語URLにいる → 日本語トップか、対応する /ja ページへ
       // ただし言語非依存ページはリダイレクトしない
       if (savedLanguage === 'ja' && !isLangNeutral) {
-        if (currentPath === '/subscription') {
-          router.replace('/ja/subscription')
-        } else {
-          router.replace('/ja')
-        }
+        router.replace(toJa(currentPath))
       }
     } else {
       setIsVisible(true)
@@ -64,9 +61,10 @@ export default function LanguageSelector() {
     localStorage.setItem('vuelta-language', lang)
     setIsVisible(false)
     
+    const currentPath = window.location.pathname
     if (lang === 'ja') {
-      router.push('/ja')
-    } else {
+      router.push(toJa(currentPath))
+    } else if (!(currentPath in PAIRED_PATHS)) {
       router.push('/')
     }
   }

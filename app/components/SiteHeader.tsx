@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { toJa, toEn } from '@/lib/langPaths'
 import { motion, AnimatePresence } from 'framer-motion'
 import { RESERVATION_URL } from '@/lib/site-seo'
 import { blurDataUrl } from '@/lib/blurPlaceholders'
@@ -49,9 +50,9 @@ export default function SiteHeader({ lang }: { lang: Lang }) {
     if (target === lang) return
     localStorage.setItem('vuelta-language', target)
     if (target === 'ja') {
-      router.push(pathname === '/subscription' ? '/ja/subscription' : '/ja')
+      router.push(toJa(pathname))
     } else {
-      router.push(pathname === '/ja/subscription' ? '/subscription' : '/')
+      router.push(toEn(pathname))
     }
   }
 
